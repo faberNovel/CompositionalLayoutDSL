@@ -9,21 +9,8 @@
 import Foundation
 import UIKit
 
-@_functionBuilder
-public struct ItemBuilder { // swiftlint:disable:this convenience_type
-
-    public static func buildBlock(_ items: LayoutItem...) -> [LayoutItem] {
-        Array(items)
-    }
-}
-
-@_functionBuilder
-public struct BoundarySupplementaryItemBuilder { // swiftlint:disable:this convenience_type
-
-    public static func buildBlock(_ items: BoundarySupplementaryItem...) -> [BoundarySupplementaryItem] {
-        Array(items)
-    }
-}
+public typealias ItemBuilder = ListResultBuilder<LayoutItem>
+public typealias BoundarySupplementaryItemBuilder = ListResultBuilder<BoundarySupplementaryItem>
 
 // swiftlint:disable identifier_name
 
