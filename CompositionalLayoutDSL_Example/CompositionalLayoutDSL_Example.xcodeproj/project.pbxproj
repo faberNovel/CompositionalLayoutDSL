@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		AC34ECC7261F5CE800DF2D74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC34ECC6261F5CE800DF2D74 /* ViewController.swift */; };
 		AC34ECCC261F5CED00DF2D74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC34ECCB261F5CED00DF2D74 /* Assets.xcassets */; };
 		AC34ECCF261F5CED00DF2D74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC34ECCD261F5CED00DF2D74 /* LaunchScreen.storyboard */; };
+		AC622CE2261F606C0058EEE3 /* CompositionalLayoutDSL in Frameworks */ = {isa = PBXBuildFile; productRef = AC622CE1261F606C0058EEE3 /* CompositionalLayoutDSL */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		AC34ECCB261F5CED00DF2D74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC34ECCE261F5CED00DF2D74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC34ECD0261F5CED00DF2D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC622CE3261F60740058EEE3 /* CompositionalLayoutDSL */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CompositionalLayoutDSL; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC622CE2261F606C0058EEE3 /* CompositionalLayoutDSL in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +43,7 @@
 			children = (
 				AC34ECC1261F5CE800DF2D74 /* CompositionalLayoutDSL_Example_iOS */,
 				AC34ECC0261F5CE800DF2D74 /* Products */,
+				AC622CE3261F60740058EEE3 /* CompositionalLayoutDSL */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +84,9 @@
 			dependencies = (
 			);
 			name = CompositionalLayoutDSL_Example_iOS;
+			packageProductDependencies = (
+				AC622CE1261F606C0058EEE3 /* CompositionalLayoutDSL */,
+			);
 			productName = CompositionalLayoutDSL_Example;
 			productReference = AC34ECBF261F5CE800DF2D74 /* CompositionalLayoutDSL_Example_iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -107,6 +114,9 @@
 				Base,
 			);
 			mainGroup = AC34ECB6261F5CE800DF2D74;
+			packageReferences = (
+				AC622CE0261F606C0058EEE3 /* XCRemoteSwiftPackageReference "CompositionalLayoutDSL" */,
+			);
 			productRefGroup = AC34ECC0261F5CE800DF2D74 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -329,6 +339,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AC622CE0261F606C0058EEE3 /* XCRemoteSwiftPackageReference "CompositionalLayoutDSL" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:faberNovel/CompositionalLayoutDSL.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AC622CE1261F606C0058EEE3 /* CompositionalLayoutDSL */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC622CE0261F606C0058EEE3 /* XCRemoteSwiftPackageReference "CompositionalLayoutDSL" */;
+			productName = CompositionalLayoutDSL;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AC34ECB7261F5CE800DF2D74 /* Project object */;
 }
