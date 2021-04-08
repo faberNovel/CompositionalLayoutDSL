@@ -9,17 +9,14 @@
 import Foundation
 import UIKit
 
-public typealias ItemBuilder = ListResultBuilder<LayoutItem>
-public typealias BoundarySupplementaryItemBuilder = ListResultBuilder<BoundarySupplementaryItem>
-
 // swiftlint:disable identifier_name
 
 public func LayoutBuilder(configuration: UICollectionViewCompositionalLayoutConfiguration = .init(),
-                          closure: () -> Section) -> UICollectionViewCompositionalLayout {
-    let section = closure().makeSection()
+                          closure: () -> LayoutSection) -> UICollectionViewCompositionalLayout {
+    let section = closure().collectionLayoutSection
     return UICollectionViewCompositionalLayout(section: section, configuration: configuration)
 }
 
-public func SectionBuilder(closure: () -> Section) -> NSCollectionLayoutSection {
-    closure().makeSection()
+public func SectionBuilder(closure: () -> LayoutSection) -> NSCollectionLayoutSection {
+    closure().collectionLayoutSection
 }
