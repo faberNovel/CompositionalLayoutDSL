@@ -62,6 +62,16 @@ public extension LayoutGroup {
 
 // TODO: (Alexandre Podlewski) 07/04/2021 Refactor with LayoutItem
 public extension LayoutGroup {
+
+    func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutGroup {
+        return contentInsets(
+            top: insets.top,
+            leading: insets.leading,
+            bottom: insets.bottom,
+            trailing: insets.trailing
+        )
+    }
+
     func contentInsets(value: CGFloat) -> LayoutGroup {
         return contentInsets(top: value, leading: value, bottom: value, trailing: value)
     }

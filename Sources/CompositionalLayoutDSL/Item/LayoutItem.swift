@@ -39,6 +39,15 @@ public extension LayoutItem {
 
     // MARK: - Mutable properties
 
+    func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutItem {
+        return contentInsets(
+            top: insets.top,
+            leading: insets.leading,
+            bottom: insets.bottom,
+            trailing: insets.trailing
+        )
+    }
+
     func contentInsets(value: CGFloat) -> LayoutItem {
         return contentInsets(top: value, leading: value, bottom: value, trailing: value)
     }

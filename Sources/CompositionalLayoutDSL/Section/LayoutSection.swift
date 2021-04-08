@@ -40,6 +40,16 @@ public extension LayoutSection {
 
     // MARK: - Mutable properties
 
+    // TODO: (Alexandre Podlewski) 07/04/2021 Refactor with LayoutItem
+    func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutSection {
+        return contentInsets(
+            top: insets.top,
+            leading: insets.leading,
+            bottom: insets.bottom,
+            trailing: insets.trailing
+        )
+    }
+
     func contentInsets(value: CGFloat) -> LayoutSection {
         return contentInsets(top: value, leading: value, bottom: value, trailing: value)
     }
