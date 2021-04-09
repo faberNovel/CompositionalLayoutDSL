@@ -8,10 +8,10 @@
 
 import UIKit
 
-public struct SupplementaryItem: LayoutSupplementaryItem {
+public struct SupplementaryItem: LayoutSupplementaryItem, InternalResizableItem {
 
-    private var widthDimension: NSCollectionLayoutDimension
-    private var heightDimension: NSCollectionLayoutDimension
+    var widthDimension: NSCollectionLayoutDimension
+    var heightDimension: NSCollectionLayoutDimension
     private var elementKind: String
 
     private var containerAnchor = NSCollectionLayoutAnchor(edges: [.top, .leading])

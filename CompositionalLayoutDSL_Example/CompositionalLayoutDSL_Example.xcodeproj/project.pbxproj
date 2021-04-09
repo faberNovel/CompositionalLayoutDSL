@@ -14,6 +14,13 @@
 		AC2AB9CB2620529000FB0857 /* FractalGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AB9CA2620529000FB0857 /* FractalGroup.swift */; };
 		AC2AB9CD262052B700FB0857 /* SectionWithHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AB9CC262052B700FB0857 /* SectionWithHeader.swift */; };
 		AC2AB9CF262052D000FB0857 /* ListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AB9CE262052D000FB0857 /* ListSection.swift */; };
+		AC2AB9D1262083DE00FB0857 /* SectionWithEnvironmentInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AB9D0262083DE00FB0857 /* SectionWithEnvironmentInsets.swift */; };
+		AC2AB9D32620850D00FB0857 /* ColumnLaneSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AB9D22620850D00FB0857 /* ColumnLaneSection.swift */; };
+		AC2AB9D52620852300FB0857 /* LaneSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AB9D42620852300FB0857 /* LaneSection.swift */; };
+		AC2AB9DA2620BD7100FB0857 /* AppStoreNewContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AB9D92620BD7100FB0857 /* AppStoreNewContentSection.swift */; };
+		AC2AB9DC2620BDCA00FB0857 /* AppStoreTrendingContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AB9DB2620BDCA00FB0857 /* AppStoreTrendingContentSection.swift */; };
+		AC2AB9DE2620BDE800FB0857 /* AppStoreTopContentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AB9DD2620BDE800FB0857 /* AppStoreTopContentSection.swift */; };
+		AC2AB9E02620BF4900FB0857 /* AdaptativeColumnLaneSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AB9DF2620BF4900FB0857 /* AdaptativeColumnLaneSection.swift */; };
 		AC34ECC3261F5CE800DF2D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC34ECC2261F5CE800DF2D74 /* AppDelegate.swift */; };
 		AC34ECC5261F5CE800DF2D74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC34ECC4261F5CE800DF2D74 /* SceneDelegate.swift */; };
 		AC34ECCC261F5CED00DF2D74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC34ECCB261F5CED00DF2D74 /* Assets.xcassets */; };
@@ -28,6 +35,13 @@
 		AC2AB9CA2620529000FB0857 /* FractalGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractalGroup.swift; sourceTree = "<group>"; };
 		AC2AB9CC262052B700FB0857 /* SectionWithHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionWithHeader.swift; sourceTree = "<group>"; };
 		AC2AB9CE262052D000FB0857 /* ListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSection.swift; sourceTree = "<group>"; };
+		AC2AB9D0262083DE00FB0857 /* SectionWithEnvironmentInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionWithEnvironmentInsets.swift; sourceTree = "<group>"; };
+		AC2AB9D22620850D00FB0857 /* ColumnLaneSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnLaneSection.swift; sourceTree = "<group>"; };
+		AC2AB9D42620852300FB0857 /* LaneSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaneSection.swift; sourceTree = "<group>"; };
+		AC2AB9D92620BD7100FB0857 /* AppStoreNewContentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreNewContentSection.swift; sourceTree = "<group>"; };
+		AC2AB9DB2620BDCA00FB0857 /* AppStoreTrendingContentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreTrendingContentSection.swift; sourceTree = "<group>"; };
+		AC2AB9DD2620BDE800FB0857 /* AppStoreTopContentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreTopContentSection.swift; sourceTree = "<group>"; };
+		AC2AB9DF2620BF4900FB0857 /* AdaptativeColumnLaneSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptativeColumnLaneSection.swift; sourceTree = "<group>"; };
 		AC34ECBF261F5CE800DF2D74 /* CompositionalLayoutDSL_Example_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompositionalLayoutDSL_Example_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC34ECC2261F5CE800DF2D74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC34ECC4261F5CE800DF2D74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +67,7 @@
 		AC2AB9C72620524600FB0857 /* ShowcaseViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AC2AB9D82620BD5B00FB0857 /* AppStoreLayoutLike */,
 				AC2AB9C92620528600FB0857 /* Group */,
 				AC2AB9C82620528200FB0857 /* Section */,
 				AC2AB9C52620520200FB0857 /* ShowcaseViewController.swift */,
@@ -75,6 +90,35 @@
 				AC2AB9CA2620529000FB0857 /* FractalGroup.swift */,
 			);
 			path = Group;
+			sourceTree = "<group>";
+		};
+		AC2AB9D6262086F000FB0857 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AC2AB9D72620877E00FB0857 /* Section */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		AC2AB9D72620877E00FB0857 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				AC2AB9D0262083DE00FB0857 /* SectionWithEnvironmentInsets.swift */,
+				AC2AB9D22620850D00FB0857 /* ColumnLaneSection.swift */,
+				AC2AB9D42620852300FB0857 /* LaneSection.swift */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		AC2AB9D82620BD5B00FB0857 /* AppStoreLayoutLike */ = {
+			isa = PBXGroup;
+			children = (
+				AC2AB9D92620BD7100FB0857 /* AppStoreNewContentSection.swift */,
+				AC2AB9DB2620BDCA00FB0857 /* AppStoreTrendingContentSection.swift */,
+				AC2AB9DD2620BDE800FB0857 /* AppStoreTopContentSection.swift */,
+				AC2AB9DF2620BF4900FB0857 /* AdaptativeColumnLaneSection.swift */,
+			);
+			path = AppStoreLayoutLike;
 			sourceTree = "<group>";
 		};
 		AC34ECB6261F5CE800DF2D74 = {
@@ -110,6 +154,7 @@
 		AC622CE6261F63910058EEE3 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				AC2AB9D6262086F000FB0857 /* Utils */,
 				AC2AB9C72620524600FB0857 /* ShowcaseViewController */,
 				AC622CE8261F63C40058EEE3 /* DemoCollectionViewController */,
 			);
@@ -157,6 +202,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
+				ORGANIZATIONNAME = Fabernovel;
 				TargetAttributes = {
 					AC34ECBE261F5CE800DF2D74 = {
 						CreatedOnToolsVersion = 12.5;
@@ -205,9 +251,16 @@
 				AC2AB9CB2620529000FB0857 /* FractalGroup.swift in Sources */,
 				AC2AB9C0261F647200FB0857 /* DemoCollectionViewController.swift in Sources */,
 				AC34ECC3261F5CE800DF2D74 /* AppDelegate.swift in Sources */,
+				AC2AB9DE2620BDE800FB0857 /* AppStoreTopContentSection.swift in Sources */,
+				AC2AB9D32620850D00FB0857 /* ColumnLaneSection.swift in Sources */,
+				AC2AB9E02620BF4900FB0857 /* AdaptativeColumnLaneSection.swift in Sources */,
 				AC34ECC5261F5CE800DF2D74 /* SceneDelegate.swift in Sources */,
+				AC2AB9DC2620BDCA00FB0857 /* AppStoreTrendingContentSection.swift in Sources */,
+				AC2AB9DA2620BD7100FB0857 /* AppStoreNewContentSection.swift in Sources */,
+				AC2AB9D1262083DE00FB0857 /* SectionWithEnvironmentInsets.swift in Sources */,
 				AC2AB9C4261F64CE00FB0857 /* DemoCellView.swift in Sources */,
 				AC2AB9CD262052B700FB0857 /* SectionWithHeader.swift in Sources */,
+				AC2AB9D52620852300FB0857 /* LaneSection.swift in Sources */,
 				AC2AB9C62620520200FB0857 /* ShowcaseViewController.swift in Sources */,
 				AC2AB9CF262052D000FB0857 /* ListSection.swift in Sources */,
 			);
