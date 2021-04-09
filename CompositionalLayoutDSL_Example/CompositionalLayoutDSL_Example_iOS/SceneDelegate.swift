@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  CompositionalLayoutDSL_Example
+//  CompositionalLayoutDSL_Example_iOS
 //
 //  Created by Alexandre Podlewski on 08/04/2021.
 //
@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         self.window = window
-        window.rootViewController = ViewController()
+        window.rootViewController = UINavigationController(rootViewController: ShowcaseViewController())
         window.makeKeyAndVisible()
     }
 

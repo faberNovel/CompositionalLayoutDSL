@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  CompositionalLayoutDSL_Example
+//  CompositionalLayoutDSL_Example_iOS
 //
 //  Created by Alexandre Podlewski on 08/04/2021.
 //
