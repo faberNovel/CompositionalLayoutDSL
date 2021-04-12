@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem {
+public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, ResizableItem, HasResizableProperties {
 
     internal var widthDimension: NSCollectionLayoutDimension
     internal var heightDimension: NSCollectionLayoutDimension
@@ -58,5 +58,3 @@ public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem {
         )
     }
 }
-
-extension BoundarySupplementaryItem: InternalResizableItem {}

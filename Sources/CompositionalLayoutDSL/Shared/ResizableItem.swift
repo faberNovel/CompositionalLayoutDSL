@@ -19,3 +19,19 @@ public extension ResizableItem {
         self.width(size.widthDimension).height(size.heightDimension)
     }
 }
+
+internal protocol HasResizableProperties {
+    var widthDimension: NSCollectionLayoutDimension { get set }
+    var heightDimension: NSCollectionLayoutDimension { get set }
+}
+
+extension HasResizableProperties {
+
+    public func width(_ width: NSCollectionLayoutDimension) -> Self {
+        with(self) { $0.widthDimension = width }
+    }
+
+    public func height(_ height: NSCollectionLayoutDimension) -> Self {
+        with(self) { $0.heightDimension = height }
+    }
+}

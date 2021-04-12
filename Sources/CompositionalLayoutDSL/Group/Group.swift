@@ -8,25 +8,7 @@
 
 import UIKit
 
-internal protocol InternalResizableItem: ResizableItem {
-    var widthDimension: NSCollectionLayoutDimension { get set }
-    var heightDimension: NSCollectionLayoutDimension { get set }
-}
-
-extension InternalResizableItem {
-
-    // MARK: - ResizableItem
-
-    public func width(_ width: NSCollectionLayoutDimension) -> Self {
-        with(self) { $0.widthDimension = width }
-    }
-
-    public func height(_ height: NSCollectionLayoutDimension) -> Self {
-        with(self) { $0.heightDimension = height }
-    }
-}
-
-public struct HGroup: LayoutGroup, ResizableItem {
+public struct HGroup: LayoutGroup, ResizableItem, HasResizableProperties {
 
     enum SubItems {
         case list([CollectionLayoutItemConvertible])
@@ -97,9 +79,7 @@ public struct HGroup: LayoutGroup, ResizableItem {
     }
 }
 
-extension HGroup: InternalResizableItem {}
-
-public struct VGroup: LayoutGroup, ResizableItem {
+public struct VGroup: LayoutGroup, ResizableItem, HasResizableProperties {
 
     private enum SubItems {
         case list([CollectionLayoutItemConvertible])
@@ -169,5 +149,3 @@ public struct VGroup: LayoutGroup, ResizableItem {
         }
     }
 }
-
-extension VGroup: InternalResizableItem {}

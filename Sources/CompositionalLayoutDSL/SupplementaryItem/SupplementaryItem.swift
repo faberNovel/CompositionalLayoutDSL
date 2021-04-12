@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct SupplementaryItem: LayoutSupplementaryItem, InternalResizableItem {
+public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem, HasResizableProperties {
 
     var widthDimension: NSCollectionLayoutDimension
     var heightDimension: NSCollectionLayoutDimension

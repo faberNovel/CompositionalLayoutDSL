@@ -8,10 +8,10 @@
 
 import UIKit
 
-public struct Item: LayoutItem, ResizableItem {
+public struct Item: LayoutItem, ResizableItem, HasResizableProperties {
 
-    private var widthDimension: NSCollectionLayoutDimension
-    private var heightDimension: NSCollectionLayoutDimension
+    internal var widthDimension: NSCollectionLayoutDimension
+    internal var heightDimension: NSCollectionLayoutDimension
     private var supplementaryItems: [CollectionLayoutSupplementaryItemConvertible]
 
     // MARK: - Life cycle
@@ -43,16 +43,6 @@ public struct Item: LayoutItem, ResizableItem {
 
     public init() {
         self.init(width: .fractionalWidth(1), height: .fractionalHeight(1), supplementaryItems: {})
-    }
-
-    // MARK: - ResizableItem
-
-    public func width(_ width: NSCollectionLayoutDimension) -> Self {
-        with(self) { $0.widthDimension = width }
-    }
-
-    public func height(_ height: NSCollectionLayoutDimension) -> Self {
-        with(self) { $0.heightDimension = height }
     }
 
     // MARK: - LayoutItem
