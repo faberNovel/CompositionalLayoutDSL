@@ -14,30 +14,6 @@ func with<T>(_ object: T, modifier: (inout T) -> Void) -> T {
     return copy
 }
 
-extension LayoutItem {
-    public func with<T>(_ object: T, modifier: (inout T) -> Void) -> T {
-        var copy = object
-        modifier(&copy)
-        return copy
-    }
-}
-
-extension LayoutGroup {
-    public func with<T>(_ object: T, modifier: (inout T) -> Void) -> T {
-        var copy = object
-        modifier(&copy)
-        return copy
-    }
-}
-
-extension LayoutSection {
-    public func with<T>(_ object: T, modifier: (inout T) -> Void) -> T {
-        var copy = object
-        modifier(&copy)
-        return copy
-    }
-}
-
 @_functionBuilder
 public struct ListResultBuilder<Element> {
 

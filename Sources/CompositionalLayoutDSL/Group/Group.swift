@@ -15,8 +15,8 @@ public struct HGroup: LayoutGroup, ResizableItem, HasResizableProperties {
         case repeated(CollectionLayoutItemConvertible, count: Int)
     }
 
-    internal var widthDimension: NSCollectionLayoutDimension
-    internal var heightDimension: NSCollectionLayoutDimension
+    public var widthDimension: NSCollectionLayoutDimension
+    public var heightDimension: NSCollectionLayoutDimension
     private var subItems: SubItems
 
     // MARK: - Life cycle
@@ -87,8 +87,8 @@ public struct VGroup: LayoutGroup, ResizableItem, HasResizableProperties {
         case repeated(CollectionLayoutItemConvertible, count: Int)
     }
 
-    internal var widthDimension: NSCollectionLayoutDimension
-    internal var heightDimension: NSCollectionLayoutDimension
+    public var widthDimension: NSCollectionLayoutDimension
+    public var heightDimension: NSCollectionLayoutDimension
     private var subItems: SubItems
 
     // MARK: - Life cycle

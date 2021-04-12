@@ -10,8 +10,8 @@ import UIKit
 
 public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, ResizableItem, HasResizableProperties {
 
-    internal var widthDimension: NSCollectionLayoutDimension
-    internal var heightDimension: NSCollectionLayoutDimension
+    public var widthDimension: NSCollectionLayoutDimension
+    public var heightDimension: NSCollectionLayoutDimension
     private var elementKind: String
 
     private var alignment: NSRectAlignment = .top

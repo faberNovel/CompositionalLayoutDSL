@@ -20,7 +20,7 @@ public extension ResizableItem {
     }
 }
 
-internal protocol HasResizableProperties {
+public protocol HasResizableProperties {
     var widthDimension: NSCollectionLayoutDimension { get set }
     var heightDimension: NSCollectionLayoutDimension { get set }
 }

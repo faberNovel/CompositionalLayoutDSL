@@ -9,14 +9,14 @@
 import UIKit
 import CompositionalLayoutDSL
 
-struct FractalGroup: LayoutGroup, ResizableItem {
+struct FractalGroup: LayoutGroup, ResizableItem, HasResizableProperties {
 
     var ratio: CGFloat
     var depth: Int
     var insets: CGFloat
 
-    private var heightDimension: NSCollectionLayoutDimension = .fractionalHeight(1)
-    private var widthDimension: NSCollectionLayoutDimension = .fractionalWidth(1)
+    public var heightDimension: NSCollectionLayoutDimension = .fractionalHeight(1)
+    public var widthDimension: NSCollectionLayoutDimension = .fractionalWidth(1)
 
     internal init(ratio: CGFloat, depth: Int, insets: CGFloat = 8) {
         self.ratio = ratio
@@ -49,15 +49,6 @@ struct FractalGroup: LayoutGroup, ResizableItem {
                 }
             }
         }
-    }
-
-    // TODO: (Alexandre Podlewski) 07/04/2021 Find a way to reuse ResizableItem
-    func height(_ height: NSCollectionLayoutDimension) -> Self {
-        with(self) { $0.heightDimension = height }
-    }
-
-    func width(_ width: NSCollectionLayoutDimension) -> Self {
-        with(self) { $0.widthDimension = width }
     }
 }
 
