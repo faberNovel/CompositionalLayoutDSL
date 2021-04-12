@@ -13,9 +13,9 @@ public struct CompositionalLayout {
     public typealias SectionBuilder = (Int, NSCollectionLayoutEnvironment) -> LayoutSection?
 
     private let sectionBuilder: SectionBuilder
-    private let configuration: UICollectionViewCompositionalLayoutConfiguration
+    private let configuration: CompositionalLayoutConfiguration
 
-    public init(configuration: UICollectionViewCompositionalLayoutConfiguration = .init(),
+    public init(configuration: CompositionalLayoutConfiguration = CompositionalConfiguration(),
                 sectionsBuilder: @escaping SectionBuilder) {
         self.sectionBuilder = sectionsBuilder
         self.configuration = configuration
@@ -26,14 +26,14 @@ public struct CompositionalLayout {
             sectionProvider: { section, environment in
                 return sectionBuilder(section, environment)?.collectionLayoutSection
             },
-            configuration: configuration
+            configuration: configuration.collectionLayoutConfiguration
         )
     }
 }
 
 public extension CompositionalLayout {
 
-    init(configuration: UICollectionViewCompositionalLayoutConfiguration = .init(),
+    init(configuration: CompositionalLayoutConfiguration = CompositionalConfiguration(),
          repeatingSections sectionsBuilder: [SectionBuilder]) {
         self.init(configuration: configuration) { section, environment in
             guard !sectionsBuilder.isEmpty else { return nil }
