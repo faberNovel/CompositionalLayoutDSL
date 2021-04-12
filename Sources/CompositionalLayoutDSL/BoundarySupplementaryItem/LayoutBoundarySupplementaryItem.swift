@@ -21,7 +21,7 @@ extension NSCollectionLayoutBoundarySupplementaryItem: CollectionLayoutBoundaryS
 // MARK: - LayoutBoundarySupplementaryItem
 
 public protocol LayoutBoundarySupplementaryItem: LayoutSupplementaryItem,
-                                          CollectionLayoutBoundarySupplementaryItemConvertible {
+                                                 CollectionLayoutBoundarySupplementaryItemConvertible {
     var layoutBoundarySupplementaryItem: CollectionLayoutBoundarySupplementaryItemConvertible { get }
 }
 
@@ -56,7 +56,7 @@ public extension LayoutBoundarySupplementaryItem {
         with(collectionLayoutBoundarySupplementaryItem) { $0.pinToVisibleBounds = pinToVisibleBounds }
     }
 
-    // TODO: (Alexandre Podlewski) 08/04/2021 Can this be refactored ?
+    // TODO: (Alexandre Podlewski) 08/04/2021 Try factoring that with LayoutSupplementaryItem
     func zIndex(zIndex: Int) -> LayoutBoundarySupplementaryItem {
         with(collectionLayoutBoundarySupplementaryItem) { $0.zIndex = zIndex }
     }

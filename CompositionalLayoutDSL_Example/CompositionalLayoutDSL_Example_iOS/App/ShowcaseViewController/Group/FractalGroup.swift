@@ -61,7 +61,6 @@ struct FractalGroup: LayoutGroup, ResizableItem {
     }
 }
 
-
 // Same layout with only UIKit APIs
 
 struct TraditionalFractalGroup: LayoutGroup {

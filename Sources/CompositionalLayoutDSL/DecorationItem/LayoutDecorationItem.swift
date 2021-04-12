@@ -47,6 +47,7 @@ public extension LayoutDecorationItem {
 
     // MARK: - Mutable properties
 
+    // TODO: (Alexandre Podlewski) 08/04/2021 Try factoring that with LayoutSupplementaryItem
     func zIndex(zIndex: Int) -> LayoutDecorationItem {
         with(collectionLayoutDecorationItem) { $0.zIndex = zIndex }
     }

@@ -60,21 +60,22 @@ public struct HGroup: LayoutGroup, ResizableItem, HasResizableProperties {
     // MARK: - LayoutGroup
 
     public var layoutGroup: CollectionLayoutGroupConvertible {
-        makeGroup()
-    }
-
-    // MARK: - Private
-
-    private func makeGroup() -> NSCollectionLayoutGroup {
         let size = NSCollectionLayoutSize(
             widthDimension: widthDimension,
             heightDimension: heightDimension
         )
         switch subItems {
         case let .list(items):
-            return .horizontal(layoutSize: size, subitems: items.map(\.collectionLayoutItem))
+            return NSCollectionLayoutGroup.horizontal(
+                layoutSize: size,
+                subitems: items.map(\.collectionLayoutItem)
+            )
         case let .repeated(item, count):
-            return .horizontal(layoutSize: size, subitem: item.collectionLayoutItem, count: count)
+            return NSCollectionLayoutGroup.horizontal(
+                layoutSize: size,
+                subitem: item.collectionLayoutItem,
+                count: count
+            )
         }
     }
 }
@@ -131,21 +132,22 @@ public struct VGroup: LayoutGroup, ResizableItem, HasResizableProperties {
     // MARK: - LayoutGroup
 
     public var layoutGroup: CollectionLayoutGroupConvertible {
-        makeGroup()
-    }
-
-    // MARK: - Private
-
-    private func makeGroup() -> NSCollectionLayoutGroup {
         let size = NSCollectionLayoutSize(
             widthDimension: widthDimension,
             heightDimension: heightDimension
         )
         switch subItems {
         case let .list(items):
-            return .vertical(layoutSize: size, subitems: items.map(\.collectionLayoutItem))
+            return NSCollectionLayoutGroup.vertical(
+                layoutSize: size,
+                subitems: items.map(\.collectionLayoutItem)
+            )
         case let .repeated(item, count):
-            return .vertical(layoutSize: size, subitem: item.collectionLayoutItem, count: count)
+            return NSCollectionLayoutGroup.vertical(
+                layoutSize: size,
+                subitem: item.collectionLayoutItem,
+                count: count
+            )
         }
     }
 }

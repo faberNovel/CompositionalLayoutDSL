@@ -35,12 +35,11 @@ extension NSCollectionLayoutSection: LayoutSection {
     public var sectionLayout: CollectionLayoutSectionConvertible { self }
 }
 
-
 public extension LayoutSection {
 
     // MARK: - Mutable properties
 
-    // TODO: (Alexandre Podlewski) 07/04/2021 Refactor with LayoutItem
+    // TODO: (Alexandre Podlewski) 07/04/2021 Try factorize that with LayoutItem
     func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutSection {
         return contentInsets(
             top: insets.top,
@@ -90,7 +89,8 @@ public extension LayoutSection {
     }
 
     func boundarySupplementaryItems(
-        @BoundarySupplementaryItemBuilder _ boundarySupplementaryItems: () -> [CollectionLayoutBoundarySupplementaryItemConvertible]
+        @BoundarySupplementaryItemBuilder
+        _ boundarySupplementaryItems: () -> [CollectionLayoutBoundarySupplementaryItemConvertible]
     ) -> LayoutSection {
         with(collectionLayoutSection) {
             $0.boundarySupplementaryItems.append(

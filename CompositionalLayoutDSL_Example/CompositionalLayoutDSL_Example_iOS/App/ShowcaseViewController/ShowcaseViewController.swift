@@ -81,7 +81,7 @@ extension ShowcaseViewController {
                     { AppStoreTrendingContentSection(environment: $1) },
                     { AppStoreTrendingContentSection(environment: $1) }
                 ]
-            ).collectionCompositionalLayout,
+            ).collectionCompositionalLayout
         ]
     }
 }

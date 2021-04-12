@@ -22,7 +22,7 @@ struct AppStoreNewContentSection: LayoutSection {
         ) { updatedEnvironment in
             AdaptativeColumnLaneSection(
                 environment: updatedEnvironment,
-                cellHeightProvider: { $0 * 9 / 16 + 88 }
+                cellHeightProvider: cellHeight
             ) {
                 Item {
                     SupplementaryItem(elementKind: UICollectionView.elementKindSectionHeader)
@@ -39,5 +39,11 @@ struct AppStoreNewContentSection: LayoutSection {
             }
             .orthogonalScrollingBehavior(.groupPaging)
         }
+    }
+
+    // MARK: - Private
+
+    private func cellHeight(width: CGFloat) -> CGFloat {
+        return width * 9 / 16 + 88
     }
 }
