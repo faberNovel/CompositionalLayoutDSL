@@ -10,6 +10,11 @@ import UIKit
 
 public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem, HasResizableProperties {
 
+    public enum AnchorOffset {
+        case absolute(CGPoint)
+        case fractional(CGPoint)
+    }
+
     var widthDimension: NSCollectionLayoutDimension
     var heightDimension: NSCollectionLayoutDimension
     private var elementKind: String
@@ -44,7 +49,18 @@ public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem, HasResi
         with(self) { $0.itemAnchor = itemAnchor }
     }
 
-    // TODO: (Alexandre Podlewski) 08/04/2021 Add other methods to ease LayoutAnchor creation ?
+    public func itemAnchor(edges: NSDirectionalRectEdge) -> Self {
+        itemAnchor(NSCollectionLayoutAnchor(edges: edges))
+    }
+
+    public func itemAnchor(edges: NSDirectionalRectEdge, offset: AnchorOffset) -> Self {
+        switch offset {
+        case let .absolute(point):
+            return itemAnchor(NSCollectionLayoutAnchor(edges: edges, absoluteOffset: point))
+        case let .fractional(point):
+            return itemAnchor(NSCollectionLayoutAnchor(edges: edges, fractionalOffset: point))
+        }
+    }
 
     // MARK: - LayoutSupplementaryItem
 
@@ -67,5 +83,15 @@ public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem, HasResi
                 containerAnchor: containerAnchor
             )
         }
+    }
+}
+
+public extension SupplementaryItem.AnchorOffset {
+    static func absolute(x: CGFloat, y: CGFloat) -> SupplementaryItem.AnchorOffset {
+        return .absolute(CGPoint(x: x, y: y))
+    }
+
+    static func fractional(x: CGFloat, y: CGFloat) -> SupplementaryItem.AnchorOffset {
+        return .fractional(CGPoint(x: x, y: y))
     }
 }
