@@ -50,6 +50,7 @@ extension ShowcaseViewController {
 
     private var showCaseLayouts: [UICollectionViewLayout] {
         [
+            GettingStartedCompositionalLayout().layout(),
             LayoutBuilder { ListSection() },
 //            LayoutBuilder { TraditionalListSection() },
             LayoutBuilder {

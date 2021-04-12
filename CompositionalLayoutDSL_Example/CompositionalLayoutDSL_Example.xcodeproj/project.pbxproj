@@ -27,6 +27,7 @@
 		AC34ECCC261F5CED00DF2D74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC34ECCB261F5CED00DF2D74 /* Assets.xcassets */; };
 		AC34ECCF261F5CED00DF2D74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC34ECCD261F5CED00DF2D74 /* LaunchScreen.storyboard */; };
 		AC622CE2261F606C0058EEE3 /* CompositionalLayoutDSL in Frameworks */ = {isa = PBXBuildFile; productRef = AC622CE1261F606C0058EEE3 /* CompositionalLayoutDSL */; };
+		ACF2C1682624B00700E06BA7 /* GettingStartedCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1672624B00700E06BA7 /* GettingStartedCompositionalLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		AC34ECD0261F5CED00DF2D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC622CE3261F60740058EEE3 /* CompositionalLayoutDSL */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CompositionalLayoutDSL; path = ..; sourceTree = "<group>"; };
 		AC622CE7261F63970058EEE3 /* DemoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCollectionViewController.swift; sourceTree = "<group>"; };
+		ACF2C1672624B00700E06BA7 /* GettingStartedCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingStartedCompositionalLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				AC2AB9E22624A08300FB0857 /* CompositionalLayoutWithSupplementaryView.swift */,
+				ACF2C1672624B00700E06BA7 /* GettingStartedCompositionalLayout.swift */,
 			);
 			path = CompositionalLayout;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				AC2AB9E32624A08400FB0857 /* CompositionalLayoutWithSupplementaryView.swift in Sources */,
 				AC2AB9C4261F64CE00FB0857 /* DemoCellView.swift in Sources */,
 				AC2AB9CD262052B700FB0857 /* SectionWithHeader.swift in Sources */,
+				ACF2C1682624B00700E06BA7 /* GettingStartedCompositionalLayout.swift in Sources */,
 				AC2AB9D52620852300FB0857 /* LaneSection.swift in Sources */,
 				AC2AB9C62620520200FB0857 /* ShowcaseViewController.swift in Sources */,
 				AC2AB9CF262052D000FB0857 /* ListSection.swift in Sources */,
