@@ -73,29 +73,13 @@ extension ShowcaseViewController {
                     .orthogonalScrollingBehavior(.continuous)
                 }
             },
-            CompositionalLayout(
-                sectionsBuilder: [
-                    { AppStoreNewContentSection(environment: $1) },
-                    { AppStoreTrendingContentSection(environment: $1) },
-                    { AppStoreTopContentSection(environment: $1) },
-                    { AppStoreTrendingContentSection(environment: $1) },
-                    { AppStoreTrendingContentSection(environment: $1) }
-                ]
-            ).collectionCompositionalLayout
+            CompositionalLayout(repeatingSections: [
+                { AppStoreNewContentSection(environment: $1) },
+                { AppStoreTrendingContentSection(environment: $1) },
+                { AppStoreTopContentSection(environment: $1) },
+                { AppStoreTrendingContentSection(environment: $1) },
+                { AppStoreTrendingContentSection(environment: $1) }
+            ]).collectionCompositionalLayout
         ]
-    }
-}
-
-// TODO: (Alexandre Podlewski) 09/04/2021 Move this idea into the library
-struct CompositionalLayout {
-
-    let sectionsBuilder: [(Int, NSCollectionLayoutEnvironment) -> LayoutSection]
-
-    var collectionCompositionalLayout: UICollectionViewCompositionalLayout {
-        UICollectionViewCompositionalLayout { section, environment in
-            guard !sectionsBuilder.isEmpty else { return nil }
-            let sectionBuilder = sectionsBuilder[section % sectionsBuilder.count]
-            return sectionBuilder(section, environment).collectionLayoutSection
-        }
     }
 }
