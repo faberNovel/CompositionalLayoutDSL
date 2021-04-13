@@ -28,3 +28,9 @@ jobs:
       env:
         GITHUB_API_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_CI }}
       run: bundle exec fastlane ci_check
+
+    - uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        name: test-artifacts
+        path: tests_derived_data/Logs/Test/*.xcresult
