@@ -19,10 +19,7 @@ let package = Package(
     targets: [
         .target(
             name: "CompositionalLayoutDSL",
-            dependencies: []),
-        .testTarget(
-            name: "CompositionalLayoutDSLTests",
-            dependencies: ["CompositionalLayoutDSL"]
+            dependencies: []
         )
     ]
 )
