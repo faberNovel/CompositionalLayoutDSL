@@ -38,7 +38,7 @@ class DemoSupplementaryView: UICollectionReusableView {
     // MARK: - Private
 
     private func setup() {
-        backgroundColor = UIColor { $0.userInterfaceStyle == .dark ? .darkGray : .lightGray}
+        backgroundColor = UIColor { $0.userInterfaceStyle == .dark ? .darkGray : .lightGray }
         addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true

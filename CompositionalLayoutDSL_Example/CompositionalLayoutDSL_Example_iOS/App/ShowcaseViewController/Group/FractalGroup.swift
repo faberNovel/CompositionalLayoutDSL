@@ -15,8 +15,8 @@ struct FractalGroup: LayoutGroup, ResizableItem, HasResizableProperties {
     var depth: Int
     var insets: CGFloat
 
-    public var heightDimension: NSCollectionLayoutDimension = .fractionalHeight(1)
-    public var widthDimension: NSCollectionLayoutDimension = .fractionalWidth(1)
+    var heightDimension: NSCollectionLayoutDimension = .fractionalHeight(1)
+    var widthDimension: NSCollectionLayoutDimension = .fractionalWidth(1)
 
     internal init(ratio: CGFloat, depth: Int, insets: CGFloat = 8) {
         self.ratio = ratio
@@ -70,6 +70,7 @@ struct TraditionalFractalGroup: LayoutGroup {
 
     // MARK: - Private
 
+    // swiftlint:disable:next function_body_length
     private func fractalLayoutGroup(depth: Int, height: NSCollectionLayoutDimension) -> NSCollectionLayoutGroup {
         let otherRatio = 1 - ratio
         let contentInsets = NSDirectionalEdgeInsets(top: insets, leading: insets, bottom: insets, trailing: insets)

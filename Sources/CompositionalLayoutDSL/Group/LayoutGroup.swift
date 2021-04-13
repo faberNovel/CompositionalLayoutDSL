@@ -80,7 +80,12 @@ public extension LayoutGroup {
         return contentInsets(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
     }
 
-    func contentInsets(top: CGFloat = 0, leading: CGFloat = 0, bottom: CGFloat = 0, trailing: CGFloat = 0) -> LayoutGroup {
+    func contentInsets(
+        top: CGFloat = 0,
+        leading: CGFloat = 0,
+        bottom: CGFloat = 0,
+        trailing: CGFloat = 0
+    ) -> LayoutGroup {
         return with(collectionLayoutGroup) {
             $0.contentInsets = NSDirectionalEdgeInsets(top: top, leading: leading, bottom: bottom, trailing: trailing)
         }
@@ -104,7 +109,12 @@ public extension LayoutGroup {
         trailing: NSCollectionLayoutSpacing? = nil
     ) -> LayoutGroup {
         return with(collectionLayoutGroup) {
-            $0.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: leading, top: top, trailing: trailing, bottom: bottom)
+            $0.edgeSpacing = NSCollectionLayoutEdgeSpacing(
+                leading: leading,
+                top: top,
+                trailing: trailing,
+                bottom: bottom
+            )
         }
     }
 }

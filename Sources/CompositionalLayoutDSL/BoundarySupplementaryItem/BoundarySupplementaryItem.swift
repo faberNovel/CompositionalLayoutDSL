@@ -18,7 +18,7 @@ public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, Resiza
     private var absoluteOffset: CGPoint = .zero
 
     // MARK: - Life cycle
-    
+
     public init(width: NSCollectionLayoutDimension = .fractionalWidth(1),
                 height: NSCollectionLayoutDimension = .fractionalHeight(1),
                 elementKind: String) {

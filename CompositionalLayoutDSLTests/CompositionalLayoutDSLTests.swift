@@ -11,5 +11,5 @@ import XCTest
 
 class CompositionalLayoutDSLTests: XCTestCase {
 
-    func testExample() throws {}
+    func testExample() throws {} // swiftlint:disable:this empty_xctest_method
 }
