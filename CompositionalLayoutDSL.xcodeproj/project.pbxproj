@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		066BE791BC5D7FF45980A612 /* Pods_CompositionalLayoutDSLApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0209AFE87AE39112E94214 /* Pods_CompositionalLayoutDSLApp.framework */; };
+		6D508F071546CF8D53B32BE2 /* Pods_CompositionalLayoutDSLTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB84120BE9B1E0297035ABEF /* Pods_CompositionalLayoutDSLTests.framework */; };
 		ACF2C1BF2625D01400E06BA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1BE2625D01400E06BA7 /* AppDelegate.swift */; };
 		ACF2C1C12625D01400E06BA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1C02625D01400E06BA7 /* SceneDelegate.swift */; };
 		ACF2C1C32625D01400E06BA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1C22625D01400E06BA7 /* ViewController.swift */; };
 		ACF2C1C82625D01500E06BA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF2C1C72625D01500E06BA7 /* Assets.xcassets */; };
 		ACF2C1CB2625D01500E06BA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF2C1C92625D01500E06BA7 /* LaunchScreen.storyboard */; };
 		ACF2C1D62625D01600E06BA7 /* CompositionalLayoutDSLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1D52625D01600E06BA7 /* CompositionalLayoutDSLTests.swift */; };
-		ACF2C1F02625D1D400E06BA7 /* CompositionalLayoutDSL in Frameworks */ = {isa = PBXBuildFile; productRef = ACF2C1EF2625D1D400E06BA7 /* CompositionalLayoutDSL */; };
+		ACF2C1F02625D1D400E06BA7 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = ACF2C1EF2625D1D400E06BA7 /* SwiftPackageProductDependency */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		000E561C82B4F1F842B27FB8 /* Pods-CompositionalLayoutDSLApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CompositionalLayoutDSLApp.release.xcconfig"; path = "Target Support Files/Pods-CompositionalLayoutDSLApp/Pods-CompositionalLayoutDSLApp.release.xcconfig"; sourceTree = "<group>"; };
+		74E75573EC429923E664F111 /* Pods-CompositionalLayoutDSLApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CompositionalLayoutDSLApp.debug.xcconfig"; path = "Target Support Files/Pods-CompositionalLayoutDSLApp/Pods-CompositionalLayoutDSLApp.debug.xcconfig"; sourceTree = "<group>"; };
 		ACF2C1BB2625D01400E06BA7 /* CompositionalLayoutDSLApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompositionalLayoutDSLApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF2C1BE2625D01400E06BA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACF2C1C02625D01400E06BA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +42,10 @@
 		ACF2C1D52625D01600E06BA7 /* CompositionalLayoutDSLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutDSLTests.swift; sourceTree = "<group>"; };
 		ACF2C1D72625D01600E06BA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACF2C1F12625D1D800E06BA7 /* CompositionalLayoutDSL */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CompositionalLayoutDSL; path = .; sourceTree = "<group>"; };
+		BB84120BE9B1E0297035ABEF /* Pods_CompositionalLayoutDSLTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CompositionalLayoutDSLTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA0209AFE87AE39112E94214 /* Pods_CompositionalLayoutDSLApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CompositionalLayoutDSLApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E711B7B3BE01BEA25E83E41C /* Pods-CompositionalLayoutDSLTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CompositionalLayoutDSLTests.debug.xcconfig"; path = "Target Support Files/Pods-CompositionalLayoutDSLTests/Pods-CompositionalLayoutDSLTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F40EB76D180E510B0ADF8C8F /* Pods-CompositionalLayoutDSLTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CompositionalLayoutDSLTests.release.xcconfig"; path = "Target Support Files/Pods-CompositionalLayoutDSLTests/Pods-CompositionalLayoutDSLTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACF2C1F02625D1D400E06BA7 /* CompositionalLayoutDSL in Frameworks */,
+				ACF2C1F02625D1D400E06BA7 /* BuildFile in Frameworks */,
+				066BE791BC5D7FF45980A612 /* Pods_CompositionalLayoutDSLApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,12 +62,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D508F071546CF8D53B32BE2 /* Pods_CompositionalLayoutDSLTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		58D896CBF2AB2622C57D76B7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				74E75573EC429923E664F111 /* Pods-CompositionalLayoutDSLApp.debug.xcconfig */,
+				000E561C82B4F1F842B27FB8 /* Pods-CompositionalLayoutDSLApp.release.xcconfig */,
+				E711B7B3BE01BEA25E83E41C /* Pods-CompositionalLayoutDSLTests.debug.xcconfig */,
+				F40EB76D180E510B0ADF8C8F /* Pods-CompositionalLayoutDSLTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5D68F9AF3C47D2C4B092DDE9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA0209AFE87AE39112E94214 /* Pods_CompositionalLayoutDSLApp.framework */,
+				BB84120BE9B1E0297035ABEF /* Pods_CompositionalLayoutDSLTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ACF2C1B22625D01400E06BA7 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +96,8 @@
 				ACF2C1D42625D01600E06BA7 /* CompositionalLayoutDSLTests */,
 				ACF2C1BC2625D01400E06BA7 /* Products */,
 				ACF2C1F12625D1D800E06BA7 /* CompositionalLayoutDSL */,
+				58D896CBF2AB2622C57D76B7 /* Pods */,
+				5D68F9AF3C47D2C4B092DDE9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +139,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACF2C1E52625D01600E06BA7 /* Build configuration list for PBXNativeTarget "CompositionalLayoutDSLApp" */;
 			buildPhases = (
+				6974283F3F678F46FB543FE1 /* [CP] Check Pods Manifest.lock */,
 				ACF2C1B72625D01400E06BA7 /* Sources */,
 				ACF2C1B82625D01400E06BA7 /* Frameworks */,
 				ACF2C1B92625D01400E06BA7 /* Resources */,
@@ -117,7 +150,7 @@
 			);
 			name = CompositionalLayoutDSLApp;
 			packageProductDependencies = (
-				ACF2C1EF2625D1D400E06BA7 /* CompositionalLayoutDSL */,
+				ACF2C1EF2625D1D400E06BA7 /* SwiftPackageProductDependency */,
 			);
 			productName = CompositionalLayoutDSL;
 			productReference = ACF2C1BB2625D01400E06BA7 /* CompositionalLayoutDSLApp.app */;
@@ -127,6 +160,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACF2C1E82625D01600E06BA7 /* Build configuration list for PBXNativeTarget "CompositionalLayoutDSLTests" */;
 			buildPhases = (
+				7E289FDB5F73CF7CAF411E33 /* [CP] Check Pods Manifest.lock */,
 				ACF2C1CD2625D01600E06BA7 /* Sources */,
 				ACF2C1CE2625D01600E06BA7 /* Frameworks */,
 				ACF2C1CF2625D01600E06BA7 /* Resources */,
@@ -170,7 +204,7 @@
 			);
 			mainGroup = ACF2C1B22625D01400E06BA7;
 			packageReferences = (
-				ACF2C1EE2625D1D400E06BA7 /* XCRemoteSwiftPackageReference "CompositionalLayoutDSL" */,
+				ACF2C1EE2625D1D400E06BA7 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = ACF2C1BC2625D01400E06BA7 /* Products */;
 			projectDirPath = "";
@@ -200,6 +234,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6974283F3F678F46FB543FE1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CompositionalLayoutDSLApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E289FDB5F73CF7CAF411E33 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CompositionalLayoutDSLTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ACF2C1B72625D01400E06BA7 /* Sources */ = {
@@ -360,6 +441,7 @@
 		};
 		ACF2C1E62625D01600E06BA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74E75573EC429923E664F111 /* Pods-CompositionalLayoutDSLApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -380,6 +462,7 @@
 		};
 		ACF2C1E72625D01600E06BA7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 000E561C82B4F1F842B27FB8 /* Pods-CompositionalLayoutDSLApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -400,8 +483,9 @@
 		};
 		ACF2C1E92625D01600E06BA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E711B7B3BE01BEA25E83E41C /* Pods-CompositionalLayoutDSLTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LL36D6ZV57;
@@ -422,8 +506,9 @@
 		};
 		ACF2C1EA2625D01600E06BA7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F40EB76D180E510B0ADF8C8F /* Pods-CompositionalLayoutDSLTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LL36D6ZV57;
@@ -475,7 +560,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		ACF2C1EE2625D1D400E06BA7 /* XCRemoteSwiftPackageReference "CompositionalLayoutDSL" */ = {
+		ACF2C1EE2625D1D400E06BA7 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:faberNovel/CompositionalLayoutDSL.git";
 			requirement = {
@@ -486,9 +571,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		ACF2C1EF2625D1D400E06BA7 /* CompositionalLayoutDSL */ = {
+		ACF2C1EF2625D1D400E06BA7 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ACF2C1EE2625D1D400E06BA7 /* XCRemoteSwiftPackageReference "CompositionalLayoutDSL" */;
+			package = ACF2C1EE2625D1D400E06BA7 /* RemoteSwiftPackageReference */;
 			productName = CompositionalLayoutDSL;
 		};
 /* End XCSwiftPackageProductDependency section */
