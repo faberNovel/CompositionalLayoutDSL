@@ -11,10 +11,14 @@ import UIKit
 
 // swiftlint:disable identifier_name
 
-public func LayoutBuilder(configuration: UICollectionViewCompositionalLayoutConfiguration = .init(),
-                          closure: () -> LayoutSection) -> UICollectionViewCompositionalLayout {
-    let section = closure().collectionLayoutSection
-    return UICollectionViewCompositionalLayout(section: section, configuration: configuration)
+public func LayoutBuilder(
+    configuration: CollectionLayoutConfigurationConvertible = CompositionalConfiguration(),
+    closure: () -> CollectionLayoutSectionConvertible
+) -> UICollectionViewCompositionalLayout {
+    return UICollectionViewCompositionalLayout(
+        section: closure().collectionLayoutSection,
+        configuration: configuration.collectionLayoutConfiguration
+    )
 }
 
 public func SectionBuilder(closure: () -> LayoutSection) -> NSCollectionLayoutSection {
