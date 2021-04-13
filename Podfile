@@ -6,8 +6,8 @@ target 'CompositionalLayoutDSLApp' do
 end
 
 target 'CompositionalLayoutDSLTests' do
-#    pod 'Nimble', '~> 9.0'
-#    pod 'Nimble-Snapshots', '~> 9.0'
+    pod 'ADLayoutTest', '~> 1.0'
+    pod 'SnapshotTesting', '~> 1.8'
 end
 
 post_install do |installer|
