@@ -54,10 +54,12 @@ class DemoCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView,
                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: Self.cellIdentifier,
-            for: indexPath
-        ) as! DemoCellView
+        guard
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: Self.cellIdentifier,
+                for: indexPath
+            ) as? DemoCellView
+        else { fatalError("Unexpected dequeued cell") }
         cell.configure(with: "\(indexPath)")
         return cell
     }
@@ -67,11 +69,14 @@ class DemoCollectionViewController: UICollectionViewController {
         viewForSupplementaryElementOfKind kind: String,
         at indexPath: IndexPath
     ) -> UICollectionReusableView {
-        let supplementaryView = collectionView.dequeueReusableSupplementaryView(
-            ofKind: kind,
-            withReuseIdentifier: Self.supplementaryIdentifier,
-            for: indexPath
-        ) as! DemoSupplementaryView
+        guard
+            let supplementaryView = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: Self.supplementaryIdentifier,
+                for: indexPath
+            ) as? DemoSupplementaryView
+        else { fatalError("Unexpected dequeued supplementary view") }
+
         supplementaryView.configure(with: "\(indexPath)")
         return supplementaryView
     }

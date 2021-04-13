@@ -20,7 +20,7 @@ struct AppStoreTopContentSection: LayoutSection {
             SectionWithEnvironmentInsets(
                 insets: NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 16),
                 environment: environment
-            ) { updatedEnvironment in
+            ) { _ in
                 LaneSection(
                     cellHeight: 300 * 9 / 16 + 30,
                     cellWidth: 300,

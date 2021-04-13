@@ -1,0 +1,23 @@
+desc "Run all unit tests"
+lane :tests do
+  scan(
+    workspace: "CompositionalLayoutDSL.xcworkspace",
+    scheme: "CompositionalLayoutDSLApp",
+    clean: true,
+    devices: ["iPhone 12"]
+  )
+end
+
+desc "Run CI check for a commit"
+lane :ci_check do
+  tests
+  danger(
+    github_api_token: ENV["GITHUB_API_TOKEN"],
+    verbose: true,
+    fail_on_errors: true
+  )
+  pod_lib_lint(
+    use_bundle_exec: true,
+    allow_warnings: true
+  )
+end

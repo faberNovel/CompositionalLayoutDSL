@@ -73,7 +73,12 @@ public extension LayoutDecorationItem {
         return contentInsets(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
     }
 
-    func contentInsets(top: CGFloat = 0, leading: CGFloat = 0, bottom: CGFloat = 0, trailing: CGFloat = 0) -> LayoutDecorationItem {
+    func contentInsets(
+        top: CGFloat = 0,
+        leading: CGFloat = 0,
+        bottom: CGFloat = 0,
+        trailing: CGFloat = 0
+    ) -> LayoutDecorationItem {
         return with(collectionLayoutDecorationItem) {
             $0.contentInsets = NSDirectionalEdgeInsets(top: top, leading: leading, bottom: bottom, trailing: trailing)
         }
@@ -97,7 +102,12 @@ public extension LayoutDecorationItem {
         trailing: NSCollectionLayoutSpacing? = nil
     ) -> LayoutDecorationItem {
         return with(collectionLayoutDecorationItem) {
-            $0.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: leading, top: top, trailing: trailing, bottom: bottom)
+            $0.edgeSpacing = NSCollectionLayoutEdgeSpacing(
+                leading: leading,
+                top: top,
+                trailing: trailing,
+                bottom: bottom
+            )
         }
     }
 }

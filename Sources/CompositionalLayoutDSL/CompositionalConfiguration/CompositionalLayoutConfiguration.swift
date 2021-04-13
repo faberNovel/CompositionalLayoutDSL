@@ -69,5 +69,5 @@ public extension CompositionalLayoutConfiguration {
         with(collectionLayoutConfiguration) {
             $0.contentInsetsReference = contentInsetsReference
         }
-    }    
+    }
 }

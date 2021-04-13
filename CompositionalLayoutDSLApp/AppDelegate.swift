@@ -1,8 +1,9 @@
 //
 //  AppDelegate.swift
-//  CompositionalLayoutDSL_Example_iOS
+//  CompositionalLayoutDSL
 //
-//  Created by Alexandre Podlewski on 08/04/2021.
+//  Created by Alexandre Podlewski on 13/04/2021.
+//  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
 import UIKit
@@ -26,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+    func application(_ application: UIApplication,
+                     didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
     }
 }

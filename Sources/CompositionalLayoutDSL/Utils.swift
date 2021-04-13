@@ -15,7 +15,7 @@ func with<T>(_ object: T, modifier: (inout T) -> Void) -> T {
 }
 
 @_functionBuilder
-public struct ListResultBuilder<Element> {
+public enum ListResultBuilder<Element> {
 
     public static func buildBlock(_ components: [Element]...) -> [Element] {
         return components.flatMap { $0 }
@@ -25,14 +25,18 @@ public struct ListResultBuilder<Element> {
         return [expression]
     }
 
+    // For if statements without else
+    // swiftlint:disable:next discouraged_optional_collection
     public static func buildOptional(_ component: [Element]?) -> [Element] {
         return component ?? []
     }
 
+    // For if-else and switch
     public static func buildEither(first component: [Element]) -> [Element] {
         return component
     }
 
+    // For if-else and switch
     public static func buildEither(second component: [Element]) -> [Element] {
         return component
     }

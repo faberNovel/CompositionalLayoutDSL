@@ -1,0 +1,30 @@
+name: CI
+
+on: [pull_request]
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6.5
+        bundler-cache: true
+
+    - name: Pods cache
+      uses: actions/cache@v2
+      with:
+        path: Pods
+        key: ${{ runner.os }}-cocoapods-${{ hashFiles('**/Podfile.lock') }}
+
+    - name: Pod install
+      run: bundle exec pod install
+
+    - name: Build and test
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_CI }}
+      run: bundle exec fastlane ci_check

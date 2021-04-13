@@ -75,11 +75,13 @@ extension ShowcaseViewController {
                 }
             },
             CompositionalLayout(repeatingSections: [
+                // swiftlint:disable opening_brace
                 { AppStoreNewContentSection(environment: $1) },
                 { AppStoreTrendingContentSection(environment: $1) },
                 { AppStoreTopContentSection(environment: $1) },
                 { AppStoreTrendingContentSection(environment: $1) },
                 { AppStoreTrendingContentSection(environment: $1) }
+                // swiftlint:enable opening_brace
             ]).collectionCompositionalLayout,
             CompositionalLayoutWithSupplementaryView().layout()
 //            TraditionalCompositionalLayoutWithSupplementaryView().layout()
