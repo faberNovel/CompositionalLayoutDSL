@@ -11,5 +11,5 @@ Pod::Spec.new do |spec|
   spec.tvos.deployment_target = '13.0'
   spec.framework    = 'Foundation', 'UIKit'
   spec.swift_versions = '5.1'
-  s.source_files = 'Sources/CompositionalLayoutDSL/**/*'
+  spec.source_files = 'Sources/CompositionalLayoutDSL/**/*'
 end
