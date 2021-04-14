@@ -22,6 +22,7 @@
 		ACF2C1FD2625FC6E00E06BA7 /* NSCollectionLayoutSize+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1FC2625FC6E00E06BA7 /* NSCollectionLayoutSize+Utils.swift */; };
 		ACF2C1FF2625FC8E00E06BA7 /* assertLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1FE2625FC8E00E06BA7 /* assertLayouts.swift */; };
 		ACF2C2012625FF3A00E06BA7 /* TestingCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C2002625FF3A00E06BA7 /* TestingCollectionViewModel.swift */; };
+		ACF2C20426260A9D00E06BA7 /* SectionDSLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C20326260A9D00E06BA7 /* SectionDSLTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		ACF2C1FC2625FC6E00E06BA7 /* NSCollectionLayoutSize+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionLayoutSize+Utils.swift"; sourceTree = "<group>"; };
 		ACF2C1FE2625FC8E00E06BA7 /* assertLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assertLayouts.swift; sourceTree = "<group>"; };
 		ACF2C2002625FF3A00E06BA7 /* TestingCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingCollectionViewModel.swift; sourceTree = "<group>"; };
+		ACF2C20326260A9D00E06BA7 /* SectionDSLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDSLTests.swift; sourceTree = "<group>"; };
 		BB84120BE9B1E0297035ABEF /* Pods_CompositionalLayoutDSLTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CompositionalLayoutDSLTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA0209AFE87AE39112E94214 /* Pods_CompositionalLayoutDSLApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CompositionalLayoutDSLApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E711B7B3BE01BEA25E83E41C /* Pods-CompositionalLayoutDSLTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CompositionalLayoutDSLTests.debug.xcconfig"; path = "Target Support Files/Pods-CompositionalLayoutDSLTests/Pods-CompositionalLayoutDSLTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				ACF2C1D52625D01600E06BA7 /* GroupDSLTests.swift */,
+				ACF2C20326260A9D00E06BA7 /* SectionDSLTests.swift */,
 			);
 			path = LayoutTests;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				ACF2C1D62625D01600E06BA7 /* GroupDSLTests.swift in Sources */,
 				ACF2C1FF2625FC8E00E06BA7 /* assertLayouts.swift in Sources */,
 				ACF2C1FA2625E8A500E06BA7 /* TestingCellView.swift in Sources */,
+				ACF2C20426260A9D00E06BA7 /* SectionDSLTests.swift in Sources */,
 				ACF2C1F52625E79C00E06BA7 /* TestingCollectionViewController.swift in Sources */,
 				ACF2C2012625FF3A00E06BA7 /* TestingCollectionViewModel.swift in Sources */,
 				ACF2C1F82625E89300E06BA7 /* TestingSupplementaryView.swift in Sources */,
