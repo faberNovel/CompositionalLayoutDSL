@@ -20,6 +20,7 @@ jobs:
           format: html
           module-name: CompositionalLayoutDSL
           output: "Documentation"
+          base-url: /CompositionalLayoutDSL/
       # The documentation step is generating files as root, and so are not readable by the runner without that fix
       - name: Fix owner of generated files
         run: sudo chown $USER -R ./Documentation
