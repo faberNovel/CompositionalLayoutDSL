@@ -45,6 +45,19 @@ public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem, HasResi
         with(self) { $0.containerAnchor = containerAnchor }
     }
 
+    public func containerAnchor(edges: NSDirectionalRectEdge) -> Self {
+        containerAnchor(NSCollectionLayoutAnchor(edges: edges))
+    }
+
+    public func containerAnchor(edges: NSDirectionalRectEdge, offset: AnchorOffset) -> Self {
+        switch offset {
+        case let .absolute(point):
+            return containerAnchor(NSCollectionLayoutAnchor(edges: edges, absoluteOffset: point))
+        case let .fractional(point):
+            return containerAnchor(NSCollectionLayoutAnchor(edges: edges, fractionalOffset: point))
+        }
+    }
+
     public func itemAnchor(_ itemAnchor: NSCollectionLayoutAnchor?) -> Self {
         with(self) { $0.itemAnchor = itemAnchor }
     }
