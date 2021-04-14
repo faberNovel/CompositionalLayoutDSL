@@ -19,7 +19,7 @@ CompositionalLayoutDSL is a Swift library. It makes easier to create composition
 
 ## Getting started
 
-Here is an example from the [Example project](./CompositionalLayoutDSL_Example/CompositionalLayoutDSL_Example_iOS/App/ShowcaseViewController/CompositionalLayout/GettingStartedCompositionalLayout.swift)
+Here is an example from the [Example project](./Example/CompositionalLayoutDSL_Example_iOS/App/ShowcaseViewController/CompositionalLayout/GettingStartedCompositionalLayout.swift)
 
 ```swift
 collectionView.collectionViewLayout = LayoutBuilder {
@@ -42,7 +42,7 @@ collectionView.collectionViewLayout = LayoutBuilder {
 }
 ```
 
-And here what we can see in the [Example](./CompositionalLayoutDSL_Example/CompositionalLayoutDSL_Example_iOS) app
+And here what we can see in the [Example](./Example/CompositionalLayoutDSL_Example_iOS) app
 
 ![Screenshot of the getting started layout example](./images/GettingStartedExample.jpg)
 

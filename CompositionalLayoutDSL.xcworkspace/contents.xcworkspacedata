@@ -5,6 +5,9 @@
       location = "group:CompositionalLayoutDSL.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Example/CompositionalLayoutDSL_Example.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
