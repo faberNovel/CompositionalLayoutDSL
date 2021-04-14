@@ -9,7 +9,6 @@
 import XCTest
 @testable import CompositionalLayoutDSL
 import SnapshotTesting
-import ADLayoutTest
 
 class SectionDSLTests: XCTestCase {
     func testListSection() throws {
