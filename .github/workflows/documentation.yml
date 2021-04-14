@@ -17,11 +17,17 @@ jobs:
         uses: SwiftDocOrg/swift-doc@master
         with:
           inputs: "Sources"
+          format: html
           module-name: CompositionalLayoutDSL
           output: "Documentation"
-      - name: Upload Documentation to Wiki
-        uses: SwiftDocOrg/github-wiki-publish-action@v1
+      # The documentation step is generating files as root, and so are not readable by the runner without that fix
+      - name: Fix owner of generated files
+        run: sudo chown $USER -R ./Documentation
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: "Documentation"
-        env:
-          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_CI }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: docs
+          publish_dir: ./Documentation
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
