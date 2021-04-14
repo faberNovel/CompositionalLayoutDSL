@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		066BE791BC5D7FF45980A612 /* Pods_CompositionalLayoutDSLApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0209AFE87AE39112E94214 /* Pods_CompositionalLayoutDSLApp.framework */; };
 		6D508F071546CF8D53B32BE2 /* Pods_CompositionalLayoutDSLTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB84120BE9B1E0297035ABEF /* Pods_CompositionalLayoutDSLTests.framework */; };
+		ACDE9DC92626E1750033F0B0 /* SupplementaryItemDSLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE9DC82626E1750033F0B0 /* SupplementaryItemDSLTests.swift */; };
 		ACF2C1BF2625D01400E06BA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1BE2625D01400E06BA7 /* AppDelegate.swift */; };
 		ACF2C1C12625D01400E06BA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1C02625D01400E06BA7 /* SceneDelegate.swift */; };
 		ACF2C1C32625D01400E06BA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1C22625D01400E06BA7 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		000E561C82B4F1F842B27FB8 /* Pods-CompositionalLayoutDSLApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CompositionalLayoutDSLApp.release.xcconfig"; path = "Target Support Files/Pods-CompositionalLayoutDSLApp/Pods-CompositionalLayoutDSLApp.release.xcconfig"; sourceTree = "<group>"; };
 		74E75573EC429923E664F111 /* Pods-CompositionalLayoutDSLApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CompositionalLayoutDSLApp.debug.xcconfig"; path = "Target Support Files/Pods-CompositionalLayoutDSLApp/Pods-CompositionalLayoutDSLApp.debug.xcconfig"; sourceTree = "<group>"; };
+		ACDE9DC82626E1750033F0B0 /* SupplementaryItemDSLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplementaryItemDSLTests.swift; sourceTree = "<group>"; };
 		ACF2C1BB2625D01400E06BA7 /* CompositionalLayoutDSLApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompositionalLayoutDSLApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF2C1BE2625D01400E06BA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACF2C1C02625D01400E06BA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			children = (
 				ACF2C1D52625D01600E06BA7 /* GroupDSLTests.swift */,
 				ACF2C20326260A9D00E06BA7 /* SectionDSLTests.swift */,
+				ACDE9DC82626E1750033F0B0 /* SupplementaryItemDSLTests.swift */,
 			);
 			path = LayoutTests;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 			files = (
 				ACF2C1D62625D01600E06BA7 /* GroupDSLTests.swift in Sources */,
 				ACF2C1FF2625FC8E00E06BA7 /* assertLayouts.swift in Sources */,
+				ACDE9DC92626E1750033F0B0 /* SupplementaryItemDSLTests.swift in Sources */,
 				ACF2C1FA2625E8A500E06BA7 /* TestingCellView.swift in Sources */,
 				ACF2C20426260A9D00E06BA7 /* SectionDSLTests.swift in Sources */,
 				ACF2C1F52625E79C00E06BA7 /* TestingCollectionViewController.swift in Sources */,
