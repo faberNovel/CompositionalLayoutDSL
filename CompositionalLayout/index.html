@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompositionalLayoutDSL - CompositionalLayout</title>
+    <link rel="stylesheet" type="text/css" href="/CompositionalLayoutDSL/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/CompositionalLayoutDSL/">
+            <strong>
+                CompositionalLayoutDSL
+            </strong>
+            <span>Documentation</span>
+        </a>
+        <sup>Beta</sup>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#nested type aliases">Nested Type Aliases</a><ul><li class="typealias"><a href="#compositionallayout.sectionbuilder">Section​Builder</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#compositionallayout.init(configuration:sectionsbuilder:)">init(configuration:​sections​Builder:​)</a></li><li class="initializer"><a href="#compositionallayout.init(configuration:repeatingsections:)">init(configuration:​repeating​Sections:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#compositionallayout.collectioncompositionallayout">collection​Compositional​Layout</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Structure</small>
+    <code class="name">Compositional​Layout</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">CompositionalLayout</span></code></pre></body></html>
+
+    <section id="nested type aliases">
+        <h2>Nested Type Aliases</h2>
+
+        <div role="article" class="typealias" id="compositionallayout.sectionbuilder">
+    <h3>
+        <code>Section​Builder</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">typealias</span> <span class="variable">SectionBuilder</span> = (<span class="type">Int</span>, <span class="type">NSCollectionLayoutEnvironment</span>) -&gt; <a href="/CompositionalLayoutDSL/LayoutSection"><span class="type">LayoutSection</span></a>?</code></pre></body></html>
+</div>
+    </section>
+    <section id="initializers">
+        <h2>Initializers</h2>
+
+        <div role="article" class="initializer" id="compositionallayout.init(configuration:sectionsbuilder:)">
+    <h3>
+        <code>init(configuration:​sections​Builder:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">configuration</span>: <a href="/CompositionalLayoutDSL/CompositionalLayoutConfiguration"><span class="type">CompositionalLayoutConfiguration</span></a> = <span class="variable">CompositionalConfiguration</span>(), <span class="variable">sectionsBuilder</span>: <span class="attribute">@</span><span class="attribute">escaping</span> <span class="type">SectionBuilder</span>)</code></pre></body></html>
+</div>
+<div role="article" class="initializer" id="compositionallayout.init(configuration:repeatingsections:)">
+    <h3>
+        <code>init(configuration:​repeating​Sections:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">init</span>(<span class="variable">configuration</span>: <a href="/CompositionalLayoutDSL/CompositionalLayoutConfiguration"><span class="type">CompositionalLayoutConfiguration</span></a> = <span class="variable">CompositionalConfiguration</span>(), <span class="variable">repeatingSections</span> <span class="variable">sectionsBuilder</span>: [<span class="type">SectionBuilder</span>])</code></pre></body></html>
+</div>
+    </section>
+    <section id="properties">
+        <h2>Properties</h2>
+
+        <div role="article" class="variable" id="compositionallayout.collectioncompositionallayout">
+    <h3>
+        <code>collection​Compositional​Layout</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">collectionCompositionalLayout</span>: <span class="type">UICollectionViewCompositionalLayout</span></code></pre></body></html>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2021-04-14T14:09:19+0000">April 14, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+</p>
+    </footer>
+</body>
+</html>
