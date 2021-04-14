@@ -9,13 +9,23 @@
 /* Begin PBXBuildFile section */
 		066BE791BC5D7FF45980A612 /* Pods_CompositionalLayoutDSLApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0209AFE87AE39112E94214 /* Pods_CompositionalLayoutDSLApp.framework */; };
 		6D508F071546CF8D53B32BE2 /* Pods_CompositionalLayoutDSLTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB84120BE9B1E0297035ABEF /* Pods_CompositionalLayoutDSLTests.framework */; };
+		ACDE9DC92626E1750033F0B0 /* SupplementaryItemDSLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE9DC82626E1750033F0B0 /* SupplementaryItemDSLTests.swift */; };
+		ACDE9DCB2626EC0B0033F0B0 /* DecorationItemDSLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE9DCA2626EC0B0033F0B0 /* DecorationItemDSLTests.swift */; };
+		ACDE9DCD2626ECCE0033F0B0 /* TestingDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE9DCC2626ECCE0033F0B0 /* TestingDecorationView.swift */; };
 		ACF2C1BF2625D01400E06BA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1BE2625D01400E06BA7 /* AppDelegate.swift */; };
 		ACF2C1C12625D01400E06BA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1C02625D01400E06BA7 /* SceneDelegate.swift */; };
 		ACF2C1C32625D01400E06BA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1C22625D01400E06BA7 /* ViewController.swift */; };
 		ACF2C1C82625D01500E06BA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF2C1C72625D01500E06BA7 /* Assets.xcassets */; };
 		ACF2C1CB2625D01500E06BA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF2C1C92625D01500E06BA7 /* LaunchScreen.storyboard */; };
-		ACF2C1D62625D01600E06BA7 /* CompositionalLayoutDSLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1D52625D01600E06BA7 /* CompositionalLayoutDSLTests.swift */; };
-		ACF2C1F02625D1D400E06BA7 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = ACF2C1EF2625D1D400E06BA7 /* SwiftPackageProductDependency */; };
+		ACF2C1D62625D01600E06BA7 /* GroupDSLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1D52625D01600E06BA7 /* GroupDSLTests.swift */; };
+		ACF2C1F02625D1D400E06BA7 /* CompositionalLayoutDSL in Frameworks */ = {isa = PBXBuildFile; productRef = ACF2C1EF2625D1D400E06BA7 /* CompositionalLayoutDSL */; };
+		ACF2C1F52625E79C00E06BA7 /* TestingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1F42625E79C00E06BA7 /* TestingCollectionViewController.swift */; };
+		ACF2C1F82625E89300E06BA7 /* TestingSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1F72625E89300E06BA7 /* TestingSupplementaryView.swift */; };
+		ACF2C1FA2625E8A500E06BA7 /* TestingCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1F92625E8A500E06BA7 /* TestingCellView.swift */; };
+		ACF2C1FD2625FC6E00E06BA7 /* NSCollectionLayoutSize+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1FC2625FC6E00E06BA7 /* NSCollectionLayoutSize+Utils.swift */; };
+		ACF2C1FF2625FC8E00E06BA7 /* assertLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1FE2625FC8E00E06BA7 /* assertLayouts.swift */; };
+		ACF2C2012625FF3A00E06BA7 /* TestingCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C2002625FF3A00E06BA7 /* TestingCollectionViewModel.swift */; };
+		ACF2C20426260A9D00E06BA7 /* SectionDSLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C20326260A9D00E06BA7 /* SectionDSLTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +41,9 @@
 /* Begin PBXFileReference section */
 		000E561C82B4F1F842B27FB8 /* Pods-CompositionalLayoutDSLApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CompositionalLayoutDSLApp.release.xcconfig"; path = "Target Support Files/Pods-CompositionalLayoutDSLApp/Pods-CompositionalLayoutDSLApp.release.xcconfig"; sourceTree = "<group>"; };
 		74E75573EC429923E664F111 /* Pods-CompositionalLayoutDSLApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CompositionalLayoutDSLApp.debug.xcconfig"; path = "Target Support Files/Pods-CompositionalLayoutDSLApp/Pods-CompositionalLayoutDSLApp.debug.xcconfig"; sourceTree = "<group>"; };
+		ACDE9DC82626E1750033F0B0 /* SupplementaryItemDSLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplementaryItemDSLTests.swift; sourceTree = "<group>"; };
+		ACDE9DCA2626EC0B0033F0B0 /* DecorationItemDSLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorationItemDSLTests.swift; sourceTree = "<group>"; };
+		ACDE9DCC2626ECCE0033F0B0 /* TestingDecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingDecorationView.swift; sourceTree = "<group>"; };
 		ACF2C1BB2625D01400E06BA7 /* CompositionalLayoutDSLApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompositionalLayoutDSLApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF2C1BE2625D01400E06BA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACF2C1C02625D01400E06BA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,9 +52,16 @@
 		ACF2C1CA2625D01500E06BA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACF2C1CC2625D01500E06BA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACF2C1D12625D01600E06BA7 /* CompositionalLayoutDSLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CompositionalLayoutDSLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ACF2C1D52625D01600E06BA7 /* CompositionalLayoutDSLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutDSLTests.swift; sourceTree = "<group>"; };
+		ACF2C1D52625D01600E06BA7 /* GroupDSLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDSLTests.swift; sourceTree = "<group>"; };
 		ACF2C1D72625D01600E06BA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACF2C1F12625D1D800E06BA7 /* CompositionalLayoutDSL */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CompositionalLayoutDSL; path = .; sourceTree = "<group>"; };
+		ACF2C1F42625E79C00E06BA7 /* TestingCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingCollectionViewController.swift; sourceTree = "<group>"; };
+		ACF2C1F72625E89300E06BA7 /* TestingSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingSupplementaryView.swift; sourceTree = "<group>"; };
+		ACF2C1F92625E8A500E06BA7 /* TestingCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingCellView.swift; sourceTree = "<group>"; };
+		ACF2C1FC2625FC6E00E06BA7 /* NSCollectionLayoutSize+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionLayoutSize+Utils.swift"; sourceTree = "<group>"; };
+		ACF2C1FE2625FC8E00E06BA7 /* assertLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assertLayouts.swift; sourceTree = "<group>"; };
+		ACF2C2002625FF3A00E06BA7 /* TestingCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingCollectionViewModel.swift; sourceTree = "<group>"; };
+		ACF2C20326260A9D00E06BA7 /* SectionDSLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDSLTests.swift; sourceTree = "<group>"; };
 		BB84120BE9B1E0297035ABEF /* Pods_CompositionalLayoutDSLTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CompositionalLayoutDSLTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA0209AFE87AE39112E94214 /* Pods_CompositionalLayoutDSLApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CompositionalLayoutDSLApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E711B7B3BE01BEA25E83E41C /* Pods-CompositionalLayoutDSLTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CompositionalLayoutDSLTests.debug.xcconfig"; path = "Target Support Files/Pods-CompositionalLayoutDSLTests/Pods-CompositionalLayoutDSLTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -53,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACF2C1F02625D1D400E06BA7 /* BuildFile in Frameworks */,
+				ACF2C1F02625D1D400E06BA7 /* CompositionalLayoutDSL in Frameworks */,
 				066BE791BC5D7FF45980A612 /* Pods_CompositionalLayoutDSLApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,9 +115,9 @@
 				ACF2C1BD2625D01400E06BA7 /* CompositionalLayoutDSLApp */,
 				ACF2C1D42625D01600E06BA7 /* CompositionalLayoutDSLTests */,
 				ACF2C1BC2625D01400E06BA7 /* Products */,
-				ACF2C1F12625D1D800E06BA7 /* CompositionalLayoutDSL */,
 				58D896CBF2AB2622C57D76B7 /* Pods */,
 				5D68F9AF3C47D2C4B092DDE9 /* Frameworks */,
+				ACF2C1F12625D1D800E06BA7 /* CompositionalLayoutDSL */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,10 +146,44 @@
 		ACF2C1D42625D01600E06BA7 /* CompositionalLayoutDSLTests */ = {
 			isa = PBXGroup;
 			children = (
-				ACF2C1D52625D01600E06BA7 /* CompositionalLayoutDSLTests.swift */,
+				ACF2C1FB2625FC5F00E06BA7 /* Utils */,
+				ACF2C1F62625E83B00E06BA7 /* TestingCollectionView */,
+				ACF2C202262607AB00E06BA7 /* LayoutTests */,
 				ACF2C1D72625D01600E06BA7 /* Info.plist */,
 			);
 			path = CompositionalLayoutDSLTests;
+			sourceTree = "<group>";
+		};
+		ACF2C1F62625E83B00E06BA7 /* TestingCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				ACF2C1F42625E79C00E06BA7 /* TestingCollectionViewController.swift */,
+				ACF2C1F72625E89300E06BA7 /* TestingSupplementaryView.swift */,
+				ACF2C1F92625E8A500E06BA7 /* TestingCellView.swift */,
+				ACF2C2002625FF3A00E06BA7 /* TestingCollectionViewModel.swift */,
+				ACDE9DCC2626ECCE0033F0B0 /* TestingDecorationView.swift */,
+			);
+			path = TestingCollectionView;
+			sourceTree = "<group>";
+		};
+		ACF2C1FB2625FC5F00E06BA7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ACF2C1FC2625FC6E00E06BA7 /* NSCollectionLayoutSize+Utils.swift */,
+				ACF2C1FE2625FC8E00E06BA7 /* assertLayouts.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		ACF2C202262607AB00E06BA7 /* LayoutTests */ = {
+			isa = PBXGroup;
+			children = (
+				ACF2C1D52625D01600E06BA7 /* GroupDSLTests.swift */,
+				ACF2C20326260A9D00E06BA7 /* SectionDSLTests.swift */,
+				ACDE9DC82626E1750033F0B0 /* SupplementaryItemDSLTests.swift */,
+				ACDE9DCA2626EC0B0033F0B0 /* DecorationItemDSLTests.swift */,
+			);
+			path = LayoutTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +205,7 @@
 			);
 			name = CompositionalLayoutDSLApp;
 			packageProductDependencies = (
-				ACF2C1EF2625D1D400E06BA7 /* SwiftPackageProductDependency */,
+				ACF2C1EF2625D1D400E06BA7 /* CompositionalLayoutDSL */,
 			);
 			productName = CompositionalLayoutDSL;
 			productReference = ACF2C1BB2625D01400E06BA7 /* CompositionalLayoutDSLApp.app */;
@@ -165,6 +219,7 @@
 				ACF2C1CD2625D01600E06BA7 /* Sources */,
 				ACF2C1CE2625D01600E06BA7 /* Frameworks */,
 				ACF2C1CF2625D01600E06BA7 /* Resources */,
+				E0690740A50C436D27025851 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -205,7 +260,7 @@
 			);
 			mainGroup = ACF2C1B22625D01400E06BA7;
 			packageReferences = (
-				ACF2C1EE2625D1D400E06BA7 /* RemoteSwiftPackageReference */,
+				ACF2C1EE2625D1D400E06BA7 /* XCRemoteSwiftPackageReference "CompositionalLayoutDSL" */,
 			);
 			productRefGroup = ACF2C1BC2625D01400E06BA7 /* Products */;
 			projectDirPath = "";
@@ -299,6 +354,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
+		E0690740A50C436D27025851 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CompositionalLayoutDSLTests/Pods-CompositionalLayoutDSLTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CompositionalLayoutDSLTests/Pods-CompositionalLayoutDSLTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CompositionalLayoutDSLTests/Pods-CompositionalLayoutDSLTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -316,7 +388,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACF2C1D62625D01600E06BA7 /* CompositionalLayoutDSLTests.swift in Sources */,
+				ACF2C1D62625D01600E06BA7 /* GroupDSLTests.swift in Sources */,
+				ACF2C1FF2625FC8E00E06BA7 /* assertLayouts.swift in Sources */,
+				ACDE9DC92626E1750033F0B0 /* SupplementaryItemDSLTests.swift in Sources */,
+				ACF2C1FA2625E8A500E06BA7 /* TestingCellView.swift in Sources */,
+				ACF2C20426260A9D00E06BA7 /* SectionDSLTests.swift in Sources */,
+				ACDE9DCD2626ECCE0033F0B0 /* TestingDecorationView.swift in Sources */,
+				ACF2C1F52625E79C00E06BA7 /* TestingCollectionViewController.swift in Sources */,
+				ACDE9DCB2626EC0B0033F0B0 /* DecorationItemDSLTests.swift in Sources */,
+				ACF2C2012625FF3A00E06BA7 /* TestingCollectionViewModel.swift in Sources */,
+				ACF2C1F82625E89300E06BA7 /* TestingSupplementaryView.swift in Sources */,
+				ACF2C1FD2625FC6E00E06BA7 /* NSCollectionLayoutSize+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,7 +661,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		ACF2C1EE2625D1D400E06BA7 /* RemoteSwiftPackageReference */ = {
+		ACF2C1EE2625D1D400E06BA7 /* XCRemoteSwiftPackageReference "CompositionalLayoutDSL" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:faberNovel/CompositionalLayoutDSL.git";
 			requirement = {
@@ -590,9 +672,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		ACF2C1EF2625D1D400E06BA7 /* SwiftPackageProductDependency */ = {
+		ACF2C1EF2625D1D400E06BA7 /* CompositionalLayoutDSL */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = ACF2C1EE2625D1D400E06BA7 /* RemoteSwiftPackageReference */;
+			package = ACF2C1EE2625D1D400E06BA7 /* XCRemoteSwiftPackageReference "CompositionalLayoutDSL" */;
 			productName = CompositionalLayoutDSL;
 		};
 /* End XCSwiftPackageProductDependency section */

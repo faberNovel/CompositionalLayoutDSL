@@ -3,6 +3,7 @@ lane :tests do
   scan(
     workspace: "CompositionalLayoutDSL.xcworkspace",
     scheme: "CompositionalLayoutDSLApp",
+    derived_data_path: "tests_derived_data",
     clean: true,
     devices: ["iPhone 12"]
   )
