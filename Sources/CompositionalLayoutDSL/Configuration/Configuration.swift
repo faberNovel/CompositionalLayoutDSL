@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct CompositionalConfiguration: CompositionalLayoutConfiguration {
+public struct Configuration: LayoutConfiguration {
 
     internal var scrollDirection: UICollectionView.ScrollDirection = .vertical
     internal var interSectionSpacing: CGFloat = 0
@@ -22,7 +22,7 @@ public struct CompositionalConfiguration: CompositionalLayoutConfiguration {
 
     // MARK: - CompositionalLayoutConfiguration
 
-    public var layoutConfiguration: CompositionalLayoutConfiguration {
+    public var layoutConfiguration: LayoutConfiguration {
         return self
     }
 
@@ -32,4 +32,4 @@ public struct CompositionalConfiguration: CompositionalLayoutConfiguration {
         return configuration
     }
 }
-extension CompositionalConfiguration: HasConfigurationProperties {}
+extension Configuration: HasConfigurationProperties {}

@@ -8,8 +8,8 @@
 
 import UIKit
 
-public protocol CompositionalLayoutConfiguration {
-    var layoutConfiguration: CompositionalLayoutConfiguration { get }
+public protocol LayoutConfiguration {
+    var layoutConfiguration: LayoutConfiguration { get }
     func makeConfiguration() -> UICollectionViewCompositionalLayoutConfiguration
 }
 
