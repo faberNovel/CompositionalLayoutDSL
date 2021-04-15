@@ -55,7 +55,7 @@ public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, Resiza
         self
     }
 
-    public func makeBoundarySupplementaryItem() -> NSCollectionLayoutBoundarySupplementaryItem {
+    public func _makeBoundarySupplementaryItem() -> NSCollectionLayoutBoundarySupplementaryItem {
         let boundarySupplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: widthDimension,

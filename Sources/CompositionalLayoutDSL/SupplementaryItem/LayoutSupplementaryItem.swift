@@ -10,7 +10,7 @@ import UIKit
 
 public protocol LayoutSupplementaryItem: LayoutItem {
     var layoutSupplementaryItem: LayoutSupplementaryItem { get }
-    func makeSupplementaryItem() -> NSCollectionLayoutSupplementaryItem
+    func _makeSupplementaryItem() -> NSCollectionLayoutSupplementaryItem
 }
 
 public extension LayoutSupplementaryItem {
@@ -18,7 +18,7 @@ public extension LayoutSupplementaryItem {
     // MARK: - LayoutItem
 
     var layoutItem: LayoutItem { self }
-    func makeItem() -> NSCollectionLayoutItem { makeSupplementaryItem() }
+    func _makeItem() -> NSCollectionLayoutItem { _makeSupplementaryItem() }
 }
 
 extension HasSupplementaryItemProperties {

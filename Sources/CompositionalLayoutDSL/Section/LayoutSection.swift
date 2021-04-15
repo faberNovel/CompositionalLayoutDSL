@@ -10,12 +10,12 @@ import UIKit
 
 public protocol LayoutSection {
     var sectionLayout: LayoutSection { get }
-    func makeLayoutSection() -> NSCollectionLayoutSection
+    func _makeSection() -> NSCollectionLayoutSection
 }
 
 extension LayoutSection {
-    func makeLayoutSection() -> NSCollectionLayoutSection {
-        sectionLayout.makeLayoutSection()
+    func _makeSection() -> NSCollectionLayoutSection {
+        sectionLayout._makeSection()
     }
 }
 

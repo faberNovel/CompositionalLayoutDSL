@@ -10,7 +10,7 @@ import UIKit
 
 public protocol LayoutDecorationItem: LayoutItem {
     var layoutDecorationItem: LayoutDecorationItem { get }
-    func makeDecorationItem() -> NSCollectionLayoutDecorationItem
+    func _makeDecorationItem() -> NSCollectionLayoutDecorationItem
 }
 
 public extension LayoutDecorationItem {
@@ -18,7 +18,7 @@ public extension LayoutDecorationItem {
     // MARK: - LayoutItem
 
     var layoutItem: LayoutItem { self }
-    func makeItem() -> NSCollectionLayoutItem { makeDecorationItem() }
+    func _makeItem() -> NSCollectionLayoutItem { _makeDecorationItem() }
 }
 
 extension HasDecorationItemProperties {

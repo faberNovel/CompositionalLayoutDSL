@@ -53,10 +53,10 @@ public struct Item: LayoutItem, ResizableItem {
         return self
     }
 
-    public func makeItem() -> NSCollectionLayoutItem {
+    public func _makeItem() -> NSCollectionLayoutItem {
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(widthDimension: widthDimension, heightDimension: heightDimension),
-            supplementaryItems: supplementaryItems.map { $0.makeSupplementaryItem() }
+            supplementaryItems: supplementaryItems.map { $0._makeSupplementaryItem() }
         )
         item.contentInsets = contentInsets
         item.edgeSpacing = edgeSpacing

@@ -34,8 +34,8 @@ public struct Section: LayoutSection, ContentInsetable {
         return self
     }
 
-    public func makeLayoutSection() -> NSCollectionLayoutSection {
-        let section = NSCollectionLayoutSection(group: group.makeGroup())
+    public func _makeSection() -> NSCollectionLayoutSection {
+        let section = NSCollectionLayoutSection(group: group._makeGroup())
         section.apply(sectionPropertiesFrom: self)
         return section
     }

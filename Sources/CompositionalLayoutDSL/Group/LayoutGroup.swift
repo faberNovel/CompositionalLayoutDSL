@@ -10,7 +10,7 @@ import UIKit
 
 public protocol LayoutGroup: LayoutItem {
     var layoutGroup: LayoutGroup { get }
-    func makeGroup() -> NSCollectionLayoutGroup
+    func _makeGroup() -> NSCollectionLayoutGroup
 }
 
 public extension LayoutGroup {
@@ -18,7 +18,7 @@ public extension LayoutGroup {
     // MARK: - LayoutItem
 
     var layoutItem: LayoutItem { layoutGroup }
-    func makeItem() -> NSCollectionLayoutItem { makeGroup() }
+    func _makeItem() -> NSCollectionLayoutItem { _makeGroup() }
 }
 
 extension HasGroupProperties {

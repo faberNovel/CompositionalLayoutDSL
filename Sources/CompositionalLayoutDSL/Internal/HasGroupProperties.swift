@@ -16,7 +16,7 @@ internal protocol HasGroupProperties: HasItemProperties {
 internal extension NSCollectionLayoutGroup {
     func apply(groupPropertiesFrom propertiesHolder: HasGroupProperties) {
         apply(itemPropertiesFrom: propertiesHolder)
-        self.supplementaryItems = propertiesHolder.supplementaryItems.map { $0.makeSupplementaryItem() }
+        self.supplementaryItems = propertiesHolder.supplementaryItems.map { $0._makeSupplementaryItem() }
         self.interItemSpacing = propertiesHolder.interItemSpacing
     }
 }

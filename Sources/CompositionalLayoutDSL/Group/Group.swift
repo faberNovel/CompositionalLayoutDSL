@@ -67,7 +67,7 @@ public struct HGroup: LayoutGroup, ResizableItem {
         return self
     }
 
-    public func makeGroup() -> NSCollectionLayoutGroup {
+    public func _makeGroup() -> NSCollectionLayoutGroup {
         let size = NSCollectionLayoutSize(
             widthDimension: widthDimension,
             heightDimension: heightDimension
@@ -77,12 +77,12 @@ public struct HGroup: LayoutGroup, ResizableItem {
         case let .list(items):
             group = NSCollectionLayoutGroup.horizontal(
                 layoutSize: size,
-                subitems: items.map { $0.makeItem() }
+                subitems: items.map { $0._makeItem() }
             )
         case let .repeated(item, count):
             group = NSCollectionLayoutGroup.horizontal(
                 layoutSize: size,
-                subitem: item.makeItem(),
+                subitem: item._makeItem(),
                 count: count
             )
         }
@@ -152,7 +152,7 @@ public struct VGroup: LayoutGroup, ResizableItem {
         return self
     }
 
-    public func makeGroup() -> NSCollectionLayoutGroup {
+    public func _makeGroup() -> NSCollectionLayoutGroup {
         let size = NSCollectionLayoutSize(
             widthDimension: widthDimension,
             heightDimension: heightDimension
@@ -162,12 +162,12 @@ public struct VGroup: LayoutGroup, ResizableItem {
         case let .list(items):
             group = NSCollectionLayoutGroup.vertical(
                 layoutSize: size,
-                subitems: items.map { $0.makeItem() }
+                subitems: items.map { $0._makeItem() }
             )
         case let .repeated(item, count):
             group = NSCollectionLayoutGroup.vertical(
                 layoutSize: size,
-                subitem: item.makeItem(),
+                subitem: item._makeItem(),
                 count: count
             )
         }
@@ -215,7 +215,7 @@ public struct CustomGroup: LayoutGroup, ResizableItem {
         return self
     }
 
-    public func makeGroup() -> NSCollectionLayoutGroup {
+    public func _makeGroup() -> NSCollectionLayoutGroup {
         let size = NSCollectionLayoutSize(
             widthDimension: widthDimension,
             heightDimension: heightDimension

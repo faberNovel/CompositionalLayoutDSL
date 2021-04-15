@@ -21,7 +21,7 @@ internal extension UICollectionViewCompositionalLayoutConfiguration {
         self.scrollDirection = propertiesHolder.scrollDirection
         self.interSectionSpacing = propertiesHolder.interSectionSpacing
         self.boundarySupplementaryItems = propertiesHolder.boundarySupplementaryItems.map {
-            $0.makeBoundarySupplementaryItem()
+            $0._makeBoundarySupplementaryItem()
         }
 //        if #available(iOS 14.0, *) {
 //            self.contentInsetsReference = propertiesHolder.contentInsetsReference

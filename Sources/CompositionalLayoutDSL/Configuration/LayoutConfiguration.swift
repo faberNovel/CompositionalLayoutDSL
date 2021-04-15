@@ -10,7 +10,7 @@ import UIKit
 
 public protocol LayoutConfiguration {
     var layoutConfiguration: LayoutConfiguration { get }
-    func makeConfiguration() -> UICollectionViewCompositionalLayoutConfiguration
+    func _makeConfiguration() -> UICollectionViewCompositionalLayoutConfiguration
 }
 
 extension HasConfigurationProperties {

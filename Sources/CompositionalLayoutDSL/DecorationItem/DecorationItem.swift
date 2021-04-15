@@ -29,7 +29,7 @@ public struct DecorationItem: LayoutDecorationItem {
         return self
     }
 
-    public func makeDecorationItem() -> NSCollectionLayoutDecorationItem {
+    public func _makeDecorationItem() -> NSCollectionLayoutDecorationItem {
         let decorationItem = NSCollectionLayoutDecorationItem.background(elementKind: elementKind)
         decorationItem.apply(decorationPropertiesFrom: self)
         return decorationItem

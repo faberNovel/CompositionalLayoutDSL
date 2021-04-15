@@ -26,7 +26,7 @@ public struct Configuration: LayoutConfiguration {
         return self
     }
 
-    public func makeConfiguration() -> UICollectionViewCompositionalLayoutConfiguration {
+    public func _makeConfiguration() -> UICollectionViewCompositionalLayoutConfiguration {
         let configuration = UICollectionViewCompositionalLayoutConfiguration()
         configuration.apply(configurationPropertiesFrom: self)
         return configuration

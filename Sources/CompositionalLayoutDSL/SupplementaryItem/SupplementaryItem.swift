@@ -84,7 +84,7 @@ public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem {
         return self
     }
 
-    public func makeSupplementaryItem() -> NSCollectionLayoutSupplementaryItem {
+    public func _makeSupplementaryItem() -> NSCollectionLayoutSupplementaryItem {
         let size = NSCollectionLayoutSize(
             widthDimension: widthDimension,
             heightDimension: heightDimension
