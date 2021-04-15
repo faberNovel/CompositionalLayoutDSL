@@ -8,29 +8,33 @@
 
 import UIKit
 
-public struct HGroup: LayoutGroup, ResizableItem, HasResizableProperties {
+public struct HGroup: LayoutGroup, ResizableItem {
 
     enum SubItems {
-        case list([CollectionLayoutItemConvertible])
-        case repeated(CollectionLayoutItemConvertible, count: Int)
+        case list([LayoutItem])
+        case repeated(LayoutItem, count: Int)
     }
 
-    public var widthDimension: NSCollectionLayoutDimension
-    public var heightDimension: NSCollectionLayoutDimension
+    internal var widthDimension: NSCollectionLayoutDimension
+    internal var heightDimension: NSCollectionLayoutDimension
+    internal var contentInsets: NSDirectionalEdgeInsets = .zero
+    internal var edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: nil, bottom: nil)
+    internal var supplementaryItems: [LayoutSupplementaryItem] = []
+    internal var interItemSpacing: NSCollectionLayoutSpacing?
     private var subItems: SubItems
 
     // MARK: - Life cycle
 
     public init(width: NSCollectionLayoutDimension = .fractionalWidth(1),
                 height: NSCollectionLayoutDimension = .fractionalHeight(1),
-                @LayoutItemBuilder subItems: () -> [CollectionLayoutItemConvertible]) {
+                @LayoutItemBuilder subItems: () -> [LayoutItem]) {
         self.widthDimension = width
         self.heightDimension = height
         self.subItems = .list(subItems())
     }
 
     public init(size: NSCollectionLayoutSize,
-                @LayoutItemBuilder subItems: () -> [CollectionLayoutItemConvertible]) {
+                @LayoutItemBuilder subItems: () -> [LayoutItem]) {
         self.widthDimension = size.widthDimension
         self.heightDimension = size.heightDimension
         self.subItems = .list(subItems())
@@ -39,7 +43,7 @@ public struct HGroup: LayoutGroup, ResizableItem, HasResizableProperties {
     public init(width: NSCollectionLayoutDimension = .fractionalWidth(1),
                 height: NSCollectionLayoutDimension = .fractionalHeight(1),
                 count: Int,
-                subItem: () -> CollectionLayoutItemConvertible) {
+                subItem: () -> LayoutItem) {
         self.widthDimension = width
         self.heightDimension = height
         self.subItems = .repeated(subItem(), count: count)
@@ -47,62 +51,75 @@ public struct HGroup: LayoutGroup, ResizableItem, HasResizableProperties {
 
     public init(size: NSCollectionLayoutSize,
                 count: Int,
-                subItem: () -> CollectionLayoutItemConvertible) {
+                subItem: () -> LayoutItem) {
         self.widthDimension = size.widthDimension
         self.heightDimension = size.heightDimension
         self.subItems = .repeated(subItem(), count: count)
     }
 
-    public init(@LayoutItemBuilder subItems: () -> [CollectionLayoutItemConvertible]) {
+    public init(@LayoutItemBuilder subItems: () -> [LayoutItem]) {
         self.init(width: .fractionalWidth(1), height: .fractionalHeight(1), subItems: subItems)
     }
 
     // MARK: - LayoutGroup
 
-    public var layoutGroup: CollectionLayoutGroupConvertible {
+    public var layoutGroup: LayoutGroup {
+        return self
+    }
+
+    public func makeGroup() -> NSCollectionLayoutGroup {
         let size = NSCollectionLayoutSize(
             widthDimension: widthDimension,
             heightDimension: heightDimension
         )
+        let group: NSCollectionLayoutGroup
         switch subItems {
         case let .list(items):
-            return NSCollectionLayoutGroup.horizontal(
+            group = NSCollectionLayoutGroup.horizontal(
                 layoutSize: size,
-                subitems: items.map(\.collectionLayoutItem)
+                subitems: items.map { $0.makeItem() }
             )
         case let .repeated(item, count):
-            return NSCollectionLayoutGroup.horizontal(
+            group = NSCollectionLayoutGroup.horizontal(
                 layoutSize: size,
-                subitem: item.collectionLayoutItem,
+                subitem: item.makeItem(),
                 count: count
             )
         }
+        group.apply(groupPropertiesFrom: self)
+        return group
     }
 }
 
-public struct VGroup: LayoutGroup, ResizableItem, HasResizableProperties {
+extension HGroup: HasGroupProperties {}
+
+public struct VGroup: LayoutGroup, ResizableItem {
 
     private enum SubItems {
-        case list([CollectionLayoutItemConvertible])
-        case repeated(CollectionLayoutItemConvertible, count: Int)
+        case list([LayoutItem])
+        case repeated(LayoutItem, count: Int)
     }
 
-    public var widthDimension: NSCollectionLayoutDimension
-    public var heightDimension: NSCollectionLayoutDimension
+    internal var widthDimension: NSCollectionLayoutDimension
+    internal var heightDimension: NSCollectionLayoutDimension
+    internal var contentInsets: NSDirectionalEdgeInsets = .zero
+    internal var edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: nil, bottom: nil)
+    internal var supplementaryItems: [LayoutSupplementaryItem] = []
+    internal var interItemSpacing: NSCollectionLayoutSpacing?
     private var subItems: SubItems
 
     // MARK: - Life cycle
 
     public init(width: NSCollectionLayoutDimension = .fractionalWidth(1),
                 height: NSCollectionLayoutDimension = .fractionalHeight(1),
-                @LayoutItemBuilder subItems: () -> [CollectionLayoutItemConvertible]) {
+                @LayoutItemBuilder subItems: () -> [LayoutItem]) {
         self.widthDimension = width
         self.heightDimension = height
         self.subItems = .list(subItems())
     }
 
     public init(size: NSCollectionLayoutSize,
-                @LayoutItemBuilder subItems: () -> [CollectionLayoutItemConvertible]) {
+                @LayoutItemBuilder subItems: () -> [LayoutItem]) {
         self.widthDimension = size.widthDimension
         self.heightDimension = size.heightDimension
         self.subItems = .list(subItems())
@@ -111,7 +128,7 @@ public struct VGroup: LayoutGroup, ResizableItem, HasResizableProperties {
     public init(width: NSCollectionLayoutDimension = .fractionalWidth(1),
                 height: NSCollectionLayoutDimension = .fractionalHeight(1),
                 count: Int,
-                subItem: () -> CollectionLayoutItemConvertible) {
+                subItem: () -> LayoutItem) {
         self.widthDimension = width
         self.heightDimension = height
         self.subItems = .repeated(subItem(), count: count)
@@ -119,43 +136,56 @@ public struct VGroup: LayoutGroup, ResizableItem, HasResizableProperties {
 
     public init(size: NSCollectionLayoutSize,
                 count: Int,
-                subItem: () -> CollectionLayoutItemConvertible) {
+                subItem: () -> LayoutItem) {
         self.widthDimension = size.widthDimension
         self.heightDimension = size.heightDimension
         self.subItems = .repeated(subItem(), count: count)
     }
 
-    public init(@LayoutItemBuilder subItems: () -> [CollectionLayoutItemConvertible]) {
+    public init(@LayoutItemBuilder subItems: () -> [LayoutItem]) {
         self.init(width: .fractionalWidth(1), height: .fractionalHeight(1), subItems: subItems)
     }
 
     // MARK: - LayoutGroup
 
-    public var layoutGroup: CollectionLayoutGroupConvertible {
+    public var layoutGroup: LayoutGroup {
+        return self
+    }
+
+    public func makeGroup() -> NSCollectionLayoutGroup {
         let size = NSCollectionLayoutSize(
             widthDimension: widthDimension,
             heightDimension: heightDimension
         )
+        let group: NSCollectionLayoutGroup
         switch subItems {
         case let .list(items):
-            return NSCollectionLayoutGroup.vertical(
+            group = NSCollectionLayoutGroup.vertical(
                 layoutSize: size,
-                subitems: items.map(\.collectionLayoutItem)
+                subitems: items.map { $0.makeItem() }
             )
         case let .repeated(item, count):
-            return NSCollectionLayoutGroup.vertical(
+            group = NSCollectionLayoutGroup.vertical(
                 layoutSize: size,
-                subitem: item.collectionLayoutItem,
+                subitem: item.makeItem(),
                 count: count
             )
         }
+        group.apply(groupPropertiesFrom: self)
+        return group
     }
 }
 
-public struct CustomGroup: LayoutGroup, ResizableItem, HasResizableProperties {
+extension VGroup: HasGroupProperties {}
 
-    public var widthDimension: NSCollectionLayoutDimension
-    public var heightDimension: NSCollectionLayoutDimension
+public struct CustomGroup: LayoutGroup, ResizableItem {
+
+    internal var widthDimension: NSCollectionLayoutDimension
+    internal var heightDimension: NSCollectionLayoutDimension
+    internal var contentInsets: NSDirectionalEdgeInsets = .zero
+    internal var edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: nil, bottom: nil)
+    internal var supplementaryItems: [LayoutSupplementaryItem] = []
+    internal var interItemSpacing: NSCollectionLayoutSpacing?
     private let itemProvider: NSCollectionLayoutGroupCustomItemProvider
 
     // MARK: - Life cycle
@@ -181,11 +211,19 @@ public struct CustomGroup: LayoutGroup, ResizableItem, HasResizableProperties {
 
     // MARK: - LayoutGroup
 
-    public var layoutGroup: CollectionLayoutGroupConvertible {
+    public var layoutGroup: LayoutGroup {
+        return self
+    }
+
+    public func makeGroup() -> NSCollectionLayoutGroup {
         let size = NSCollectionLayoutSize(
             widthDimension: widthDimension,
             heightDimension: heightDimension
         )
-        return NSCollectionLayoutGroup.custom(layoutSize: size, itemProvider: itemProvider)
+        let group = NSCollectionLayoutGroup.custom(layoutSize: size, itemProvider: itemProvider)
+        group.apply(groupPropertiesFrom: self)
+        return group
     }
 }
+
+extension CustomGroup: HasGroupProperties {}

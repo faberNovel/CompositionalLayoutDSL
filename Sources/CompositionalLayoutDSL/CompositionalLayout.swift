@@ -24,7 +24,7 @@ public struct CompositionalLayout {
     public var collectionCompositionalLayout: UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout(
             sectionProvider: { section, environment in
-                return sectionBuilder(section, environment)?.collectionLayoutSection
+                return sectionBuilder(section, environment)?.makeLayoutSection()
             },
             configuration: configuration.collectionLayoutConfiguration
         )

@@ -8,17 +8,19 @@
 
 import UIKit
 
-public struct Item: LayoutItem, ResizableItem, HasResizableProperties {
+public struct Item: LayoutItem, ResizableItem {
 
-    public var widthDimension: NSCollectionLayoutDimension
-    public var heightDimension: NSCollectionLayoutDimension
-    private var supplementaryItems: [CollectionLayoutSupplementaryItemConvertible]
+    internal var widthDimension: NSCollectionLayoutDimension
+    internal var heightDimension: NSCollectionLayoutDimension
+    internal var contentInsets: NSDirectionalEdgeInsets = .zero
+    internal var edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: nil, bottom: nil)
+    private var supplementaryItems: [LayoutSupplementaryItem]
 
     // MARK: - Life cycle
 
     public init(width: NSCollectionLayoutDimension,
                 height: NSCollectionLayoutDimension,
-                @SupplementaryItemBuilder supplementaryItems: () -> [CollectionLayoutSupplementaryItemConvertible]) {
+                @SupplementaryItemBuilder supplementaryItems: () -> [LayoutSupplementaryItem]) {
         self.widthDimension = width
         self.heightDimension = height
         self.supplementaryItems = supplementaryItems()
@@ -37,7 +39,7 @@ public struct Item: LayoutItem, ResizableItem, HasResizableProperties {
         self.supplementaryItems = []
     }
 
-    public init(@SupplementaryItemBuilder supplementaryItems: () -> [CollectionLayoutSupplementaryItemConvertible]) {
+    public init(@SupplementaryItemBuilder supplementaryItems: () -> [LayoutSupplementaryItem]) {
         self.init(width: .fractionalWidth(1), height: .fractionalHeight(1), supplementaryItems: supplementaryItems)
     }
 
@@ -47,10 +49,19 @@ public struct Item: LayoutItem, ResizableItem, HasResizableProperties {
 
     // MARK: - LayoutItem
 
-    public var layoutItem: CollectionLayoutItemConvertible {
-        return NSCollectionLayoutItem(
+    public var layoutItem: LayoutItem {
+        return self
+    }
+
+    public func makeItem() -> NSCollectionLayoutItem {
+        let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(widthDimension: widthDimension, heightDimension: heightDimension),
-            supplementaryItems: supplementaryItems.map(\.collectionLayoutSupplementaryItem)
+            supplementaryItems: supplementaryItems.map { $0.makeSupplementaryItem() }
         )
+        item.contentInsets = contentInsets
+        item.edgeSpacing = edgeSpacing
+        return item
     }
 }
+
+extension Item: HasResizableProperties, HasContentInsetProperties, HasEdgeSpacingProperties {}

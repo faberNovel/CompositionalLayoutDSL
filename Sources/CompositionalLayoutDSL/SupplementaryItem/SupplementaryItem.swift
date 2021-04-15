@@ -8,15 +8,18 @@
 
 import UIKit
 
-public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem, HasResizableProperties {
+public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem {
 
     public enum AnchorOffset {
         case absolute(CGPoint)
         case fractional(CGPoint)
     }
 
-    public var widthDimension: NSCollectionLayoutDimension
-    public var heightDimension: NSCollectionLayoutDimension
+    internal var widthDimension: NSCollectionLayoutDimension
+    internal var heightDimension: NSCollectionLayoutDimension
+    internal var contentInsets: NSDirectionalEdgeInsets = .zero
+    internal var edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: nil, bottom: nil)
+    internal var zIndex: Int = 0
     private var elementKind: String
 
     private var containerAnchor = NSCollectionLayoutAnchor(edges: [.top, .leading])
@@ -77,27 +80,36 @@ public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem, HasResi
 
     // MARK: - LayoutSupplementaryItem
 
-    public var layoutSupplementaryItem: CollectionLayoutSupplementaryItemConvertible {
+    public var layoutSupplementaryItem: LayoutSupplementaryItem {
+        return self
+    }
+
+    public func makeSupplementaryItem() -> NSCollectionLayoutSupplementaryItem {
         let size = NSCollectionLayoutSize(
             widthDimension: widthDimension,
             heightDimension: heightDimension
         )
+        let supplementaryItem: NSCollectionLayoutSupplementaryItem
         if let itemAnchor = itemAnchor {
-            return NSCollectionLayoutSupplementaryItem(
+            supplementaryItem = NSCollectionLayoutSupplementaryItem(
                 layoutSize: size,
                 elementKind: elementKind,
                 containerAnchor: containerAnchor,
                 itemAnchor: itemAnchor
             )
         } else {
-            return NSCollectionLayoutSupplementaryItem(
+            supplementaryItem = NSCollectionLayoutSupplementaryItem(
                 layoutSize: size,
                 elementKind: elementKind,
                 containerAnchor: containerAnchor
             )
         }
+        supplementaryItem.apply(supplementaryPropertiesFrom: self)
+        return supplementaryItem
     }
 }
+
+extension SupplementaryItem: HasSupplementaryItemProperties {}
 
 public extension SupplementaryItem.AnchorOffset {
     static func absolute(x: CGFloat, y: CGFloat) -> SupplementaryItem.AnchorOffset {

@@ -8,10 +8,15 @@
 
 import UIKit
 
-public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, ResizableItem, HasResizableProperties {
+public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, ResizableItem {
 
-    public var widthDimension: NSCollectionLayoutDimension
-    public var heightDimension: NSCollectionLayoutDimension
+    internal var widthDimension: NSCollectionLayoutDimension
+    internal var heightDimension: NSCollectionLayoutDimension
+    internal var contentInsets: NSDirectionalEdgeInsets = .zero
+    internal var edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: nil, bottom: nil)
+    internal var zIndex: Int = 0
+    internal var extendsBoundary: Bool = true
+    internal var pinToVisibleBounds: Bool = false
     private var elementKind: String
 
     private var alignment: NSRectAlignment = .top
@@ -46,8 +51,12 @@ public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, Resiza
 
     // MARK: - LayoutBoundarySupplementaryItem
 
-    public var layoutBoundarySupplementaryItem: CollectionLayoutBoundarySupplementaryItemConvertible {
-        return NSCollectionLayoutBoundarySupplementaryItem(
+    public var layoutBoundarySupplementaryItem: LayoutBoundarySupplementaryItem {
+        self
+    }
+
+    public func makeBoundarySupplementaryItem() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let boundarySupplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: widthDimension,
                 heightDimension: heightDimension
@@ -56,5 +65,9 @@ public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, Resiza
             alignment: alignment,
             absoluteOffset: absoluteOffset
         )
+        boundarySupplementaryItem.apply(boundarysupplementaryPropertiesFrom: self)
+        return boundarySupplementaryItem
     }
 }
+
+extension BoundarySupplementaryItem: HasBoundarySupplementaryItemProperties {}

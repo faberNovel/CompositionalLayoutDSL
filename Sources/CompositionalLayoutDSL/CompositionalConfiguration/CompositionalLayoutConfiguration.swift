@@ -57,7 +57,7 @@ public extension CompositionalLayoutConfiguration {
     ) -> CompositionalLayoutConfiguration {
         with(collectionLayoutConfiguration) {
             $0.boundarySupplementaryItems.append(
-                contentsOf: boundarySupplementaryItems().map(\.collectionLayoutBoundarySupplementaryItem)
+                contentsOf: boundarySupplementaryItems().map { $0.makeBoundarySupplementaryItem() }
             )
         }
     }

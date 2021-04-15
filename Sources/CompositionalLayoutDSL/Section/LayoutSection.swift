@@ -8,118 +8,59 @@
 
 import UIKit
 
-// MARK: - CollectionLayoutSectionConvertible
-
-public protocol CollectionLayoutSectionConvertible {
-    var collectionLayoutSection: NSCollectionLayoutSection { get }
+public protocol LayoutSection {
+    var sectionLayout: LayoutSection { get }
+    func makeLayoutSection() -> NSCollectionLayoutSection
 }
 
-extension NSCollectionLayoutSection: CollectionLayoutSectionConvertible {
-    public var collectionLayoutSection: NSCollectionLayoutSection { self }
-}
-
-// MARK: - LayoutSection
-
-public protocol LayoutSection: CollectionLayoutSectionConvertible {
-    var sectionLayout: CollectionLayoutSectionConvertible { get }
-}
-
-public extension LayoutSection {
-
-    // MARK: - CollectionLayoutSectionConvertible
-
-    var collectionLayoutSection: NSCollectionLayoutSection { sectionLayout.collectionLayoutSection }
-}
-
-extension NSCollectionLayoutSection: LayoutSection {
-    public var sectionLayout: CollectionLayoutSectionConvertible { self }
-}
-
-public extension LayoutSection {
-
-    // MARK: - Mutable properties
-
-    // TODO: (Alexandre Podlewski) 07/04/2021 Try factorize that with LayoutItem
-    func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutSection {
-        return contentInsets(
-            top: insets.top,
-            leading: insets.leading,
-            bottom: insets.bottom,
-            trailing: insets.trailing
-        )
+extension HasSectionProperties {
+    public func interGroupSpacing(_ spacing: CGFloat) -> Self {
+        with(self) { $0.interGroupSpacing = spacing }
     }
 
-    func contentInsets(value: CGFloat) -> LayoutSection {
-        return contentInsets(top: value, leading: value, bottom: value, trailing: value)
-    }
+//    @available(iOS 14.0, tvOS 14.0, *)
+//    public func contentInsetsReference(_ reference: UIContentInsetsReference) -> Self {
+//        with(self) { $0.contentInsetsReference = reference }
+//    }
 
-    func contentInsets(horizontal: CGFloat = 0, vertical: CGFloat = 0) -> LayoutSection {
-        return contentInsets(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
-    }
-
-    func contentInsets(
-        top: CGFloat = 0,
-        leading: CGFloat = 0,
-        bottom: CGFloat = 0,
-        trailing: CGFloat = 0
-    ) -> LayoutSection {
-        return with(collectionLayoutSection) {
-            $0.contentInsets = NSDirectionalEdgeInsets(
-                top: top,
-                leading: leading,
-                bottom: bottom,
-                trailing: trailing
-            )
-        }
-    }
-
-    func interGroupSpacing(_ spacing: CGFloat) -> LayoutSection {
-        with(collectionLayoutSection) { $0.interGroupSpacing = spacing }
-    }
-
-    @available(iOS 14.0, tvOS 14.0, *)
-    func contentInsetsReference(_ reference: UIContentInsetsReference) -> LayoutSection {
-        with(collectionLayoutSection) { $0.contentInsetsReference = reference }
-    }
-
-    func orthogonalScrollingBehavior(
+    public func orthogonalScrollingBehavior(
         _ orthogonalScrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior
-    ) -> LayoutSection {
-        with(collectionLayoutSection) { $0.orthogonalScrollingBehavior = orthogonalScrollingBehavior }
+    ) -> Self {
+        with(self) { $0.orthogonalScrollingBehavior = orthogonalScrollingBehavior }
     }
 
-    func boundarySupplementaryItems(
+    public func boundarySupplementaryItems(
         @BoundarySupplementaryItemBuilder
-        _ boundarySupplementaryItems: () -> [CollectionLayoutBoundarySupplementaryItemConvertible]
-    ) -> LayoutSection {
-        with(collectionLayoutSection) {
+        _ boundarySupplementaryItems: () -> [LayoutBoundarySupplementaryItem]
+    ) -> Self {
+        with(self) {
             $0.boundarySupplementaryItems.append(
-                contentsOf: boundarySupplementaryItems().map { $0.collectionLayoutBoundarySupplementaryItem }
+                contentsOf: boundarySupplementaryItems()
             )
         }
     }
 
-    func supplementariesFollowContentInsets(
+    public func supplementariesFollowContentInsets(
         _ supplementariesFollowContentInsets: Bool
-    ) -> LayoutSection {
-        with(collectionLayoutSection) {
+    ) -> Self {
+        with(self) {
             $0.supplementariesFollowContentInsets = supplementariesFollowContentInsets
         }
     }
 
-    func visibleItemsInvalidationHandler(
+    public func visibleItemsInvalidationHandler(
         _ visibleItemsInvalidationHandler: NSCollectionLayoutSectionVisibleItemsInvalidationHandler?
-    ) -> LayoutSection {
-        with(collectionLayoutSection) {
+    ) -> Self {
+        with(self) {
             $0.visibleItemsInvalidationHandler = visibleItemsInvalidationHandler
         }
     }
 
-    func decorationItems(
-        @DecorationItemBuilder _ decorationItems: () -> [CollectionLayoutDecorationItemConvertible]
-    ) -> LayoutSection {
-        with(collectionLayoutSection) {
-            $0.decorationItems.append(contentsOf: decorationItems().map(\.collectionLayoutDecorationItem))
+    public func decorationItems(
+        @DecorationItemBuilder _ decorationItems: () -> [LayoutDecorationItem]
+    ) -> Self {
+        with(self) {
+            $0.decorationItems.append(contentsOf: decorationItems())
         }
     }
 }

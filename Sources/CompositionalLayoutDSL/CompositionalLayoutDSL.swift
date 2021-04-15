@@ -13,14 +13,14 @@ import UIKit
 
 public func LayoutBuilder(
     configuration: CollectionLayoutConfigurationConvertible = CompositionalConfiguration(),
-    closure: () -> CollectionLayoutSectionConvertible
+    closure: () -> LayoutSection
 ) -> UICollectionViewCompositionalLayout {
     return UICollectionViewCompositionalLayout(
-        section: closure().collectionLayoutSection,
+        section: closure().makeLayoutSection(),
         configuration: configuration.collectionLayoutConfiguration
     )
 }
 
 public func SectionBuilder(closure: () -> LayoutSection) -> NSCollectionLayoutSection {
-    closure().collectionLayoutSection
+    closure().makeLayoutSection()
 }
