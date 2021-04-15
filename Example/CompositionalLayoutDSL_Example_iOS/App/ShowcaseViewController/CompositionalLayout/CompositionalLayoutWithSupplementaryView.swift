@@ -25,8 +25,8 @@ struct CompositionalLayoutWithSupplementaryView {
 
     // MARK: - Private
 
-    private var configuration: CollectionLayoutConfigurationConvertible {
-        CompositionalConfiguration()
+    private var configuration: LayoutConfiguration {
+        Configuration()
             .interSectionSpacing(20)
             .boundarySupplementaryItems {
                 BoundarySupplementaryItem(elementKind: UICollectionView.elementKindSectionHeader)

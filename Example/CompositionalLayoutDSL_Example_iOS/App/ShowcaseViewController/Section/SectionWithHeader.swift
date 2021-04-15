@@ -15,7 +15,7 @@ struct SectionWithHeader: LayoutSection {
     var height: NSCollectionLayoutDimension = .absolute(30)
     var section: () -> LayoutSection
 
-    var sectionLayout: CollectionLayoutSectionConvertible {
+    var sectionLayout: LayoutSection {
         section()
             .boundarySupplementaryItems {
                 BoundarySupplementaryItem(elementKind: kind)
@@ -33,7 +33,7 @@ struct TraditionalSectionWithHeader: LayoutSection {
     var height: NSCollectionLayoutDimension = .absolute(30)
     var baseSectionLayout: NSCollectionLayoutSection
 
-    var sectionLayout: CollectionLayoutSectionConvertible {
+    var sectionLayout: LayoutSection {
         let headerItemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: height

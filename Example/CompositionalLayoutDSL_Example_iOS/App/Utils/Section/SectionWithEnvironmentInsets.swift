@@ -28,7 +28,7 @@ struct SectionWithEnvironmentInsets: LayoutSection {
 
     // MARK: - LayoutSection
 
-    var sectionLayout: CollectionLayoutSectionConvertible {
+    var sectionLayout: LayoutSection {
         baseSection.contentInsets(insets)
     }
 }

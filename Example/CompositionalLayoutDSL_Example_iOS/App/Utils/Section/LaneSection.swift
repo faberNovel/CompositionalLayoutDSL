@@ -28,7 +28,7 @@ struct LaneSection: LayoutSection {
         self.itemProvider = itemProvider
     }
 
-    var sectionLayout: CollectionLayoutSectionConvertible {
+    var sectionLayout: LayoutSection {
         Section {
             VGroup { itemProvider() }
                 .width(.absolute(cellWidth))

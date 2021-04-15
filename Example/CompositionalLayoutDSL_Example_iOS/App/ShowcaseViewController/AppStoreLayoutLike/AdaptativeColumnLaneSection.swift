@@ -19,7 +19,7 @@ struct AdaptativeColumnLaneSection: LayoutSection {
 
     // MARK: - LayoutSection
 
-    var sectionLayout: CollectionLayoutSectionConvertible {
+    var sectionLayout: LayoutSection {
         ColumnLaneSection(
             columns: columns,
             cellHeightProvider: cellHeightProvider,
