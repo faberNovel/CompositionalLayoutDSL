@@ -13,6 +13,12 @@ public protocol LayoutSection {
     func makeLayoutSection() -> NSCollectionLayoutSection
 }
 
+extension LayoutSection {
+    func makeLayoutSection() -> NSCollectionLayoutSection {
+        sectionLayout.makeLayoutSection()
+    }
+}
+
 extension HasSectionProperties {
     public func interGroupSpacing(_ spacing: CGFloat) -> Self {
         with(self) { $0.interGroupSpacing = spacing }

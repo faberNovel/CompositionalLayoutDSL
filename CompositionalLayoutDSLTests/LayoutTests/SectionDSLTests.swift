@@ -29,7 +29,7 @@ class SectionDSLTests: XCTestCase {
 
 private struct TestListSectionSection: LayoutSection {
 
-    var sectionLayout: CollectionLayoutSectionConvertible {
+    var sectionLayout: LayoutSection {
         Section {
             HGroup(count: 1) { Item() }
                 .height(.absolute(40))

@@ -29,7 +29,7 @@ class SupplementaryItemDSLTests: XCTestCase {
 
 private struct TestSectionSection: LayoutSection {
 
-    var sectionLayout: CollectionLayoutSectionConvertible {
+    var sectionLayout: LayoutSection {
         Section {
             HGroup(count: 4) {
                 Item {

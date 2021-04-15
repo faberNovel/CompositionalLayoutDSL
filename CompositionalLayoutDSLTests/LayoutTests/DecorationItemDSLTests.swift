@@ -37,7 +37,7 @@ private extension UICollectionViewLayout {
 
 private struct TestListSectionSection: LayoutSection {
 
-    var sectionLayout: CollectionLayoutSectionConvertible {
+    var sectionLayout: LayoutSection {
         Section {
             HGroup(count: 4) { Item() }
                 .height(.absolute(40))

@@ -34,7 +34,7 @@ private struct TestInnerGroupsSection: LayoutSection {
 
     // MARK: - LayoutSection
 
-    var sectionLayout: CollectionLayoutSectionConvertible {
+    var sectionLayout: LayoutSection {
         Section {
             HGroup {
                 Item(width: .fractionalWidth(1 / 3))
