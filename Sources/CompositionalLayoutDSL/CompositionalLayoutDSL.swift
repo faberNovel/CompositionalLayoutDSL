@@ -12,12 +12,12 @@ import UIKit
 // swiftlint:disable identifier_name
 
 public func LayoutBuilder(
-    configuration: CollectionLayoutConfigurationConvertible = CompositionalConfiguration(),
+    configuration: CompositionalLayoutConfiguration = CompositionalConfiguration(),
     closure: () -> LayoutSection
 ) -> UICollectionViewCompositionalLayout {
     return UICollectionViewCompositionalLayout(
         section: closure().makeLayoutSection(),
-        configuration: configuration.collectionLayoutConfiguration
+        configuration: configuration.makeConfiguration()
     )
 }
 

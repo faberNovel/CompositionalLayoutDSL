@@ -8,66 +8,38 @@
 
 import UIKit
 
-// MARK: - CollectionLayoutConfigurationConvertible
-
-public protocol CollectionLayoutConfigurationConvertible {
-    var collectionLayoutConfiguration: UICollectionViewCompositionalLayoutConfiguration { get }
+public protocol CompositionalLayoutConfiguration {
+    var layoutConfiguration: CompositionalLayoutConfiguration { get }
+    func makeConfiguration() -> UICollectionViewCompositionalLayoutConfiguration
 }
 
-extension UICollectionViewCompositionalLayoutConfiguration: CollectionLayoutConfigurationConvertible {
-    public var collectionLayoutConfiguration: UICollectionViewCompositionalLayoutConfiguration { self }
-}
-
-// MARK: - CompositionalLayoutConfiguration
-
-public protocol CompositionalLayoutConfiguration: CollectionLayoutConfigurationConvertible {
-    var layoutConfiguration: CollectionLayoutConfigurationConvertible { get }
-}
-
-public extension CompositionalLayoutConfiguration {
-
-    // MARK: - CollectionLayoutConfigurationConvertible
-
-    var collectionLayoutConfiguration: UICollectionViewCompositionalLayoutConfiguration {
-        layoutConfiguration.collectionLayoutConfiguration
-    }
-}
-
-extension UICollectionViewCompositionalLayoutConfiguration: CompositionalLayoutConfiguration {
-    public var layoutConfiguration: CollectionLayoutConfigurationConvertible { self }
-}
-
-public extension CompositionalLayoutConfiguration {
+extension HasConfigurationProperties {
 
     // MARK: - Mutable properties
 
-    func scrollDirection(
+    public func scrollDirection(
         _ scrollDirection: UICollectionView.ScrollDirection
-    ) -> CompositionalLayoutConfiguration {
-        with(collectionLayoutConfiguration) { $0.scrollDirection = scrollDirection }
+    ) -> Self {
+        with(self) { $0.scrollDirection = scrollDirection }
     }
 
-    func interSectionSpacing(_ interSectionSpacing: CGFloat) -> CompositionalLayoutConfiguration {
-        with(collectionLayoutConfiguration) { $0.interSectionSpacing = interSectionSpacing }
+    public func interSectionSpacing(_ interSectionSpacing: CGFloat) -> Self {
+        with(self) { $0.interSectionSpacing = interSectionSpacing }
     }
 
-    func boundarySupplementaryItems(
+    public func boundarySupplementaryItems(
         @BoundarySupplementaryItemBuilder
         _ boundarySupplementaryItems: () -> [LayoutBoundarySupplementaryItem]
-    ) -> CompositionalLayoutConfiguration {
-        with(collectionLayoutConfiguration) {
-            $0.boundarySupplementaryItems.append(
-                contentsOf: boundarySupplementaryItems().map { $0.makeBoundarySupplementaryItem() }
-            )
-        }
+    ) -> Self {
+        with(self) { $0.boundarySupplementaryItems.append(contentsOf: boundarySupplementaryItems()) }
     }
 
-    @available(iOS 14.0, tvOS 14.0, *)
-    func contentInsetsReference(
-        _ contentInsetsReference: UIContentInsetsReference
-    ) -> CompositionalLayoutConfiguration {
-        with(collectionLayoutConfiguration) {
-            $0.contentInsetsReference = contentInsetsReference
-        }
-    }
+//    @available(iOS 14.0, tvOS 14.0, *)
+//    public func contentInsetsReference(
+//        _ contentInsetsReference: UIContentInsetsReference
+//    ) -> Self {
+//        with(self) {
+//            $0.contentInsetsReference = contentInsetsReference
+//        }
+//    }
 }
