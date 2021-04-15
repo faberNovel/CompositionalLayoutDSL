@@ -54,8 +54,8 @@ private struct TestInnerGroupsSection: LayoutSection {
         .interGroupSpacing(8)
     }
 
-    var configuration: CollectionLayoutConfigurationConvertible {
-        CompositionalConfiguration()
+    var configuration: LayoutConfiguration {
+        Configuration()
             .interSectionSpacing(8)
     }
 }
