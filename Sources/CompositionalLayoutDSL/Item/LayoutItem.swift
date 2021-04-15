@@ -13,6 +13,12 @@ public protocol LayoutItem: ContentInsetable, EdgeSpacable {
     func _makeItem() -> NSCollectionLayoutItem
 }
 
+public extension LayoutItem {
+    func _makeItem() -> NSCollectionLayoutItem {
+        layoutItem._makeItem()
+    }
+}
+
 extension HasResizableProperties {
     public func width(_ width: NSCollectionLayoutDimension) -> Self {
         with(self) { $0.widthDimension = width }

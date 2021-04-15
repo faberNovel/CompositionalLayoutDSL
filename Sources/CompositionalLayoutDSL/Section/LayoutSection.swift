@@ -13,7 +13,7 @@ public protocol LayoutSection {
     func _makeSection() -> NSCollectionLayoutSection
 }
 
-extension LayoutSection {
+public extension LayoutSection {
     func _makeSection() -> NSCollectionLayoutSection {
         sectionLayout._makeSection()
     }

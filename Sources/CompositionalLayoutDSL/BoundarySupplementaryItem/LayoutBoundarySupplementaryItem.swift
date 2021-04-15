@@ -15,6 +15,10 @@ public protocol LayoutBoundarySupplementaryItem: LayoutSupplementaryItem {
 
 public extension LayoutBoundarySupplementaryItem {
 
+    func _makeBoundarySupplementaryItem() -> NSCollectionLayoutBoundarySupplementaryItem {
+        layoutBoundarySupplementaryItem._makeBoundarySupplementaryItem()
+    }
+
     // MARK: - LayoutSupplementaryItem
 
     var layoutSupplementaryItem: LayoutSupplementaryItem { self }

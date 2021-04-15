@@ -15,6 +15,10 @@ public protocol LayoutSupplementaryItem: LayoutItem {
 
 public extension LayoutSupplementaryItem {
 
+    func _makeSupplementaryItem() -> NSCollectionLayoutItem {
+        layoutSupplementaryItem._makeSupplementaryItem()
+    }
+
     // MARK: - LayoutItem
 
     var layoutItem: LayoutItem { self }

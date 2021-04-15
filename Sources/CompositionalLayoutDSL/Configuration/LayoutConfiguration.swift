@@ -13,6 +13,12 @@ public protocol LayoutConfiguration {
     func _makeConfiguration() -> UICollectionViewCompositionalLayoutConfiguration
 }
 
+public extension LayoutConfiguration {
+    func _makeConfiguration() -> UICollectionViewCompositionalLayoutConfiguration {
+        layoutConfiguration._makeConfiguration()
+    }
+}
+
 extension HasConfigurationProperties {
 
     // MARK: - Mutable properties

@@ -15,6 +15,10 @@ public protocol LayoutGroup: LayoutItem {
 
 public extension LayoutGroup {
 
+    func _makeGroup() -> NSCollectionLayoutGroup {
+        layoutGroup._makeGroup()
+    }
+
     // MARK: - LayoutItem
 
     var layoutItem: LayoutItem { layoutGroup }

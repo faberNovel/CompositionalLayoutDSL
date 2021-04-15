@@ -15,6 +15,10 @@ public protocol LayoutDecorationItem: LayoutItem {
 
 public extension LayoutDecorationItem {
 
+    func _makeDecorationItem() -> NSCollectionLayoutDecorationItem {
+        layoutDecorationItem._makeDecorationItem()
+    }
+
     // MARK: - LayoutItem
 
     var layoutItem: LayoutItem { self }
