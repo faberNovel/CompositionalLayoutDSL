@@ -13,8 +13,7 @@ public struct Configuration: LayoutConfiguration {
     internal var scrollDirection: UICollectionView.ScrollDirection = .vertical
     internal var interSectionSpacing: CGFloat = 0
     internal var boundarySupplementaryItems: [LayoutBoundarySupplementaryItem] = []
-//    @available(iOS 14.0, *)
-//    internal var contentInsetsReference: UIContentInsetsReference { get set }
+    internal var contentInsetsReference: ContentInsetsReference = .safeArea
 
     // MARK: - Life cycle
 

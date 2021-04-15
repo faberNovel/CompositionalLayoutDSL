@@ -10,8 +10,8 @@ import UIKit
 
 internal protocol HasSectionProperties: HasContentInsetProperties {
     var interGroupSpacing: CGFloat { get set }
-    //    @available(iOS 14.0, tvOS 14.0, *)
-    //    var contentInsetsReference: UIContentInsetsReference { get set }
+    @available(iOS 14.0, tvOS 14.0, *)
+    var contentInsetsReference: ContentInsetsReference { get set }
     var orthogonalScrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior { get set }
     var boundarySupplementaryItems: [LayoutBoundarySupplementaryItem] { get set }
     var supplementariesFollowContentInsets: Bool { get set }
@@ -23,9 +23,9 @@ extension NSCollectionLayoutSection {
     func apply(sectionPropertiesFrom propertiesHolder: HasSectionProperties) {
         self.contentInsets = propertiesHolder.contentInsets
         self.interGroupSpacing = propertiesHolder.interGroupSpacing
-        //        if #available(iOS 14.0, *) {
-        //            self.contentInsetsReference = propertiesHolder.contentInsetsReference
-        //        }
+        if #available(iOS 14.0, *) {
+            self.contentInsetsReference = propertiesHolder.contentInsetsReference.uiKitValue
+        }
         self.orthogonalScrollingBehavior = propertiesHolder.orthogonalScrollingBehavior
         self.boundarySupplementaryItems = propertiesHolder.boundarySupplementaryItems.map {
             $0._makeBoundarySupplementaryItem()

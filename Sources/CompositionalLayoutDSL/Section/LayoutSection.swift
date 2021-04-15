@@ -24,10 +24,10 @@ extension HasSectionProperties {
         with(self) { $0.interGroupSpacing = spacing }
     }
 
-//    @available(iOS 14.0, tvOS 14.0, *)
-//    public func contentInsetsReference(_ reference: UIContentInsetsReference) -> Self {
-//        with(self) { $0.contentInsetsReference = reference }
-//    }
+    @available(iOS 14.0, tvOS 14.0, *)
+    public func contentInsetsReference(_ reference: UIContentInsetsReference) -> Self {
+        with(self) { $0.contentInsetsReference = ContentInsetsReference(from: reference) }
+    }
 
     public func orthogonalScrollingBehavior(
         _ orthogonalScrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior

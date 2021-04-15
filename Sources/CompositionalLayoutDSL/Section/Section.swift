@@ -12,9 +12,7 @@ public struct Section: LayoutSection, ContentInsetable {
 
     internal var contentInsets: NSDirectionalEdgeInsets = .zero
     internal var interGroupSpacing: CGFloat = 0
-    // Error: Stored properties cannot be marked potentially unavailable with '@available'
-//    @available(iOS 14.0, tvOS 14.0, *)
-//    internal var contentInsetsReference: UIContentInsetsReference = .safeArea
+    internal var contentInsetsReference: ContentInsetsReference = .safeArea
     internal var orthogonalScrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior = .none
     internal var boundarySupplementaryItems: [LayoutBoundarySupplementaryItem] = []
     internal var supplementariesFollowContentInsets: Bool = true

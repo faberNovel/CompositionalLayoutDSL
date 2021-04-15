@@ -34,12 +34,10 @@ extension HasConfigurationProperties {
         with(self) { $0.boundarySupplementaryItems.append(contentsOf: boundarySupplementaryItems()) }
     }
 
-//    @available(iOS 14.0, tvOS 14.0, *)
-//    public func contentInsetsReference(
-//        _ contentInsetsReference: UIContentInsetsReference
-//    ) -> Self {
-//        with(self) {
-//            $0.contentInsetsReference = contentInsetsReference
-//        }
-//    }
+    @available(iOS 14.0, tvOS 14.0, *)
+    public func contentInsetsReference(_ contentInsetsReference: UIContentInsetsReference) -> Self {
+        with(self) {
+            $0.contentInsetsReference = ContentInsetsReference(from: contentInsetsReference)
+        }
+    }
 }
