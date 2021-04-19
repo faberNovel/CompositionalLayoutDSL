@@ -20,7 +20,7 @@ class DecorationItemDSLTests: XCTestCase {
             layout1: UICollectionViewCompositionalLayout(
                 section: traditionalLayout.section
             ).registeringDecorationView(),
-            layout2: LayoutBuilder { dslLayout.sectionLayout }.registeringDecorationView(),
+            layout2: LayoutBuilder { dslLayout.layoutSection }.registeringDecorationView(),
             as: .image(on: .iPhoneX, traits: UITraitCollection(userInterfaceStyle: .light)),
             named: "testDecorationItem",
             maxTestsCount: 5
@@ -37,7 +37,7 @@ private extension UICollectionViewLayout {
 
 private struct TestListSectionSection: LayoutSection {
 
-    var sectionLayout: LayoutSection {
+    var layoutSection: LayoutSection {
         Section {
             HGroup(count: 4) { Item() }
                 .height(.absolute(40))
