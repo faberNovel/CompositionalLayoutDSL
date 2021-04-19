@@ -8,11 +8,9 @@
 
 import UIKit
 
-internal protocol HasItemProperties: HasResizableProperties, HasContentInsetProperties, HasEdgeSpacingProperties {}
+internal protocol HasItemProperties: HasResizableProperties {}
 
 internal extension NSCollectionLayoutItem {
     func apply(itemPropertiesFrom propertiesHolder: HasItemProperties) {
-        self.contentInsets = propertiesHolder.contentInsets
-        self.edgeSpacing = propertiesHolder.edgeSpacing
     }
 }

@@ -8,9 +8,8 @@
 
 import UIKit
 
-public struct Section: LayoutSection, ContentInsetable {
+public struct Section: LayoutSection {
 
-    internal var contentInsets: NSDirectionalEdgeInsets = .zero
     internal var interGroupSpacing: CGFloat = 0
     internal var contentInsetsReference: ContentInsetsReference = .safeArea
     internal var orthogonalScrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior = .none

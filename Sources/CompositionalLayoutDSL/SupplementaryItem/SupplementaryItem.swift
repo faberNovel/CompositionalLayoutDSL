@@ -17,8 +17,6 @@ public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem {
 
     internal var widthDimension: NSCollectionLayoutDimension
     internal var heightDimension: NSCollectionLayoutDimension
-    internal var contentInsets: NSDirectionalEdgeInsets = .zero
-    internal var edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: nil, bottom: nil)
     internal var zIndex: Int = 0
     private var elementKind: String
 

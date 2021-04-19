@@ -30,3 +30,60 @@ extension HasGroupProperties {
         with(self) { $0.interItemSpacing = interItemSpacing }
     }
 }
+
+extension LayoutGroup {
+
+    // MARK: - Content Insets
+
+    public func contentInsets(value: CGFloat) -> LayoutGroup {
+        return contentInsets(top: value, leading: value, bottom: value, trailing: value)
+    }
+
+    public func contentInsets(horizontal: CGFloat = 0, vertical: CGFloat = 0) -> LayoutGroup {
+        return contentInsets(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
+    }
+
+    public func contentInsets(
+        top: CGFloat = 0,
+        leading: CGFloat = 0,
+        bottom: CGFloat = 0,
+        trailing: CGFloat = 0
+    ) -> LayoutGroup {
+        contentInsets(NSDirectionalEdgeInsets(top: top, leading: leading, bottom: bottom, trailing: trailing))
+    }
+
+    public func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutGroup {
+        modifier(ContentInsetModifier(insets: insets))
+    }
+}
+
+extension LayoutGroup {
+
+    // MARK: - Edge Spacing
+
+    public func edgeSpacing(value: NSCollectionLayoutSpacing?) -> LayoutGroup {
+        return edgeSpacing(top: value, leading: value, bottom: value, trailing: value)
+    }
+
+    public func edgeSpacing(
+        horizontal: NSCollectionLayoutSpacing? = nil,
+        vertical: NSCollectionLayoutSpacing? = nil
+    ) -> LayoutGroup {
+        return edgeSpacing(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
+    }
+
+    public func edgeSpacing(
+        top: NSCollectionLayoutSpacing? = nil,
+        leading: NSCollectionLayoutSpacing? = nil,
+        bottom: NSCollectionLayoutSpacing? = nil,
+        trailing: NSCollectionLayoutSpacing? = nil
+    ) -> LayoutGroup {
+        edgeSpacing(
+            NSCollectionLayoutEdgeSpacing(leading: leading, top: top, trailing: trailing, bottom: bottom)
+        )
+    }
+
+    public func edgeSpacing(_ edgeSpacing: NSCollectionLayoutEdgeSpacing) -> LayoutGroup {
+        modifier(EdgeSpacingModifier(edgeSpacing: edgeSpacing))
+    }
+}

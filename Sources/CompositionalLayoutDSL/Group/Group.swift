@@ -17,8 +17,6 @@ public struct HGroup: LayoutGroup, ResizableItem {
 
     internal var widthDimension: NSCollectionLayoutDimension
     internal var heightDimension: NSCollectionLayoutDimension
-    internal var contentInsets: NSDirectionalEdgeInsets = .zero
-    internal var edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: nil, bottom: nil)
     internal var supplementaryItems: [LayoutSupplementaryItem] = []
     internal var interItemSpacing: NSCollectionLayoutSpacing?
     private var subItems: SubItems
@@ -79,8 +77,6 @@ public struct VGroup: LayoutGroup, ResizableItem {
 
     internal var widthDimension: NSCollectionLayoutDimension
     internal var heightDimension: NSCollectionLayoutDimension
-    internal var contentInsets: NSDirectionalEdgeInsets = .zero
-    internal var edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: nil, bottom: nil)
     internal var supplementaryItems: [LayoutSupplementaryItem] = []
     internal var interItemSpacing: NSCollectionLayoutSpacing?
     private var subItems: SubItems
@@ -136,8 +132,6 @@ public struct CustomGroup: LayoutGroup, ResizableItem {
 
     internal var widthDimension: NSCollectionLayoutDimension
     internal var heightDimension: NSCollectionLayoutDimension
-    internal var contentInsets: NSDirectionalEdgeInsets = .zero
-    internal var edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: nil, bottom: nil)
     internal var supplementaryItems: [LayoutSupplementaryItem] = []
     internal var interItemSpacing: NSCollectionLayoutSpacing?
     private let itemProvider: NSCollectionLayoutGroupCustomItemProvider

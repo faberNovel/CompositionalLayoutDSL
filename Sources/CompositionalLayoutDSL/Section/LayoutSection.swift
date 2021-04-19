@@ -63,3 +63,29 @@ extension HasSectionProperties {
         }
     }
 }
+
+extension LayoutSection {
+
+    // MARK: - Content Insets
+
+    public func contentInsets(value: CGFloat) -> LayoutSection {
+        return contentInsets(top: value, leading: value, bottom: value, trailing: value)
+    }
+
+    public func contentInsets(horizontal: CGFloat = 0, vertical: CGFloat = 0) -> LayoutSection {
+        return contentInsets(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
+    }
+
+    public func contentInsets(
+        top: CGFloat = 0,
+        leading: CGFloat = 0,
+        bottom: CGFloat = 0,
+        trailing: CGFloat = 0
+    ) -> LayoutSection {
+        contentInsets(NSDirectionalEdgeInsets(top: top, leading: leading, bottom: bottom, trailing: trailing))
+    }
+
+    public func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutSection {
+        modifier(ContentInsetModifier(insets: insets))
+    }
+}

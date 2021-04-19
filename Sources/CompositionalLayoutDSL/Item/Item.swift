@@ -12,8 +12,6 @@ public struct Item: LayoutItem, ResizableItem {
 
     internal var widthDimension: NSCollectionLayoutDimension
     internal var heightDimension: NSCollectionLayoutDimension
-    internal var contentInsets: NSDirectionalEdgeInsets = .zero
-    internal var edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: nil, trailing: nil, bottom: nil)
     private var supplementaryItems: [LayoutSupplementaryItem]
 
     // MARK: - Life cycle
@@ -54,7 +52,7 @@ public struct Item: LayoutItem, ResizableItem {
     }
 }
 
-extension Item: HasResizableProperties, HasContentInsetProperties, HasEdgeSpacingProperties {}
+extension Item: HasResizableProperties {}
 
 extension Item: BuildableItem {
     func makeItem() -> NSCollectionLayoutItem {
@@ -62,8 +60,6 @@ extension Item: BuildableItem {
             layoutSize: NSCollectionLayoutSize(widthDimension: widthDimension, heightDimension: heightDimension),
             supplementaryItems: supplementaryItems.map(SupplementaryItemBuilder.make(from:))
         )
-        item.contentInsets = contentInsets
-        item.edgeSpacing = edgeSpacing
         return item
     }
 }

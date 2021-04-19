@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal protocol HasSectionProperties: HasContentInsetProperties {
+internal protocol HasSectionProperties {
     var interGroupSpacing: CGFloat { get set }
     @available(iOS 14.0, tvOS 14.0, *)
     var contentInsetsReference: ContentInsetsReference { get set }
@@ -21,7 +21,6 @@ internal protocol HasSectionProperties: HasContentInsetProperties {
 
 extension NSCollectionLayoutSection {
     func apply(sectionPropertiesFrom propertiesHolder: HasSectionProperties) {
-        self.contentInsets = propertiesHolder.contentInsets
         self.interGroupSpacing = propertiesHolder.interGroupSpacing
         if #available(iOS 14.0, *) {
             self.contentInsetsReference = propertiesHolder.contentInsetsReference.uiKitValue
