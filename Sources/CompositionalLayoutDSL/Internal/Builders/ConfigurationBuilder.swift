@@ -17,12 +17,15 @@ internal enum ConfigurationBuilder {
         from layoutConfiguration: LayoutConfiguration
     ) -> UICollectionViewCompositionalLayoutConfiguration {
         guard let buildableConfiguration = getBuildableConfiguration(from: layoutConfiguration) else {
+            // swiftlint:disable:next line_length
             fatalError("Unable to convert the given LayoutConfiguration to UICollectionViewCompositionalLayoutConfiguration")
         }
         return buildableConfiguration.makeConfiguration()
     }
 
-    private static func getBuildableConfiguration(from layoutConfiguration: LayoutConfiguration) -> BuildableConfiguration? {
+    private static func getBuildableConfiguration(
+        from layoutConfiguration: LayoutConfiguration
+    ) -> BuildableConfiguration? {
         var currentConfiguration = layoutConfiguration
         while !(currentConfiguration is BuildableConfiguration) {
             currentConfiguration = currentConfiguration.layoutConfiguration
