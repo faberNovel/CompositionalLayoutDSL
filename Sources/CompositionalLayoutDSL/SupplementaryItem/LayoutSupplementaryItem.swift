@@ -18,9 +18,12 @@ public extension LayoutSupplementaryItem {
     var layoutItem: LayoutItem { self }
 }
 
-extension HasSupplementaryItemProperties {
-    public func zIndex(zIndex: Int) -> Self {
-        with(self) { $0.zIndex = zIndex }
+extension LayoutSupplementaryItem {
+
+    // MARK: - Supplementary Item mutable properties
+
+    public func zIndex(zIndex: Int) -> LayoutSupplementaryItem {
+        valueModifier(zIndex, keyPath: \.zIndex)
     }
 }
 
@@ -28,11 +31,11 @@ extension LayoutSupplementaryItem {
 
     // MARK: - Content Insets
 
-    func contentInsets(value: CGFloat) -> LayoutSupplementaryItem {
+    public func contentInsets(value: CGFloat) -> LayoutSupplementaryItem {
         return contentInsets(top: value, leading: value, bottom: value, trailing: value)
     }
 
-    func contentInsets(horizontal: CGFloat = 0, vertical: CGFloat = 0) -> LayoutSupplementaryItem {
+    public func contentInsets(horizontal: CGFloat = 0, vertical: CGFloat = 0) -> LayoutSupplementaryItem {
         return contentInsets(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
     }
 
@@ -45,7 +48,7 @@ extension LayoutSupplementaryItem {
         contentInsets(NSDirectionalEdgeInsets(top: top, leading: leading, bottom: bottom, trailing: trailing))
     }
 
-    func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutSupplementaryItem {
+    public func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutSupplementaryItem {
         modifier(ContentInsetModifier(insets: insets))
     }
 
@@ -55,11 +58,11 @@ extension LayoutSupplementaryItem {
 
     // MARK: - Edge Spacing
 
-    func edgeSpacing(value: NSCollectionLayoutSpacing?) -> LayoutSupplementaryItem {
+    public func edgeSpacing(value: NSCollectionLayoutSpacing?) -> LayoutSupplementaryItem {
         return edgeSpacing(top: value, leading: value, bottom: value, trailing: value)
     }
 
-    func edgeSpacing(
+    public func edgeSpacing(
         horizontal: NSCollectionLayoutSpacing? = nil,
         vertical: NSCollectionLayoutSpacing? = nil
     ) -> LayoutSupplementaryItem {

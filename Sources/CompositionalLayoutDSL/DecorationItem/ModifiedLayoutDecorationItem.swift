@@ -25,8 +25,28 @@ struct ModifiedLayoutDecorationItem: LayoutDecorationItem, BuildableDecorationIt
     }
 }
 
+struct ValueModifiedLayoutDecorationItem: LayoutDecorationItem, BuildableDecorationItem {
+    let decorationItem: LayoutDecorationItem
+    let valueModifier: (inout NSCollectionLayoutDecorationItem) -> Void
+
+    var layoutDecorationItem: LayoutDecorationItem { self }
+
+    func makeDecorationItem() -> NSCollectionLayoutDecorationItem {
+        var collectionLayoutDecorationItem = DecorationItemBuilder.make(from: decorationItem)
+        valueModifier(&collectionLayoutDecorationItem)
+        return collectionLayoutDecorationItem
+    }
+}
+
 extension LayoutDecorationItem {
     func modifier(_ modifier: BuildableLayoutDecorationItemModifier) -> LayoutDecorationItem {
         ModifiedLayoutDecorationItem(decorationItem: self, modifier: modifier)
+    }
+
+    func valueModifier<T>(
+        _ value: T,
+        keyPath: WritableKeyPath<NSCollectionLayoutDecorationItem, T>
+    ) -> LayoutDecorationItem {
+        ValueModifiedLayoutDecorationItem(decorationItem: self) { $0[keyPath: keyPath] = value }
     }
 }

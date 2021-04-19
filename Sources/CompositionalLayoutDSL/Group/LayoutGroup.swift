@@ -19,15 +19,19 @@ public extension LayoutGroup {
     var layoutItem: LayoutItem { layoutGroup }
 }
 
-extension HasGroupProperties {
+extension LayoutGroup {
+
+    // MARK: - Group Mutable properties
+
     public func supplementaryItems(
         @LayoutSupplementaryItemBuilder _ supplementaryItems: () -> [LayoutSupplementaryItem]
-    ) -> Self {
-        with(self) { $0.supplementaryItems.append(contentsOf: supplementaryItems()) }
+    ) -> LayoutGroup {
+        let supplementaryItems = supplementaryItems().map(SupplementaryItemBuilder.make(from:))
+        return valueModifier { $0.supplementaryItems.append(contentsOf: supplementaryItems) }
     }
 
-    public func interItemSpacing(_ interItemSpacing: NSCollectionLayoutSpacing?) -> Self {
-        with(self) { $0.interItemSpacing = interItemSpacing }
+    public func interItemSpacing(_ interItemSpacing: NSCollectionLayoutSpacing?) -> LayoutGroup {
+        valueModifier(interItemSpacing, keyPath: \.interItemSpacing)
     }
 }
 

@@ -18,8 +18,69 @@ public extension LayoutDecorationItem {
     var layoutItem: LayoutItem { self }
 }
 
-extension HasDecorationItemProperties {
-    public func zIndex(zIndex: Int) -> Self {
-        with(self) { $0.zIndex = zIndex }
+extension LayoutDecorationItem {
+
+    // MARK: - Decoration Item mutable properties
+
+    public func zIndex(zIndex: Int) -> LayoutDecorationItem {
+        valueModifier(zIndex, keyPath: \.zIndex)
+    }
+}
+
+extension LayoutDecorationItem {
+
+    // MARK: - Content Insets
+
+    public func contentInsets(value: CGFloat) -> LayoutDecorationItem {
+        return contentInsets(top: value, leading: value, bottom: value, trailing: value)
+    }
+
+    public func contentInsets(horizontal: CGFloat = 0, vertical: CGFloat = 0) -> LayoutDecorationItem {
+        return contentInsets(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
+    }
+
+    public func contentInsets(
+        top: CGFloat = 0,
+        leading: CGFloat = 0,
+        bottom: CGFloat = 0,
+        trailing: CGFloat = 0
+    ) -> LayoutDecorationItem {
+        contentInsets(NSDirectionalEdgeInsets(top: top, leading: leading, bottom: bottom, trailing: trailing))
+    }
+
+    public func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutDecorationItem {
+        modifier(ContentInsetModifier(insets: insets))
+    }
+
+}
+
+extension LayoutDecorationItem {
+
+    // MARK: - Edge Spacing
+
+    public func edgeSpacing(value: NSCollectionLayoutSpacing?) -> LayoutDecorationItem {
+        return edgeSpacing(top: value, leading: value, bottom: value, trailing: value)
+    }
+
+    public func edgeSpacing(
+        horizontal: NSCollectionLayoutSpacing? = nil,
+        vertical: NSCollectionLayoutSpacing? = nil
+    ) -> LayoutDecorationItem {
+        return edgeSpacing(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
+    }
+
+    public func edgeSpacing(
+        top: NSCollectionLayoutSpacing? = nil,
+        leading: NSCollectionLayoutSpacing? = nil,
+        bottom: NSCollectionLayoutSpacing? = nil,
+        trailing: NSCollectionLayoutSpacing? = nil
+    ) -> LayoutDecorationItem {
+        edgeSpacing(
+            NSCollectionLayoutEdgeSpacing(leading: leading, top: top, trailing: trailing, bottom: bottom)
+        )
+    }
+
+    public func edgeSpacing(_ edgeSpacing: NSCollectionLayoutEdgeSpacing) -> LayoutDecorationItem {
+        modifier(EdgeSpacingModifier(edgeSpacing: edgeSpacing))
     }
 }

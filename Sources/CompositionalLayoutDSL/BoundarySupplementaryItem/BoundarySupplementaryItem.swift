@@ -10,11 +10,8 @@ import UIKit
 
 public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, ResizableItem {
 
-    internal var widthDimension: NSCollectionLayoutDimension
-    internal var heightDimension: NSCollectionLayoutDimension
-    internal var zIndex: Int = 0
-    internal var extendsBoundary: Bool = true
-    internal var pinToVisibleBounds: Bool = false
+    private var widthDimension: NSCollectionLayoutDimension
+    private var heightDimension: NSCollectionLayoutDimension
     private var elementKind: String
 
     private var alignment: NSRectAlignment = .top
@@ -64,8 +61,6 @@ public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, Resiza
     }
 }
 
-extension BoundarySupplementaryItem: HasBoundarySupplementaryItemProperties {}
-
 extension BoundarySupplementaryItem: BuildableBoundarySupplementaryItem {
     func makeBoundarySupplementaryItem() -> NSCollectionLayoutBoundarySupplementaryItem {
         let boundarySupplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(
@@ -77,7 +72,6 @@ extension BoundarySupplementaryItem: BuildableBoundarySupplementaryItem {
             alignment: alignment,
             absoluteOffset: absoluteOffset
         )
-        boundarySupplementaryItem.apply(boundarysupplementaryPropertiesFrom: self)
         return boundarySupplementaryItem
     }
 }

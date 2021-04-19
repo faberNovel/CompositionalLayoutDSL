@@ -27,8 +27,30 @@ struct ModifiedLayoutBoundarySupplementaryItem: LayoutBoundarySupplementaryItem,
     }
 }
 
+struct ValueModifiedLayoutBoundarySupplementaryItem: LayoutBoundarySupplementaryItem, BuildableBoundarySupplementaryItem {
+    let boundarySupplementaryItem: LayoutBoundarySupplementaryItem
+    let valueModifier: (inout NSCollectionLayoutBoundarySupplementaryItem) -> Void
+
+    var layoutBoundarySupplementaryItem: LayoutBoundarySupplementaryItem { self }
+
+    func makeBoundarySupplementaryItem() -> NSCollectionLayoutBoundarySupplementaryItem {
+        var collectionLayoutBoundarySupplementaryItem = BoundarySupplementaryItemBuilder.make(from: boundarySupplementaryItem)
+        valueModifier(&collectionLayoutBoundarySupplementaryItem)
+        return collectionLayoutBoundarySupplementaryItem
+    }
+}
+
 extension LayoutBoundarySupplementaryItem {
     func modifier(_ modifier: BuildableLayoutBoundarySupplementaryItemModifier) -> LayoutBoundarySupplementaryItem {
         ModifiedLayoutBoundarySupplementaryItem(boundarysupplementaryItem: self, modifier: modifier)
+    }
+
+    func valueModifier<T>(
+        _ value: T,
+        keyPath: WritableKeyPath<NSCollectionLayoutBoundarySupplementaryItem, T>
+    ) -> LayoutBoundarySupplementaryItem {
+        ValueModifiedLayoutBoundarySupplementaryItem(boundarySupplementaryItem: self) {
+            $0[keyPath: keyPath] = value
+        }
     }
 }

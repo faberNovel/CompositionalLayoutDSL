@@ -93,8 +93,6 @@ public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem {
     }
 }
 
-extension SupplementaryItem: HasSupplementaryItemProperties {}
-
 public extension SupplementaryItem.AnchorOffset {
     static func absolute(x: CGFloat, y: CGFloat) -> SupplementaryItem.AnchorOffset {
         return .absolute(CGPoint(x: x, y: y))
@@ -126,7 +124,6 @@ extension SupplementaryItem: BuildableSupplementaryItem {
                 containerAnchor: containerAnchor
             )
         }
-        supplementaryItem.apply(supplementaryPropertiesFrom: self)
         return supplementaryItem
     }
 }

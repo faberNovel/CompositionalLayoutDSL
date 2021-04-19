@@ -15,10 +15,8 @@ public struct HGroup: LayoutGroup, ResizableItem {
         case repeated(LayoutItem, count: Int)
     }
 
-    internal var widthDimension: NSCollectionLayoutDimension
-    internal var heightDimension: NSCollectionLayoutDimension
-    internal var supplementaryItems: [LayoutSupplementaryItem] = []
-    internal var interItemSpacing: NSCollectionLayoutSpacing?
+    private var widthDimension: NSCollectionLayoutDimension
+    private var heightDimension: NSCollectionLayoutDimension
     private var subItems: SubItems
 
     // MARK: - Life cycle
@@ -75,8 +73,6 @@ public struct HGroup: LayoutGroup, ResizableItem {
         with(self) { $0.heightDimension = height }
     }
 }
-
-extension HGroup: HasGroupProperties {}
 
 public struct VGroup: LayoutGroup, ResizableItem {
 
@@ -85,10 +81,8 @@ public struct VGroup: LayoutGroup, ResizableItem {
         case repeated(LayoutItem, count: Int)
     }
 
-    internal var widthDimension: NSCollectionLayoutDimension
-    internal var heightDimension: NSCollectionLayoutDimension
-    internal var supplementaryItems: [LayoutSupplementaryItem] = []
-    internal var interItemSpacing: NSCollectionLayoutSpacing?
+    private var widthDimension: NSCollectionLayoutDimension
+    private var heightDimension: NSCollectionLayoutDimension
     private var subItems: SubItems
 
     // MARK: - Life cycle
@@ -146,14 +140,10 @@ public struct VGroup: LayoutGroup, ResizableItem {
     }
 }
 
-extension VGroup: HasGroupProperties {}
-
 public struct CustomGroup: LayoutGroup, ResizableItem {
 
-    internal var widthDimension: NSCollectionLayoutDimension
-    internal var heightDimension: NSCollectionLayoutDimension
-    internal var supplementaryItems: [LayoutSupplementaryItem] = []
-    internal var interItemSpacing: NSCollectionLayoutSpacing?
+    private var widthDimension: NSCollectionLayoutDimension
+    private var heightDimension: NSCollectionLayoutDimension
     private let itemProvider: NSCollectionLayoutGroupCustomItemProvider
 
     // MARK: - Life cycle
@@ -194,8 +184,6 @@ public struct CustomGroup: LayoutGroup, ResizableItem {
     }
 }
 
-extension CustomGroup: HasGroupProperties {}
-
 // MARK: - BuildableGroup
 
 extension HGroup: BuildableGroup {
@@ -218,7 +206,6 @@ extension HGroup: BuildableGroup {
                 count: count
             )
         }
-        group.apply(groupPropertiesFrom: self)
         return group
     }
 }
@@ -243,7 +230,6 @@ extension VGroup: BuildableGroup {
                 count: count
             )
         }
-        group.apply(groupPropertiesFrom: self)
         return group
     }
 }
@@ -255,7 +241,6 @@ extension CustomGroup: BuildableGroup {
             heightDimension: heightDimension
         )
         let group = NSCollectionLayoutGroup.custom(layoutSize: size, itemProvider: itemProvider)
-        group.apply(groupPropertiesFrom: self)
         return group
     }
 }

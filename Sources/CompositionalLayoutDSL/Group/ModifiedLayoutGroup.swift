@@ -23,8 +23,31 @@ struct ModifiedLayoutGroup: LayoutGroup, BuildableGroup {
     }
 }
 
+struct ValueModifiedLayoutGroup: LayoutGroup, BuildableGroup {
+    let group: LayoutGroup
+    let valueModifier: (inout NSCollectionLayoutGroup) -> Void
+
+    var layoutGroup: LayoutGroup { self }
+
+    func makeGroup() -> NSCollectionLayoutGroup {
+        var collectionLayoutGroup = GroupBuilder.make(from: group)
+        valueModifier(&collectionLayoutGroup)
+        return collectionLayoutGroup
+    }
+}
+
 extension LayoutGroup {
     func modifier(_ modifier: BuildableLayoutGroupModifier) -> LayoutGroup {
         ModifiedLayoutGroup(group: self, modifier: modifier)
+    }
+
+    func valueModifier<T>(_ value: T, keyPath: WritableKeyPath<NSCollectionLayoutGroup, T>) -> LayoutGroup {
+        ValueModifiedLayoutGroup(group: self) { $0[keyPath: keyPath] = value }
+    }
+
+    func valueModifier(
+        modifier: @escaping (inout NSCollectionLayoutGroup) -> Void
+    ) -> LayoutGroup {
+        ValueModifiedLayoutGroup(group: self, valueModifier: modifier)
     }
 }

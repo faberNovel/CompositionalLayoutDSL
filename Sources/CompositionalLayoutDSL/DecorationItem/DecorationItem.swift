@@ -10,9 +10,6 @@ import UIKit
 
 public struct DecorationItem: LayoutDecorationItem {
 
-    internal var widthDimension: NSCollectionLayoutDimension = .fractionalWidth(1)
-    internal var heightDimension: NSCollectionLayoutDimension = .fractionalHeight(1)
-    internal var zIndex: Int = 0
     private var elementKind: String
 
     // MARK: - Life cycle
@@ -28,12 +25,9 @@ public struct DecorationItem: LayoutDecorationItem {
     }
 }
 
-extension DecorationItem: HasDecorationItemProperties {}
-
 extension DecorationItem: BuildableDecorationItem {
     func makeDecorationItem() -> NSCollectionLayoutDecorationItem {
         let decorationItem = NSCollectionLayoutDecorationItem.background(elementKind: elementKind)
-        decorationItem.apply(decorationPropertiesFrom: self)
         return decorationItem
     }
 }

@@ -25,8 +25,28 @@ struct ModifiedLayoutSupplementaryItem: LayoutSupplementaryItem, BuildableSupple
     }
 }
 
+struct ValueModifiedLayoutSupplementaryItem: LayoutSupplementaryItem, BuildableSupplementaryItem {
+    let supplementaryItem: LayoutSupplementaryItem
+    let valueModifier: (inout NSCollectionLayoutSupplementaryItem) -> Void
+
+    var layoutSupplementaryItem: LayoutSupplementaryItem { self }
+
+    func makeSupplementaryItem() -> NSCollectionLayoutSupplementaryItem {
+        var collectionLayoutSupplementaryItem = SupplementaryItemBuilder.make(from: supplementaryItem)
+        valueModifier(&collectionLayoutSupplementaryItem)
+        return collectionLayoutSupplementaryItem
+    }
+}
+
 extension LayoutSupplementaryItem {
     func modifier(_ modifier: BuildableLayoutSupplementaryItemModifier) -> LayoutSupplementaryItem {
         ModifiedLayoutSupplementaryItem(supplementaryItem: self, modifier: modifier)
+    }
+
+    func valueModifier<T>(
+        _ value: T,
+        keyPath: WritableKeyPath<NSCollectionLayoutSupplementaryItem, T>
+    ) -> LayoutSupplementaryItem {
+        ValueModifiedLayoutSupplementaryItem(supplementaryItem: self) { $0[keyPath: keyPath] = value }
     }
 }
