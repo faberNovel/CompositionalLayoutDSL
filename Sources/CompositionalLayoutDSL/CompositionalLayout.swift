@@ -26,7 +26,7 @@ public struct CompositionalLayout {
             sectionProvider: { section, environment in
                 return sectionBuilder(section, environment).map(SectionBuilder.make(from:))
             },
-            configuration: configuration._makeConfiguration()
+            configuration: ConfigurationBuilder.make(from: configuration)
         )
     }
 }

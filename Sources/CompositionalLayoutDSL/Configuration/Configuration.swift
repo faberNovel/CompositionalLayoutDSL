@@ -10,11 +10,6 @@ import UIKit
 
 public struct Configuration: LayoutConfiguration {
 
-    internal var scrollDirection: UICollectionView.ScrollDirection = .vertical
-    internal var interSectionSpacing: CGFloat = 0
-    internal var boundarySupplementaryItems: [LayoutBoundarySupplementaryItem] = []
-//    internal var contentInsetsReference: ContentInsetsReference = .safeArea
-
     // MARK: - Life cycle
 
     public init() {}
@@ -24,11 +19,10 @@ public struct Configuration: LayoutConfiguration {
     public var layoutConfiguration: LayoutConfiguration {
         return self
     }
+}
 
-    public func _makeConfiguration() -> UICollectionViewCompositionalLayoutConfiguration {
-        let configuration = UICollectionViewCompositionalLayoutConfiguration()
-        configuration.apply(configurationPropertiesFrom: self)
-        return configuration
+extension Configuration: BuildableConfiguration {
+    public func makeConfiguration() -> UICollectionViewCompositionalLayoutConfiguration {
+        return UICollectionViewCompositionalLayoutConfiguration()
     }
 }
-extension Configuration: HasConfigurationProperties {}

@@ -10,40 +10,37 @@ import UIKit
 
 public protocol LayoutConfiguration {
     var layoutConfiguration: LayoutConfiguration { get }
-    func _makeConfiguration() -> UICollectionViewCompositionalLayoutConfiguration
 }
 
-public extension LayoutConfiguration {
-    func _makeConfiguration() -> UICollectionViewCompositionalLayoutConfiguration {
-        layoutConfiguration._makeConfiguration()
-    }
-}
-
-extension HasConfigurationProperties {
+extension LayoutConfiguration {
 
     // MARK: - Mutable properties
 
     public func scrollDirection(
         _ scrollDirection: UICollectionView.ScrollDirection
-    ) -> Self {
-        with(self) { $0.scrollDirection = scrollDirection }
+    ) -> LayoutConfiguration {
+        valueModifier(scrollDirection, keyPath: \.scrollDirection)
     }
 
-    public func interSectionSpacing(_ interSectionSpacing: CGFloat) -> Self {
-        with(self) { $0.interSectionSpacing = interSectionSpacing }
+    public func interSectionSpacing(_ interSectionSpacing: CGFloat) -> LayoutConfiguration {
+        valueModifier(interSectionSpacing, keyPath: \.interSectionSpacing)
     }
 
     public func boundarySupplementaryItems(
         @LayoutBoundarySupplementaryItemBuilder
         _ boundarySupplementaryItems: () -> [LayoutBoundarySupplementaryItem]
-    ) -> Self {
-        with(self) { $0.boundarySupplementaryItems.append(contentsOf: boundarySupplementaryItems()) }
+    ) -> LayoutConfiguration {
+        let boundarySupplementaryItems = boundarySupplementaryItems()
+            .map(BoundarySupplementaryItemBuilder.make(from:))
+        return valueModifier {
+            $0.boundarySupplementaryItems.append(contentsOf: boundarySupplementaryItems)
+        }
     }
 
-//    @available(iOS 14.0, tvOS 14.0, *)
-//    public func contentInsetsReference(_ contentInsetsReference: UIContentInsetsReference) -> Self {
-//        with(self) {
-//            $0.contentInsetsReference = ContentInsetsReference(from: contentInsetsReference)
-//        }
-//    }
+    @available(iOS 14.0, tvOS 14.0, *)
+    public func contentInsetsReference(
+        _ contentInsetsReference: UIContentInsetsReference
+    ) -> LayoutConfiguration {
+        valueModifier(contentInsetsReference, keyPath: \.contentInsetsReference)
+    }
 }

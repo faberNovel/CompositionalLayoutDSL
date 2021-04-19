@@ -17,7 +17,7 @@ public func LayoutBuilder(
 ) -> UICollectionViewCompositionalLayout {
     return UICollectionViewCompositionalLayout(
         section: SectionBuilder.make(from: closure()),
-        configuration: configuration._makeConfiguration()
+        configuration: ConfigurationBuilder.make(from: configuration)
     )
 }
 
