@@ -12,8 +12,8 @@ internal protocol HasConfigurationProperties {
     var scrollDirection: UICollectionView.ScrollDirection { get set }
     var interSectionSpacing: CGFloat { get set }
     var boundarySupplementaryItems: [LayoutBoundarySupplementaryItem] { get set }
-    @available(iOS 14.0, tvOS 14.0, *)
-    var contentInsetsReference: ContentInsetsReference { get set }
+//    @available(iOS 14.0, tvOS 14.0, *)
+//    var contentInsetsReference: ContentInsetsReference { get set }
 }
 
 internal extension UICollectionViewCompositionalLayoutConfiguration {
@@ -22,8 +22,8 @@ internal extension UICollectionViewCompositionalLayoutConfiguration {
         self.interSectionSpacing = propertiesHolder.interSectionSpacing
         self.boundarySupplementaryItems = propertiesHolder.boundarySupplementaryItems
             .map(BoundarySupplementaryItemBuilder.make(from:))
-        if #available(iOS 14.0, tvOS 14.0, *) {
-            self.contentInsetsReference = propertiesHolder.contentInsetsReference.uiKitValue
-        }
+//        if #available(iOS 14.0, tvOS 14.0, *) {
+//            self.contentInsetsReference = propertiesHolder.contentInsetsReference.uiKitValue
+//        }
     }
 }

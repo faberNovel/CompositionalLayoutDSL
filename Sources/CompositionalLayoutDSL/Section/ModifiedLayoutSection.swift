@@ -23,8 +23,31 @@ struct ModifiedLayoutSection: LayoutSection, BuildableSection {
     }
 }
 
+struct ValueModifiedLayoutSection: LayoutSection, BuildableSection {
+    let section: LayoutSection
+    let valueModifier: (inout NSCollectionLayoutSection) -> Void
+
+    var layoutSection: LayoutSection { self }
+
+    func makeSection() -> NSCollectionLayoutSection {
+        var collectionLayoutSection = SectionBuilder.make(from: section)
+        valueModifier(&collectionLayoutSection)
+        return collectionLayoutSection
+    }
+}
+
 extension LayoutSection {
     func modifier(_ modifier: BuildableLayoutSectionModifier) -> LayoutSection {
         ModifiedLayoutSection(section: self, modifier: modifier)
+    }
+
+    func valueModifier<T>(_ value: T, keyPath: WritableKeyPath<NSCollectionLayoutSection, T>) -> LayoutSection {
+        ValueModifiedLayoutSection(section: self) { $0[keyPath: keyPath] = value }
+    }
+
+    func valueModifier(
+        modifier: @escaping (inout NSCollectionLayoutSection) -> Void
+    ) -> LayoutSection {
+        ValueModifiedLayoutSection(section: self, valueModifier: modifier)
     }
 }

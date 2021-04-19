@@ -12,55 +12,50 @@ public protocol LayoutSection {
     var layoutSection: LayoutSection { get }
 }
 
-extension HasSectionProperties {
-    public func interGroupSpacing(_ spacing: CGFloat) -> Self {
-        with(self) { $0.interGroupSpacing = spacing }
+extension LayoutSection {
+    public func interGroupSpacing(_ spacing: CGFloat) -> LayoutSection {
+        valueModifier(spacing, keyPath: \.interGroupSpacing)
     }
 
     @available(iOS 14.0, tvOS 14.0, *)
-    public func contentInsetsReference(_ reference: UIContentInsetsReference) -> Self {
-        with(self) { $0.contentInsetsReference = ContentInsetsReference(from: reference) }
+    public func contentInsetsReference(_ reference: UIContentInsetsReference) -> LayoutSection {
+        valueModifier(reference, keyPath: \.contentInsetsReference)
     }
 
     public func orthogonalScrollingBehavior(
         _ orthogonalScrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior
-    ) -> Self {
-        with(self) { $0.orthogonalScrollingBehavior = orthogonalScrollingBehavior }
+    ) -> LayoutSection {
+        valueModifier(orthogonalScrollingBehavior, keyPath: \.orthogonalScrollingBehavior)
     }
 
     public func boundarySupplementaryItems(
         @LayoutBoundarySupplementaryItemBuilder
         _ boundarySupplementaryItems: () -> [LayoutBoundarySupplementaryItem]
-    ) -> Self {
-        with(self) {
-            $0.boundarySupplementaryItems.append(
-                contentsOf: boundarySupplementaryItems()
-            )
+    ) -> LayoutSection {
+        let boundarySupplementaryItems = boundarySupplementaryItems()
+            .map(BoundarySupplementaryItemBuilder.make(from:))
+        return valueModifier {
+            $0.boundarySupplementaryItems.append(contentsOf: boundarySupplementaryItems)
         }
     }
 
     public func supplementariesFollowContentInsets(
         _ supplementariesFollowContentInsets: Bool
-    ) -> Self {
-        with(self) {
-            $0.supplementariesFollowContentInsets = supplementariesFollowContentInsets
-        }
+    ) -> LayoutSection {
+        valueModifier(supplementariesFollowContentInsets, keyPath: \.supplementariesFollowContentInsets)
     }
 
     public func visibleItemsInvalidationHandler(
         _ visibleItemsInvalidationHandler: NSCollectionLayoutSectionVisibleItemsInvalidationHandler?
-    ) -> Self {
-        with(self) {
-            $0.visibleItemsInvalidationHandler = visibleItemsInvalidationHandler
-        }
+    ) -> LayoutSection {
+        valueModifier(visibleItemsInvalidationHandler, keyPath: \.visibleItemsInvalidationHandler)
     }
 
     public func decorationItems(
         @LayoutDecorationItemBuilder _ decorationItems: () -> [LayoutDecorationItem]
-    ) -> Self {
-        with(self) {
-            $0.decorationItems.append(contentsOf: decorationItems())
-        }
+    ) -> LayoutSection {
+        let decorationItems = decorationItems().map(DecorationItemBuilder.make(from:))
+        return valueModifier { $0.decorationItems.append(contentsOf: decorationItems) }
     }
 }
 
