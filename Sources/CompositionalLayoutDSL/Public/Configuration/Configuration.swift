@@ -22,7 +22,7 @@ public struct Configuration: LayoutConfiguration {
 }
 
 extension Configuration: BuildableConfiguration {
-    public func makeConfiguration() -> UICollectionViewCompositionalLayoutConfiguration {
+    func makeConfiguration() -> UICollectionViewCompositionalLayoutConfiguration {
         return UICollectionViewCompositionalLayoutConfiguration()
     }
 }

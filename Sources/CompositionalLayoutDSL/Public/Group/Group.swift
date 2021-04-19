@@ -187,7 +187,7 @@ public struct CustomGroup: LayoutGroup, ResizableItem {
 // MARK: - BuildableGroup
 
 extension HGroup: BuildableGroup {
-    public func makeGroup() -> NSCollectionLayoutGroup {
+    func makeGroup() -> NSCollectionLayoutGroup {
         let size = NSCollectionLayoutSize(
             widthDimension: widthDimension,
             heightDimension: heightDimension
@@ -211,7 +211,7 @@ extension HGroup: BuildableGroup {
 }
 
 extension VGroup: BuildableGroup {
-    public func makeGroup() -> NSCollectionLayoutGroup {
+    func makeGroup() -> NSCollectionLayoutGroup {
         let size = NSCollectionLayoutSize(
             widthDimension: widthDimension,
             heightDimension: heightDimension
@@ -235,7 +235,7 @@ extension VGroup: BuildableGroup {
 }
 
 extension CustomGroup: BuildableGroup {
-    public func makeGroup() -> NSCollectionLayoutGroup {
+    func makeGroup() -> NSCollectionLayoutGroup {
         let size = NSCollectionLayoutSize(
             widthDimension: widthDimension,
             heightDimension: heightDimension
