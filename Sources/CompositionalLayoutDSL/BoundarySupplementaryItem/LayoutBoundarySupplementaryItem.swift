@@ -13,6 +13,7 @@ public protocol LayoutBoundarySupplementaryItem: LayoutSupplementaryItem {
 }
 
 public extension LayoutBoundarySupplementaryItem {
+
     // MARK: - LayoutSupplementaryItem
 
     var layoutSupplementaryItem: LayoutSupplementaryItem { self }
@@ -64,7 +65,6 @@ extension LayoutBoundarySupplementaryItem {
     public func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutBoundarySupplementaryItem {
         modifier(ContentInsetModifier(insets: insets))
     }
-
 }
 
 extension LayoutBoundarySupplementaryItem {

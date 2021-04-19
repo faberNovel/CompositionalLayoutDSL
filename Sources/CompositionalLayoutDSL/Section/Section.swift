@@ -28,9 +28,6 @@ public struct Section: LayoutSection {
 extension Section: BuildableSection {
 
     func makeSection() -> NSCollectionLayoutSection {
-        let section = NSCollectionLayoutSection(
-            group: GroupBuilder.make(from: group)
-        )
-        return section
+        return NSCollectionLayoutSection(group: GroupBuilder.make(from: group))
     }
 }

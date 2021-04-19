@@ -51,7 +51,6 @@ extension LayoutSupplementaryItem {
     public func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutSupplementaryItem {
         modifier(ContentInsetModifier(insets: insets))
     }
-
 }
 
 extension LayoutSupplementaryItem {

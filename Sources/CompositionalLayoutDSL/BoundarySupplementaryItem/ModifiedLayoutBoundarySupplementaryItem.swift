@@ -27,14 +27,16 @@ struct ModifiedLayoutBoundarySupplementaryItem: LayoutBoundarySupplementaryItem,
     }
 }
 
-struct ValueModifiedLayoutBoundarySupplementaryItem: LayoutBoundarySupplementaryItem, BuildableBoundarySupplementaryItem {
+struct ValueModifiedLayoutBoundarySupplementaryItem: LayoutBoundarySupplementaryItem,
+                                                     BuildableBoundarySupplementaryItem {
     let boundarySupplementaryItem: LayoutBoundarySupplementaryItem
     let valueModifier: (inout NSCollectionLayoutBoundarySupplementaryItem) -> Void
 
     var layoutBoundarySupplementaryItem: LayoutBoundarySupplementaryItem { self }
 
     func makeBoundarySupplementaryItem() -> NSCollectionLayoutBoundarySupplementaryItem {
-        var collectionLayoutBoundarySupplementaryItem = BoundarySupplementaryItemBuilder.make(from: boundarySupplementaryItem)
+        var collectionLayoutBoundarySupplementaryItem = BoundarySupplementaryItemBuilder
+            .make(from: boundarySupplementaryItem)
         valueModifier(&collectionLayoutBoundarySupplementaryItem)
         return collectionLayoutBoundarySupplementaryItem
     }

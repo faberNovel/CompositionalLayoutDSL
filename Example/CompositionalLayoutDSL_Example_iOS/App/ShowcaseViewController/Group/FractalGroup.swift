@@ -56,6 +56,7 @@ struct FractalGroup: LayoutGroup, ResizableItem {
         copy.widthDimension = width
         return copy
     }
+
     func height(_ height: NSCollectionLayoutDimension) -> Self {
         var copy = self
         copy.heightDimension = height

@@ -15,9 +15,8 @@ public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem {
         case fractional(CGPoint)
     }
 
-    internal var widthDimension: NSCollectionLayoutDimension
-    internal var heightDimension: NSCollectionLayoutDimension
-    internal var zIndex: Int = 0
+    private var widthDimension: NSCollectionLayoutDimension
+    private var heightDimension: NSCollectionLayoutDimension
     private var elementKind: String
 
     private var containerAnchor = NSCollectionLayoutAnchor(edges: [.top, .leading])

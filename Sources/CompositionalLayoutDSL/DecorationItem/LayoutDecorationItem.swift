@@ -13,6 +13,7 @@ public protocol LayoutDecorationItem: LayoutItem {
 }
 
 public extension LayoutDecorationItem {
+
     // MARK: - LayoutItem
 
     var layoutItem: LayoutItem { self }
@@ -51,7 +52,6 @@ extension LayoutDecorationItem {
     public func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutDecorationItem {
         modifier(ContentInsetModifier(insets: insets))
     }
-
 }
 
 extension LayoutDecorationItem {

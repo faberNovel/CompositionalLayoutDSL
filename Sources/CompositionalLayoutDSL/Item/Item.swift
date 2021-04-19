@@ -10,8 +10,8 @@ import UIKit
 
 public struct Item: LayoutItem, ResizableItem {
 
-    internal var widthDimension: NSCollectionLayoutDimension
-    internal var heightDimension: NSCollectionLayoutDimension
+    private var widthDimension: NSCollectionLayoutDimension
+    private var heightDimension: NSCollectionLayoutDimension
     private var supplementaryItems: [LayoutSupplementaryItem]
 
     // MARK: - Life cycle
