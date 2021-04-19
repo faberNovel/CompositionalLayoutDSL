@@ -25,7 +25,7 @@ struct ColumnLaneSection: LayoutSection {
 
     // MARK: - LayoutSection
 
-    var sectionLayout: LayoutSection {
+    var layoutSection: LayoutSection {
         Section {
             VGroup { itemProvider() }
                 .width(.absolute(cellWidth))

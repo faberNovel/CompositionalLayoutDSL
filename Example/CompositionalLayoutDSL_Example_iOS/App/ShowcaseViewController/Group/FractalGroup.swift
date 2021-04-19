@@ -9,7 +9,7 @@
 import UIKit
 import CompositionalLayoutDSL
 
-struct FractalGroup: LayoutGroup, ResizableItem, HasResizableProperties {
+struct FractalGroup: LayoutGroup, ResizableItem {
 
     var ratio: CGFloat
     var depth: Int
@@ -26,7 +26,7 @@ struct FractalGroup: LayoutGroup, ResizableItem, HasResizableProperties {
 
     // MARK: - LayoutGroup
 
-    var layoutGroup: CollectionLayoutGroupConvertible {
+    var layoutGroup: LayoutGroup {
         let otherRatio = 1 - ratio
 
         guard depth > 0 else {
@@ -50,11 +50,22 @@ struct FractalGroup: LayoutGroup, ResizableItem, HasResizableProperties {
             }
         }
     }
+
+    func width(_ width: NSCollectionLayoutDimension) -> Self {
+        var copy = self
+        copy.widthDimension = width
+        return copy
+    }
+    func height(_ height: NSCollectionLayoutDimension) -> Self {
+        var copy = self
+        copy.heightDimension = height
+        return copy
+    }
 }
 
 // Same layout with only UIKit APIs
 
-struct TraditionalFractalGroup: LayoutGroup {
+struct TraditionalFractalGroup {
 
     var ratio: CGFloat
     var depth: Int
@@ -62,9 +73,9 @@ struct TraditionalFractalGroup: LayoutGroup {
     var heightDimension: NSCollectionLayoutDimension = .fractionalHeight(1)
     var widthDimension: NSCollectionLayoutDimension = .fractionalWidth(1)
 
-    // MARK: - LayoutGroup
+    // MARK: - TraditionalFractalGroup
 
-    var layoutGroup: CollectionLayoutGroupConvertible {
+    var layoutGroup: NSCollectionLayoutGroup {
         return fractalLayoutGroup(depth: depth, height: heightDimension)
     }
 

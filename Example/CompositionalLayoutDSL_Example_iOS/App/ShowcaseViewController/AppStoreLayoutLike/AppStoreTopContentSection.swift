@@ -15,7 +15,7 @@ struct AppStoreTopContentSection: LayoutSection {
 
     // MARK: - LayoutSection
 
-    var sectionLayout: LayoutSection {
+    var layoutSection: LayoutSection {
         SectionWithHeader {
             SectionWithEnvironmentInsets(
                 insets: NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 16),
