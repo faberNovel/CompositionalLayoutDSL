@@ -81,6 +81,6 @@ extension LayoutSection {
     }
 
     public func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutSection {
-        modifier(ContentInsetModifier(insets: insets))
+        valueModifier(insets, keyPath: \.contentInsets)
     }
 }

@@ -22,6 +22,7 @@ struct ValueModifiedLayoutConfiguration: LayoutConfiguration, BuildableConfigura
 }
 
 extension LayoutConfiguration {
+
     func valueModifier<T>(
         _ value: T,
         keyPath: WritableKeyPath<UICollectionViewCompositionalLayoutConfiguration, T>

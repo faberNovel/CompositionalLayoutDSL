@@ -8,23 +8,6 @@
 
 import UIKit
 
-protocol BuildableLayoutDecorationItemModifier {
-    func collectionLayoutDecorationItem(
-        layoutDecorationItem: LayoutDecorationItem
-    ) -> NSCollectionLayoutDecorationItem
-}
-
-struct ModifiedLayoutDecorationItem: LayoutDecorationItem, BuildableDecorationItem {
-    let decorationItem: LayoutDecorationItem
-    let modifier: BuildableLayoutDecorationItemModifier
-
-    var layoutDecorationItem: LayoutDecorationItem { self }
-
-    func makeDecorationItem() -> NSCollectionLayoutDecorationItem {
-        return modifier.collectionLayoutDecorationItem(layoutDecorationItem: decorationItem)
-    }
-}
-
 struct ValueModifiedLayoutDecorationItem: LayoutDecorationItem, BuildableDecorationItem {
     let decorationItem: LayoutDecorationItem
     let valueModifier: (inout NSCollectionLayoutDecorationItem) -> Void
@@ -39,10 +22,6 @@ struct ValueModifiedLayoutDecorationItem: LayoutDecorationItem, BuildableDecorat
 }
 
 extension LayoutDecorationItem {
-    func modifier(_ modifier: BuildableLayoutDecorationItemModifier) -> LayoutDecorationItem {
-        ModifiedLayoutDecorationItem(decorationItem: self, modifier: modifier)
-    }
-
     func valueModifier<T>(
         _ value: T,
         keyPath: WritableKeyPath<NSCollectionLayoutDecorationItem, T>

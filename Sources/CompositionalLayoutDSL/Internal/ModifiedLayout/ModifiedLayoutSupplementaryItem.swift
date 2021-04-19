@@ -8,23 +8,6 @@
 
 import UIKit
 
-protocol BuildableLayoutSupplementaryItemModifier {
-    func collectionLayoutSupplementaryItem(
-        layoutSupplementaryItem: LayoutSupplementaryItem
-    ) -> NSCollectionLayoutSupplementaryItem
-}
-
-struct ModifiedLayoutSupplementaryItem: LayoutSupplementaryItem, BuildableSupplementaryItem {
-    let supplementaryItem: LayoutSupplementaryItem
-    let modifier: BuildableLayoutSupplementaryItemModifier
-
-    var layoutSupplementaryItem: LayoutSupplementaryItem { self }
-
-    func makeSupplementaryItem() -> NSCollectionLayoutSupplementaryItem {
-        return modifier.collectionLayoutSupplementaryItem(layoutSupplementaryItem: supplementaryItem)
-    }
-}
-
 struct ValueModifiedLayoutSupplementaryItem: LayoutSupplementaryItem, BuildableSupplementaryItem {
     let supplementaryItem: LayoutSupplementaryItem
     let valueModifier: (inout NSCollectionLayoutSupplementaryItem) -> Void
@@ -39,9 +22,6 @@ struct ValueModifiedLayoutSupplementaryItem: LayoutSupplementaryItem, BuildableS
 }
 
 extension LayoutSupplementaryItem {
-    func modifier(_ modifier: BuildableLayoutSupplementaryItemModifier) -> LayoutSupplementaryItem {
-        ModifiedLayoutSupplementaryItem(supplementaryItem: self, modifier: modifier)
-    }
 
     func valueModifier<T>(
         _ value: T,

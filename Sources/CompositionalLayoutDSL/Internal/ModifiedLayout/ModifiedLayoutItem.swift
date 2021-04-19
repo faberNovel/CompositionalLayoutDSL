@@ -8,23 +8,21 @@
 
 import UIKit
 
-protocol BuildableLayoutItemModifier {
-    func collectionLayoutItem(layoutItem: LayoutItem) -> NSCollectionLayoutItem
-}
-
-struct ModifiedLayoutItem: LayoutItem, BuildableItem {
+struct ValueModifiedLayoutItem: LayoutItem, BuildableItem {
     let item: LayoutItem
-    let modifier: BuildableLayoutItemModifier
+    let valueModifier: (inout NSCollectionLayoutItem) -> Void
 
     var layoutItem: LayoutItem { self }
 
     func makeItem() -> NSCollectionLayoutItem {
-        return modifier.collectionLayoutItem(layoutItem: item)
+        var collectionLayoutItem = ItemBuilder.make(from: item)
+        valueModifier(&collectionLayoutItem)
+        return collectionLayoutItem
     }
 }
 
 extension LayoutItem {
-    func modifier(_ modifier: BuildableLayoutItemModifier) -> LayoutItem {
-        ModifiedLayoutItem(item: self, modifier: modifier)
+    func valueModifier<T>(_ value: T, keyPath: WritableKeyPath<NSCollectionLayoutItem, T>) -> LayoutItem {
+        ValueModifiedLayoutItem(item: self) { $0[keyPath: keyPath] = value }
     }
 }

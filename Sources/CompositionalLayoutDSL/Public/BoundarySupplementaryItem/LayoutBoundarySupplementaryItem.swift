@@ -63,7 +63,7 @@ extension LayoutBoundarySupplementaryItem {
     }
 
     public func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutBoundarySupplementaryItem {
-        modifier(ContentInsetModifier(insets: insets))
+        valueModifier(insets, keyPath: \.contentInsets)
     }
 }
 
@@ -94,6 +94,6 @@ extension LayoutBoundarySupplementaryItem {
     }
 
     public func edgeSpacing(_ edgeSpacing: NSCollectionLayoutEdgeSpacing) -> LayoutBoundarySupplementaryItem {
-        modifier(EdgeSpacingModifier(edgeSpacing: edgeSpacing))
+        valueModifier(edgeSpacing, keyPath: \.edgeSpacing)
     }
 }

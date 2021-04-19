@@ -50,7 +50,7 @@ extension LayoutDecorationItem {
     }
 
     public func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutDecorationItem {
-        modifier(ContentInsetModifier(insets: insets))
+        valueModifier(insets, keyPath: \.contentInsets)
     }
 }
 
@@ -81,6 +81,6 @@ extension LayoutDecorationItem {
     }
 
     public func edgeSpacing(_ edgeSpacing: NSCollectionLayoutEdgeSpacing) -> LayoutDecorationItem {
-        modifier(EdgeSpacingModifier(edgeSpacing: edgeSpacing))
+        valueModifier(edgeSpacing, keyPath: \.edgeSpacing)
     }
 }

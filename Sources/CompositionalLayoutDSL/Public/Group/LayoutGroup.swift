@@ -57,7 +57,7 @@ extension LayoutGroup {
     }
 
     public func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutGroup {
-        modifier(ContentInsetModifier(insets: insets))
+        valueModifier(insets, keyPath: \.contentInsets)
     }
 }
 
@@ -88,6 +88,6 @@ extension LayoutGroup {
     }
 
     public func edgeSpacing(_ edgeSpacing: NSCollectionLayoutEdgeSpacing) -> LayoutGroup {
-        modifier(EdgeSpacingModifier(edgeSpacing: edgeSpacing))
+        valueModifier(edgeSpacing, keyPath: \.edgeSpacing)
     }
 }

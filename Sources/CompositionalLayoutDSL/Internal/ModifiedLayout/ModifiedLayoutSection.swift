@@ -8,21 +8,6 @@
 
 import UIKit
 
-protocol BuildableLayoutSectionModifier {
-    func collectionLayoutSection(layoutSection: LayoutSection) -> NSCollectionLayoutSection
-}
-
-struct ModifiedLayoutSection: LayoutSection, BuildableSection {
-    let section: LayoutSection
-    let modifier: BuildableLayoutSectionModifier
-
-    var layoutSection: LayoutSection { self }
-
-    func makeSection() -> NSCollectionLayoutSection {
-        return modifier.collectionLayoutSection(layoutSection: section)
-    }
-}
-
 struct ValueModifiedLayoutSection: LayoutSection, BuildableSection {
     let section: LayoutSection
     let valueModifier: (inout NSCollectionLayoutSection) -> Void
@@ -37,9 +22,6 @@ struct ValueModifiedLayoutSection: LayoutSection, BuildableSection {
 }
 
 extension LayoutSection {
-    func modifier(_ modifier: BuildableLayoutSectionModifier) -> LayoutSection {
-        ModifiedLayoutSection(section: self, modifier: modifier)
-    }
 
     func valueModifier<T>(_ value: T, keyPath: WritableKeyPath<NSCollectionLayoutSection, T>) -> LayoutSection {
         ValueModifiedLayoutSection(section: self) { $0[keyPath: keyPath] = value }
