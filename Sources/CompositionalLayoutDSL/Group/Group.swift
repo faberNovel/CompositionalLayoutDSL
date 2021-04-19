@@ -64,6 +64,16 @@ public struct HGroup: LayoutGroup, ResizableItem {
     public var layoutGroup: LayoutGroup {
         return self
     }
+
+    // MARK: - ResizableItem
+
+    public func width(_ width: NSCollectionLayoutDimension) -> Self {
+        with(self) { $0.widthDimension = width }
+    }
+
+    public func height(_ height: NSCollectionLayoutDimension) -> Self {
+        with(self) { $0.heightDimension = height }
+    }
 }
 
 extension HGroup: HasGroupProperties {}
@@ -124,6 +134,16 @@ public struct VGroup: LayoutGroup, ResizableItem {
     public var layoutGroup: LayoutGroup {
         return self
     }
+
+    // MARK: - ResizableItem
+
+    public func width(_ width: NSCollectionLayoutDimension) -> Self {
+        with(self) { $0.widthDimension = width }
+    }
+
+    public func height(_ height: NSCollectionLayoutDimension) -> Self {
+        with(self) { $0.heightDimension = height }
+    }
 }
 
 extension VGroup: HasGroupProperties {}
@@ -161,6 +181,16 @@ public struct CustomGroup: LayoutGroup, ResizableItem {
 
     public var layoutGroup: LayoutGroup {
         return self
+    }
+
+    // MARK: - ResizableItem
+
+    public func width(_ width: NSCollectionLayoutDimension) -> Self {
+        with(self) { $0.widthDimension = width }
+    }
+
+    public func height(_ height: NSCollectionLayoutDimension) -> Self {
+        with(self) { $0.heightDimension = height }
     }
 }
 

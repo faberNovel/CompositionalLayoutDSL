@@ -50,9 +50,17 @@ public struct Item: LayoutItem, ResizableItem {
     public var layoutItem: LayoutItem {
         return self
     }
-}
 
-extension Item: HasResizableProperties {}
+    // MARK: - ResizableItem
+
+    public func width(_ width: NSCollectionLayoutDimension) -> Self {
+        with(self) { $0.widthDimension = width }
+    }
+
+    public func height(_ height: NSCollectionLayoutDimension) -> Self {
+        with(self) { $0.heightDimension = height }
+    }
+}
 
 extension Item: BuildableItem {
     func makeItem() -> NSCollectionLayoutItem {

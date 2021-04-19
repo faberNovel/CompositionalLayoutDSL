@@ -81,6 +81,16 @@ public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem {
     public var layoutSupplementaryItem: LayoutSupplementaryItem {
         return self
     }
+
+    // MARK: - ResizableItem
+
+    public func width(_ width: NSCollectionLayoutDimension) -> Self {
+        with(self) { $0.widthDimension = width }
+    }
+
+    public func height(_ height: NSCollectionLayoutDimension) -> Self {
+        with(self) { $0.heightDimension = height }
+    }
 }
 
 extension SupplementaryItem: HasSupplementaryItemProperties {}

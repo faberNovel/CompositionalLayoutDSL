@@ -52,6 +52,16 @@ public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, Resiza
     public var layoutBoundarySupplementaryItem: LayoutBoundarySupplementaryItem {
         self
     }
+
+    // MARK: - ResizableItem
+
+    public func width(_ width: NSCollectionLayoutDimension) -> Self {
+        with(self) { $0.widthDimension = width }
+    }
+
+    public func height(_ height: NSCollectionLayoutDimension) -> Self {
+        with(self) { $0.heightDimension = height }
+    }
 }
 
 extension BoundarySupplementaryItem: HasBoundarySupplementaryItemProperties {}

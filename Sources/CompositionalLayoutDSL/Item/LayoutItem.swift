@@ -12,16 +12,6 @@ public protocol LayoutItem {
     var layoutItem: LayoutItem { get }
 }
 
-extension HasResizableProperties {
-    public func width(_ width: NSCollectionLayoutDimension) -> Self {
-        with(self) { $0.widthDimension = width }
-    }
-
-    public func height(_ height: NSCollectionLayoutDimension) -> Self {
-        with(self) { $0.heightDimension = height }
-    }
-}
-
 extension LayoutItem {
 
     // MARK: - Content Insets

@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal protocol HasItemProperties: HasResizableProperties {}
+internal protocol HasItemProperties {}
 
 internal extension NSCollectionLayoutItem {
     func apply(itemPropertiesFrom propertiesHolder: HasItemProperties) {

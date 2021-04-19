@@ -19,8 +19,3 @@ public extension ResizableItem {
         self.width(size.widthDimension).height(size.heightDimension)
     }
 }
-
-internal protocol HasResizableProperties {
-    var widthDimension: NSCollectionLayoutDimension { get set }
-    var heightDimension: NSCollectionLayoutDimension { get set }
-}
