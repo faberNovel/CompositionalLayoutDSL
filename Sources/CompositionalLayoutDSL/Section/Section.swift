@@ -28,15 +28,20 @@ public struct Section: LayoutSection, ContentInsetable {
 
     // MARK: - LayoutSection
 
-    public var sectionLayout: LayoutSection {
+    public var layoutSection: LayoutSection {
         return self
-    }
-
-    public func _makeSection() -> NSCollectionLayoutSection {
-        let section = NSCollectionLayoutSection(group: group._makeGroup())
-        section.apply(sectionPropertiesFrom: self)
-        return section
     }
 }
 
 extension Section: HasSectionProperties {}
+
+extension Section: BuildableSection {
+
+    func makeSection() -> NSCollectionLayoutSection {
+        let section = NSCollectionLayoutSection(
+            group: GroupBuilder.make(from: group)
+        )
+        section.apply(sectionPropertiesFrom: self)
+        return section
+    }
+}

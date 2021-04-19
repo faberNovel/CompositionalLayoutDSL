@@ -16,11 +16,11 @@ public func LayoutBuilder(
     closure: () -> LayoutSection
 ) -> UICollectionViewCompositionalLayout {
     return UICollectionViewCompositionalLayout(
-        section: closure()._makeSection(),
+        section: SectionBuilder.make(from: closure()),
         configuration: configuration._makeConfiguration()
     )
 }
 
-public func SectionBuilder(closure: () -> LayoutSection) -> NSCollectionLayoutSection {
-    closure()._makeSection()
+public func LayoutSectionBuilder(closure: () -> LayoutSection) -> NSCollectionLayoutSection {
+    SectionBuilder.make(from: closure())
 }

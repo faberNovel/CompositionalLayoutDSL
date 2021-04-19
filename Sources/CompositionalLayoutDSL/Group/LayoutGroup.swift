@@ -10,24 +10,18 @@ import UIKit
 
 public protocol LayoutGroup: LayoutItem {
     var layoutGroup: LayoutGroup { get }
-    func _makeGroup() -> NSCollectionLayoutGroup
 }
 
 public extension LayoutGroup {
 
-    func _makeGroup() -> NSCollectionLayoutGroup {
-        layoutGroup._makeGroup()
-    }
-
     // MARK: - LayoutItem
 
     var layoutItem: LayoutItem { layoutGroup }
-    func _makeItem() -> NSCollectionLayoutItem { _makeGroup() }
 }
 
 extension HasGroupProperties {
     public func supplementaryItems(
-        @SupplementaryItemBuilder _ supplementaryItems: () -> [LayoutSupplementaryItem]
+        @LayoutSupplementaryItemBuilder _ supplementaryItems: () -> [LayoutSupplementaryItem]
     ) -> Self {
         with(self) { $0.supplementaryItems.append(contentsOf: supplementaryItems()) }
     }

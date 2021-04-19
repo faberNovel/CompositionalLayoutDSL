@@ -28,12 +28,14 @@ public struct DecorationItem: LayoutDecorationItem {
     public var layoutDecorationItem: LayoutDecorationItem {
         return self
     }
+}
 
-    public func _makeDecorationItem() -> NSCollectionLayoutDecorationItem {
+extension DecorationItem: HasDecorationItemProperties {}
+
+extension DecorationItem: BuildableDecorationItem {
+    func makeDecorationItem() -> NSCollectionLayoutDecorationItem {
         let decorationItem = NSCollectionLayoutDecorationItem.background(elementKind: elementKind)
         decorationItem.apply(decorationPropertiesFrom: self)
         return decorationItem
     }
 }
-
-extension DecorationItem: HasDecorationItemProperties {}

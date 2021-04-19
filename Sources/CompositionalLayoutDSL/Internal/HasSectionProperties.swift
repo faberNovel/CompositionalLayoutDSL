@@ -27,11 +27,10 @@ extension NSCollectionLayoutSection {
             self.contentInsetsReference = propertiesHolder.contentInsetsReference.uiKitValue
         }
         self.orthogonalScrollingBehavior = propertiesHolder.orthogonalScrollingBehavior
-        self.boundarySupplementaryItems = propertiesHolder.boundarySupplementaryItems.map {
-            $0._makeBoundarySupplementaryItem()
-        }
+        self.boundarySupplementaryItems = propertiesHolder.boundarySupplementaryItems
+            .map(BoundarySupplementaryItemBuilder.make(from:))
         self.supplementariesFollowContentInsets = propertiesHolder.supplementariesFollowContentInsets
         self.visibleItemsInvalidationHandler = propertiesHolder.visibleItemsInvalidationHandler
-        self.decorationItems = propertiesHolder.decorationItems.map { $0._makeDecorationItem() }
+        self.decorationItems = propertiesHolder.decorationItems.map(DecorationItemBuilder.make(from:))
     }
 }

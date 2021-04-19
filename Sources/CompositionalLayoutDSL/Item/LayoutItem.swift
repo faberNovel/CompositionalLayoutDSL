@@ -10,13 +10,6 @@ import UIKit
 
 public protocol LayoutItem: ContentInsetable, EdgeSpacable {
     var layoutItem: LayoutItem { get }
-    func _makeItem() -> NSCollectionLayoutItem
-}
-
-public extension LayoutItem {
-    func _makeItem() -> NSCollectionLayoutItem {
-        layoutItem._makeItem()
-    }
 }
 
 extension HasResizableProperties {

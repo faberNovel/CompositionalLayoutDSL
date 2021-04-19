@@ -9,14 +9,7 @@
 import UIKit
 
 public protocol LayoutSection {
-    var sectionLayout: LayoutSection { get }
-    func _makeSection() -> NSCollectionLayoutSection
-}
-
-public extension LayoutSection {
-    func _makeSection() -> NSCollectionLayoutSection {
-        sectionLayout._makeSection()
-    }
+    var layoutSection: LayoutSection { get }
 }
 
 extension HasSectionProperties {
@@ -36,7 +29,7 @@ extension HasSectionProperties {
     }
 
     public func boundarySupplementaryItems(
-        @BoundarySupplementaryItemBuilder
+        @LayoutBoundarySupplementaryItemBuilder
         _ boundarySupplementaryItems: () -> [LayoutBoundarySupplementaryItem]
     ) -> Self {
         with(self) {
@@ -63,7 +56,7 @@ extension HasSectionProperties {
     }
 
     public func decorationItems(
-        @DecorationItemBuilder _ decorationItems: () -> [LayoutDecorationItem]
+        @LayoutDecorationItemBuilder _ decorationItems: () -> [LayoutDecorationItem]
     ) -> Self {
         with(self) {
             $0.decorationItems.append(contentsOf: decorationItems())

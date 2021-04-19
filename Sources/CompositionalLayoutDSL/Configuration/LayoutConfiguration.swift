@@ -34,7 +34,7 @@ extension HasConfigurationProperties {
     }
 
     public func boundarySupplementaryItems(
-        @BoundarySupplementaryItemBuilder
+        @LayoutBoundarySupplementaryItemBuilder
         _ boundarySupplementaryItems: () -> [LayoutBoundarySupplementaryItem]
     ) -> Self {
         with(self) { $0.boundarySupplementaryItems.append(contentsOf: boundarySupplementaryItems()) }

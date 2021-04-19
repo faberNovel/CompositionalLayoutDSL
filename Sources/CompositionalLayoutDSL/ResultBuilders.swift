@@ -9,6 +9,6 @@
 import UIKit
 
 public typealias LayoutItemBuilder = ListResultBuilder<LayoutItem>
-public typealias BoundarySupplementaryItemBuilder = ListResultBuilder<LayoutBoundarySupplementaryItem>
-public typealias SupplementaryItemBuilder = ListResultBuilder<LayoutSupplementaryItem>
-public typealias DecorationItemBuilder = ListResultBuilder<LayoutDecorationItem>
+public typealias LayoutBoundarySupplementaryItemBuilder = ListResultBuilder<LayoutBoundarySupplementaryItem>
+public typealias LayoutSupplementaryItemBuilder = ListResultBuilder<LayoutSupplementaryItem>
+public typealias LayoutDecorationItemBuilder = ListResultBuilder<LayoutDecorationItem>

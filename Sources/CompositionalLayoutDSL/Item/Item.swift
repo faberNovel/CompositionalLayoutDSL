@@ -20,7 +20,7 @@ public struct Item: LayoutItem, ResizableItem {
 
     public init(width: NSCollectionLayoutDimension,
                 height: NSCollectionLayoutDimension,
-                @SupplementaryItemBuilder supplementaryItems: () -> [LayoutSupplementaryItem]) {
+                @LayoutSupplementaryItemBuilder supplementaryItems: () -> [LayoutSupplementaryItem]) {
         self.widthDimension = width
         self.heightDimension = height
         self.supplementaryItems = supplementaryItems()
@@ -39,7 +39,7 @@ public struct Item: LayoutItem, ResizableItem {
         self.supplementaryItems = []
     }
 
-    public init(@SupplementaryItemBuilder supplementaryItems: () -> [LayoutSupplementaryItem]) {
+    public init(@LayoutSupplementaryItemBuilder supplementaryItems: () -> [LayoutSupplementaryItem]) {
         self.init(width: .fractionalWidth(1), height: .fractionalHeight(1), supplementaryItems: supplementaryItems)
     }
 
@@ -52,16 +52,18 @@ public struct Item: LayoutItem, ResizableItem {
     public var layoutItem: LayoutItem {
         return self
     }
+}
 
-    public func _makeItem() -> NSCollectionLayoutItem {
+extension Item: HasResizableProperties, HasContentInsetProperties, HasEdgeSpacingProperties {}
+
+extension Item: BuildableItem {
+    func makeItem() -> NSCollectionLayoutItem {
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(widthDimension: widthDimension, heightDimension: heightDimension),
-            supplementaryItems: supplementaryItems.map { $0._makeSupplementaryItem() }
+            supplementaryItems: supplementaryItems.map(SupplementaryItemBuilder.make(from:))
         )
         item.contentInsets = contentInsets
         item.edgeSpacing = edgeSpacing
         return item
     }
 }
-
-extension Item: HasResizableProperties, HasContentInsetProperties, HasEdgeSpacingProperties {}

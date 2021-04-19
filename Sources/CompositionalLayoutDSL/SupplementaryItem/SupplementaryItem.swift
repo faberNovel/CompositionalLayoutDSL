@@ -83,8 +83,22 @@ public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem {
     public var layoutSupplementaryItem: LayoutSupplementaryItem {
         return self
     }
+}
 
-    public func _makeSupplementaryItem() -> NSCollectionLayoutSupplementaryItem {
+extension SupplementaryItem: HasSupplementaryItemProperties {}
+
+public extension SupplementaryItem.AnchorOffset {
+    static func absolute(x: CGFloat, y: CGFloat) -> SupplementaryItem.AnchorOffset {
+        return .absolute(CGPoint(x: x, y: y))
+    }
+
+    static func fractional(x: CGFloat, y: CGFloat) -> SupplementaryItem.AnchorOffset {
+        return .fractional(CGPoint(x: x, y: y))
+    }
+}
+
+extension SupplementaryItem: BuildableSupplementaryItem {
+    func makeSupplementaryItem() -> NSCollectionLayoutSupplementaryItem {
         let size = NSCollectionLayoutSize(
             widthDimension: widthDimension,
             heightDimension: heightDimension
@@ -106,17 +120,5 @@ public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem {
         }
         supplementaryItem.apply(supplementaryPropertiesFrom: self)
         return supplementaryItem
-    }
-}
-
-extension SupplementaryItem: HasSupplementaryItemProperties {}
-
-public extension SupplementaryItem.AnchorOffset {
-    static func absolute(x: CGFloat, y: CGFloat) -> SupplementaryItem.AnchorOffset {
-        return .absolute(CGPoint(x: x, y: y))
-    }
-
-    static func fractional(x: CGFloat, y: CGFloat) -> SupplementaryItem.AnchorOffset {
-        return .fractional(CGPoint(x: x, y: y))
     }
 }

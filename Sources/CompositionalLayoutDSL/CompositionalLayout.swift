@@ -10,13 +10,13 @@ import UIKit
 
 public struct CompositionalLayout {
 
-    public typealias SectionBuilder = (Int, NSCollectionLayoutEnvironment) -> LayoutSection?
+    public typealias SectionProvider = (Int, NSCollectionLayoutEnvironment) -> LayoutSection?
 
-    private let sectionBuilder: SectionBuilder
+    private let sectionBuilder: SectionProvider
     private let configuration: LayoutConfiguration
 
     public init(configuration: LayoutConfiguration = Configuration(),
-                sectionsBuilder: @escaping SectionBuilder) {
+                sectionsBuilder: @escaping SectionProvider) {
         self.sectionBuilder = sectionsBuilder
         self.configuration = configuration
     }
@@ -24,7 +24,7 @@ public struct CompositionalLayout {
     public var collectionCompositionalLayout: UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout(
             sectionProvider: { section, environment in
-                return sectionBuilder(section, environment)?._makeSection()
+                return sectionBuilder(section, environment).map(SectionBuilder.make(from:))
             },
             configuration: configuration._makeConfiguration()
         )
@@ -34,7 +34,7 @@ public struct CompositionalLayout {
 public extension CompositionalLayout {
 
     init(configuration: LayoutConfiguration = Configuration(),
-         repeatingSections sectionsBuilder: [SectionBuilder]) {
+         repeatingSections sectionsBuilder: [SectionProvider]) {
         self.init(configuration: configuration) { section, environment in
             guard !sectionsBuilder.isEmpty else { return nil }
             let sectionBuilder = sectionsBuilder[section % sectionsBuilder.count]

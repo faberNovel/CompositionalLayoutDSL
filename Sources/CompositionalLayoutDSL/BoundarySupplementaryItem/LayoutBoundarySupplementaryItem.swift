@@ -10,19 +10,12 @@ import UIKit
 
 public protocol LayoutBoundarySupplementaryItem: LayoutSupplementaryItem {
     var layoutBoundarySupplementaryItem: LayoutBoundarySupplementaryItem { get }
-    func _makeBoundarySupplementaryItem() -> NSCollectionLayoutBoundarySupplementaryItem
 }
 
 public extension LayoutBoundarySupplementaryItem {
-
-    func _makeBoundarySupplementaryItem() -> NSCollectionLayoutBoundarySupplementaryItem {
-        layoutBoundarySupplementaryItem._makeBoundarySupplementaryItem()
-    }
-
     // MARK: - LayoutSupplementaryItem
 
     var layoutSupplementaryItem: LayoutSupplementaryItem { self }
-    func _makeSupplementaryItem() -> NSCollectionLayoutSupplementaryItem { _makeBoundarySupplementaryItem() }
 }
 
 extension HasBoundarySupplementaryItemProperties {

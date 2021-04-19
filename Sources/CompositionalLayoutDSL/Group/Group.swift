@@ -66,29 +66,6 @@ public struct HGroup: LayoutGroup, ResizableItem {
     public var layoutGroup: LayoutGroup {
         return self
     }
-
-    public func _makeGroup() -> NSCollectionLayoutGroup {
-        let size = NSCollectionLayoutSize(
-            widthDimension: widthDimension,
-            heightDimension: heightDimension
-        )
-        let group: NSCollectionLayoutGroup
-        switch subItems {
-        case let .list(items):
-            group = NSCollectionLayoutGroup.horizontal(
-                layoutSize: size,
-                subitems: items.map { $0._makeItem() }
-            )
-        case let .repeated(item, count):
-            group = NSCollectionLayoutGroup.horizontal(
-                layoutSize: size,
-                subitem: item._makeItem(),
-                count: count
-            )
-        }
-        group.apply(groupPropertiesFrom: self)
-        return group
-    }
 }
 
 extension HGroup: HasGroupProperties {}
@@ -151,29 +128,6 @@ public struct VGroup: LayoutGroup, ResizableItem {
     public var layoutGroup: LayoutGroup {
         return self
     }
-
-    public func _makeGroup() -> NSCollectionLayoutGroup {
-        let size = NSCollectionLayoutSize(
-            widthDimension: widthDimension,
-            heightDimension: heightDimension
-        )
-        let group: NSCollectionLayoutGroup
-        switch subItems {
-        case let .list(items):
-            group = NSCollectionLayoutGroup.vertical(
-                layoutSize: size,
-                subitems: items.map { $0._makeItem() }
-            )
-        case let .repeated(item, count):
-            group = NSCollectionLayoutGroup.vertical(
-                layoutSize: size,
-                subitem: item._makeItem(),
-                count: count
-            )
-        }
-        group.apply(groupPropertiesFrom: self)
-        return group
-    }
 }
 
 extension VGroup: HasGroupProperties {}
@@ -214,8 +168,64 @@ public struct CustomGroup: LayoutGroup, ResizableItem {
     public var layoutGroup: LayoutGroup {
         return self
     }
+}
 
-    public func _makeGroup() -> NSCollectionLayoutGroup {
+extension CustomGroup: HasGroupProperties {}
+
+// MARK: - BuildableGroup
+
+extension HGroup: BuildableGroup {
+    public func makeGroup() -> NSCollectionLayoutGroup {
+        let size = NSCollectionLayoutSize(
+            widthDimension: widthDimension,
+            heightDimension: heightDimension
+        )
+        let group: NSCollectionLayoutGroup
+        switch subItems {
+        case let .list(items):
+            group = NSCollectionLayoutGroup.horizontal(
+                layoutSize: size,
+                subitems: items.map(ItemBuilder.make(from:))
+            )
+        case let .repeated(item, count):
+            group = NSCollectionLayoutGroup.horizontal(
+                layoutSize: size,
+                subitem: ItemBuilder.make(from: item),
+                count: count
+            )
+        }
+        group.apply(groupPropertiesFrom: self)
+        return group
+    }
+}
+
+extension VGroup: BuildableGroup {
+    public func makeGroup() -> NSCollectionLayoutGroup {
+        let size = NSCollectionLayoutSize(
+            widthDimension: widthDimension,
+            heightDimension: heightDimension
+        )
+        let group: NSCollectionLayoutGroup
+        switch subItems {
+        case let .list(items):
+            group = NSCollectionLayoutGroup.vertical(
+                layoutSize: size,
+                subitems: items.map(ItemBuilder.make(from:))
+            )
+        case let .repeated(item, count):
+            group = NSCollectionLayoutGroup.vertical(
+                layoutSize: size,
+                subitem: ItemBuilder.make(from: item),
+                count: count
+            )
+        }
+        group.apply(groupPropertiesFrom: self)
+        return group
+    }
+}
+
+extension CustomGroup: BuildableGroup {
+    public func makeGroup() -> NSCollectionLayoutGroup {
         let size = NSCollectionLayoutSize(
             widthDimension: widthDimension,
             heightDimension: heightDimension
@@ -225,5 +235,3 @@ public struct CustomGroup: LayoutGroup, ResizableItem {
         return group
     }
 }
-
-extension CustomGroup: HasGroupProperties {}

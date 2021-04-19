@@ -20,9 +20,8 @@ internal extension UICollectionViewCompositionalLayoutConfiguration {
     func apply(configurationPropertiesFrom propertiesHolder: HasConfigurationProperties) {
         self.scrollDirection = propertiesHolder.scrollDirection
         self.interSectionSpacing = propertiesHolder.interSectionSpacing
-        self.boundarySupplementaryItems = propertiesHolder.boundarySupplementaryItems.map {
-            $0._makeBoundarySupplementaryItem()
-        }
+        self.boundarySupplementaryItems = propertiesHolder.boundarySupplementaryItems
+            .map(BoundarySupplementaryItemBuilder.make(from:))
         if #available(iOS 14.0, tvOS 14.0, *) {
             self.contentInsetsReference = propertiesHolder.contentInsetsReference.uiKitValue
         }
