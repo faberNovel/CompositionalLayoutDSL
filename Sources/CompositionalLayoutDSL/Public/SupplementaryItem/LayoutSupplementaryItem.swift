@@ -8,6 +8,22 @@
 
 import UIKit
 
+/// A type that represents a supplementary item in a compositional layout and provides
+/// modifiers to configure supplementary items.
+///
+/// You create custom supplementary items by declaring types that conform to the
+/// ``LayoutSupplementaryItem`` protocol. Implement the required ``layoutSupplementaryItem``
+/// computed property to provide the content and configuration for your custom supplementary item.
+///
+///     struct MySupplementaryItem: LayoutSupplementaryItem {
+///         var layoutSupplementaryItem: LayoutSupplementaryItem {
+///             SupplementaryItem(elementKind: UICollectionView.elementKindSectionHeader)
+///                 .height(.absolute(40))
+///                 .containerAnchor(edges: .top)
+///                 .zIndex(zIndex: 10)
+///         }
+///     }
+///
 public protocol LayoutSupplementaryItem: LayoutItem {
     var layoutSupplementaryItem: LayoutSupplementaryItem { get }
 }

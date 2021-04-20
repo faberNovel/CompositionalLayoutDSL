@@ -8,6 +8,22 @@
 
 import UIKit
 
+/// A type that represents a boundary supplementary item in a compositional layout and provides
+/// modifiers to configure boundary supplementary items.
+///
+/// You create custom boundary supplementary items by declaring types that conform to the
+/// ``LayoutBoundarySupplementaryItem`` protocol. Implement the required
+/// ``layoutBoundarySupplementaryItem`` computed property to provide the content and
+/// configuration for your custom boundary supplementary item.
+///
+///     struct MyBoundarySupplementaryItem: LayoutBoundarySupplementaryItem {
+///         var layoutBoundarySupplementaryItem: LayoutBoundarySupplementaryItem {
+///             BoundarySupplementaryItem(elementKind: "leadingKind")
+///                 .width(.absolute(40))
+///                 .alignment(.leading)
+///         }
+///     }
+///
 public protocol LayoutBoundarySupplementaryItem: LayoutSupplementaryItem {
     var layoutBoundarySupplementaryItem: LayoutBoundarySupplementaryItem { get }
 }

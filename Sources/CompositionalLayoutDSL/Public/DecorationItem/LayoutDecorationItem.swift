@@ -8,6 +8,20 @@
 
 import UIKit
 
+/// A type that represents a decoration item in a compositional layout and provides
+/// modifiers to configure decoration items.
+///
+/// You create custom decoration items by declaring types that conform to the
+/// ``LayoutDecorationItem`` protocol. Implement the required ``layoutDecorationItem``
+/// computed property to provide the content and configuration for your custom decoration item.
+///
+///     struct MyDecorationItem: LayoutDecorationItem {
+///         var layoutDecorationItem: LayoutDecorationItem {
+///             DecorationItem(elementKind: "backgroundKind")
+///                 .contentInsets(value: 4)
+///         }
+///     }
+///
 public protocol LayoutDecorationItem: LayoutItem {
     var layoutDecorationItem: LayoutDecorationItem { get }
 }

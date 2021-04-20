@@ -8,6 +8,23 @@
 
 import UIKit
 
+/// A type that represents a group in a compositional layout and provides
+/// modifiers to configure groups.
+///
+/// You create custom groups by declaring types that conform to the
+/// ``LayoutGroup`` protocol. Implement the required ``layoutGroup``
+/// computed property to provide the content and configuration for your custom group.
+///
+///     struct MyGroup: LayoutGroup {
+///         var layoutGroup: LayoutGroup {
+///             HGroup(count: 4) {
+///                 Item()
+///             }
+///             .height(.absolute(300))
+///             .interItemSpacing(.fixed(8))
+///         }
+///     }
+///
 public protocol LayoutGroup: LayoutItem {
     var layoutGroup: LayoutGroup { get }
 }

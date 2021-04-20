@@ -8,6 +8,22 @@
 
 import UIKit
 
+/// A type that represents a compositional layout configuration and provides
+/// modifiers to change the configuration.
+///
+/// You create custom configuration by declaring types that conform to the
+/// ``LayoutConfiguration`` protocol. Implement the required ``layoutConfiguration``
+/// computed property to provide your customized settings.
+///
+///     struct MyConfiguration: LayoutConfiguration {
+///         var layoutConfiguration: LayoutConfiguration {
+///             Configuration()
+///                 .scrollDirection(.horizontal)
+///                 .interSectionSpacing(16)
+///                 .contentInsetsReference(.readableContent)
+///         }
+///     }
+///
 public protocol LayoutConfiguration {
     var layoutConfiguration: LayoutConfiguration { get }
 }
