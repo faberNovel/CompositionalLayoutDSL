@@ -71,7 +71,7 @@ TODO
 ## Behind the scene
 
 Here some explanation of how this library work, it can be divided in 3 parts: the role of the core blocks,
-how dose the modifiers works, and how the conversion to the UIKit world is handled
+how does the modifiers works, and how the conversion to the UIKit world is handled
 
 ### Core structs
 
