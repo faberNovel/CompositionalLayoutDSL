@@ -37,14 +37,17 @@ extension LayoutItem {
 
     // MARK: - Content Insets
 
+    /// Configure the amount of space between the content of the section and its boundaries.
     public func contentInsets(value: CGFloat) -> LayoutItem {
         return contentInsets(top: value, leading: value, bottom: value, trailing: value)
     }
 
+    /// Configure the amount of space between the content of the section and its boundaries.
     public func contentInsets(horizontal: CGFloat = 0, vertical: CGFloat = 0) -> LayoutItem {
         return contentInsets(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
     }
 
+    /// Configure the amount of space between the content of the section and its boundaries.
     public func contentInsets(
         top: CGFloat = 0,
         leading: CGFloat = 0,
@@ -54,6 +57,7 @@ extension LayoutItem {
         contentInsets(NSDirectionalEdgeInsets(top: top, leading: leading, bottom: bottom, trailing: trailing))
     }
 
+    /// Configure the amount of space between the content of the section and its boundaries.
     public func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutItem {
         valueModifier(insets, keyPath: \.contentInsets)
     }
@@ -63,10 +67,14 @@ extension LayoutItem {
 
     // MARK: - Edge Spacing
 
+    /// Configure the amount of space added around the boundaries of the item between other items
+    /// and this item's container.
     public func edgeSpacing(value: NSCollectionLayoutSpacing?) -> LayoutItem {
         return edgeSpacing(top: value, leading: value, bottom: value, trailing: value)
     }
 
+    /// Configure the amount of space added around the boundaries of the item between other items
+    /// and this item's container.
     public func edgeSpacing(
         horizontal: NSCollectionLayoutSpacing? = nil,
         vertical: NSCollectionLayoutSpacing? = nil
@@ -74,6 +82,8 @@ extension LayoutItem {
         return edgeSpacing(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
     }
 
+    /// Configure the amount of space added around the boundaries of the item between other items
+    /// and this item's container.
     public func edgeSpacing(
         top: NSCollectionLayoutSpacing? = nil,
         leading: NSCollectionLayoutSpacing? = nil,
@@ -85,6 +95,8 @@ extension LayoutItem {
         )
     }
 
+    /// Configure the amount of space added around the boundaries of the item between other items
+    /// and this item's container.
     public func edgeSpacing(_ edgeSpacing: NSCollectionLayoutEdgeSpacing) -> LayoutItem {
         valueModifier(edgeSpacing, keyPath: \.edgeSpacing)
     }

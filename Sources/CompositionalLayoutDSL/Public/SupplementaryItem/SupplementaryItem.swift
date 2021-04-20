@@ -41,14 +41,23 @@ public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem {
 
     // MARK: - SupplementaryItem
 
+    /// The anchor between the supplementary item and the container it's attached to.
+    ///
+    /// The defaults container anchor is attached to top leading
     public func containerAnchor(_ containerAnchor: NSCollectionLayoutAnchor) -> Self {
         with(self) { $0.containerAnchor = containerAnchor }
     }
 
+    /// The anchor between the supplementary item and the container it's attached to.
+    ///
+    /// The defaults container anchor is attached to top leading
     public func containerAnchor(edges: NSDirectionalRectEdge) -> Self {
         containerAnchor(NSCollectionLayoutAnchor(edges: edges))
     }
 
+    /// The anchor between the supplementary item and the container it's attached to.
+    ///
+    /// The defaults container anchor is attached to top leading
     public func containerAnchor(edges: NSDirectionalRectEdge, offset: AnchorOffset) -> Self {
         switch offset {
         case let .absolute(point):
@@ -58,14 +67,17 @@ public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem {
         }
     }
 
+    /// The anchor between the supplementary item and the item it's attached to.
     public func itemAnchor(_ itemAnchor: NSCollectionLayoutAnchor?) -> Self {
         with(self) { $0.itemAnchor = itemAnchor }
     }
 
+    /// The anchor between the supplementary item and the item it's attached to.
     public func itemAnchor(edges: NSDirectionalRectEdge) -> Self {
         itemAnchor(NSCollectionLayoutAnchor(edges: edges))
     }
 
+    /// The anchor between the supplementary item and the item it's attached to.
     public func itemAnchor(edges: NSDirectionalRectEdge, offset: AnchorOffset) -> Self {
         switch offset {
         case let .absolute(point):
@@ -83,10 +95,16 @@ public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem {
 
     // MARK: - ResizableItem
 
+    /// Configure the width of the supplementary item
+    ///
+    /// The default value is `.fractionalWidth(1.0)`
     public func width(_ width: NSCollectionLayoutDimension) -> Self {
         with(self) { $0.widthDimension = width }
     }
 
+    /// Configure the height of the supplementary item
+    ///
+    /// The default value is `.fractionalHeight(1.0)`
     public func height(_ height: NSCollectionLayoutDimension) -> Self {
         with(self) { $0.heightDimension = height }
     }

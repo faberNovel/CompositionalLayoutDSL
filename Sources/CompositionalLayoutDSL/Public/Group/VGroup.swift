@@ -65,10 +65,16 @@ public struct VGroup: LayoutGroup, ResizableItem {
 
     // MARK: - ResizableItem
 
+    /// Configure the width of the group
+    ///
+    /// The default value is `.fractionalWidth(1.0)`
     public func width(_ width: NSCollectionLayoutDimension) -> Self {
         with(self) { $0.widthDimension = width }
     }
 
+    /// Configure the height of the group
+    ///
+    /// The default value is `.fractionalHeight(1.0)`
     public func height(_ height: NSCollectionLayoutDimension) -> Self {
         with(self) { $0.heightDimension = height }
     }
