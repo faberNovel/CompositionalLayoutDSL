@@ -8,8 +8,14 @@
 
 import UIKit
 
-internal protocol BuildableDecorationItem {
+internal protocol BuildableDecorationItem: BuildableItem {
     func makeDecorationItem() -> NSCollectionLayoutDecorationItem
+}
+
+extension BuildableDecorationItem {
+    func makeItem() -> NSCollectionLayoutItem {
+        makeDecorationItem()
+    }
 }
 
 internal enum DecorationItemBuilder {

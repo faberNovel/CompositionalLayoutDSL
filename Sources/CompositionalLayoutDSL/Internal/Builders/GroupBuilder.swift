@@ -13,7 +13,9 @@ internal protocol BuildableGroup: BuildableItem {
 }
 
 extension BuildableGroup {
-    func makeItem() -> NSCollectionLayoutItem { makeGroup() }
+    func makeItem() -> NSCollectionLayoutItem {
+        makeGroup()
+    }
 }
 
 internal enum GroupBuilder {

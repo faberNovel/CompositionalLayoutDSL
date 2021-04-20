@@ -8,8 +8,14 @@
 
 import UIKit
 
-internal protocol BuildableBoundarySupplementaryItem {
+internal protocol BuildableBoundarySupplementaryItem: BuildableSupplementaryItem {
     func makeBoundarySupplementaryItem() -> NSCollectionLayoutBoundarySupplementaryItem
+}
+
+extension BuildableBoundarySupplementaryItem {
+    func makeSupplementaryItem() -> NSCollectionLayoutSupplementaryItem {
+        makeBoundarySupplementaryItem()
+    }
 }
 
 internal enum BoundarySupplementaryItemBuilder {
