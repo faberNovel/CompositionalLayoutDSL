@@ -11,6 +11,7 @@ import UIKit
 
 // swiftlint:disable identifier_name
 
+/// Converts a layout configuration and a layout section into a `UICollectionViewCompositionalLayout`
 public func LayoutBuilder(
     configuration: LayoutConfiguration = Configuration(),
     closure: () -> LayoutSection
@@ -21,6 +22,7 @@ public func LayoutBuilder(
     )
 }
 
+/// Converts a layout section into a `NSCollectionLayoutSection`
 public func LayoutSectionBuilder(closure: () -> LayoutSection) -> NSCollectionLayoutSection {
     SectionBuilder.make(from: closure())
 }
