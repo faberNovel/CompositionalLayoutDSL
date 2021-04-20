@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// The most basic component of a collection view's layout.
 public struct Item: LayoutItem, ResizableItem {
 
     private var widthDimension: NSCollectionLayoutDimension
@@ -16,6 +17,7 @@ public struct Item: LayoutItem, ResizableItem {
 
     // MARK: - Life cycle
 
+    /// Creates an item of the specified size with an array of supplementary items to attach to the item.
     public init(width: NSCollectionLayoutDimension,
                 height: NSCollectionLayoutDimension,
                 @LayoutSupplementaryItemBuilder supplementaryItems: () -> [LayoutSupplementaryItem]) {
@@ -24,6 +26,7 @@ public struct Item: LayoutItem, ResizableItem {
         self.supplementaryItems = supplementaryItems()
     }
 
+    /// Creates an item of the specified size
     public init(width: NSCollectionLayoutDimension = .fractionalWidth(1),
                 height: NSCollectionLayoutDimension = .fractionalHeight(1)) {
         self.widthDimension = width
@@ -31,12 +34,14 @@ public struct Item: LayoutItem, ResizableItem {
         self.supplementaryItems = []
     }
 
+    /// Creates an item of the specified size
     public init(size: NSCollectionLayoutSize) {
         self.widthDimension = size.widthDimension
         self.heightDimension = size.heightDimension
         self.supplementaryItems = []
     }
 
+    /// Creates an item with an array of supplementary items to attach to the item.
     public init(@LayoutSupplementaryItemBuilder supplementaryItems: () -> [LayoutSupplementaryItem]) {
         self.init(width: .fractionalWidth(1), height: .fractionalHeight(1), supplementaryItems: supplementaryItems)
     }

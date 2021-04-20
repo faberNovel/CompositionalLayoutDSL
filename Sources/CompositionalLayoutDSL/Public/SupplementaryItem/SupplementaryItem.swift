@@ -8,6 +8,8 @@
 
 import UIKit
 
+/// An object used to add an extra visual decoration, such as a badge or a frame, to an
+/// item in a collection view.
 public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem {
 
     public enum AnchorOffset {
@@ -24,6 +26,8 @@ public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem {
 
     // MARK: - Life cycle
 
+    /// Creates a supplementary item of the specified size, with a string to identify the
+    /// element kind and an anchor relative to a container.
     public init(widthDimension: NSCollectionLayoutDimension = .fractionalWidth(1),
                 heightDimension: NSCollectionLayoutDimension = .fractionalHeight(1),
                 elementKind: String) {
@@ -32,6 +36,8 @@ public struct SupplementaryItem: LayoutSupplementaryItem, ResizableItem {
         self.elementKind = elementKind
     }
 
+    /// Creates a supplementary item of the specified size, with a string to identify the
+    /// element kind and an anchor relative to a container.
     public init(size: NSCollectionLayoutSize,
                 elementKind: String) {
         self.widthDimension = size.widthDimension

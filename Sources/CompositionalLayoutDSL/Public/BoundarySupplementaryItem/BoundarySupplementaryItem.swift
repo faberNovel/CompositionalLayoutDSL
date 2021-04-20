@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// An object used to add headers or footers to a collection view.
 public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, ResizableItem {
 
     private var widthDimension: NSCollectionLayoutDimension
@@ -19,6 +20,8 @@ public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, Resiza
 
     // MARK: - Life cycle
 
+    /// Creates a boundary supplementary item of the specified size, with a string to identify the
+    /// element kind.
     public init(width: NSCollectionLayoutDimension = .fractionalWidth(1),
                 height: NSCollectionLayoutDimension = .fractionalHeight(1),
                 elementKind: String) {
@@ -27,6 +30,8 @@ public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, Resiza
         self.elementKind = elementKind
     }
 
+    /// Creates a boundary supplementary item of the specified size, with a string to identify the
+    /// element kind.
     public init(size: NSCollectionLayoutSize,
                 elementKind: String) {
         self.widthDimension = size.widthDimension

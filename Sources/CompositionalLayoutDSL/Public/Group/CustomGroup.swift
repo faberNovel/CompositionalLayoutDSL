@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// A customizable container for a set of items.
 public struct CustomGroup: LayoutGroup, ResizableItem {
 
     private var widthDimension: NSCollectionLayoutDimension
@@ -16,6 +17,8 @@ public struct CustomGroup: LayoutGroup, ResizableItem {
 
     // MARK: - Life cycle
 
+    /// Creates a group of the specified size, with an item provider that creates a custom
+    /// arrangement for those items.
     public init(width: NSCollectionLayoutDimension = .fractionalWidth(1),
                 height: NSCollectionLayoutDimension = .fractionalHeight(1),
                 itemProvider: @escaping NSCollectionLayoutGroupCustomItemProvider) {
@@ -24,6 +27,8 @@ public struct CustomGroup: LayoutGroup, ResizableItem {
         self.itemProvider = itemProvider
     }
 
+    /// Creates a group of the specified size, with an item provider that creates a custom
+    /// arrangement for those items.
     public init(size: NSCollectionLayoutSize,
                 itemProvider: @escaping NSCollectionLayoutGroupCustomItemProvider) {
         self.widthDimension = size.widthDimension
@@ -31,6 +36,7 @@ public struct CustomGroup: LayoutGroup, ResizableItem {
         self.itemProvider = itemProvider
     }
 
+    /// Creates a group with an item provider that creates a custom arrangement for those items.
     public init(itemProvider: @escaping NSCollectionLayoutGroupCustomItemProvider) {
         self.init(width: .fractionalWidth(1), height: .fractionalHeight(1), itemProvider: itemProvider)
     }

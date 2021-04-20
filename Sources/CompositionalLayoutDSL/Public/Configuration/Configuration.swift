@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// An object that defines scroll direction, section spacing, and headers or footers for the layout.
 public struct Configuration: LayoutConfiguration {
 
     // MARK: - Life cycle

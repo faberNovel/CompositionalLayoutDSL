@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// A container that combines a set of groups into distinct visual groupings.
 public struct Section: LayoutSection {
 
     private let group: LayoutGroup

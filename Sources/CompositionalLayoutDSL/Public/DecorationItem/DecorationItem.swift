@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// An object used to add a background to a section of a collection view.
 public struct DecorationItem: LayoutDecorationItem {
 
     private var elementKind: String
