@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// A container for a set of items that lays out the items vertically.
 public struct VGroup: LayoutGroup, ResizableItem {
 
     private enum SubItems {
@@ -21,6 +22,7 @@ public struct VGroup: LayoutGroup, ResizableItem {
 
     // MARK: - Life cycle
 
+    /// Creates a group of the specified size, containing an array of items arranged in a vertical line.
     public init(width: NSCollectionLayoutDimension = .fractionalWidth(1),
                 height: NSCollectionLayoutDimension = .fractionalHeight(1),
                 @LayoutItemBuilder subItems: () -> [LayoutItem]) {
@@ -29,6 +31,7 @@ public struct VGroup: LayoutGroup, ResizableItem {
         self.subItems = .list(subItems())
     }
 
+    /// Creates a group of the specified size, containing an array of items arranged in a vertical line.
     public init(size: NSCollectionLayoutSize,
                 @LayoutItemBuilder subItems: () -> [LayoutItem]) {
         self.widthDimension = size.widthDimension
@@ -36,6 +39,8 @@ public struct VGroup: LayoutGroup, ResizableItem {
         self.subItems = .list(subItems())
     }
 
+    /// Creates a group of the specified size, containing an array of equally sized items arranged
+    /// in a horizontal line up to the number specified by count.
     public init(width: NSCollectionLayoutDimension = .fractionalWidth(1),
                 height: NSCollectionLayoutDimension = .fractionalHeight(1),
                 count: Int,
@@ -45,6 +50,8 @@ public struct VGroup: LayoutGroup, ResizableItem {
         self.subItems = .repeated(subItem(), count: count)
     }
 
+    /// Creates a group of the specified size, containing an array of equally sized items arranged
+    /// in a horizontal line up to the number specified by count.
     public init(size: NSCollectionLayoutSize,
                 count: Int,
                 subItem: () -> LayoutItem) {
@@ -53,6 +60,7 @@ public struct VGroup: LayoutGroup, ResizableItem {
         self.subItems = .repeated(subItem(), count: count)
     }
 
+    /// Creates a group containing an array of items arranged in a vertical line.
     public init(@LayoutItemBuilder subItems: () -> [LayoutItem]) {
         self.init(width: .fractionalWidth(1), height: .fractionalHeight(1), subItems: subItems)
     }
@@ -65,10 +73,16 @@ public struct VGroup: LayoutGroup, ResizableItem {
 
     // MARK: - ResizableItem
 
+    /// Configure the width of the group
+    ///
+    /// The default value is `.fractionalWidth(1.0)`
     public func width(_ width: NSCollectionLayoutDimension) -> Self {
         with(self) { $0.widthDimension = width }
     }
 
+    /// Configure the height of the group
+    ///
+    /// The default value is `.fractionalHeight(1.0)`
     public func height(_ height: NSCollectionLayoutDimension) -> Self {
         with(self) { $0.heightDimension = height }
     }

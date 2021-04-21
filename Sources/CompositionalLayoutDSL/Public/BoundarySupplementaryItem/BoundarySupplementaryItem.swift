@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// An object used to add headers or footers to a collection view.
 public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, ResizableItem {
 
     private var widthDimension: NSCollectionLayoutDimension
@@ -19,6 +20,8 @@ public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, Resiza
 
     // MARK: - Life cycle
 
+    /// Creates a boundary supplementary item of the specified size, with a string to identify the
+    /// element kind.
     public init(width: NSCollectionLayoutDimension = .fractionalWidth(1),
                 height: NSCollectionLayoutDimension = .fractionalHeight(1),
                 elementKind: String) {
@@ -27,6 +30,8 @@ public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, Resiza
         self.elementKind = elementKind
     }
 
+    /// Creates a boundary supplementary item of the specified size, with a string to identify the
+    /// element kind.
     public init(size: NSCollectionLayoutSize,
                 elementKind: String) {
         self.widthDimension = size.widthDimension
@@ -36,6 +41,9 @@ public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, Resiza
 
     // MARK: - BoundarySupplementaryItem
 
+    /// The alignment of the boundary supplementary item relative to the section or layout it's attached to.
+    ///
+    /// The default value for this property is `NSRectAlignment.top`
     public func alignment(_ alignment: NSRectAlignment) -> Self {
         with(self) { $0.alignment = alignment }
     }
@@ -52,10 +60,16 @@ public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, Resiza
 
     // MARK: - ResizableItem
 
+    /// Configure the width of the boundary supplementary item
+    ///
+    /// The default value is `.fractionalWidth(1.0)`
     public func width(_ width: NSCollectionLayoutDimension) -> Self {
         with(self) { $0.widthDimension = width }
     }
 
+    /// Configure the height of the boundary supplementary item
+    ///
+    /// The default value is `.fractionalHeight(1.0)`
     public func height(_ height: NSCollectionLayoutDimension) -> Self {
         with(self) { $0.heightDimension = height }
     }

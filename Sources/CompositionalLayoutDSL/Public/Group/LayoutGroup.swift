@@ -8,6 +8,23 @@
 
 import UIKit
 
+/// A type that represents a group in a compositional layout and provides
+/// modifiers to configure groups.
+///
+/// You create custom groups by declaring types that conform to the
+/// ``LayoutGroup`` protocol. Implement the required ``layoutGroup``
+/// computed property to provide the content and configuration for your custom group.
+///
+///     struct MyGroup: LayoutGroup {
+///         var layoutGroup: LayoutGroup {
+///             HGroup(count: 4) {
+///                 Item()
+///             }
+///             .height(.absolute(300))
+///             .interItemSpacing(.fixed(8))
+///         }
+///     }
+///
 public protocol LayoutGroup: LayoutItem {
     var layoutGroup: LayoutGroup { get }
 }
@@ -23,6 +40,7 @@ extension LayoutGroup {
 
     // MARK: - Group Mutable properties
 
+    /// Add an array of the supplementary items that are anchored to the group.
     public func supplementaryItems(
         @LayoutSupplementaryItemBuilder _ supplementaryItems: () -> [LayoutSupplementaryItem]
     ) -> LayoutGroup {
@@ -30,6 +48,7 @@ extension LayoutGroup {
         return valueModifier { $0.supplementaryItems.append(contentsOf: supplementaryItems) }
     }
 
+    /// Configure the amount of space between the items along the layout axis of the group.
     public func interItemSpacing(_ interItemSpacing: NSCollectionLayoutSpacing?) -> LayoutGroup {
         valueModifier(interItemSpacing, keyPath: \.interItemSpacing)
     }
@@ -39,14 +58,20 @@ extension LayoutGroup {
 
     // MARK: - Content Insets
 
+    /// Configure the amount of space added around the content of the item to adjust its final
+    /// size after its position is computed.
     public func contentInsets(value: CGFloat) -> LayoutGroup {
         return contentInsets(top: value, leading: value, bottom: value, trailing: value)
     }
 
+    /// Configure the amount of space added around the content of the item to adjust its final
+    /// size after its position is computed.
     public func contentInsets(horizontal: CGFloat = 0, vertical: CGFloat = 0) -> LayoutGroup {
         return contentInsets(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
     }
 
+    /// Configure the amount of space added around the content of the item to adjust its final
+    /// size after its position is computed.
     public func contentInsets(
         top: CGFloat = 0,
         leading: CGFloat = 0,
@@ -56,6 +81,8 @@ extension LayoutGroup {
         contentInsets(NSDirectionalEdgeInsets(top: top, leading: leading, bottom: bottom, trailing: trailing))
     }
 
+    /// Configure the amount of space added around the content of the item to adjust its final
+    /// size after its position is computed.
     public func contentInsets(_ insets: NSDirectionalEdgeInsets) -> LayoutGroup {
         valueModifier(insets, keyPath: \.contentInsets)
     }
@@ -65,10 +92,14 @@ extension LayoutGroup {
 
     // MARK: - Edge Spacing
 
+    /// Configure the amount of space added around the boundaries of the item between other items
+    /// and this item's container.
     public func edgeSpacing(value: NSCollectionLayoutSpacing?) -> LayoutGroup {
         return edgeSpacing(top: value, leading: value, bottom: value, trailing: value)
     }
 
+    /// Configure the amount of space added around the boundaries of the item between other items
+    /// and this item's container.
     public func edgeSpacing(
         horizontal: NSCollectionLayoutSpacing? = nil,
         vertical: NSCollectionLayoutSpacing? = nil
@@ -76,6 +107,8 @@ extension LayoutGroup {
         return edgeSpacing(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
     }
 
+    /// Configure the amount of space added around the boundaries of the item between other items
+    /// and this item's container.
     public func edgeSpacing(
         top: NSCollectionLayoutSpacing? = nil,
         leading: NSCollectionLayoutSpacing? = nil,
@@ -87,6 +120,8 @@ extension LayoutGroup {
         )
     }
 
+    /// Configure the amount of space added around the boundaries of the item between other items
+    /// and this item's container.
     public func edgeSpacing(_ edgeSpacing: NSCollectionLayoutEdgeSpacing) -> LayoutGroup {
         valueModifier(edgeSpacing, keyPath: \.edgeSpacing)
     }

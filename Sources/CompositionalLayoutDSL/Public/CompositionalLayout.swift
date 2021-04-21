@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// An object that completely represent a compositional layout.
 public struct CompositionalLayout {
 
     public typealias SectionProvider = (Int, NSCollectionLayoutEnvironment) -> LayoutSection?
