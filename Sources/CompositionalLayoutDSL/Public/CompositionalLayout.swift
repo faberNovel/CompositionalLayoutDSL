@@ -82,15 +82,6 @@ public struct CompositionalLayout {
             $0.configuration = $0.configuration.contentInsetsReference(contentInsetsReference)
         }
     }
-
-    public var collectionCompositionalLayout: UICollectionViewCompositionalLayout {
-        UICollectionViewCompositionalLayout(
-            sectionProvider: { section, environment in
-                return sectionBuilder(section, environment).map(SectionBuilder.make(from:))
-            },
-            configuration: ConfigurationBuilder.make(from: configuration)
-        )
-    }
 }
 
 public extension CompositionalLayout {
@@ -102,5 +93,16 @@ public extension CompositionalLayout {
             let sectionBuilder = sectionsBuilder[section % sectionsBuilder.count]
             return sectionBuilder(section, environment)
         }
+    }
+}
+
+extension CompositionalLayout {
+    func makeCollectionViewCompositionalLayout() -> UICollectionViewCompositionalLayout {
+        return UICollectionViewCompositionalLayout(
+            sectionProvider: { section, environment in
+                return sectionBuilder(section, environment).map(SectionBuilder.make(from:))
+            },
+            configuration: ConfigurationBuilder.make(from: configuration)
+        )
     }
 }

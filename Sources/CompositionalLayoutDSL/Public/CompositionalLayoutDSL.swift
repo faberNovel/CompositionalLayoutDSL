@@ -23,6 +23,30 @@ public func LayoutBuilder(
 }
 
 /// Converts a layout section into a `NSCollectionLayoutSection`
-public func LayoutSectionBuilder(closure: () -> LayoutSection) -> NSCollectionLayoutSection {
+public func LayoutSectionBuilder(
+    closure: () -> LayoutSection
+) -> NSCollectionLayoutSection {
     SectionBuilder.make(from: closure())
+}
+
+/// Converts a compositionalLayout into a `UICollectionViewCompositionalLayout`
+public func CompositionalLayoutBuilder(
+    closure: () -> CompositionalLayout
+) -> UICollectionViewCompositionalLayout {
+    closure().makeCollectionViewCompositionalLayout()
+}
+
+extension UICollectionView {
+    /// Configure a UICollectionView layout with a CompositionalLayout
+    public func setCollectionViewLayout(
+        _ layout: CompositionalLayout,
+        animated: Bool,
+        completion: ((Bool) -> Void)? = nil
+    ) {
+        self.setCollectionViewLayout(
+            CompositionalLayoutBuilder { layout },
+            animated: animated,
+            completion: completion
+        )
+    }
 }
