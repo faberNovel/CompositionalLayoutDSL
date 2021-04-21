@@ -26,7 +26,7 @@
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#nested type aliases">Nested Type Aliases</a><ul><li class="typealias"><a href="#compositionallayout.sectionbuilder">Section​Builder</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#compositionallayout.init(configuration:sectionsbuilder:)">init(configuration:​sections​Builder:​)</a></li><li class="initializer"><a href="#compositionallayout.init(configuration:repeatingsections:)">init(configuration:​repeating​Sections:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#compositionallayout.collectioncompositionallayout">collection​Compositional​Layout</a></li></ul></li></ol>
+            <ol><li><a href="#nested type aliases">Nested Type Aliases</a><ul><li class="typealias"><a href="#compositionallayout.sectionprovider">Section​Provider</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#compositionallayout.init(configuration:sectionsbuilder:)">init(configuration:​sections​Builder:​)</a></li><li class="initializer"><a href="#compositionallayout.init(configuration:repeatingsections:)">init(configuration:​repeating​Sections:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#compositionallayout.collectioncompositionallayout">collection​Compositional​Layout</a></li></ul></li></ol>
         </div>
     </nav>
 
@@ -42,11 +42,11 @@
     <section id="nested type aliases">
         <h2>Nested Type Aliases</h2>
 
-        <div role="article" class="typealias" id="compositionallayout.sectionbuilder">
+        <div role="article" class="typealias" id="compositionallayout.sectionprovider">
     <h3>
-        <code>Section​Builder</code>
+        <code>Section​Provider</code>
     </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">typealias</span> <span class="variable">SectionBuilder</span> = (<span class="type">Int</span>, <span class="type">NSCollectionLayoutEnvironment</span>) -&gt; <a href="/CompositionalLayoutDSL/LayoutSection"><span class="type">LayoutSection</span></a>?</code></pre></body></html>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">typealias</span> <span class="variable">SectionProvider</span> = (<span class="type">Int</span>, <span class="type">NSCollectionLayoutEnvironment</span>) -&gt; <a href="/CompositionalLayoutDSL/LayoutSection"><span class="type">LayoutSection</span></a>?</code></pre></body></html>
 </div>
     </section>
     <section id="initializers">
@@ -56,13 +56,13 @@
     <h3>
         <code>init(configuration:​sections​Builder:​)</code>
     </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">configuration</span>: <a href="/CompositionalLayoutDSL/CompositionalLayoutConfiguration"><span class="type">CompositionalLayoutConfiguration</span></a> = <span class="variable">CompositionalConfiguration</span>(), <span class="variable">sectionsBuilder</span>: <span class="attribute">@</span><span class="attribute">escaping</span> <span class="type">SectionBuilder</span>)</code></pre></body></html>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">configuration</span>: <a href="/CompositionalLayoutDSL/LayoutConfiguration"><span class="type">LayoutConfiguration</span></a> = <span class="variable">Configuration</span>(), <span class="variable">sectionsBuilder</span>: <span class="attribute">@</span><span class="attribute">escaping</span> <span class="type">SectionProvider</span>)</code></pre></body></html>
 </div>
 <div role="article" class="initializer" id="compositionallayout.init(configuration:repeatingsections:)">
     <h3>
         <code>init(configuration:​repeating​Sections:​)</code>
     </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">init</span>(<span class="variable">configuration</span>: <a href="/CompositionalLayoutDSL/CompositionalLayoutConfiguration"><span class="type">CompositionalLayoutConfiguration</span></a> = <span class="variable">CompositionalConfiguration</span>(), <span class="variable">repeatingSections</span> <span class="variable">sectionsBuilder</span>: [<span class="type">SectionBuilder</span>])</code></pre></body></html>
+    <html><body><pre class="highlight"><code><span class="keyword">init</span>(<span class="variable">configuration</span>: <a href="/CompositionalLayoutDSL/LayoutConfiguration"><span class="type">LayoutConfiguration</span></a> = <span class="variable">Configuration</span>(), <span class="variable">repeatingSections</span> <span class="variable">sectionsBuilder</span>: [<span class="type">SectionProvider</span>])</code></pre></body></html>
 </div>
     </section>
     <section id="properties">
@@ -83,7 +83,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-04-15T09:26:46+0000">April 15, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-04-21T09:28:33+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
 </p>
     </footer>
 </body>

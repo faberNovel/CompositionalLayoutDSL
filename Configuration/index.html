@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CompositionalLayoutDSL - DecorationItem</title>
+    <title>CompositionalLayoutDSL - Configuration</title>
     <link rel="stylesheet" type="text/css" href="/CompositionalLayoutDSL/all.css" media="all" />
 </head>
 <body>
@@ -26,7 +26,7 @@
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#decorationitem.init(elementkind:)">init(element​Kind:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#decorationitem.layoutdecorationitem">layout​Decoration​Item</a></li></ul></li></ol>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#configuration.init()">init()</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#configuration.layoutconfiguration">layout​Configuration</a></li></ul></li></ol>
         </div>
     </nav>
 
@@ -34,10 +34,10 @@
         <article>
             <h1>
     <small>Structure</small>
-    <code class="name">Decoration​Item</code>
+    <code class="name">Configuration</code>
 </h1>
 
-<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">DecorationItem</span>: <a href="/CompositionalLayoutDSL/LayoutDecorationItem"><span class="type">LayoutDecorationItem</span></a></code></pre></body></html>
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">Configuration</span>: <a href="/CompositionalLayoutDSL/LayoutConfiguration"><span class="type">LayoutConfiguration</span></a></code></pre></body></html>
 <section id="relationships">
     <h2 hidden>Relationships</h2>
         <figure>
@@ -52,27 +52,27 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
 <title>%3</title>
 <polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
-<!-- DecorationItem -->
+<!-- Configuration -->
 <g id="node1" class="node structure current">
-<title>DecorationItem</title>
-<g id="a_node1"><a xlink:href="/CompositionalLayoutDSL/DecorationItem" xlink:title="DecorationItem">
+<title>Configuration</title>
+<g id="a_node1"><a xlink:href="/CompositionalLayoutDSL/Configuration" xlink:title="Configuration">
 <path fill="none" stroke="#000000" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
-<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00" fill="#000000">DecorationItem</text>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00" fill="#000000">Configuration</text>
 </a>
 </g>
 </g>
-<!-- LayoutDecorationItem -->
+<!-- LayoutConfiguration -->
 <g id="node2" class="node protocol">
-<title>LayoutDecorationItem</title>
-<g id="a_node2"><a xlink:href="/CompositionalLayoutDSL/LayoutDecorationItem" xlink:title="LayoutDecorationItem">
+<title>LayoutConfiguration</title>
+<g id="a_node2"><a xlink:href="/CompositionalLayoutDSL/LayoutConfiguration" xlink:title="LayoutConfiguration">
 <path fill="none" stroke="#000000" d="M528,-36C528,-36 336,-36 336,-36 330,-36 324,-30 324,-24 324,-24 324,-12 324,-12 324,-6 330,0 336,0 336,0 528,0 528,0 534,0 540,-6 540,-12 540,-12 540,-24 540,-24 540,-30 534,-36 528,-36"/>
-<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00" fill="#000000">LayoutDecorationItem</text>
+<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00" fill="#000000">LayoutConfiguration</text>
 </a>
 </g>
 </g>
-<!-- DecorationItem&#45;&gt;LayoutDecorationItem -->
+<!-- Configuration&#45;&gt;LayoutConfiguration -->
 <g id="edge1" class="edge conformsTo">
-<title>DecorationItem&#45;&gt;LayoutDecorationItem</title>
+<title>Configuration&#45;&gt;LayoutConfiguration</title>
 <path fill="none" stroke="#000000" d="M432,-71.8314C432,-64.131 432,-54.9743 432,-46.4166"/>
 <polygon fill="#000000" stroke="#000000" points="435.5001,-46.4132 432,-36.4133 428.5001,-46.4133 435.5001,-46.4132"/>
 </g>
@@ -80,32 +80,32 @@
 </svg>
 
 
-    <figcaption hidden>Inheritance graph for DecorationItem.</figcaption>
+    <figcaption hidden>Inheritance graph for Configuration.</figcaption>
 </figure>
         <h3>Conforms To</h3>
 <dl>
-    <dt class="protocol"><code><a href="/CompositionalLayoutDSL/LayoutDecorationItem">LayoutDecorationItem</a></code></dt>
+    <dt class="protocol"><code><a href="/CompositionalLayoutDSL/LayoutConfiguration">LayoutConfiguration</a></code></dt>
 <dd></dd>
 </dl>
 </section>
     <section id="initializers">
         <h2>Initializers</h2>
 
-        <div role="article" class="initializer" id="decorationitem.init(elementkind:)">
+        <div role="article" class="initializer" id="configuration.init()">
     <h3>
-        <code>init(element​Kind:​)</code>
+        <code>init()</code>
     </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">elementKind</span>: <span class="type">String</span>)</code></pre></body></html>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>()</code></pre></body></html>
 </div>
     </section>
     <section id="properties">
         <h2>Properties</h2>
 
-        <div role="article" class="variable" id="decorationitem.layoutdecorationitem">
+        <div role="article" class="variable" id="configuration.layoutconfiguration">
     <h3>
-        <code>layout​Decoration​Item</code>
+        <code>layout​Configuration</code>
     </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">layoutDecorationItem</span>: <a href="/CompositionalLayoutDSL/LayoutDecorationItem"><span class="type">LayoutDecorationItem</span></a></code></pre></body></html>
+    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">layoutConfiguration</span>: <a href="/CompositionalLayoutDSL/LayoutConfiguration"><span class="type">LayoutConfiguration</span></a></code></pre></body></html>
 </div>
     </section>
 
