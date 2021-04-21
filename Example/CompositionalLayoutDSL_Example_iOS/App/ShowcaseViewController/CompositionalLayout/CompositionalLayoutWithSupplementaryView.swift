@@ -11,22 +11,17 @@ import CompositionalLayoutDSL
 
 struct CompositionalLayoutWithSupplementaryView {
     func layout() -> UICollectionViewLayout {
-        CompositionalLayout(configuration: configuration) { _, _ in
-            Section {
-                VGroup(count: 1) { Item() }
-                    .height(.absolute(200))
-                    .width(.fractionalWidth(0.85))
-                    .interItemSpacing(.fixed(8))
+        CompositionalLayoutBuilder {
+            CompositionalLayout { _, _ in
+                Section {
+                    VGroup(count: 1) { Item() }
+                        .height(.absolute(200))
+                        .width(.fractionalWidth(0.85))
+                        .interItemSpacing(.fixed(8))
+                }
+                .interGroupSpacing(8)
+                .orthogonalScrollingBehavior(.continuous)
             }
-            .interGroupSpacing(8)
-            .orthogonalScrollingBehavior(.continuous)
-        }.collectionCompositionalLayout
-    }
-
-    // MARK: - Private
-
-    private var configuration: LayoutConfiguration {
-        Configuration()
             .interSectionSpacing(20)
             .boundarySupplementaryItems {
                 BoundarySupplementaryItem(elementKind: UICollectionView.elementKindSectionHeader)
@@ -38,6 +33,7 @@ struct CompositionalLayoutWithSupplementaryView {
                     .alignment(.bottom)
                     .absoluteOffset(CGPoint(x: 0, y: 8))
             }
+        }
     }
 }
 
