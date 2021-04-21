@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import CompositionalLayoutDSL
 
 class ShowcaseViewController: DemoCollectionViewController {
 
@@ -81,12 +82,28 @@ extension ShowcaseViewController {
 
     private var showCaseLayouts: [NSCollectionViewLayout] {
         [
-            NSCollectionViewFlowLayout(),
-            testLayout()
+            CompositionalLayoutBuilder { fourColumnsGroup() },
+//            fourColumnsGroupAppKit(),
+            CompositionalLayoutBuilder { listLayout() },
+            CompositionalLayoutBuilder { tweetDeckLayout() }
         ]
     }
 
-    private func testLayout() -> NSCollectionViewLayout {
+    private func fourColumnsGroup() -> CompositionalLayout {
+        CompositionalLayout { _, _ in
+            Section {
+                HGroup(count: 4) {
+                    Item()
+                }
+                .height(.absolute(100))
+                .interItemSpacing(.fixed(16))
+            }
+            .interGroupSpacing(16)
+            .contentInsets(horizontal: 16, vertical: 8)
+        }
+    }
+
+    private func fourColumnsGroupAppKit() -> NSCollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .fractionalHeight(1)
@@ -106,5 +123,51 @@ extension ShowcaseViewController {
         section.interGroupSpacing = 16
         section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16)
         return NSCollectionViewCompositionalLayout(section: section)
+    }
+
+    private func tweetDeckLayout() -> CompositionalLayout {
+        CompositionalLayout { _, _ in
+            Section {
+                HGroup(count: 1) {
+                    Item()
+                }
+                .height(.absolute(100))
+                .width(.absolute(150))
+            }
+            .interGroupSpacing(4)
+            .boundarySupplementaryItems {
+                BoundarySupplementaryItem(elementKind: NSCollectionView.elementKindSectionFooter)
+                    .alignment(.leading)
+                    .width(.absolute(20))
+            }
+            .orthogonalScrollingBehavior(.continuous)
+            .contentInsets(horizontal: 4)
+        }
+        .scrollDirection(.horizontal)
+    }
+
+    private func listLayout() -> CompositionalLayout {
+        CompositionalLayout { _, _ in
+            Section {
+                HGroup(count: 1) {
+                    Item()
+                }
+                .height(.absolute(40))
+                .width(.fractionalWidth(1))
+            }
+            .interGroupSpacing(1)
+            .boundarySupplementaryItems {
+                BoundarySupplementaryItem(elementKind: NSCollectionView.elementKindSectionHeader)
+                    .alignment(.top)
+                    .height(.absolute(20))
+                    .pinToVisibleBounds(true)
+                BoundarySupplementaryItem(elementKind: NSCollectionView.elementKindSectionFooter)
+                    .alignment(.bottom)
+                    .height(.absolute(20))
+                    .pinToVisibleBounds(true)
+            }
+            .contentInsets(horizontal: 8)
+            .supplementariesFollowContentInsets(false)
+        }
     }
 }
