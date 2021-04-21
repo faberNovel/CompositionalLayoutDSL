@@ -27,6 +27,10 @@
 		AC34ECCC261F5CED00DF2D74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC34ECCB261F5CED00DF2D74 /* Assets.xcassets */; };
 		AC34ECCF261F5CED00DF2D74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC34ECCD261F5CED00DF2D74 /* LaunchScreen.storyboard */; };
 		AC622CE2261F606C0058EEE3 /* CompositionalLayoutDSL in Frameworks */ = {isa = PBXBuildFile; productRef = AC622CE1261F606C0058EEE3 /* CompositionalLayoutDSL */; };
+		AC6292EA26303724005B5D3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6292E926303724005B5D3A /* AppDelegate.swift */; };
+		AC6292EC26303724005B5D3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6292EB26303724005B5D3A /* ViewController.swift */; };
+		AC6292EE26303727005B5D3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC6292ED26303727005B5D3A /* Assets.xcassets */; };
+		AC6292F126303727005B5D3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6292EF26303727005B5D3A /* Main.storyboard */; };
 		ACF2C1682624B00700E06BA7 /* GettingStartedCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1672624B00700E06BA7 /* GettingStartedCompositionalLayout.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +57,13 @@
 		AC34ECD0261F5CED00DF2D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC622CE3261F60740058EEE3 /* CompositionalLayoutDSL */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CompositionalLayoutDSL; path = ..; sourceTree = "<group>"; };
 		AC622CE7261F63970058EEE3 /* DemoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCollectionViewController.swift; sourceTree = "<group>"; };
+		AC6292E726303724005B5D3A /* CompositionalLayoutDSL_Example_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompositionalLayoutDSL_Example_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC6292E926303724005B5D3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AC6292EB26303724005B5D3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AC6292ED26303727005B5D3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC6292F026303727005B5D3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AC6292F226303727005B5D3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC6292F326303727005B5D3A /* CompositionalLayoutDSL_Example_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CompositionalLayoutDSL_Example_macOS.entitlements; sourceTree = "<group>"; };
 		ACF2C1672624B00700E06BA7 /* GettingStartedCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingStartedCompositionalLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +73,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC622CE2261F606C0058EEE3 /* CompositionalLayoutDSL in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC6292E426303724005B5D3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				AC34ECC1261F5CE800DF2D74 /* CompositionalLayoutDSL_Example_iOS */,
+				AC6292E826303724005B5D3A /* CompositionalLayoutDSL_Example_macOS */,
 				AC34ECC0261F5CE800DF2D74 /* Products */,
 				AC622CE3261F60740058EEE3 /* CompositionalLayoutDSL */,
 			);
@@ -148,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				AC34ECBF261F5CE800DF2D74 /* CompositionalLayoutDSL_Example_iOS.app */,
+				AC6292E726303724005B5D3A /* CompositionalLayoutDSL_Example_macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,6 +205,19 @@
 			path = DemoCollectionViewController;
 			sourceTree = "<group>";
 		};
+		AC6292E826303724005B5D3A /* CompositionalLayoutDSL_Example_macOS */ = {
+			isa = PBXGroup;
+			children = (
+				AC6292E926303724005B5D3A /* AppDelegate.swift */,
+				AC6292EB26303724005B5D3A /* ViewController.swift */,
+				AC6292ED26303727005B5D3A /* Assets.xcassets */,
+				AC6292EF26303727005B5D3A /* Main.storyboard */,
+				AC6292F226303727005B5D3A /* Info.plist */,
+				AC6292F326303727005B5D3A /* CompositionalLayoutDSL_Example_macOS.entitlements */,
+			);
+			path = CompositionalLayoutDSL_Example_macOS;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -208,6 +241,23 @@
 			productReference = AC34ECBF261F5CE800DF2D74 /* CompositionalLayoutDSL_Example_iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AC6292E626303724005B5D3A /* CompositionalLayoutDSL_Example_macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC6292F626303727005B5D3A /* Build configuration list for PBXNativeTarget "CompositionalLayoutDSL_Example_macOS" */;
+			buildPhases = (
+				AC6292E326303724005B5D3A /* Sources */,
+				AC6292E426303724005B5D3A /* Frameworks */,
+				AC6292E526303724005B5D3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CompositionalLayoutDSL_Example_macOS;
+			productName = CompositionalLayoutDSL_Example_macOS;
+			productReference = AC6292E726303724005B5D3A /* CompositionalLayoutDSL_Example_macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -219,6 +269,9 @@
 				ORGANIZATIONNAME = Fabernovel;
 				TargetAttributes = {
 					AC34ECBE261F5CE800DF2D74 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					AC6292E626303724005B5D3A = {
 						CreatedOnToolsVersion = 12.5;
 					};
 				};
@@ -240,6 +293,7 @@
 			projectRoot = "";
 			targets = (
 				AC34ECBE261F5CE800DF2D74 /* CompositionalLayoutDSL_Example_iOS */,
+				AC6292E626303724005B5D3A /* CompositionalLayoutDSL_Example_macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -251,6 +305,15 @@
 			files = (
 				AC34ECCF261F5CED00DF2D74 /* LaunchScreen.storyboard in Resources */,
 				AC34ECCC261F5CED00DF2D74 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC6292E526303724005B5D3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC6292EE26303727005B5D3A /* Assets.xcassets in Resources */,
+				AC6292F126303727005B5D3A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +345,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AC6292E326303724005B5D3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC6292EC26303724005B5D3A /* ViewController.swift in Sources */,
+				AC6292EA26303724005B5D3A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -291,6 +363,14 @@
 				AC34ECCE261F5CED00DF2D74 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		AC6292EF26303727005B5D3A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC6292F026303727005B5D3A /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -450,6 +530,52 @@
 			};
 			name = Release;
 		};
+		AC6292F426303727005B5D3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CompositionalLayoutDSL_Example_macOS/CompositionalLayoutDSL_Example_macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = LL36D6ZV57;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = CompositionalLayoutDSL_Example_macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fabernovel.CompositionalLayoutDSL-Example-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		AC6292F526303727005B5D3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CompositionalLayoutDSL_Example_macOS/CompositionalLayoutDSL_Example_macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = LL36D6ZV57;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = CompositionalLayoutDSL_Example_macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fabernovel.CompositionalLayoutDSL-Example-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -467,6 +593,15 @@
 			buildConfigurations = (
 				AC34ECD4261F5CED00DF2D74 /* Debug */,
 				AC34ECD5261F5CED00DF2D74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC6292F626303727005B5D3A /* Build configuration list for PBXNativeTarget "CompositionalLayoutDSL_Example_macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC6292F426303727005B5D3A /* Debug */,
+				AC6292F526303727005B5D3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
