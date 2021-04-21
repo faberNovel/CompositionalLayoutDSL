@@ -26,7 +26,7 @@
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#listsection.init(configuration:layoutenvironment:)">init(configuration:​layout​Environment:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#listsection.layoutsection">layout​Section</a></li></ul></li></ol>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#listsection.init(configuration:layoutenvironment:)">init(configuration:​layout​Environment:​)</a></li><li class="initializer"><a href="#listsection.init(appearance:layoutenvironment:)">init(appearance:​layout​Environment:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#listsection.layoutsection">layout​Section</a></li></ul></li><li><a href="#methods">Methods</a><ul><li class="function"><a href="#listsection.showsseparators(_:)">shows​Separators(_:​)</a></li><li class="function"><a href="#listsection.backgroundcolor(_:)">background​Color(_:​)</a></li><li class="function"><a href="#listsection.trailingswipeactionsconfigurationprovider(_:)">trailing​Swipe​Actions​Configuration​Provider(_:​)</a></li><li class="function"><a href="#listsection.headermode(_:)">header​Mode(_:​)</a></li><li class="function"><a href="#listsection.footermode(_:)">footer​Mode(_:​)</a></li></ul></li></ol>
         </div>
     </nav>
 
@@ -103,6 +103,16 @@ modifiers to configure sections.</p>
 
 </div>
 </div>
+<div role="article" class="initializer" id="listsection.init(appearance:layoutenvironment:)">
+    <h3>
+        <code>init(appearance:​layout​Environment:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">appearance</span>: <span class="type">UICollectionLayoutListConfiguration</span>.<span class="type">Appearance</span>, <span class="variable">layoutEnvironment</span>: <span class="type">NSCollectionLayoutEnvironment</span>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Creates a list section with the specified list appearance and layout environment.</p>
+
+</div>
+</div>
     </section>
     <section id="properties">
         <h2>Properties</h2>
@@ -114,6 +124,69 @@ modifiers to configure sections.</p>
     <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">layoutSection</span>: <a href="/CompositionalLayoutDSL/LayoutSection"><span class="type">LayoutSection</span></a></code></pre></body></html>
 </div>
     </section>
+    <section id="methods">
+        <h2>Methods</h2>
+
+        <div role="article" class="function" id="listsection.showsseparators(_:)">
+    <h3>
+        <code>shows​Separators(_:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="attribute">@</span><span class="attribute">available</span>(<span class="variable">tvOS</span>, <span class="variable">unavailable</span>) <span class="keyword">public</span> <span class="keyword">func</span> <span class="function">showsSeparators</span>(<span class="keyword">_</span> <span class="variable">showsSeparators</span>: <span class="type">Bool</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>A Boolean value that determines whether the list shows separators between cells.</p>
+
+</div>
+</div>
+<div role="article" class="function" id="listsection.backgroundcolor(_:)">
+    <h3>
+        <code>background​Color(_:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">backgroundColor</span>(<span class="keyword">_</span> <span class="variable">backgroundColor</span>: <span class="type">UIColor</span>?) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>The background color of the list.</p>
+
+</div>
+<div class="discussion">
+    <p>The default value is nil, which means that the configuration uses the system background
+color for the specified appearance.</p>
+
+</div>
+</div>
+<div role="article" class="function" id="listsection.trailingswipeactionsconfigurationprovider(_:)">
+    <h3>
+        <code>trailing​Swipe​Actions​Configuration​Provider(_:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="attribute">@</span><span class="attribute">available</span>(<span class="variable">tvOS</span>, <span class="variable">unavailable</span>) <span class="keyword">public</span> <span class="keyword">func</span> <span class="function">trailingSwipeActionsConfigurationProvider</span>(<span class="keyword">_</span> <span class="variable">trailingSwipeActionsConfigurationProvider</span>: <span class="type">UICollectionLayoutListConfiguration</span>.<span class="type">SwipeActionsConfigurationProvider</span>?) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+</div>
+<div role="article" class="function" id="listsection.headermode(_:)">
+    <h3>
+        <code>header​Mode(_:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">headerMode</span>(<span class="keyword">_</span> <span class="variable">headerMode</span>: <span class="type">UICollectionLayoutListConfiguration</span>.<span class="type">HeaderMode</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>The type of header to use for the list.</p>
+
+</div>
+<div class="discussion">
+    <p>The default value is <code>UICollectionLayoutListConfiguration.HeaderMode.none</code>.</p>
+
+</div>
+</div>
+<div role="article" class="function" id="listsection.footermode(_:)">
+    <h3>
+        <code>footer​Mode(_:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">footerMode</span>(<span class="keyword">_</span> <span class="variable">footerMode</span>: <span class="type">UICollectionLayoutListConfiguration</span>.<span class="type">FooterMode</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>The type of footer to use for the list.</p>
+
+</div>
+<div class="discussion">
+    <p>The default value is <code>UICollectionLayoutListConfiguration.FooterMode.none</code>.</p>
+
+</div>
+</div>
+    </section>
 
 
 
@@ -122,7 +195,7 @@ modifiers to configure sections.</p>
 
     <footer>
         <p>
-    Generated on <time datetime="2021-04-21T09:46:14+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-04-21T15:23:38+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
 </p>
     </footer>
 </body>

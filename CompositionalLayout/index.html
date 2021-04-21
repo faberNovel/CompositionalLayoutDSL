@@ -26,7 +26,7 @@
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#nested type aliases">Nested Type Aliases</a><ul><li class="typealias"><a href="#compositionallayout.sectionprovider">Section​Provider</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#compositionallayout.init(configuration:sectionsbuilder:)">init(configuration:​sections​Builder:​)</a></li><li class="initializer"><a href="#compositionallayout.init(configuration:repeatingsections:)">init(configuration:​repeating​Sections:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#compositionallayout.collectioncompositionallayout">collection​Compositional​Layout</a></li></ul></li></ol>
+            <ol><li><a href="#nested type aliases">Nested Type Aliases</a><ul><li class="typealias"><a href="#compositionallayout.sectionprovider">Section​Provider</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#compositionallayout.init(configuration:sectionsbuilder:)">init(configuration:​sections​Builder:​)</a></li><li class="initializer"><a href="#compositionallayout.init(configuration:repeatingsections:)">init(configuration:​repeating​Sections:​)</a></li></ul></li><li><a href="#methods">Methods</a><ul><li class="function"><a href="#compositionallayout.scrolldirection(_:)">scroll​Direction(_:​)</a></li><li class="function"><a href="#compositionallayout.intersectionspacing(_:)">inter​Section​Spacing(_:​)</a></li><li class="function"><a href="#compositionallayout.boundarysupplementaryitems(_:)">boundary​Supplementary​Items(_:​)</a></li><li class="function"><a href="#compositionallayout.contentinsetsreference(_:)">content​Insets​Reference(_:​)</a></li></ul></li></ol>
         </div>
     </nav>
 
@@ -41,6 +41,25 @@
 <div class="summary" role="doc-abstract">
     <p>An object that completely represent a compositional layout.</p>
 
+</div>
+<div class="discussion">
+    <p>You can create a fully configured layout like showed in the example below</p>
+
+<html><body><pre class="highlight"><code> <span class="keyword">let</span> <span class="variable">compositionalLayout</span> = <span class="variable">CompositionalLayout</span> { (<span class="keyword">_</span>, <span class="keyword">_</span>) <span class="keyword">in</span>
+     <span class="variable">Section</span> {
+         <span class="variable">VGroup</span> { <span class="variable">Item</span>() }
+             .<span class="type">width</span>(.<span class="variable">fractionalWidth</span>(<span class="number literal">1</span>/<span class="number literal">3</span>))
+             .<span class="type">interItemSpacing</span>(.<span class="variable">fixed</span>(<span class="number literal">8</span>))
+     }
+     .<span class="type">interGroupSpacing</span>(<span class="number literal">8</span>)
+     .<span class="type">contentInsets</span>(<span class="variable">horizontal</span>: <span class="number literal">20</span>)
+ }
+ .<span class="type">interSectionSpacing</span>(<span class="number literal">16</span>)
+ .<span class="type">boundarySupplementaryItems</span> {
+     <span class="variable">BoundarySupplementaryItem</span>(<span class="variable">elementKind</span>: <span class="string literal">"</span><span class="string literal">globalHeader</span><span class="string literal">"</span>)
+         .<span class="type">alignment</span>(.<span class="variable">top</span>)
+ }
+</code></pre></body></html>
 </div>
 
     <section id="nested type aliases">
@@ -69,14 +88,61 @@
     <html><body><pre class="highlight"><code><span class="keyword">init</span>(<span class="variable">configuration</span>: <a href="/CompositionalLayoutDSL/LayoutConfiguration"><span class="type">LayoutConfiguration</span></a> = <span class="variable">Configuration</span>(), <span class="variable">repeatingSections</span> <span class="variable">sectionsBuilder</span>: [<span class="type">SectionProvider</span>])</code></pre></body></html>
 </div>
     </section>
-    <section id="properties">
-        <h2>Properties</h2>
+    <section id="methods">
+        <h2>Methods</h2>
 
-        <div role="article" class="variable" id="compositionallayout.collectioncompositionallayout">
+        <div role="article" class="function" id="compositionallayout.scrolldirection(_:)">
     <h3>
-        <code>collection​Compositional​Layout</code>
+        <code>scroll​Direction(_:​)</code>
     </h3>
-    <html><body><pre class="highlight"><code><span class="keyword">var</span> <span class="variable">collectionCompositionalLayout</span>: <span class="type">UICollectionViewCompositionalLayout</span></code></pre></body></html>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">scrollDirection</span>(<span class="keyword">_</span> <span class="variable">scrollDirection</span>: <span class="type">UICollectionView</span>.<span class="type">ScrollDirection</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Configure the axis that the content in the collection view layout scrolls along.</p>
+
+</div>
+<div class="discussion">
+    <p>The default value of this property is <code>UICollectionView.ScrollDirection.vertical</code>.</p>
+
+</div>
+</div>
+<div role="article" class="function" id="compositionallayout.intersectionspacing(_:)">
+    <h3>
+        <code>inter​Section​Spacing(_:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">interSectionSpacing</span>(<span class="keyword">_</span> <span class="variable">interSectionSpacing</span>: <span class="type">CGFloat</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Configure the amount of space between the sections in the layout.</p>
+
+</div>
+<div class="discussion">
+    <p>The default value of this property is <code>0.0</code>.</p>
+
+</div>
+</div>
+<div role="article" class="function" id="compositionallayout.boundarysupplementaryitems(_:)">
+    <h3>
+        <code>boundary​Supplementary​Items(_:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">boundarySupplementaryItems</span>(<span class="keyword">_</span> <span class="variable">boundarySupplementaryItems</span>: () -&gt; [<a href="/CompositionalLayoutDSL/LayoutBoundarySupplementaryItem"><span class="type">LayoutBoundarySupplementaryItem</span></a>]) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Add an array of the supplementary items that are associated with the boundary edges
+of the entire layout, such as global headers and footers.</p>
+
+</div>
+</div>
+<div role="article" class="function" id="compositionallayout.contentinsetsreference(_:)">
+    <h3>
+        <code>content​Insets​Reference(_:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="attribute">@</span><span class="attribute">available</span>(<span class="keyword">iOS</span> <span class="number literal">14.0</span>, <span class="keyword">tvOS</span> <span class="number literal">14.0</span>, *) <span class="keyword">public</span> <span class="keyword">func</span> <span class="function">contentInsetsReference</span>(<span class="keyword">_</span> <span class="variable">contentInsetsReference</span>: <span class="type">UIContentInsetsReference</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Configure the boundary to reference when defining content insets.</p>
+
+</div>
+<div class="discussion">
+    <p>The default value of this property is <code>UIContentInsetsReference.safeArea</code></p>
+
+</div>
 </div>
     </section>
 
@@ -87,7 +153,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-04-21T09:46:14+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-04-21T15:23:38+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
 </p>
     </footer>
 </body>
