@@ -38,6 +38,10 @@
 </h1>
 
 <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">CustomGroup</span>: <a href="/CompositionalLayoutDSL/LayoutGroup"><span class="type">LayoutGroup</span></a>, <a href="/CompositionalLayoutDSL/ResizableItem"><span class="type">ResizableItem</span></a></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>A customizable container for a set of items.</p>
+
+</div>
 <section id="relationships">
     <h2 hidden>Relationships</h2>
         <figure>
@@ -71,7 +75,7 @@
 </g>
 </g>
 <!-- CustomGroup&#45;&gt;ResizableItem -->
-<g id="edge2" class="edge conformsTo">
+<g id="edge1" class="edge conformsTo">
 <title>CustomGroup&#45;&gt;ResizableItem</title>
 <path fill="none" stroke="#000000" d="M375.5134,-71.9243C344.4871,-61.9959 305.8297,-49.6255 273.3694,-39.2382"/>
 <polygon fill="#000000" stroke="#000000" points="274.1008,-35.7975 263.5098,-36.0831 271.9673,-42.4645 274.1008,-35.7975"/>
@@ -86,7 +90,7 @@
 </g>
 </g>
 <!-- CustomGroup&#45;&gt;LayoutGroup -->
-<g id="edge1" class="edge conformsTo">
+<g id="edge2" class="edge conformsTo">
 <title>CustomGroup&#45;&gt;LayoutGroup</title>
 <path fill="none" stroke="#000000" d="M488.4866,-71.9243C519.5129,-61.9959 558.1703,-49.6255 590.6306,-39.2382"/>
 <polygon fill="#000000" stroke="#000000" points="592.0327,-42.4645 600.4902,-36.0831 589.8992,-35.7975 592.0327,-42.4645"/>
@@ -100,7 +104,9 @@
         <h3>Conforms To</h3>
 <dl>
     <dt class="protocol"><code><a href="/CompositionalLayoutDSL/LayoutGroup">LayoutGroup</a></code></dt>
-<dd></dd>
+<dd><p>A type that represents a group in a compositional layout and provides
+modifiers to configure groups.</p>
+</dd>
 <dt class="protocol"><code><a href="/CompositionalLayoutDSL/ResizableItem">ResizableItem</a></code></dt>
 <dd></dd>
 </dl>
@@ -113,18 +119,32 @@
         <code>init(width:​height:​item​Provider:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">width</span>: <span class="type">NSCollectionLayoutDimension</span> = .<span class="variable">fractionalWidth</span>(<span class="number literal">1</span>), <span class="variable">height</span>: <span class="type">NSCollectionLayoutDimension</span> = .<span class="variable">fractionalHeight</span>(<span class="number literal">1</span>), <span class="variable">itemProvider</span>: <span class="attribute">@</span><span class="attribute">escaping</span> <span class="type">NSCollectionLayoutGroupCustomItemProvider</span>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Creates a group of the specified size, with an item provider that creates a custom
+arrangement for those items.</p>
+
+</div>
 </div>
 <div role="article" class="initializer" id="customgroup.init(size:itemprovider:)">
     <h3>
         <code>init(size:​item​Provider:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">size</span>: <span class="type">NSCollectionLayoutSize</span>, <span class="variable">itemProvider</span>: <span class="attribute">@</span><span class="attribute">escaping</span> <span class="type">NSCollectionLayoutGroupCustomItemProvider</span>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Creates a group of the specified size, with an item provider that creates a custom
+arrangement for those items.</p>
+
+</div>
 </div>
 <div role="article" class="initializer" id="customgroup.init(itemprovider:)">
     <h3>
         <code>init(item​Provider:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">itemProvider</span>: <span class="attribute">@</span><span class="attribute">escaping</span> <span class="type">NSCollectionLayoutGroupCustomItemProvider</span>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Creates a group with an item provider that creates a custom arrangement for those items.</p>
+
+</div>
 </div>
     </section>
     <section id="properties">
@@ -145,12 +165,28 @@
         <code>width(_:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">width</span>(<span class="keyword">_</span> <span class="variable">width</span>: <span class="type">NSCollectionLayoutDimension</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Configure the width of the group</p>
+
+</div>
+<div class="discussion">
+    <p>The default value is <code>.fractionalWidth(1.0)</code></p>
+
+</div>
 </div>
 <div role="article" class="function" id="customgroup.height(_:)">
     <h3>
         <code>height(_:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">height</span>(<span class="keyword">_</span> <span class="variable">height</span>: <span class="type">NSCollectionLayoutDimension</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Configure the height of the group</p>
+
+</div>
+<div class="discussion">
+    <p>The default value is <code>.fractionalHeight(1.0)</code></p>
+
+</div>
 </div>
     </section>
 
@@ -161,7 +197,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-04-21T09:28:33+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-04-21T09:46:14+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
 </p>
     </footer>
 </body>

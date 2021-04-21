@@ -38,6 +38,10 @@
 </h1>
 
 <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">BoundarySupplementaryItem</span>: <a href="/CompositionalLayoutDSL/LayoutBoundarySupplementaryItem"><span class="type">LayoutBoundarySupplementaryItem</span></a>, <a href="/CompositionalLayoutDSL/ResizableItem"><span class="type">ResizableItem</span></a></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>An object used to add headers or footers to a collection view.</p>
+
+</div>
 <section id="relationships">
     <h2 hidden>Relationships</h2>
         <figure>
@@ -100,7 +104,9 @@
         <h3>Conforms To</h3>
 <dl>
     <dt class="protocol"><code><a href="/CompositionalLayoutDSL/LayoutBoundarySupplementaryItem">LayoutBoundarySupplementaryItem</a></code></dt>
-<dd></dd>
+<dd><p>A type that represents a boundary supplementary item in a compositional layout and provides
+modifiers to configure boundary supplementary items.</p>
+</dd>
 <dt class="protocol"><code><a href="/CompositionalLayoutDSL/ResizableItem">ResizableItem</a></code></dt>
 <dd></dd>
 </dl>
@@ -113,12 +119,22 @@
         <code>init(width:​height:​element​Kind:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">width</span>: <span class="type">NSCollectionLayoutDimension</span> = .<span class="variable">fractionalWidth</span>(<span class="number literal">1</span>), <span class="variable">height</span>: <span class="type">NSCollectionLayoutDimension</span> = .<span class="variable">fractionalHeight</span>(<span class="number literal">1</span>), <span class="variable">elementKind</span>: <span class="type">String</span>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Creates a boundary supplementary item of the specified size, with a string to identify the
+element kind.</p>
+
+</div>
 </div>
 <div role="article" class="initializer" id="boundarysupplementaryitem.init(size:elementkind:)">
     <h3>
         <code>init(size:​element​Kind:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">size</span>: <span class="type">NSCollectionLayoutSize</span>, <span class="variable">elementKind</span>: <span class="type">String</span>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Creates a boundary supplementary item of the specified size, with a string to identify the
+element kind.</p>
+
+</div>
 </div>
     </section>
     <section id="properties">
@@ -139,6 +155,14 @@
         <code>alignment(_:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">alignment</span>(<span class="keyword">_</span> <span class="variable">alignment</span>: <span class="type">NSRectAlignment</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>The alignment of the boundary supplementary item relative to the section or layout it's attached to.</p>
+
+</div>
+<div class="discussion">
+    <p>The default value for this property is <code>NSRectAlignment.top</code></p>
+
+</div>
 </div>
 <div role="article" class="function" id="boundarysupplementaryitem.absoluteoffset(_:)">
     <h3>
@@ -151,12 +175,28 @@
         <code>width(_:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">width</span>(<span class="keyword">_</span> <span class="variable">width</span>: <span class="type">NSCollectionLayoutDimension</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Configure the width of the boundary supplementary item</p>
+
+</div>
+<div class="discussion">
+    <p>The default value is <code>.fractionalWidth(1.0)</code></p>
+
+</div>
 </div>
 <div role="article" class="function" id="boundarysupplementaryitem.height(_:)">
     <h3>
         <code>height(_:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">height</span>(<span class="keyword">_</span> <span class="variable">height</span>: <span class="type">NSCollectionLayoutDimension</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Configure the height of the boundary supplementary item</p>
+
+</div>
+<div class="discussion">
+    <p>The default value is <code>.fractionalHeight(1.0)</code></p>
+
+</div>
 </div>
     </section>
 
@@ -167,7 +207,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-04-21T09:28:32+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-04-21T09:46:14+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
 </p>
     </footer>
 </body>

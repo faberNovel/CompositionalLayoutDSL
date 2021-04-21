@@ -38,6 +38,11 @@
 </h1>
 
 <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">SupplementaryItem</span>: <a href="/CompositionalLayoutDSL/LayoutSupplementaryItem"><span class="type">LayoutSupplementaryItem</span></a>, <a href="/CompositionalLayoutDSL/ResizableItem"><span class="type">ResizableItem</span></a></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>An object used to add an extra visual decoration, such as a badge or a frame, to an
+item in a collection view.</p>
+
+</div>
 <section id="relationships">
     <h2 hidden>Relationships</h2>
         <figure>
@@ -61,33 +66,33 @@
 </a>
 </g>
 </g>
-<!-- LayoutSupplementaryItem -->
-<g id="node2" class="node protocol">
-<title>LayoutSupplementaryItem</title>
-<g id="a_node2"><a xlink:href="/CompositionalLayoutDSL/LayoutSupplementaryItem" xlink:title="LayoutSupplementaryItem">
-<path fill="none" stroke="#000000" d="M303,-36C303,-36 111,-36 111,-36 105,-36 99,-30 99,-24 99,-24 99,-12 99,-12 99,-6 105,0 111,0 111,0 303,0 303,0 309,0 315,-6 315,-12 315,-12 315,-24 315,-24 315,-30 309,-36 303,-36"/>
-<text text-anchor="middle" x="207" y="-14.3" font-family="Menlo" font-size="14.00" fill="#000000">LayoutSupplementaryItem</text>
-</a>
-</g>
-</g>
-<!-- SupplementaryItem&#45;&gt;LayoutSupplementaryItem -->
-<g id="edge2" class="edge conformsTo">
-<title>SupplementaryItem&#45;&gt;LayoutSupplementaryItem</title>
-<path fill="none" stroke="#000000" d="M375.5134,-71.9243C344.4871,-61.9959 305.8297,-49.6255 273.3694,-39.2382"/>
-<polygon fill="#000000" stroke="#000000" points="274.1008,-35.7975 263.5098,-36.0831 271.9673,-42.4645 274.1008,-35.7975"/>
-</g>
 <!-- ResizableItem -->
-<g id="node3" class="node protocol">
+<g id="node2" class="node protocol">
 <title>ResizableItem</title>
-<g id="a_node3"><a xlink:href="/CompositionalLayoutDSL/ResizableItem" xlink:title="ResizableItem">
-<path fill="none" stroke="#000000" d="M753,-36C753,-36 561,-36 561,-36 555,-36 549,-30 549,-24 549,-24 549,-12 549,-12 549,-6 555,0 561,0 561,0 753,0 753,0 759,0 765,-6 765,-12 765,-12 765,-24 765,-24 765,-30 759,-36 753,-36"/>
-<text text-anchor="middle" x="657" y="-14.3" font-family="Menlo" font-size="14.00" fill="#000000">ResizableItem</text>
+<g id="a_node2"><a xlink:href="/CompositionalLayoutDSL/ResizableItem" xlink:title="ResizableItem">
+<path fill="none" stroke="#000000" d="M303,-36C303,-36 111,-36 111,-36 105,-36 99,-30 99,-24 99,-24 99,-12 99,-12 99,-6 105,0 111,0 111,0 303,0 303,0 309,0 315,-6 315,-12 315,-12 315,-24 315,-24 315,-30 309,-36 303,-36"/>
+<text text-anchor="middle" x="207" y="-14.3" font-family="Menlo" font-size="14.00" fill="#000000">ResizableItem</text>
 </a>
 </g>
 </g>
 <!-- SupplementaryItem&#45;&gt;ResizableItem -->
 <g id="edge1" class="edge conformsTo">
 <title>SupplementaryItem&#45;&gt;ResizableItem</title>
+<path fill="none" stroke="#000000" d="M375.5134,-71.9243C344.4871,-61.9959 305.8297,-49.6255 273.3694,-39.2382"/>
+<polygon fill="#000000" stroke="#000000" points="274.1008,-35.7975 263.5098,-36.0831 271.9673,-42.4645 274.1008,-35.7975"/>
+</g>
+<!-- LayoutSupplementaryItem -->
+<g id="node3" class="node protocol">
+<title>LayoutSupplementaryItem</title>
+<g id="a_node3"><a xlink:href="/CompositionalLayoutDSL/LayoutSupplementaryItem" xlink:title="LayoutSupplementaryItem">
+<path fill="none" stroke="#000000" d="M753,-36C753,-36 561,-36 561,-36 555,-36 549,-30 549,-24 549,-24 549,-12 549,-12 549,-6 555,0 561,0 561,0 753,0 753,0 759,0 765,-6 765,-12 765,-12 765,-24 765,-24 765,-30 759,-36 753,-36"/>
+<text text-anchor="middle" x="657" y="-14.3" font-family="Menlo" font-size="14.00" fill="#000000">LayoutSupplementaryItem</text>
+</a>
+</g>
+</g>
+<!-- SupplementaryItem&#45;&gt;LayoutSupplementaryItem -->
+<g id="edge2" class="edge conformsTo">
+<title>SupplementaryItem&#45;&gt;LayoutSupplementaryItem</title>
 <path fill="none" stroke="#000000" d="M488.4866,-71.9243C519.5129,-61.9959 558.1703,-49.6255 590.6306,-39.2382"/>
 <polygon fill="#000000" stroke="#000000" points="592.0327,-42.4645 600.4902,-36.0831 589.8992,-35.7975 592.0327,-42.4645"/>
 </g>
@@ -107,7 +112,9 @@
     <dt class="protocol"><code><a href="/CompositionalLayoutDSL/ResizableItem">ResizableItem</a></code></dt>
 <dd></dd>
 <dt class="protocol"><code><a href="/CompositionalLayoutDSL/LayoutSupplementaryItem">LayoutSupplementaryItem</a></code></dt>
-<dd></dd>
+<dd><p>A type that represents a supplementary item in a compositional layout and provides
+modifiers to configure supplementary items.</p>
+</dd>
 </dl>
 </section>
     <section id="initializers">
@@ -118,12 +125,22 @@
         <code>init(width​Dimension:​height​Dimension:​element​Kind:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">widthDimension</span>: <span class="type">NSCollectionLayoutDimension</span> = .<span class="variable">fractionalWidth</span>(<span class="number literal">1</span>), <span class="variable">heightDimension</span>: <span class="type">NSCollectionLayoutDimension</span> = .<span class="variable">fractionalHeight</span>(<span class="number literal">1</span>), <span class="variable">elementKind</span>: <span class="type">String</span>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Creates a supplementary item of the specified size, with a string to identify the
+element kind and an anchor relative to a container.</p>
+
+</div>
 </div>
 <div role="article" class="initializer" id="supplementaryitem.init(size:elementkind:)">
     <h3>
         <code>init(size:​element​Kind:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">size</span>: <span class="type">NSCollectionLayoutSize</span>, <span class="variable">elementKind</span>: <span class="type">String</span>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Creates a supplementary item of the specified size, with a string to identify the
+element kind and an anchor relative to a container.</p>
+
+</div>
 </div>
     </section>
     <section id="properties">
@@ -144,48 +161,100 @@
         <code>container​Anchor(_:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">containerAnchor</span>(<span class="keyword">_</span> <span class="variable">containerAnchor</span>: <span class="type">NSCollectionLayoutAnchor</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>The anchor between the supplementary item and the container it's attached to.</p>
+
+</div>
+<div class="discussion">
+    <p>The defaults container anchor is attached to top leading</p>
+
+</div>
 </div>
 <div role="article" class="function" id="supplementaryitem.containeranchor(edges:)">
     <h3>
         <code>container​Anchor(edges:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">containerAnchor</span>(<span class="variable">edges</span>: <span class="type">NSDirectionalRectEdge</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>The anchor between the supplementary item and the container it's attached to.</p>
+
+</div>
+<div class="discussion">
+    <p>The defaults container anchor is attached to top leading</p>
+
+</div>
 </div>
 <div role="article" class="function" id="supplementaryitem.containeranchor(edges:offset:)">
     <h3>
         <code>container​Anchor(edges:​offset:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">containerAnchor</span>(<span class="variable">edges</span>: <span class="type">NSDirectionalRectEdge</span>, <span class="variable">offset</span>: <span class="type">AnchorOffset</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>The anchor between the supplementary item and the container it's attached to.</p>
+
+</div>
+<div class="discussion">
+    <p>The defaults container anchor is attached to top leading</p>
+
+</div>
 </div>
 <div role="article" class="function" id="supplementaryitem.itemanchor(_:)">
     <h3>
         <code>item​Anchor(_:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">itemAnchor</span>(<span class="keyword">_</span> <span class="variable">itemAnchor</span>: <span class="type">NSCollectionLayoutAnchor</span>?) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>The anchor between the supplementary item and the item it's attached to.</p>
+
+</div>
 </div>
 <div role="article" class="function" id="supplementaryitem.itemanchor(edges:)">
     <h3>
         <code>item​Anchor(edges:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">itemAnchor</span>(<span class="variable">edges</span>: <span class="type">NSDirectionalRectEdge</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>The anchor between the supplementary item and the item it's attached to.</p>
+
+</div>
 </div>
 <div role="article" class="function" id="supplementaryitem.itemanchor(edges:offset:)">
     <h3>
         <code>item​Anchor(edges:​offset:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">itemAnchor</span>(<span class="variable">edges</span>: <span class="type">NSDirectionalRectEdge</span>, <span class="variable">offset</span>: <span class="type">AnchorOffset</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>The anchor between the supplementary item and the item it's attached to.</p>
+
+</div>
 </div>
 <div role="article" class="function" id="supplementaryitem.width(_:)">
     <h3>
         <code>width(_:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">width</span>(<span class="keyword">_</span> <span class="variable">width</span>: <span class="type">NSCollectionLayoutDimension</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Configure the width of the supplementary item</p>
+
+</div>
+<div class="discussion">
+    <p>The default value is <code>.fractionalWidth(1.0)</code></p>
+
+</div>
 </div>
 <div role="article" class="function" id="supplementaryitem.height(_:)">
     <h3>
         <code>height(_:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">height</span>(<span class="keyword">_</span> <span class="variable">height</span>: <span class="type">NSCollectionLayoutDimension</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Configure the height of the supplementary item</p>
+
+</div>
+<div class="discussion">
+    <p>The default value is <code>.fractionalHeight(1.0)</code></p>
+
+</div>
 </div>
     </section>
 
@@ -196,7 +265,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-04-21T09:28:33+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-04-21T09:46:14+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
 </p>
     </footer>
 </body>

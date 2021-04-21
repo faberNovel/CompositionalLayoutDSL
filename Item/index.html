@@ -38,6 +38,10 @@
 </h1>
 
 <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">Item</span>: <a href="/CompositionalLayoutDSL/LayoutItem"><span class="type">LayoutItem</span></a>, <a href="/CompositionalLayoutDSL/ResizableItem"><span class="type">ResizableItem</span></a></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>The most basic component of a collection view's layout.</p>
+
+</div>
 <section id="relationships">
     <h2 hidden>Relationships</h2>
         <figure>
@@ -61,33 +65,33 @@
 </a>
 </g>
 </g>
-<!-- LayoutItem -->
-<g id="node2" class="node protocol">
-<title>LayoutItem</title>
-<g id="a_node2"><a xlink:href="/CompositionalLayoutDSL/LayoutItem" xlink:title="LayoutItem">
-<path fill="none" stroke="#000000" d="M303,-36C303,-36 111,-36 111,-36 105,-36 99,-30 99,-24 99,-24 99,-12 99,-12 99,-6 105,0 111,0 111,0 303,0 303,0 309,0 315,-6 315,-12 315,-12 315,-24 315,-24 315,-30 309,-36 303,-36"/>
-<text text-anchor="middle" x="207" y="-14.3" font-family="Menlo" font-size="14.00" fill="#000000">LayoutItem</text>
-</a>
-</g>
-</g>
-<!-- Item&#45;&gt;LayoutItem -->
-<g id="edge1" class="edge conformsTo">
-<title>Item&#45;&gt;LayoutItem</title>
-<path fill="none" stroke="#000000" d="M375.5134,-71.9243C344.4871,-61.9959 305.8297,-49.6255 273.3694,-39.2382"/>
-<polygon fill="#000000" stroke="#000000" points="274.1008,-35.7975 263.5098,-36.0831 271.9673,-42.4645 274.1008,-35.7975"/>
-</g>
 <!-- ResizableItem -->
-<g id="node3" class="node protocol">
+<g id="node2" class="node protocol">
 <title>ResizableItem</title>
-<g id="a_node3"><a xlink:href="/CompositionalLayoutDSL/ResizableItem" xlink:title="ResizableItem">
-<path fill="none" stroke="#000000" d="M753,-36C753,-36 561,-36 561,-36 555,-36 549,-30 549,-24 549,-24 549,-12 549,-12 549,-6 555,0 561,0 561,0 753,0 753,0 759,0 765,-6 765,-12 765,-12 765,-24 765,-24 765,-30 759,-36 753,-36"/>
-<text text-anchor="middle" x="657" y="-14.3" font-family="Menlo" font-size="14.00" fill="#000000">ResizableItem</text>
+<g id="a_node2"><a xlink:href="/CompositionalLayoutDSL/ResizableItem" xlink:title="ResizableItem">
+<path fill="none" stroke="#000000" d="M303,-36C303,-36 111,-36 111,-36 105,-36 99,-30 99,-24 99,-24 99,-12 99,-12 99,-6 105,0 111,0 111,0 303,0 303,0 309,0 315,-6 315,-12 315,-12 315,-24 315,-24 315,-30 309,-36 303,-36"/>
+<text text-anchor="middle" x="207" y="-14.3" font-family="Menlo" font-size="14.00" fill="#000000">ResizableItem</text>
 </a>
 </g>
 </g>
 <!-- Item&#45;&gt;ResizableItem -->
-<g id="edge2" class="edge conformsTo">
+<g id="edge1" class="edge conformsTo">
 <title>Item&#45;&gt;ResizableItem</title>
+<path fill="none" stroke="#000000" d="M375.5134,-71.9243C344.4871,-61.9959 305.8297,-49.6255 273.3694,-39.2382"/>
+<polygon fill="#000000" stroke="#000000" points="274.1008,-35.7975 263.5098,-36.0831 271.9673,-42.4645 274.1008,-35.7975"/>
+</g>
+<!-- LayoutItem -->
+<g id="node3" class="node protocol">
+<title>LayoutItem</title>
+<g id="a_node3"><a xlink:href="/CompositionalLayoutDSL/LayoutItem" xlink:title="LayoutItem">
+<path fill="none" stroke="#000000" d="M753,-36C753,-36 561,-36 561,-36 555,-36 549,-30 549,-24 549,-24 549,-12 549,-12 549,-6 555,0 561,0 561,0 753,0 753,0 759,0 765,-6 765,-12 765,-12 765,-24 765,-24 765,-30 759,-36 753,-36"/>
+<text text-anchor="middle" x="657" y="-14.3" font-family="Menlo" font-size="14.00" fill="#000000">LayoutItem</text>
+</a>
+</g>
+</g>
+<!-- Item&#45;&gt;LayoutItem -->
+<g id="edge2" class="edge conformsTo">
+<title>Item&#45;&gt;LayoutItem</title>
 <path fill="none" stroke="#000000" d="M488.4866,-71.9243C519.5129,-61.9959 558.1703,-49.6255 590.6306,-39.2382"/>
 <polygon fill="#000000" stroke="#000000" points="592.0327,-42.4645 600.4902,-36.0831 589.8992,-35.7975 592.0327,-42.4645"/>
 </g>
@@ -100,7 +104,9 @@
         <h3>Conforms To</h3>
 <dl>
     <dt class="protocol"><code><a href="/CompositionalLayoutDSL/LayoutItem">LayoutItem</a></code></dt>
-<dd></dd>
+<dd><p>A type that represents an item in a compositional layout and provides
+modifiers to configure items.</p>
+</dd>
 <dt class="protocol"><code><a href="/CompositionalLayoutDSL/ResizableItem">ResizableItem</a></code></dt>
 <dd></dd>
 </dl>
@@ -113,24 +119,40 @@
         <code>init(width:​height:​supplementary​Items:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">width</span>: <span class="type">NSCollectionLayoutDimension</span>, <span class="variable">height</span>: <span class="type">NSCollectionLayoutDimension</span>, <span class="variable">supplementaryItems</span>: () -&gt; [<a href="/CompositionalLayoutDSL/LayoutSupplementaryItem"><span class="type">LayoutSupplementaryItem</span></a>])</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Creates an item of the specified size with an array of supplementary items to attach to the item.</p>
+
+</div>
 </div>
 <div role="article" class="initializer" id="item.init(width:height:)">
     <h3>
         <code>init(width:​height:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">width</span>: <span class="type">NSCollectionLayoutDimension</span> = .<span class="variable">fractionalWidth</span>(<span class="number literal">1</span>), <span class="variable">height</span>: <span class="type">NSCollectionLayoutDimension</span> = .<span class="variable">fractionalHeight</span>(<span class="number literal">1</span>))</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Creates an item of the specified size</p>
+
+</div>
 </div>
 <div role="article" class="initializer" id="item.init(size:)">
     <h3>
         <code>init(size:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">size</span>: <span class="type">NSCollectionLayoutSize</span>)</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Creates an item of the specified size</p>
+
+</div>
 </div>
 <div role="article" class="initializer" id="item.init(supplementaryitems:)">
     <h3>
         <code>init(supplementary​Items:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">supplementaryItems</span>: () -&gt; [<a href="/CompositionalLayoutDSL/LayoutSupplementaryItem"><span class="type">LayoutSupplementaryItem</span></a>])</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Creates an item with an array of supplementary items to attach to the item.</p>
+
+</div>
 </div>
 <div role="article" class="initializer" id="item.init()">
     <h3>
@@ -157,12 +179,28 @@
         <code>width(_:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">width</span>(<span class="keyword">_</span> <span class="variable">width</span>: <span class="type">NSCollectionLayoutDimension</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Configure the width of the item</p>
+
+</div>
+<div class="discussion">
+    <p>The default value is <code>.fractionalWidth(1.0)</code></p>
+
+</div>
 </div>
 <div role="article" class="function" id="item.height(_:)">
     <h3>
         <code>height(_:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">height</span>(<span class="keyword">_</span> <span class="variable">height</span>: <span class="type">NSCollectionLayoutDimension</span>) -&gt; <span class="keyword">Self</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Configure the height of the item</p>
+
+</div>
+<div class="discussion">
+    <p>The default value is <code>.fractionalHeight(1.0)</code></p>
+
+</div>
 </div>
     </section>
 
@@ -173,7 +211,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-04-21T09:28:33+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-04-21T09:46:13+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
 </p>
     </footer>
 </body>

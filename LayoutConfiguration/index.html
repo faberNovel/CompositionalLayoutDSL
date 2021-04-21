@@ -38,6 +38,26 @@
 </h1>
 
 <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">protocol</span> <span class="type">LayoutConfiguration</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>A type that represents a compositional layout configuration and provides
+modifiers to change the configuration.</p>
+
+</div>
+<div class="discussion">
+    <p>You create custom configuration by declaring types that conform to the
+<code>LayoutConfiguration</code> protocol. Implement the required <code>layoutConfiguration</code>
+computed property to provide your customized settings.</p>
+
+<html><body><pre class="highlight"><code><span class="keyword">struct</span> <span class="type">MyConfiguration</span>: <span class="type">LayoutConfiguration</span> {
+    <span class="keyword">var</span> <span class="variable">layoutConfiguration</span>: <span class="type">LayoutConfiguration</span> {
+        <span class="variable">Configuration</span>()
+            .<span class="type">scrollDirection</span>(.<span class="variable">horizontal</span>)
+            .<span class="type">interSectionSpacing</span>(<span class="number literal">16</span>)
+            .<span class="type">contentInsetsReference</span>(.<span class="variable">readableContent</span>)
+    }
+}
+</code></pre></body></html>
+</div>
 <section id="relationships">
     <h2 hidden>Relationships</h2>
         <figure>
@@ -85,7 +105,8 @@
         <h3>Types Conforming to <code>Layout​Configuration</code></h3>
 <dl>
     <dt class="structure"><code><a href="/CompositionalLayoutDSL/Configuration">Configuration</a></code></dt>
-<dd></dd>
+<dd><p>An object that defines scroll direction, section spacing, and headers or footers for the layout.</p>
+</dd>
 </dl>
 </section>
 
@@ -106,7 +127,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-04-21T09:28:33+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-04-21T09:46:13+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
 </p>
     </footer>
 </body>

@@ -41,7 +41,8 @@
     </a>
 </dt>
 <dd>
-    
+    <p>An object used to add headers or footers to a collection view.</p>
+
 </dd>
 <dt class="structure">
     <a href="/CompositionalLayoutDSL/CompositionalLayout" title="structure - CompositionalLayout">
@@ -49,7 +50,8 @@
     </a>
 </dt>
 <dd>
-    
+    <p>An object that completely represent a compositional layout.</p>
+
 </dd>
 <dt class="structure">
     <a href="/CompositionalLayoutDSL/Configuration" title="structure - Configuration">
@@ -57,7 +59,8 @@
     </a>
 </dt>
 <dd>
-    
+    <p>An object that defines scroll direction, section spacing, and headers or footers for the layout.</p>
+
 </dd>
 <dt class="structure">
     <a href="/CompositionalLayoutDSL/DecorationItem" title="structure - DecorationItem">
@@ -65,7 +68,8 @@
     </a>
 </dt>
 <dd>
-    
+    <p>An object used to add a background to a section of a collection view.</p>
+
 </dd>
 <dt class="structure">
     <a href="/CompositionalLayoutDSL/CustomGroup" title="structure - CustomGroup">
@@ -73,7 +77,8 @@
     </a>
 </dt>
 <dd>
-    
+    <p>A customizable container for a set of items.</p>
+
 </dd>
 <dt class="structure">
     <a href="/CompositionalLayoutDSL/HGroup" title="structure - HGroup">
@@ -81,7 +86,8 @@
     </a>
 </dt>
 <dd>
-    
+    <p>A container for a set of items that lays out the items horizontally.</p>
+
 </dd>
 <dt class="structure">
     <a href="/CompositionalLayoutDSL/VGroup" title="structure - VGroup">
@@ -89,11 +95,21 @@
     </a>
 </dt>
 <dd>
-    
+    <p>A container for a set of items that lays out the items vertically.</p>
+
 </dd>
 <dt class="structure">
     <a href="/CompositionalLayoutDSL/Item" title="structure - Item">
         Item
+    </a>
+</dt>
+<dd>
+    <p>The most basic component of a collection view's layout.</p>
+
+</dd>
+<dt class="structure">
+    <a href="/CompositionalLayoutDSL/ListSection" title="structure - ListSection">
+        List​Section
     </a>
 </dt>
 <dd>
@@ -105,7 +121,8 @@
     </a>
 </dt>
 <dd>
-    
+    <p>A container that combines a set of groups into distinct visual groupings.</p>
+
 </dd>
 <dt class="structure">
     <a href="/CompositionalLayoutDSL/SupplementaryItem" title="structure - SupplementaryItem">
@@ -113,7 +130,9 @@
     </a>
 </dt>
 <dd>
-    
+    <p>An object used to add an extra visual decoration, such as a badge or a frame, to an
+item in a collection view.</p>
+
 </dd>
         </dl>
     </section>
@@ -134,7 +153,8 @@
     </a>
 </dt>
 <dd>
-    
+    <p>A custom parameter attribute that constructs list of <code>Element</code> from closures.</p>
+
 </dd>
         </dl>
     </section>
@@ -147,7 +167,9 @@
     </a>
 </dt>
 <dd>
-    
+    <p>A type that represents a boundary supplementary item in a compositional layout and provides
+modifiers to configure boundary supplementary items.</p>
+
 </dd>
 <dt class="protocol">
     <a href="/CompositionalLayoutDSL/LayoutConfiguration" title="protocol - LayoutConfiguration">
@@ -155,7 +177,9 @@
     </a>
 </dt>
 <dd>
-    
+    <p>A type that represents a compositional layout configuration and provides
+modifiers to change the configuration.</p>
+
 </dd>
 <dt class="protocol">
     <a href="/CompositionalLayoutDSL/LayoutDecorationItem" title="protocol - LayoutDecorationItem">
@@ -163,7 +187,9 @@
     </a>
 </dt>
 <dd>
-    
+    <p>A type that represents a decoration item in a compositional layout and provides
+modifiers to configure decoration items.</p>
+
 </dd>
 <dt class="protocol">
     <a href="/CompositionalLayoutDSL/LayoutGroup" title="protocol - LayoutGroup">
@@ -171,7 +197,9 @@
     </a>
 </dt>
 <dd>
-    
+    <p>A type that represents a group in a compositional layout and provides
+modifiers to configure groups.</p>
+
 </dd>
 <dt class="protocol">
     <a href="/CompositionalLayoutDSL/LayoutItem" title="protocol - LayoutItem">
@@ -179,7 +207,9 @@
     </a>
 </dt>
 <dd>
-    
+    <p>A type that represents an item in a compositional layout and provides
+modifiers to configure items.</p>
+
 </dd>
 <dt class="protocol">
     <a href="/CompositionalLayoutDSL/ResizableItem" title="protocol - ResizableItem">
@@ -195,7 +225,9 @@
     </a>
 </dt>
 <dd>
-    
+    <p>A type that represents a section in a compositional layout and provides
+modifiers to configure sections.</p>
+
 </dd>
 <dt class="protocol">
     <a href="/CompositionalLayoutDSL/LayoutSupplementaryItem" title="protocol - LayoutSupplementaryItem">
@@ -203,7 +235,9 @@
     </a>
 </dt>
 <dd>
-    
+    <p>A type that represents a supplementary item in a compositional layout and provides
+modifiers to configure supplementary items.</p>
+
 </dd>
         </dl>
     </section>
@@ -253,7 +287,8 @@
     </a>
 </dt>
 <dd>
-    
+    <p>Converts a layout configuration and a layout section into a <code>UICollectionViewCompositionalLayout</code></p>
+
 </dd>
 <dt class="function">
     <a href="/CompositionalLayoutDSL/LayoutSectionBuilder(closure:)" title="function - LayoutSectionBuilder(closure:)">
@@ -261,7 +296,8 @@
     </a>
 </dt>
 <dd>
-    
+    <p>Converts a layout section into a <code>NSCollectionLayoutSection</code></p>
+
 </dd>
         </dl>
     </section>
@@ -270,7 +306,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-04-21T09:28:33+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-04-21T09:46:13+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
 </p>
     </footer>
 </body>

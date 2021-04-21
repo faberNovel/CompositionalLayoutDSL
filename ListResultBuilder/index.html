@@ -26,7 +26,7 @@
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#methods">Methods</a><ul><li class="function"><a href="#listresultbuilder.buildblock(_:)">build​Block(_:​)</a></li><li class="function"><a href="#listresultbuilder.buildexpression(_:)">build​Expression(_:​)</a></li><li class="function"><a href="#listresultbuilder.buildoptional(_:)">build​Optional(_:​)</a></li><li class="function"><a href="#listresultbuilder.buildeither(first:)">build​Either(first:​)</a></li><li class="function"><a href="#listresultbuilder.buildeither(second:)">build​Either(second:​)</a></li><li class="function"><a href="#listresultbuilder.buildarray(_:)">build​Array(_:​)</a></li></ul></li></ol>
+            <ol><li><a href="#methods">Methods</a><ul><li class="function"><a href="#listresultbuilder.buildblock(_:)">build​Block(_:​)</a></li><li class="function"><a href="#listresultbuilder.buildexpression(_:)">build​Expression(_:​)</a></li><li class="function"><a href="#listresultbuilder.buildoptional(_:)">build​Optional(_:​)</a></li><li class="function"><a href="#listresultbuilder.buildeither(first:)">build​Either(first:​)</a></li><li class="function"><a href="#listresultbuilder.buildeither(second:)">build​Either(second:​)</a></li><li class="function"><a href="#listresultbuilder.buildarray(_:)">build​Array(_:​)</a></li><li class="function"><a href="#listresultbuilder.buildlimitedavailability(_:)">build​Limited​Availability(_:​)</a></li></ul></li></ol>
         </div>
     </nav>
 
@@ -38,6 +38,34 @@
 </h1>
 
 <html><body><pre class="highlight"><code><span class="attribute">@</span><span class="attribute">_functionBuilder</span> <span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">ListResultBuilder</span>&lt;<span class="variable">Element</span>&gt;</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>A custom parameter attribute that constructs list of <code>Element</code> from closures.</p>
+
+</div>
+<div class="discussion">
+    <p>You typically use <code>ListResultBuilder</code> (or a typealias of it) as a parameter attribute for
+elements producing closure parameters, allowing those closures to provide multiple elements
+For example, the following <code>HGroup</code> initialiser accepts a closure that produces
+one or more items via the view builder.</p>
+
+<html><body><pre class="highlight"><code><span class="keyword">struct</span> <a href="/CompositionalLayoutDSL/HGroup"><span class="type">HGroup</span></a> {
+    <span class="keyword">init</span>(<span class="attribute">@</span><span class="type">ListResultBuilder</span>&lt;<a href="/CompositionalLayoutDSL/LayoutItem"><span class="type">LayoutItem</span></a>&gt; <span class="variable">subItems</span>: () -&gt; [<a href="/CompositionalLayoutDSL/LayoutItem"><span class="type">LayoutItem</span></a>]) { <span class="comment">/* ... */</span> }
+}
+</code></pre></body></html>
+<p>Clients of this function can use multiple-statement closures to provide
+several elements, as shown in the following example:</p>
+
+<html><body><pre class="highlight"><code><span class="variable">HGroup</span> {
+    <span class="variable">Item</span>().<span class="type">width</span>(.<span class="variable">fractionalWidth</span>(<span class="number literal">0.5</span>))
+    <span class="keyword">if</span> <span class="variable">condition</span> {
+        <span class="variable">VGroup</span>(<span class="variable">count</span>: <span class="number literal">3</span>) { <span class="variable">Item</span>() }
+            .<span class="type">width</span>(.<span class="variable">fractionalWidth</span>(<span class="number literal">0.5</span>))
+    } <span class="keyword">else</span> {
+        <span class="variable">Item</span>().<span class="type">width</span>(.<span class="variable">fractionalWidth</span>(<span class="number literal">0.5</span>))
+    }
+}
+</code></pre></body></html>
+</div>
 
     <section id="methods">
         <h2>Methods</h2>
@@ -59,24 +87,52 @@
         <code>build​Optional(_:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">buildOptional</span>(<span class="keyword">_</span> <span class="variable">component</span>: [<span class="type">Element</span>]?) -&gt; [<span class="type">Element</span>]</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Provides support for “if” statements in multi-statement closures,
+producing an optional view that is visible only when the condition
+evaluates to <code>true</code>.</p>
+
+</div>
 </div>
 <div role="article" class="function" id="listresultbuilder.buildeither(first:)">
     <h3>
         <code>build​Either(first:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">buildEither</span>(<span class="variable">first</span> <span class="variable">component</span>: [<span class="type">Element</span>]) -&gt; [<span class="type">Element</span>]</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Provides support for &quot;if&quot; and &quot;switch&quot; statements in multi-statement closures,
+producing conditional content for the &quot;then&quot; branch.</p>
+
+</div>
 </div>
 <div role="article" class="function" id="listresultbuilder.buildeither(second:)">
     <h3>
         <code>build​Either(second:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">buildEither</span>(<span class="variable">second</span> <span class="variable">component</span>: [<span class="type">Element</span>]) -&gt; [<span class="type">Element</span>]</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Provides support for &quot;if-else&quot; and &quot;switch&quot; statements in multi-statement closures,
+producing conditional content for the &quot;else&quot; branch.</p>
+
+</div>
 </div>
 <div role="article" class="function" id="listresultbuilder.buildarray(_:)">
     <h3>
         <code>build​Array(_:​)</code>
     </h3>
     <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">buildArray</span>(<span class="keyword">_</span> <span class="variable">components</span>: [[<span class="type">Element</span>]]) -&gt; [<span class="type">Element</span>]</code></pre></body></html>
+</div>
+<div role="article" class="function" id="listresultbuilder.buildlimitedavailability(_:)">
+    <h3>
+        <code>build​Limited​Availability(_:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">buildLimitedAvailability</span>(<span class="keyword">_</span> <span class="variable">component</span>: [<span class="type">Element</span>]) -&gt; [<span class="type">Element</span>]</code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>Provides support for &quot;if&quot; statements with <code>#available()</code> clauses in
+multi-statement closures, producing conditional content for the &quot;then&quot;
+branch, i.e. the conditionally-available branch.</p>
+
+</div>
 </div>
     </section>
 
@@ -87,7 +143,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-04-21T09:28:33+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-04-21T09:46:14+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
 </p>
     </footer>
 </body>

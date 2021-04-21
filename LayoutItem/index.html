@@ -38,6 +38,31 @@
 </h1>
 
 <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">protocol</span> <span class="type">LayoutItem</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>A type that represents an item in a compositional layout and provides
+modifiers to configure items.</p>
+
+</div>
+<div class="discussion">
+    <p>You create custom items by declaring types that conform to the <code>LayoutItem</code>
+protocol. Implement the required <code>layoutItem</code> computed property to
+provide the content and configuration for your custom item.</p>
+
+<html><body><pre class="highlight"><code><span class="keyword">struct</span> <span class="type">MyItem</span>: <span class="type">LayoutItem</span> {
+    <span class="keyword">var</span> <span class="variable">layoutItem</span>: <span class="type">LayoutItem</span> {
+        <span class="variable">Item</span> {
+            <span class="variable">SupplementaryItem</span>(<span class="variable">elementKind</span>: <span class="string literal">"</span><span class="string literal">badge</span><span class="string literal">"</span>)
+                .<span class="type">containerAnchor</span>(
+                    <span class="variable">edges</span>: [.<span class="variable">top</span>, .<span class="variable">trailing</span>],
+                    <span class="variable">offset</span>: .<span class="variable">fractional</span>(<span class="variable">x</span>: <span class="number literal">0.5</span>, <span class="variable">y</span>: -<span class="number literal">0.5</span>)
+                )
+                .<span class="type">height</span>(.<span class="variable">absolute</span>(<span class="number literal">20</span>))
+                .<span class="type">width</span>(.<span class="variable">absolute</span>(<span class="number literal">20</span>))
+        }
+    }
+}
+</code></pre></body></html>
+</div>
 <section id="relationships">
     <h2 hidden>Relationships</h2>
         <figure>
@@ -61,18 +86,18 @@
 </a>
 </g>
 </g>
-<!-- LayoutDecorationItem -->
-<g id="node2" class="node protocol">
-<title>LayoutDecorationItem</title>
-<g id="a_node2"><a xlink:href="/CompositionalLayoutDSL/LayoutDecorationItem" xlink:title="LayoutDecorationItem">
+<!-- Item -->
+<g id="node2" class="node structure">
+<title>Item</title>
+<g id="a_node2"><a xlink:href="/CompositionalLayoutDSL/Item" xlink:title="Item">
 <path fill="none" stroke="#000000" d="M1108.2314,-71.1618C1108.2314,-71.1618 916.2314,-71.1618 916.2314,-71.1618 910.2314,-71.1618 904.2314,-65.1618 904.2314,-59.1618 904.2314,-59.1618 904.2314,-47.1618 904.2314,-47.1618 904.2314,-41.1618 910.2314,-35.1618 916.2314,-35.1618 916.2314,-35.1618 1108.2314,-35.1618 1108.2314,-35.1618 1114.2314,-35.1618 1120.2314,-41.1618 1120.2314,-47.1618 1120.2314,-47.1618 1120.2314,-59.1618 1120.2314,-59.1618 1120.2314,-65.1618 1114.2314,-71.1618 1108.2314,-71.1618"/>
-<text text-anchor="middle" x="1012.2314" y="-49.4618" font-family="Menlo" font-size="14.00" fill="#000000">LayoutDecorationItem</text>
+<text text-anchor="middle" x="1012.2314" y="-49.4618" font-family="Menlo" font-size="14.00" fill="#000000">Item</text>
 </a>
 </g>
 </g>
-<!-- LayoutDecorationItem&#45;&gt;LayoutItem -->
+<!-- Item&#45;&gt;LayoutItem -->
 <g id="edge4" class="edge conformsTo">
-<title>LayoutDecorationItem&#45;&gt;LayoutItem</title>
+<title>Item&#45;&gt;LayoutItem</title>
 <path fill="none" stroke="#000000" d="M904.1452,-68.6195C835.7025,-78.4077 747.1727,-91.0686 676.8544,-101.125"/>
 <polygon fill="#000000" stroke="#000000" points="676.02,-97.7086 666.6163,-102.5892 677.0111,-104.6381 676.02,-97.7086"/>
 </g>
@@ -86,38 +111,38 @@
 </g>
 </g>
 <!-- LayoutGroup&#45;&gt;LayoutItem -->
-<g id="edge2" class="edge conformsTo">
+<g id="edge1" class="edge conformsTo">
 <title>LayoutGroup&#45;&gt;LayoutItem</title>
 <path fill="none" stroke="#000000" d="M317.9662,-36.0008C367.9781,-53.0535 443.1103,-78.6714 496.0868,-96.7348"/>
 <polygon fill="#000000" stroke="#000000" points="495.1153,-100.1014 505.7098,-100.016 497.3745,-93.4759 495.1153,-100.1014"/>
 </g>
-<!-- LayoutSupplementaryItem -->
+<!-- LayoutDecorationItem -->
 <g id="node4" class="node protocol">
-<title>LayoutSupplementaryItem</title>
-<g id="a_node4"><a xlink:href="/CompositionalLayoutDSL/LayoutSupplementaryItem" xlink:title="LayoutSupplementaryItem">
+<title>LayoutDecorationItem</title>
+<g id="a_node4"><a xlink:href="/CompositionalLayoutDSL/LayoutDecorationItem" xlink:title="LayoutDecorationItem">
 <path fill="none" stroke="#000000" d="M204,-201.7784C204,-201.7784 12,-201.7784 12,-201.7784 6,-201.7784 0,-195.7784 0,-189.7784 0,-189.7784 0,-177.7784 0,-177.7784 0,-171.7784 6,-165.7784 12,-165.7784 12,-165.7784 204,-165.7784 204,-165.7784 210,-165.7784 216,-171.7784 216,-177.7784 216,-177.7784 216,-189.7784 216,-189.7784 216,-195.7784 210,-201.7784 204,-201.7784"/>
-<text text-anchor="middle" x="108" y="-180.0784" font-family="Menlo" font-size="14.00" fill="#000000">LayoutSupplementaryItem</text>
+<text text-anchor="middle" x="108" y="-180.0784" font-family="Menlo" font-size="14.00" fill="#000000">LayoutDecorationItem</text>
+</a>
+</g>
+</g>
+<!-- LayoutDecorationItem&#45;&gt;LayoutItem -->
+<g id="edge3" class="edge conformsTo">
+<title>LayoutDecorationItem&#45;&gt;LayoutItem</title>
+<path fill="none" stroke="#000000" d="M216.21,-167.9908C283.8359,-158.1243 370.9522,-145.4143 440.3825,-135.2845"/>
+<polygon fill="#000000" stroke="#000000" points="441.1037,-138.7164 450.4936,-133.8093 440.093,-131.7898 441.1037,-138.7164"/>
+</g>
+<!-- LayoutSupplementaryItem -->
+<g id="node5" class="node protocol">
+<title>LayoutSupplementaryItem</title>
+<g id="a_node5"><a xlink:href="/CompositionalLayoutDSL/LayoutSupplementaryItem" xlink:title="LayoutSupplementaryItem">
+<path fill="none" stroke="#000000" d="M952.8325,-235.49C952.8325,-235.49 760.8325,-235.49 760.8325,-235.49 754.8325,-235.49 748.8325,-229.49 748.8325,-223.49 748.8325,-223.49 748.8325,-211.49 748.8325,-211.49 748.8325,-205.49 754.8325,-199.49 760.8325,-199.49 760.8325,-199.49 952.8325,-199.49 952.8325,-199.49 958.8325,-199.49 964.8325,-205.49 964.8325,-211.49 964.8325,-211.49 964.8325,-223.49 964.8325,-223.49 964.8325,-229.49 958.8325,-235.49 952.8325,-235.49"/>
+<text text-anchor="middle" x="856.8325" y="-213.79" font-family="Menlo" font-size="14.00" fill="#000000">LayoutSupplementaryItem</text>
 </a>
 </g>
 </g>
 <!-- LayoutSupplementaryItem&#45;&gt;LayoutItem -->
-<g id="edge3" class="edge conformsTo">
+<g id="edge2" class="edge conformsTo">
 <title>LayoutSupplementaryItem&#45;&gt;LayoutItem</title>
-<path fill="none" stroke="#000000" d="M216.21,-167.9908C283.8359,-158.1243 370.9522,-145.4143 440.3825,-135.2845"/>
-<polygon fill="#000000" stroke="#000000" points="441.1037,-138.7164 450.4936,-133.8093 440.093,-131.7898 441.1037,-138.7164"/>
-</g>
-<!-- Item -->
-<g id="node5" class="node structure">
-<title>Item</title>
-<g id="a_node5"><a xlink:href="/CompositionalLayoutDSL/Item" xlink:title="Item">
-<path fill="none" stroke="#000000" d="M952.8325,-235.49C952.8325,-235.49 760.8325,-235.49 760.8325,-235.49 754.8325,-235.49 748.8325,-229.49 748.8325,-223.49 748.8325,-223.49 748.8325,-211.49 748.8325,-211.49 748.8325,-205.49 754.8325,-199.49 760.8325,-199.49 760.8325,-199.49 952.8325,-199.49 952.8325,-199.49 958.8325,-199.49 964.8325,-205.49 964.8325,-211.49 964.8325,-211.49 964.8325,-223.49 964.8325,-223.49 964.8325,-229.49 958.8325,-235.49 952.8325,-235.49"/>
-<text text-anchor="middle" x="856.8325" y="-213.79" font-family="Menlo" font-size="14.00" fill="#000000">Item</text>
-</a>
-</g>
-</g>
-<!-- Item&#45;&gt;LayoutItem -->
-<g id="edge1" class="edge conformsTo">
-<title>Item&#45;&gt;LayoutItem</title>
 <path fill="none" stroke="#000000" d="M802.8199,-199.4805C752.0906,-182.5657 676.1588,-157.2477 622.4464,-139.3382"/>
 <polygon fill="#000000" stroke="#000000" points="623.2804,-135.927 612.6867,-136.0841 621.0662,-142.5675 623.2804,-135.927"/>
 </g>
@@ -130,13 +155,20 @@
         <h3>Types Conforming to <code>Layout​Item</code></h3>
 <dl>
     <dt class="protocol"><code><a href="/CompositionalLayoutDSL/LayoutDecorationItem">LayoutDecorationItem</a></code></dt>
-<dd></dd>
+<dd><p>A type that represents a decoration item in a compositional layout and provides
+modifiers to configure decoration items.</p>
+</dd>
 <dt class="protocol"><code><a href="/CompositionalLayoutDSL/LayoutGroup">LayoutGroup</a></code></dt>
-<dd></dd>
+<dd><p>A type that represents a group in a compositional layout and provides
+modifiers to configure groups.</p>
+</dd>
 <dt class="structure"><code><a href="/CompositionalLayoutDSL/Item">Item</a></code></dt>
-<dd></dd>
+<dd><p>The most basic component of a collection view's layout.</p>
+</dd>
 <dt class="protocol"><code><a href="/CompositionalLayoutDSL/LayoutSupplementaryItem">LayoutSupplementaryItem</a></code></dt>
-<dd></dd>
+<dd><p>A type that represents a supplementary item in a compositional layout and provides
+modifiers to configure supplementary items.</p>
+</dd>
 </dl>
 </section>
 
@@ -157,7 +189,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-04-21T09:28:33+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-04-21T09:46:14+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
 </p>
     </footer>
 </body>

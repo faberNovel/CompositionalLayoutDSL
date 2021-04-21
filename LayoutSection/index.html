@@ -38,6 +38,29 @@
 </h1>
 
 <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">protocol</span> <span class="type">LayoutSection</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
+    <p>A type that represents a section in a compositional layout and provides
+modifiers to configure sections.</p>
+
+</div>
+<div class="discussion">
+    <p>You create custom sections by declaring types that conform to the <code>LayoutSection</code>
+protocol. Implement the required <code>layoutSection</code> computed property to
+provide the content and configuration for your custom section.</p>
+
+<html><body><pre class="highlight"><code><span class="keyword">struct</span> <span class="type">MySection</span>: <span class="type">LayoutSection</span> {
+    <span class="keyword">var</span> <span class="variable">layoutSection</span>: <span class="type">LayoutSection</span> {
+        <span class="variable">Section</span> {
+            <span class="variable">HGroup</span>(<span class="variable">count</span>: <span class="number literal">2</span>) { <span class="variable">Item</span>() }
+        }
+        .<span class="type">boundarySupplementaryItems</span> {
+            <span class="variable">BoundarySupplementaryItem</span>(<span class="variable">elementKind</span>: <span class="string literal">"</span><span class="string literal">kind</span><span class="string literal">"</span>)
+        }
+        .<span class="type">contentInsets</span>(<span class="variable">horizontal</span>: <span class="number literal">20</span>, <span class="variable">vertical</span>: <span class="number literal">8</span>)
+    }
+}
+</code></pre></body></html>
+</div>
 <section id="relationships">
     <h2 hidden>Relationships</h2>
         <figure>
@@ -65,16 +88,31 @@
 <g id="node2" class="node structure">
 <title>Section</title>
 <g id="a_node2"><a xlink:href="/CompositionalLayoutDSL/Section" xlink:title="Section">
-<path fill="none" stroke="#000000" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
-<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00" fill="#000000">Section</text>
+<path fill="none" stroke="#000000" d="M303,-108C303,-108 111,-108 111,-108 105,-108 99,-102 99,-96 99,-96 99,-84 99,-84 99,-78 105,-72 111,-72 111,-72 303,-72 303,-72 309,-72 315,-78 315,-84 315,-84 315,-96 315,-96 315,-102 309,-108 303,-108"/>
+<text text-anchor="middle" x="207" y="-86.3" font-family="Menlo" font-size="14.00" fill="#000000">Section</text>
 </a>
 </g>
 </g>
 <!-- Section&#45;&gt;LayoutSection -->
-<g id="edge1" class="edge conformsTo">
+<g id="edge2" class="edge conformsTo">
 <title>Section&#45;&gt;LayoutSection</title>
-<path fill="none" stroke="#000000" d="M432,-71.8314C432,-64.131 432,-54.9743 432,-46.4166"/>
-<polygon fill="#000000" stroke="#000000" points="435.5001,-46.4132 432,-36.4133 428.5001,-46.4133 435.5001,-46.4132"/>
+<path fill="none" stroke="#000000" d="M263.4866,-71.9243C294.5129,-61.9959 333.1703,-49.6255 365.6306,-39.2382"/>
+<polygon fill="#000000" stroke="#000000" points="367.0327,-42.4645 375.4902,-36.0831 364.8992,-35.7975 367.0327,-42.4645"/>
+</g>
+<!-- ListSection -->
+<g id="node3" class="node structure">
+<title>ListSection</title>
+<g id="a_node3"><a xlink:href="/CompositionalLayoutDSL/ListSection" xlink:title="ListSection">
+<path fill="none" stroke="#000000" d="M753,-108C753,-108 561,-108 561,-108 555,-108 549,-102 549,-96 549,-96 549,-84 549,-84 549,-78 555,-72 561,-72 561,-72 753,-72 753,-72 759,-72 765,-78 765,-84 765,-84 765,-96 765,-96 765,-102 759,-108 753,-108"/>
+<text text-anchor="middle" x="657" y="-86.3" font-family="Menlo" font-size="14.00" fill="#000000">ListSection</text>
+</a>
+</g>
+</g>
+<!-- ListSection&#45;&gt;LayoutSection -->
+<g id="edge1" class="edge conformsTo">
+<title>ListSection&#45;&gt;LayoutSection</title>
+<path fill="none" stroke="#000000" d="M600.5134,-71.9243C569.4871,-61.9959 530.8297,-49.6255 498.3694,-39.2382"/>
+<polygon fill="#000000" stroke="#000000" points="499.1008,-35.7975 488.5098,-36.0831 496.9673,-42.4645 499.1008,-35.7975"/>
 </g>
 </g>
 </svg>
@@ -84,8 +122,11 @@
 </figure>
         <h3>Types Conforming to <code>Layout​Section</code></h3>
 <dl>
-    <dt class="structure"><code><a href="/CompositionalLayoutDSL/Section">Section</a></code></dt>
+    <dt class="structure"><code><a href="/CompositionalLayoutDSL/ListSection">ListSection</a></code></dt>
 <dd></dd>
+<dt class="structure"><code><a href="/CompositionalLayoutDSL/Section">Section</a></code></dt>
+<dd><p>A container that combines a set of groups into distinct visual groupings.</p>
+</dd>
 </dl>
 </section>
 
@@ -106,7 +147,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-04-21T09:28:33+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-04-21T09:46:14+0000">April 21, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
 </p>
     </footer>
 </body>
