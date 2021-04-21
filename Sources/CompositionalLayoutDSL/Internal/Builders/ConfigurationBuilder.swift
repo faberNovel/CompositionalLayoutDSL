@@ -6,16 +6,27 @@
 //  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
+#if os(macOS)
+import AppKit
+#else
 import UIKit
+#endif
 
 internal protocol BuildableConfiguration {
-    func makeConfiguration() -> UICollectionViewCompositionalLayoutConfiguration
+    func makeConfiguration() -> ConfigurationBuilder.TransformedType
 }
 
 internal enum ConfigurationBuilder {
+
+    #if os(macOS)
+    typealias TransformedType = NSCollectionViewCompositionalLayoutConfiguration
+    #else
+    typealias TransformedType = UICollectionViewCompositionalLayoutConfiguration
+    #endif
+
     static func make(
         from layoutConfiguration: LayoutConfiguration
-    ) -> UICollectionViewCompositionalLayoutConfiguration {
+    ) -> ConfigurationBuilder.TransformedType {
         guard let buildableConfiguration = getBuildableConfiguration(from: layoutConfiguration) else {
             // swiftlint:disable:next line_length
             fatalError("Unable to convert the given LayoutConfiguration to UICollectionViewCompositionalLayoutConfiguration")

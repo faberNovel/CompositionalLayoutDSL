@@ -6,7 +6,11 @@
 //  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
+#if os(macOS)
+import AppKit
+#else
 import UIKit
+#endif
 
 struct ValueModifiedLayoutSection: LayoutSection, BuildableSection {
     let section: LayoutSection

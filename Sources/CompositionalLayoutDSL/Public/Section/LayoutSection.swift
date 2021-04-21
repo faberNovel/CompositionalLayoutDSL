@@ -6,7 +6,11 @@
 //  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
+#if os(macOS)
+import AppKit
+#else
 import UIKit
+#endif
 
 /// A type that represents a section in a compositional layout and provides
 /// modifiers to configure sections.
@@ -38,6 +42,7 @@ extension LayoutSection {
         valueModifier(spacing, keyPath: \.interGroupSpacing)
     }
 
+    #if !os(macOS)
     /// Configure the boundary to reference when defining content insets.
     ///
     /// This represents the reference point to use when defining contentInsets.
@@ -48,7 +53,21 @@ extension LayoutSection {
     public func contentInsetsReference(_ reference: UIContentInsetsReference) -> LayoutSection {
         valueModifier(reference, keyPath: \.contentInsetsReference)
     }
+    #endif
 
+    #if os(macOS)
+    /// Configure the section's scrolling behavior in relation to the main layout axis.
+    ///
+    /// The default value of this property is `UICollectionLayoutSectionOrthogonalScrollingBehavior.none`,
+    /// which means the section lays out its content along the main axis of its layout, defined by
+    /// the layout configuration's `scrollDirection` property. Set a different value for this
+    /// property to get the section to lay out its content orthogonally to the main layout axis.
+    public func orthogonalScrollingBehavior(
+        _ orthogonalScrollingBehavior: NSCollectionLayoutSectionOrthogonalScrollingBehavior
+    ) -> LayoutSection {
+        valueModifier(orthogonalScrollingBehavior, keyPath: \.orthogonalScrollingBehavior)
+    }
+    #else
     /// Configure the section's scrolling behavior in relation to the main layout axis.
     ///
     /// The default value of this property is `UICollectionLayoutSectionOrthogonalScrollingBehavior.none`,
@@ -60,6 +79,7 @@ extension LayoutSection {
     ) -> LayoutSection {
         valueModifier(orthogonalScrollingBehavior, keyPath: \.orthogonalScrollingBehavior)
     }
+    #endif
 
     /// Add an array of the supplementary items that are associated with the boundary edges of
     /// the section, such as headers and footers.

@@ -6,7 +6,11 @@
 //  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
+#if os(macOS)
+import AppKit
+#else
 import UIKit
+#endif
 
 /// An object that completely represent a compositional layout.
 ///
@@ -44,6 +48,16 @@ public struct CompositionalLayout {
 
     // MARK: - CompositionalLayout
 
+    #if os(macOS)
+    /// Configure the axis that the content in the collection view layout scrolls along.
+    ///
+    /// The default value of this property is `UICollectionView.ScrollDirection.vertical`.
+    public func scrollDirection(
+        _ scrollDirection: NSCollectionView.ScrollDirection
+    ) -> Self {
+        with(self) { $0.configuration = $0.configuration.scrollDirection(scrollDirection) }
+    }
+    #else
     /// Configure the axis that the content in the collection view layout scrolls along.
     ///
     /// The default value of this property is `UICollectionView.ScrollDirection.vertical`.
@@ -52,6 +66,7 @@ public struct CompositionalLayout {
     ) -> Self {
         with(self) { $0.configuration = $0.configuration.scrollDirection(scrollDirection) }
     }
+    #endif
 
     /// Configure the amount of space between the sections in the layout.
     ///
@@ -71,6 +86,7 @@ public struct CompositionalLayout {
         }
     }
 
+    #if !os(macOS)
     /// Configure the boundary to reference when defining content insets.
     ///
     /// The default value of this property is ``UIContentInsetsReference.safeArea``
@@ -82,6 +98,7 @@ public struct CompositionalLayout {
             $0.configuration = $0.configuration.contentInsetsReference(contentInsetsReference)
         }
     }
+    #endif
 }
 
 public extension CompositionalLayout {
@@ -97,6 +114,16 @@ public extension CompositionalLayout {
 }
 
 extension CompositionalLayout {
+    #if os(macOS)
+    func makeCollectionViewCompositionalLayout() -> NSCollectionViewCompositionalLayout {
+        return NSCollectionViewCompositionalLayout(
+            sectionProvider: { section, environment in
+                return sectionBuilder(section, environment).map(SectionBuilder.make(from:))
+            },
+            configuration: ConfigurationBuilder.make(from: configuration)
+        )
+    }
+    #else
     func makeCollectionViewCompositionalLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout(
             sectionProvider: { section, environment in
@@ -105,4 +132,5 @@ extension CompositionalLayout {
             configuration: ConfigurationBuilder.make(from: configuration)
         )
     }
+    #endif
 }

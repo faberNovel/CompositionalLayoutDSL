@@ -6,11 +6,33 @@
 //  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
-import Foundation
+#if os(macOS)
+import AppKit
+#else
 import UIKit
+#endif
 
 // swiftlint:disable identifier_name
 
+/// Converts a layout section into a `NSCollectionLayoutSection`
+public func LayoutSectionBuilder(
+    closure: () -> LayoutSection
+) -> NSCollectionLayoutSection {
+    SectionBuilder.make(from: closure())
+}
+
+#if os(macOS)
+/// Converts a layout configuration and a layout section into an `NSCollectionViewCompositionalLayout`
+public func LayoutBuilder(
+    configuration: LayoutConfiguration = Configuration(),
+    closure: () -> LayoutSection
+) -> NSCollectionViewCompositionalLayout {
+    return NSCollectionViewCompositionalLayout(
+        section: SectionBuilder.make(from: closure()),
+        configuration: ConfigurationBuilder.make(from: configuration)
+    )
+}
+#else
 /// Converts a layout configuration and a layout section into a `UICollectionViewCompositionalLayout`
 public func LayoutBuilder(
     configuration: LayoutConfiguration = Configuration(),
@@ -21,21 +43,34 @@ public func LayoutBuilder(
         configuration: ConfigurationBuilder.make(from: configuration)
     )
 }
+#endif
 
-/// Converts a layout section into a `NSCollectionLayoutSection`
-public func LayoutSectionBuilder(
-    closure: () -> LayoutSection
-) -> NSCollectionLayoutSection {
-    SectionBuilder.make(from: closure())
+#if os(macOS)
+/// Converts a compositionalLayout into an `NSCollectionViewCompositionalLayout`
+public func CompositionalLayoutBuilder(
+    closure: () -> CompositionalLayout
+) -> NSCollectionViewCompositionalLayout {
+    closure().makeCollectionViewCompositionalLayout()
 }
-
+#else
 /// Converts a compositionalLayout into a `UICollectionViewCompositionalLayout`
 public func CompositionalLayoutBuilder(
     closure: () -> CompositionalLayout
 ) -> UICollectionViewCompositionalLayout {
     closure().makeCollectionViewCompositionalLayout()
 }
+#endif
 
+#if os(macOS)
+extension NSCollectionView {
+    /// Configure a UICollectionView layout with a CompositionalLayout
+    public func setCollectionViewLayout(
+        _ layout: CompositionalLayout
+    ) {
+        self.collectionViewLayout = CompositionalLayoutBuilder { layout }
+    }
+}
+#else
 extension UICollectionView {
     /// Configure a UICollectionView layout with a CompositionalLayout
     public func setCollectionViewLayout(
@@ -50,3 +85,4 @@ extension UICollectionView {
         )
     }
 }
+#endif

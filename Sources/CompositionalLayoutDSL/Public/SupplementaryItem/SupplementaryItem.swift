@@ -6,7 +6,11 @@
 //  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
+#if os(macOS)
+import AppKit
+#else
 import UIKit
+#endif
 
 /// An object used to add an extra visual decoration, such as a badge or a frame, to an
 /// item in a collection view.

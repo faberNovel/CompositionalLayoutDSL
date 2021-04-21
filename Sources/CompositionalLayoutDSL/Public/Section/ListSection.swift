@@ -6,6 +6,7 @@
 //  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
+#if !os(macOS)
 import UIKit
 
 @available(iOS 14.0, tvOS 14, *)
@@ -86,3 +87,4 @@ extension ListSection: BuildableSection {
         return .list(using: configuration, layoutEnvironment: layoutEnvironment)
     }
 }
+#endif

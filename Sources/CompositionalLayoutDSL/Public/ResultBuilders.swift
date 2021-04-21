@@ -6,8 +6,6 @@
 //  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
-import UIKit
-
 public typealias LayoutItemBuilder = ListResultBuilder<LayoutItem>
 public typealias LayoutBoundarySupplementaryItemBuilder = ListResultBuilder<LayoutBoundarySupplementaryItem>
 public typealias LayoutSupplementaryItemBuilder = ListResultBuilder<LayoutSupplementaryItem>

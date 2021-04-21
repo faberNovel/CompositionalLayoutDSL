@@ -6,7 +6,11 @@
 //  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
+#if os(macOS)
+import AppKit
+#else
 import UIKit
+#endif
 
 /// An object used to add headers or footers to a collection view.
 public struct BoundarySupplementaryItem: LayoutBoundarySupplementaryItem, ResizableItem {
