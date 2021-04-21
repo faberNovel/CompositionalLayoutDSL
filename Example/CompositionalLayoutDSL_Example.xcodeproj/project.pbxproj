@@ -28,9 +28,12 @@
 		AC34ECCF261F5CED00DF2D74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC34ECCD261F5CED00DF2D74 /* LaunchScreen.storyboard */; };
 		AC622CE2261F606C0058EEE3 /* CompositionalLayoutDSL in Frameworks */ = {isa = PBXBuildFile; productRef = AC622CE1261F606C0058EEE3 /* CompositionalLayoutDSL */; };
 		AC6292EA26303724005B5D3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6292E926303724005B5D3A /* AppDelegate.swift */; };
-		AC6292EC26303724005B5D3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6292EB26303724005B5D3A /* ViewController.swift */; };
+		AC6292EC26303724005B5D3A /* ShowcaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6292EB26303724005B5D3A /* ShowcaseViewController.swift */; };
 		AC6292EE26303727005B5D3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC6292ED26303727005B5D3A /* Assets.xcassets */; };
 		AC6292F126303727005B5D3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6292EF26303727005B5D3A /* Main.storyboard */; };
+		AC62930626303F38005B5D3A /* DemoSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC62930326303F38005B5D3A /* DemoSupplementaryView.swift */; };
+		AC62930726303F38005B5D3A /* DemoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC62930426303F38005B5D3A /* DemoCollectionViewController.swift */; };
+		AC62930826303F38005B5D3A /* DemoCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC62930526303F38005B5D3A /* DemoCellView.swift */; };
 		ACF2C1682624B00700E06BA7 /* GettingStartedCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1672624B00700E06BA7 /* GettingStartedCompositionalLayout.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,11 +62,14 @@
 		AC622CE7261F63970058EEE3 /* DemoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCollectionViewController.swift; sourceTree = "<group>"; };
 		AC6292E726303724005B5D3A /* CompositionalLayoutDSL_Example_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompositionalLayoutDSL_Example_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6292E926303724005B5D3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC6292EB26303724005B5D3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AC6292EB26303724005B5D3A /* ShowcaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseViewController.swift; sourceTree = "<group>"; };
 		AC6292ED26303727005B5D3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC6292F026303727005B5D3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC6292F226303727005B5D3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC6292F326303727005B5D3A /* CompositionalLayoutDSL_Example_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CompositionalLayoutDSL_Example_macOS.entitlements; sourceTree = "<group>"; };
+		AC62930326303F38005B5D3A /* DemoSupplementaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoSupplementaryView.swift; sourceTree = "<group>"; };
+		AC62930426303F38005B5D3A /* DemoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCollectionViewController.swift; sourceTree = "<group>"; };
+		AC62930526303F38005B5D3A /* DemoCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCellView.swift; sourceTree = "<group>"; };
 		ACF2C1672624B00700E06BA7 /* GettingStartedCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingStartedCompositionalLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,13 +215,40 @@
 			isa = PBXGroup;
 			children = (
 				AC6292E926303724005B5D3A /* AppDelegate.swift */,
-				AC6292EB26303724005B5D3A /* ViewController.swift */,
+				AC62930126303F27005B5D3A /* App */,
 				AC6292ED26303727005B5D3A /* Assets.xcassets */,
 				AC6292EF26303727005B5D3A /* Main.storyboard */,
 				AC6292F226303727005B5D3A /* Info.plist */,
 				AC6292F326303727005B5D3A /* CompositionalLayoutDSL_Example_macOS.entitlements */,
 			);
 			path = CompositionalLayoutDSL_Example_macOS;
+			sourceTree = "<group>";
+		};
+		AC62930126303F27005B5D3A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AC62930926305908005B5D3A /* ShowcaseViewController */,
+				AC62930226303F38005B5D3A /* DemoCollectionViewController */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AC62930226303F38005B5D3A /* DemoCollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AC62930326303F38005B5D3A /* DemoSupplementaryView.swift */,
+				AC62930426303F38005B5D3A /* DemoCollectionViewController.swift */,
+				AC62930526303F38005B5D3A /* DemoCellView.swift */,
+			);
+			path = DemoCollectionViewController;
+			sourceTree = "<group>";
+		};
+		AC62930926305908005B5D3A /* ShowcaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AC6292EB26303724005B5D3A /* ShowcaseViewController.swift */,
+			);
+			path = ShowcaseViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,8 +382,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC6292EC26303724005B5D3A /* ViewController.swift in Sources */,
+				AC6292EC26303724005B5D3A /* ShowcaseViewController.swift in Sources */,
+				AC62930726303F38005B5D3A /* DemoCollectionViewController.swift in Sources */,
 				AC6292EA26303724005B5D3A /* AppDelegate.swift in Sources */,
+				AC62930826303F38005B5D3A /* DemoCellView.swift in Sources */,
+				AC62930626303F38005B5D3A /* DemoSupplementaryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
