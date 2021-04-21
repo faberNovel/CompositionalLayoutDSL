@@ -11,7 +11,7 @@ import CompositionalLayoutDSL
 
 struct CompositionalLayoutWithSupplementaryView {
     func layout() -> UICollectionViewLayout {
-        CompositionalLayout(configuration: configuration.collectionLayoutConfiguration) { _, _ in
+        CompositionalLayout(configuration: configuration) { _, _ in
             Section {
                 VGroup(count: 1) { Item() }
                     .height(.absolute(200))
@@ -25,8 +25,8 @@ struct CompositionalLayoutWithSupplementaryView {
 
     // MARK: - Private
 
-    private var configuration: CollectionLayoutConfigurationConvertible {
-        CompositionalConfiguration()
+    private var configuration: LayoutConfiguration {
+        Configuration()
             .interSectionSpacing(20)
             .boundarySupplementaryItems {
                 BoundarySupplementaryItem(elementKind: UICollectionView.elementKindSectionHeader)

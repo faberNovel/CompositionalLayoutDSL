@@ -19,7 +19,7 @@ class SectionDSLTests: XCTestCase {
             layout1: UICollectionViewCompositionalLayout(
                 section: traditionalLayout.section
             ),
-            layout2: LayoutBuilder { dslLayout.sectionLayout },
+            layout2: LayoutBuilder { dslLayout.layoutSection },
             as: .image(on: .iPhoneX, traits: UITraitCollection(userInterfaceStyle: .light)),
             named: "ListSection",
             maxTestsCount: 5
@@ -29,7 +29,7 @@ class SectionDSLTests: XCTestCase {
 
 private struct TestListSectionSection: LayoutSection {
 
-    var sectionLayout: CollectionLayoutSectionConvertible {
+    var layoutSection: LayoutSection {
         Section {
             HGroup(count: 1) { Item() }
                 .height(.absolute(40))

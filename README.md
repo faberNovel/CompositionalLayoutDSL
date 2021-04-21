@@ -11,6 +11,10 @@ CompositionalLayoutDSL is a Swift library. It makes easier to create composition
     - [Carthage](#carthage)
     - [Swift Package Manager](#swift-package-manager)
     - [Credits](#credits)
+- [Behind the scene](#behind-the-scene)
+    - [Core structs](#core-structs)
+    - [Modifiers](#modifiers)
+    - [DSL to UIKit Conversion](#dsl-to-uikit-conversion)
 - [License](#license)
 
 ## Requirements
@@ -63,6 +67,62 @@ TODO
 ```swift
 .package(url: "https://github.com/faberNovel/CompositionalLayoutDSL")
 ```
+
+## Behind the scene
+
+Here some explanation of how this library work, it can be divided in 3 parts: the role of the core blocks,
+how does the modifiers works, and how the conversion to the UIKit world is handled
+
+### Core structs
+
+This library contains all the core structs for creating a compositional layout, here the exhaustive list:
+- `Configuration`
+- `Section`
+- `HGroup`
+- `VGroup`
+- `CustomGroup`
+- `Item`
+- `DecorationItem`
+- `SupplementaryItem`
+- `BoundarySupplementaryItem`
+
+Each of those building blocks conforms to their respective public protocol and handle the immutable properties 
+of their associated UIKit object. 
+
+For example `SupplementaryItem` conforms to `LayoutSupplementaryItem` and handles the immutable 
+properties of `NSCollectionLayoutSupplementaryItem`, which are: 
+`layoutSize`, `elementKind`, `containerAnchor` and `itemAnchor`.
+
+Those immutable properties can only be changed on those core structs, and are not available globally 
+on `LayoutSupplementaryItem`. This is the same for all core structs.
+
+### Modifiers
+
+Mutable properties of the UIKit objects are handled by the extension of the `Layout...` protocols. 
+Here some example: `contentInset(_:)`, `edgeSpacing(_:)`, `zIndex(_:)`, `interItemSpacing(_:)`, `scrollDirection(_:)`.
+Changing those mutable values are done with [modifiers](./Sources/CompositionalLayoutDSL/Internal/ModifiedLayout), 
+which are internal struct (e.g. [`ValueModifiedLayoutItem`](./Sources/CompositionalLayoutDSL/Internal/ModifiedLayout/ModifiedLayoutItem.swift)).
+As those methods provided through extension of the `Layout...` protocol, their are available for custom
+elements outside the library.
+
+Something to note is once you applied a modifier for mutable properties you no longer have an `Item`, 
+but you have a `LayoutItem`, so changing immutable values will not be possible afterward. 
+
+### DSL to UIKit Conversion
+
+Finally once we have combined the core structs and the modifiers, the last step is the conversion of the `Layout...` to the UIKit world.
+This is done with [builders](./Sources/CompositionalLayoutDSL/Internal/Builders), they all work in a similar way.
+As an example here how `ItemBuilder` works:
+- It tries to find a layoutItem conforming to the internal protocol `BuildableItem` by calling repeatedly `.layoutItem` .
+- Then it calls `makeItem()` on the candidate and returns it
+
+**⚠️ Warning ⚠️**
+
+This means that only internal struct can be converted to a UIKit object, if you try to define a custom `LayoutItem` 
+and write `var layoutItem: LayoutItem { self }` like it is done internally, it will cause an infinite loop inside the ItemBuilder.
+
+User of the library **needs** to base their custom layout on core structs provided by this library.  
+
 
 ## Credits
 

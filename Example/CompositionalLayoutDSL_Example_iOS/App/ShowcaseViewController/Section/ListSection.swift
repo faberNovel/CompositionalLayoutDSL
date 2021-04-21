@@ -11,7 +11,7 @@ import CompositionalLayoutDSL
 
 struct ListSection: LayoutSection {
 
-    var sectionLayout: CollectionLayoutSectionConvertible {
+    var layoutSection: LayoutSection {
         Section {
             HGroup(count: 5) { Item() }
                 .height(.fractionalWidth(1 / 5))
@@ -36,9 +36,9 @@ struct ListSection: LayoutSection {
 
 // Same layout with only UIKit APIs
 
-struct TraditionalListSection: LayoutSection {
+struct TraditionalListSection {
 
-    var sectionLayout: CollectionLayoutSectionConvertible {
+    var layoutSection: NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .fractionalHeight(1)

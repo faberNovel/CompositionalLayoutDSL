@@ -19,7 +19,7 @@ class SupplementaryItemDSLTests: XCTestCase {
             layout1: UICollectionViewCompositionalLayout(
                 section: traditionalLayout.section
             ),
-            layout2: LayoutBuilder { dslLayout.sectionLayout },
+            layout2: LayoutBuilder { dslLayout.layoutSection },
             as: .image(on: .iPhoneX, traits: UITraitCollection(userInterfaceStyle: .light)),
             named: "testSupplementaryItem",
             maxTestsCount: 5
@@ -29,7 +29,7 @@ class SupplementaryItemDSLTests: XCTestCase {
 
 private struct TestSectionSection: LayoutSection {
 
-    var sectionLayout: CollectionLayoutSectionConvertible {
+    var layoutSection: LayoutSection {
         Section {
             HGroup(count: 4) {
                 Item {

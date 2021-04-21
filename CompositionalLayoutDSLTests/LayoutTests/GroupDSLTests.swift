@@ -22,7 +22,7 @@ class CompositionalLayoutDSLTests: XCTestCase {
             ),
             layout2: LayoutBuilder(
                 configuration: dslLayout.configuration
-            ) { dslLayout.sectionLayout },
+            ) { dslLayout.layoutSection },
             as: .image(on: .iPhoneX, traits: UITraitCollection(userInterfaceStyle: .light)),
             named: "InnerGroups",
             maxTestsCount: 5
@@ -34,7 +34,7 @@ private struct TestInnerGroupsSection: LayoutSection {
 
     // MARK: - LayoutSection
 
-    var sectionLayout: CollectionLayoutSectionConvertible {
+    var layoutSection: LayoutSection {
         Section {
             HGroup {
                 Item(width: .fractionalWidth(1 / 3))
@@ -54,8 +54,8 @@ private struct TestInnerGroupsSection: LayoutSection {
         .interGroupSpacing(8)
     }
 
-    var configuration: CollectionLayoutConfigurationConvertible {
-        CompositionalConfiguration()
+    var configuration: LayoutConfiguration {
+        Configuration()
             .interSectionSpacing(8)
     }
 }
