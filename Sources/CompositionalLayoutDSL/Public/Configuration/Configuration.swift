@@ -6,7 +6,11 @@
 //  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
+#if os(macOS)
+import AppKit
+#else
 import UIKit
+#endif
 
 /// An object that defines scroll direction, section spacing, and headers or footers for the layout.
 public struct Configuration: LayoutConfiguration {
@@ -23,7 +27,11 @@ public struct Configuration: LayoutConfiguration {
 }
 
 extension Configuration: BuildableConfiguration {
-    func makeConfiguration() -> UICollectionViewCompositionalLayoutConfiguration {
+    func makeConfiguration() -> ConfigurationBuilder.TransformedType {
+        #if os(macOS)
+        return NSCollectionViewCompositionalLayoutConfiguration()
+        #else
         return UICollectionViewCompositionalLayoutConfiguration()
+        #endif
     }
 }

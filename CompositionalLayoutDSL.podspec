@@ -9,7 +9,10 @@ Pod::Spec.new do |spec|
   spec.social_media_url = 'https://twitter.com/fabernovel'
   spec.ios.deployment_target = '13.0'
   spec.tvos.deployment_target = '13.0'
-  spec.framework    = 'Foundation', 'UIKit'
+  spec.osx.deployment_target = '10.15'
+  spec.framework      = 'Foundation'
+  spec.ios.framework  = 'UIKit'
+  spec.osx.framework  = 'AppKit'
   spec.swift_versions = '5.1'
   spec.source_files = 'Sources/CompositionalLayoutDSL/**/*'
 end

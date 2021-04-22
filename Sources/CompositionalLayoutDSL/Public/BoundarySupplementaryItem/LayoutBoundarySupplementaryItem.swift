@@ -6,7 +6,11 @@
 //  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
+#if os(macOS)
+import AppKit
+#else
 import UIKit
+#endif
 
 /// A type that represents a boundary supplementary item in a compositional layout and provides
 /// modifiers to configure boundary supplementary items.

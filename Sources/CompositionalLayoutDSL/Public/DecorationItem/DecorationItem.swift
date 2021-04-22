@@ -6,7 +6,11 @@
 //  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
+#if os(macOS)
+import AppKit
+#else
 import UIKit
+#endif
 
 /// An object used to add a background to a section of a collection view.
 public struct DecorationItem: LayoutDecorationItem {

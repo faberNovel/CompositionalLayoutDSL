@@ -6,7 +6,11 @@
 //  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
+#if os(macOS)
+import AppKit
+#else
 import UIKit
+#endif
 
 /// A container for a set of items that lays out the items horizontally.
 public struct HGroup: LayoutGroup, ResizableItem {

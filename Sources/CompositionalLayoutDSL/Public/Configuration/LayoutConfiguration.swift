@@ -6,7 +6,11 @@
 //  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
+#if os(macOS)
+import AppKit
+#else
 import UIKit
+#endif
 
 /// A type that represents a compositional layout configuration and provides
 /// modifiers to change the configuration.
@@ -32,6 +36,16 @@ extension LayoutConfiguration {
 
     // MARK: - Mutable properties
 
+    #if os(macOS)
+    /// Configure the axis that the content in the collection view layout scrolls along.
+    ///
+    /// The default value of this property is `NSCollectionView.ScrollDirection.vertical`.
+    public func scrollDirection(
+        _ scrollDirection: NSCollectionView.ScrollDirection
+    ) -> LayoutConfiguration {
+        valueModifier(scrollDirection, keyPath: \.scrollDirection)
+    }
+    #else
     /// Configure the axis that the content in the collection view layout scrolls along.
     ///
     /// The default value of this property is `UICollectionView.ScrollDirection.vertical`.
@@ -40,6 +54,7 @@ extension LayoutConfiguration {
     ) -> LayoutConfiguration {
         valueModifier(scrollDirection, keyPath: \.scrollDirection)
     }
+    #endif
 
     /// Configure the amount of space between the sections in the layout.
     ///
@@ -61,6 +76,7 @@ extension LayoutConfiguration {
         }
     }
 
+    #if !os(macOS)
     /// Configure the boundary to reference when defining content insets.
     ///
     /// The default value of this property is ``UIContentInsetsReference.safeArea``
@@ -70,4 +86,5 @@ extension LayoutConfiguration {
     ) -> LayoutConfiguration {
         valueModifier(contentInsetsReference, keyPath: \.contentInsetsReference)
     }
+    #endif
 }

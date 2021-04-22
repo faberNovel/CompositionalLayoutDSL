@@ -6,7 +6,11 @@
 //  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
+#if os(macOS)
+import AppKit
+#else
 import UIKit
+#endif
 
 public protocol ResizableItem {
     func size(_ size: NSCollectionLayoutSize) -> Self

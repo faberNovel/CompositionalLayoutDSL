@@ -6,7 +6,11 @@
 //  Copyright © 2021 Fabernovel. All rights reserved.
 //
 
+#if os(macOS)
+import AppKit
+#else
 import UIKit
+#endif
 
 /// A customizable container for a set of items.
 public struct CustomGroup: LayoutGroup, ResizableItem {

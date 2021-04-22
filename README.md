@@ -20,7 +20,7 @@ CompositionalLayoutDSL is a Swift library. It makes easier to create composition
 
 ## Requirements
 
-`CompositionalLayoutDSL` is written in Swift 5. Compatible with iOS 13.0+ and tvOS 13.0+.
+`CompositionalLayoutDSL` is written in Swift 5. Compatible with iOS 13.0+, tvOS 13.0+ and macOS 10.15+.
 
 ## Documentation
 
