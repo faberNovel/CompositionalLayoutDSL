@@ -59,7 +59,10 @@ And here what we can see in the [Example](./Example/CompositionalLayoutDSL_Examp
 
 ### Cocoapods
 
-TODO
+To integrate `CompositionalLayoutDSL` into your Xcode project using CocoaPods, specify it in your Podfile:
+```
+pod 'CompositionalLayoutDSL', '~> 0.1.0'
+```
 
 ### Carthage
 
