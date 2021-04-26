@@ -1,0 +1,43 @@
+name: Prepare a new release
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Version number'
+        required: true
+
+jobs:
+  build:
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6.5
+
+    - name: Bundle install
+      run: bundle install
+
+    - name: Create release branch and pull requests
+      env:
+        LC_ALL: en_US.UTF-8
+        LANG: en_US.UTF-8
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GIT_COMMITTER_NAME: Bot Fabernovel
+        GIT_AUTHOR_NAME: Bot Fabernovel
+        GIT_COMMITTER_EMAIL: ci@fabernovel.com
+        GIT_AUTHOR_EMAIL: ci@fabernovel.com
+      run: bundle exec fastlane create_release_pr version:${{ github.event.inputs.name }}
+
+    - name: Prepate release
+      env:
+        LC_ALL: en_US.UTF-8
+        LANG: en_US.UTF-8
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GIT_COMMITTER_NAME: Bot Fabernovel
+        GIT_AUTHOR_NAME: Bot Fabernovel
+        GIT_COMMITTER_EMAIL: ci@fabernovel.com
+        GIT_AUTHOR_EMAIL: ci@fabernovel.com
+      run: bundle exec fastlane prepare_release bypass_confirmations:true
