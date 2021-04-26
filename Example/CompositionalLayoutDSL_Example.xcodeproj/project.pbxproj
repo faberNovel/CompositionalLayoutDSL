@@ -34,7 +34,6 @@
 		AC62930626303F38005B5D3A /* DemoSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC62930326303F38005B5D3A /* DemoSupplementaryView.swift */; };
 		AC62930726303F38005B5D3A /* DemoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC62930426303F38005B5D3A /* DemoCollectionViewController.swift */; };
 		AC62930826303F38005B5D3A /* DemoCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC62930526303F38005B5D3A /* DemoCellView.swift */; };
-		AC62930E26306DF9005B5D3A /* CompositionalLayoutDSL in Frameworks */ = {isa = PBXBuildFile; productRef = AC62930D26306DF9005B5D3A /* CompositionalLayoutDSL */; };
 		ACF2C1682624B00700E06BA7 /* GettingStartedCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1672624B00700E06BA7 /* GettingStartedCompositionalLayout.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,7 +86,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC62930E26306DF9005B5D3A /* CompositionalLayoutDSL in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +296,6 @@
 			);
 			name = CompositionalLayoutDSL_Example_macOS;
 			packageProductDependencies = (
-				AC62930D26306DF9005B5D3A /* CompositionalLayoutDSL */,
 			);
 			productName = CompositionalLayoutDSL_Example_macOS;
 			productReference = AC6292E726303724005B5D3A /* CompositionalLayoutDSL_Example_macOS.app */;
@@ -674,10 +671,6 @@
 		AC622CE1261F606C0058EEE3 /* CompositionalLayoutDSL */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AC622CE0261F606C0058EEE3 /* XCRemoteSwiftPackageReference "CompositionalLayoutDSL" */;
-			productName = CompositionalLayoutDSL;
-		};
-		AC62930D26306DF9005B5D3A /* CompositionalLayoutDSL */ = {
-			isa = XCSwiftPackageProductDependency;
 			productName = CompositionalLayoutDSL;
 		};
 /* End XCSwiftPackageProductDependency section */

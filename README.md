@@ -63,7 +63,11 @@ TODO
 
 ### Carthage
 
-TODO
+To integrate `CompositionalLayoutDSL` into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```
+github "faberNovel/CompositionalLayoutDSL" ~> 0.1.0
+```
 
 ### Swift Package Manager
 
