@@ -28,7 +28,56 @@ An online documentation can be found [here](https://fabernovel.github.io/Composi
 
 ## Getting started
 
-Here is an example from the [Example project](./Example/CompositionalLayoutDSL_Example_iOS/App/ShowcaseViewController/CompositionalLayout/GettingStartedCompositionalLayout.swift)
+To see some usage of this library you can look to:
+- An [example project](./Example/) is available and contains an iOS and a macOS application.
+- The [testing target](./CompositionalLayoutDSLTests) which contains snapshot tests. The tests verify that the DSL behave the same way of using UIKit directly, the snapshot can be found [here](./CompositionalLayoutDSLTests/LayoutTests/__Snapshots__/).
+
+Here some layout examples:
+
+<table>
+<tr>
+<td>Screenshot&nbsp;for&nbsp;the&nbsp;layout&nbsp;code</td><td>Layout code</td>
+</tr>
+<tr>
+<td><img src="./CompositionalLayoutDSLTests/LayoutTests/__Snapshots__/GroupDSLTests/testInnerGroups.2.png" /></td>
+<td>
+
+Here an example from the test target: [GroupDSLTests.swift (contains the same layout without the DSL)](./CompositionalLayoutDSLTests/LayoutTests/GroupDSLTests.swift)
+```swift
+let layout = CompositionalLayout { section, environment in
+    Section {
+        HGroup {
+            Item(width: .fractionalWidth(1 / 3))
+                .contentInsets(trailing: 4)
+            VGroup(count: 2) { Item() }
+                .width(.fractionalWidth(1 / 3))
+                .interItemSpacing(.fixed(8))
+                .contentInsets(horizontal: 4)
+            VGroup(count: 3) { Item() }
+                .width(.fractionalWidth(1 / 3))
+                .interItemSpacing(.fixed(8))
+                .contentInsets(leading: 4)
+        }
+        .height(.absolute(100))
+        .contentInsets(horizontal: 16)
+    }
+    .interGroupSpacing(8)
+}
+.interSectionSpacing(8)
+
+// Apply to a collection view
+collectionView.setCollectionViewLayout(layout, animated: false)
+// or
+collectionView.collectionViewLayout = CompositionalLayoutBuilder { layout }
+```
+
+</td>
+</tr>
+<tr>
+<td><img src="./images/GettingStartedExample.jpg"/></td>
+<td>
+
+Here is an example from the Example project: [GettingStartedCompositionalLayout.swift](./Example/CompositionalLayoutDSL_Example_iOS/App/ShowcaseViewController/CompositionalLayout/GettingStartedCompositionalLayout.swift)
 
 ```swift
 collectionView.collectionViewLayout = LayoutBuilder {
@@ -51,9 +100,9 @@ collectionView.collectionViewLayout = LayoutBuilder {
 }
 ```
 
-And here what we can see in the [Example](./Example/CompositionalLayoutDSL_Example_iOS) app
-
-![Screenshot of the getting started layout example](./images/GettingStartedExample.jpg)
+</td>
+</tr>
+</table>
 
 ## Installation
 
@@ -98,27 +147,27 @@ This library contains all the core structs for creating a compositional layout, 
 - `SupplementaryItem`
 - `BoundarySupplementaryItem`
 
-Each of those building blocks conforms to their respective public protocol and handle the immutable properties 
-of their associated UIKit object. 
+Each of those building blocks conforms to their respective public protocol and handle the immutable properties
+of their associated UIKit object.
 
-For example `SupplementaryItem` conforms to `LayoutSupplementaryItem` and handles the immutable 
-properties of `NSCollectionLayoutSupplementaryItem`, which are: 
+For example `SupplementaryItem` conforms to `LayoutSupplementaryItem` and handles the immutable
+properties of `NSCollectionLayoutSupplementaryItem`, which are:
 `layoutSize`, `elementKind`, `containerAnchor` and `itemAnchor`.
 
-Those immutable properties can only be changed on those core structs, and are not available globally 
+Those immutable properties can only be changed on those core structs, and are not available globally
 on `LayoutSupplementaryItem`. This is the same for all core structs.
 
 ### Modifiers
 
-Mutable properties of the UIKit objects are handled by the extension of the `Layout...` protocols. 
+Mutable properties of the UIKit objects are handled by the extension of the `Layout...` protocols.
 Here some example: `contentInset(_:)`, `edgeSpacing(_:)`, `zIndex(_:)`, `interItemSpacing(_:)`, `scrollDirection(_:)`.
-Changing those mutable values are done with [modifiers](./Sources/CompositionalLayoutDSL/Internal/ModifiedLayout), 
+Changing those mutable values are done with [modifiers](./Sources/CompositionalLayoutDSL/Internal/ModifiedLayout),
 which are internal struct (e.g. [`ValueModifiedLayoutItem`](./Sources/CompositionalLayoutDSL/Internal/ModifiedLayout/ModifiedLayoutItem.swift)).
 As those methods provided through extension of the `Layout...` protocol, their are available for custom
 elements outside the library.
 
-Something to note is once you applied a modifier for mutable properties you no longer have an `Item`, 
-but you have a `LayoutItem`, so changing immutable values will not be possible afterward. 
+Something to note is once you applied a modifier for mutable properties you no longer have an `Item`,
+but you have a `LayoutItem`, so changing immutable values will not be possible afterward.
 
 ### DSL to UIKit Conversion
 
@@ -130,10 +179,10 @@ As an example here how `ItemBuilder` works:
 
 **⚠️ Warning ⚠️**
 
-This means that only internal struct can be converted to a UIKit object, if you try to define a custom `LayoutItem` 
+This means that only internal struct can be converted to a UIKit object, if you try to define a custom `LayoutItem`
 and write `var layoutItem: LayoutItem { self }` like it is done internally, it will cause an infinite loop inside the ItemBuilder.
 
-User of the library **needs** to base their custom layout on core structs provided by this library.  
+User of the library **needs** to base their custom layout on core structs provided by this library.
 
 
 ## Credits

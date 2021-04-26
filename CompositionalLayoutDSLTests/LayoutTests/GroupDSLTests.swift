@@ -14,15 +14,13 @@ class CompositionalLayoutDSLTests: XCTestCase {
 
     func testInnerGroups() throws {
         let traditionalLayout = TestInnerGroupsTraditionalLayout()
-        let dslLayout = TestInnerGroupsSection()
+        let dslLayout = testInnerGroupsLayout()
         assertLayouts(
             layout1: UICollectionViewCompositionalLayout(
                 section: traditionalLayout.section,
                 configuration: traditionalLayout.configuration
             ),
-            layout2: LayoutBuilder(
-                configuration: dslLayout.configuration
-            ) { dslLayout.layoutSection },
+            layout2: CompositionalLayoutBuilder { dslLayout },
             as: .image(on: .iPhoneX, traits: UITraitCollection(userInterfaceStyle: .light)),
             named: "InnerGroups",
             maxTestsCount: 5
@@ -30,11 +28,8 @@ class CompositionalLayoutDSLTests: XCTestCase {
     }
 }
 
-private struct TestInnerGroupsSection: LayoutSection {
-
-    // MARK: - LayoutSection
-
-    var layoutSection: LayoutSection {
+func testInnerGroupsLayout() -> CompositionalLayout {
+    CompositionalLayout { section, environment in
         Section {
             HGroup {
                 Item(width: .fractionalWidth(1 / 3))
@@ -53,11 +48,7 @@ private struct TestInnerGroupsSection: LayoutSection {
         }
         .interGroupSpacing(8)
     }
-
-    var configuration: LayoutConfiguration {
-        Configuration()
-            .interSectionSpacing(8)
-    }
+    .interSectionSpacing(8)
 }
 
 private struct TestInnerGroupsTraditionalLayout {
