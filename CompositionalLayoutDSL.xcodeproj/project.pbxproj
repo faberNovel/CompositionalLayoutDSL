@@ -64,6 +64,7 @@
 		ACF2C1FF2625FC8E00E06BA7 /* assertLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C1FE2625FC8E00E06BA7 /* assertLayouts.swift */; };
 		ACF2C2012625FF3A00E06BA7 /* TestingCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C2002625FF3A00E06BA7 /* TestingCollectionViewModel.swift */; };
 		ACF2C20426260A9D00E06BA7 /* SectionDSLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF2C20326260A9D00E06BA7 /* SectionDSLTests.swift */; };
+		ACFB76482638188E00B00E56 /* RawSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFB76472638188E00B00E56 /* RawSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,7 @@
 		ACF2C1FE2625FC8E00E06BA7 /* assertLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assertLayouts.swift; sourceTree = "<group>"; };
 		ACF2C2002625FF3A00E06BA7 /* TestingCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingCollectionViewModel.swift; sourceTree = "<group>"; };
 		ACF2C20326260A9D00E06BA7 /* SectionDSLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDSLTests.swift; sourceTree = "<group>"; };
+		ACFB76472638188E00B00E56 /* RawSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawSection.swift; sourceTree = "<group>"; };
 		BB84120BE9B1E0297035ABEF /* Pods_CompositionalLayoutDSLTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CompositionalLayoutDSLTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA0209AFE87AE39112E94214 /* Pods_CompositionalLayoutDSLApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CompositionalLayoutDSLApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E711B7B3BE01BEA25E83E41C /* Pods-CompositionalLayoutDSLTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CompositionalLayoutDSLTests.debug.xcconfig"; path = "Target Support Files/Pods-CompositionalLayoutDSLTests/Pods-CompositionalLayoutDSLTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				ACD60C9E26331B67006F6462 /* Section.swift */,
+				ACFB76472638188E00B00E56 /* RawSection.swift */,
 				ACD60C9F26331B67006F6462 /* LayoutSection.swift */,
 				ACD60CA026331B67006F6462 /* ListSection.swift */,
 			);
@@ -690,6 +693,7 @@
 				ACD60CC426331B67006F6462 /* ModifiedLayoutGroup.swift in Sources */,
 				ACD60CBF26331B67006F6462 /* ModifiedLayoutItem.swift in Sources */,
 				ACD60CBB26331B67006F6462 /* SectionBuilder.swift in Sources */,
+				ACFB76482638188E00B00E56 /* RawSection.swift in Sources */,
 				ACD60CD726331B67006F6462 /* LayoutBoundarySupplementaryItem.swift in Sources */,
 				ACD60CCE26331B67006F6462 /* CustomGroup.swift in Sources */,
 				ACD60CD626331B67006F6462 /* LayoutItem.swift in Sources */,
