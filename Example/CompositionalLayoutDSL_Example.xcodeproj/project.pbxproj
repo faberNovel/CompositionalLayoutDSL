@@ -26,6 +26,7 @@
 		AC34ECC5261F5CE800DF2D74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC34ECC4261F5CE800DF2D74 /* SceneDelegate.swift */; };
 		AC34ECCC261F5CED00DF2D74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC34ECCB261F5CED00DF2D74 /* Assets.xcassets */; };
 		AC34ECCF261F5CED00DF2D74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC34ECCD261F5CED00DF2D74 /* LaunchScreen.storyboard */; };
+		AC4BFFF32638626A00142A9E /* CompositionalLayoutDSL in Frameworks */ = {isa = PBXBuildFile; productRef = AC4BFFF22638626A00142A9E /* CompositionalLayoutDSL */; };
 		AC622CE2261F606C0058EEE3 /* CompositionalLayoutDSL in Frameworks */ = {isa = PBXBuildFile; productRef = AC622CE1261F606C0058EEE3 /* CompositionalLayoutDSL */; };
 		AC6292EA26303724005B5D3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6292E926303724005B5D3A /* AppDelegate.swift */; };
 		AC6292EC26303724005B5D3A /* ShowcaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6292EB26303724005B5D3A /* ShowcaseViewController.swift */; };
@@ -86,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC4BFFF32638626A00142A9E /* CompositionalLayoutDSL in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +298,7 @@
 			);
 			name = CompositionalLayoutDSL_Example_macOS;
 			packageProductDependencies = (
+				AC4BFFF22638626A00142A9E /* CompositionalLayoutDSL */,
 			);
 			productName = CompositionalLayoutDSL_Example_macOS;
 			productReference = AC6292E726303724005B5D3A /* CompositionalLayoutDSL_Example_macOS.app */;
@@ -668,6 +671,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AC4BFFF22638626A00142A9E /* CompositionalLayoutDSL */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CompositionalLayoutDSL;
+		};
 		AC622CE1261F606C0058EEE3 /* CompositionalLayoutDSL */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AC622CE0261F606C0058EEE3 /* XCRemoteSwiftPackageReference "CompositionalLayoutDSL" */;

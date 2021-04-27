@@ -74,7 +74,7 @@ extension ShowcaseViewController {
                     .orthogonalScrollingBehavior(.continuous)
                 }
             },
-            LayoutBuilder(closure: {
+            LayoutBuilder {
                 CompositionalLayout(repeatingSections: [
                     // swiftlint:disable opening_brace
                     { AppStoreNewContentSection(environment: $1) },
@@ -84,7 +84,7 @@ extension ShowcaseViewController {
                     { AppStoreTrendingContentSection(environment: $1) }
                     // swiftlint:enable opening_brace
                 ])
-            }),
+            },
             CompositionalLayoutWithSupplementaryView().layout()
 //            TraditionalCompositionalLayoutWithSupplementaryView().layout()
         ]
