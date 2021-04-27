@@ -40,6 +40,7 @@ extension LayoutConfiguration {
     /// Configure the axis that the content in the collection view layout scrolls along.
     ///
     /// The default value of this property is `NSCollectionView.ScrollDirection.vertical`.
+    @warn_unqualified_access
     public func scrollDirection(
         _ scrollDirection: NSCollectionView.ScrollDirection
     ) -> LayoutConfiguration {
@@ -49,6 +50,7 @@ extension LayoutConfiguration {
     /// Configure the axis that the content in the collection view layout scrolls along.
     ///
     /// The default value of this property is `UICollectionView.ScrollDirection.vertical`.
+    @warn_unqualified_access
     public func scrollDirection(
         _ scrollDirection: UICollectionView.ScrollDirection
     ) -> LayoutConfiguration {
@@ -59,12 +61,14 @@ extension LayoutConfiguration {
     /// Configure the amount of space between the sections in the layout.
     ///
     /// The default value of this property is `0.0`.
+    @warn_unqualified_access
     public func interSectionSpacing(_ interSectionSpacing: CGFloat) -> LayoutConfiguration {
         valueModifier(interSectionSpacing, keyPath: \.interSectionSpacing)
     }
 
     /// Add an array of the supplementary items that are associated with the boundary edges
     /// of the entire layout, such as global headers and footers.
+    @warn_unqualified_access
     public func boundarySupplementaryItems(
         @LayoutBoundarySupplementaryItemBuilder
         _ boundarySupplementaryItems: () -> [LayoutBoundarySupplementaryItem]
@@ -81,6 +85,7 @@ extension LayoutConfiguration {
     ///
     /// The default value of this property is ``UIContentInsetsReference.safeArea``
     @available(iOS 14.0, tvOS 14.0, *)
+    @warn_unqualified_access
     public func contentInsetsReference(
         _ contentInsetsReference: UIContentInsetsReference
     ) -> LayoutConfiguration {
