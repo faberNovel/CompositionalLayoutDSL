@@ -20,7 +20,7 @@ class CompositionalLayoutDSLTests: XCTestCase {
                 section: traditionalLayout.section,
                 configuration: traditionalLayout.configuration
             ),
-            layout2: CompositionalLayoutBuilder { dslLayout },
+            layout2: LayoutBuilder { dslLayout },
             as: .image(on: .iPhoneX, traits: UITraitCollection(userInterfaceStyle: .light)),
             named: "InnerGroups",
             maxTestsCount: 5

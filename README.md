@@ -68,7 +68,7 @@ let layout = CompositionalLayout { section, environment in
 // Apply to a collection view
 collectionView.setCollectionViewLayout(layout, animated: false)
 // or
-collectionView.collectionViewLayout = CompositionalLayoutBuilder { layout }
+collectionView.collectionViewLayout = LayoutBuilder { layout }
 ```
 
 </td>

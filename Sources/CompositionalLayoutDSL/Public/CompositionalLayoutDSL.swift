@@ -16,19 +16,19 @@ import UIKit
 
 /// Converts a layout section into a `NSCollectionLayoutSection`
 public func LayoutSectionBuilder(
-    closure: () -> LayoutSection
+    layoutSection: () -> LayoutSection
 ) -> NSCollectionLayoutSection {
-    SectionBuilder.make(from: closure())
+    SectionBuilder.make(from: layoutSection())
 }
 
 #if os(macOS)
 /// Converts a layout configuration and a layout section into an `NSCollectionViewCompositionalLayout`
 public func LayoutBuilder(
     configuration: LayoutConfiguration = Configuration(),
-    closure: () -> LayoutSection
+    layoutSection: () -> LayoutSection
 ) -> NSCollectionViewCompositionalLayout {
     return NSCollectionViewCompositionalLayout(
-        section: SectionBuilder.make(from: closure()),
+        section: SectionBuilder.make(from: layoutSection()),
         configuration: ConfigurationBuilder.make(from: configuration)
     )
 }
@@ -36,10 +36,10 @@ public func LayoutBuilder(
 /// Converts a layout configuration and a layout section into a `UICollectionViewCompositionalLayout`
 public func LayoutBuilder(
     configuration: LayoutConfiguration = Configuration(),
-    closure: () -> LayoutSection
+    layoutSection: () -> LayoutSection
 ) -> UICollectionViewCompositionalLayout {
     return UICollectionViewCompositionalLayout(
-        section: SectionBuilder.make(from: closure()),
+        section: SectionBuilder.make(from: layoutSection()),
         configuration: ConfigurationBuilder.make(from: configuration)
     )
 }
@@ -47,17 +47,17 @@ public func LayoutBuilder(
 
 #if os(macOS)
 /// Converts a compositionalLayout into an `NSCollectionViewCompositionalLayout`
-public func CompositionalLayoutBuilder(
-    closure: () -> CompositionalLayout
+public func LayoutBuilder(
+    compositionalLayout: () -> CompositionalLayout
 ) -> NSCollectionViewCompositionalLayout {
-    closure().makeCollectionViewCompositionalLayout()
+    compositionalLayout().makeCollectionViewCompositionalLayout()
 }
 #else
 /// Converts a compositionalLayout into a `UICollectionViewCompositionalLayout`
-public func CompositionalLayoutBuilder(
-    closure: () -> CompositionalLayout
+public func LayoutBuilder(
+    compositionalLayout: () -> CompositionalLayout
 ) -> UICollectionViewCompositionalLayout {
-    closure().makeCollectionViewCompositionalLayout()
+    compositionalLayout().makeCollectionViewCompositionalLayout()
 }
 #endif
 
@@ -67,7 +67,7 @@ extension NSCollectionView {
     public func setCollectionViewLayout(
         _ layout: CompositionalLayout
     ) {
-        self.collectionViewLayout = CompositionalLayoutBuilder { layout }
+        self.collectionViewLayout = LayoutBuilder { layout }
     }
 }
 #else
@@ -79,7 +79,7 @@ extension UICollectionView {
         completion: ((Bool) -> Void)? = nil
     ) {
         self.setCollectionViewLayout(
-            CompositionalLayoutBuilder { layout },
+            LayoutBuilder { layout },
             animated: animated,
             completion: completion
         )

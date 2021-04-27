@@ -11,7 +11,7 @@ import CompositionalLayoutDSL
 
 struct CompositionalLayoutWithSupplementaryView {
     func layout() -> UICollectionViewLayout {
-        CompositionalLayoutBuilder {
+        LayoutBuilder {
             CompositionalLayout { _, _ in
                 Section {
                     VGroup(count: 1) { Item() }

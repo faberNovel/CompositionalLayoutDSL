@@ -82,10 +82,10 @@ extension ShowcaseViewController {
 
     private var showCaseLayouts: [NSCollectionViewLayout] {
         [
-            CompositionalLayoutBuilder { fourColumnsGroup() },
+            LayoutBuilder { fourColumnsGroup() },
 //            fourColumnsGroupAppKit(),
-            CompositionalLayoutBuilder { listLayout() },
-            CompositionalLayoutBuilder { tweetDeckLayout() }
+            LayoutBuilder { listLayout() },
+            LayoutBuilder { tweetDeckLayout() }
         ]
     }
 
