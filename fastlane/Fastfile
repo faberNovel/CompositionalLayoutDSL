@@ -28,24 +28,24 @@ end
 # Peepare release
 
 desc "Create release PR"
-lane :create_release_pr do
+lane :create_release_pr do |options|
   target_version = options[:version]
   raise "The version is missing. Use `fastlane create_release_pr version:{version_number}`.`" if target_version.nil?
   release_branch = "release/v" + target_version
-  sh("git", "checkout", "-b", "'" + release_branch + "'")
+  sh("git", "checkout", "-b", release_branch)
   push_to_git_remote(
     local_branch: release_branch,
     remote_branch: release_branch,
     set_upstream: true
   )
 
-  ["master", "develop"].each do |base|
+  ["main", "develop"].each do |base|
     create_pull_request(
       api_token: ENV["GITHUB_TOKEN"],
       repo: ENV["REPO"],
       title: "Release #{target_version_from_branch}",
       base: base,
-      draft: true
+      head: release_branch
     )
   end
 end
@@ -74,7 +74,7 @@ end
 
 desc "Publish release"
 lane :publish_release do
-  ensure_git_branch(branch: 'master')
+  ensure_git_branch(branch: 'main')
 
   target_version = version_get_podspec(path: ENV["PODSPEC"])
   changelog = read_changelog(
@@ -95,7 +95,7 @@ lane :publish_release do
     name: "v#{target_version}",
     tag_name: "v#{target_version}",
     description: changelog,
-    commitish: "master",
+    commitish: "main",
     upload_assets: ["CompositionalLayoutDSL.framework.zip"]
   )
 
@@ -121,14 +121,6 @@ def update_changelog(target_version)
 end
 
 def bump_version(target_version)
-  bump_podspec(target_version)
-  git_commit(
-    path: path,
-    message: "Bump to #{target_version}"
-  )
-end
-
-def bump_podspec(target_version)
   podspec_path = ENV["PODSPEC"]
   version_bump_podspec(
     path: podspec_path,
@@ -139,6 +131,10 @@ def bump_podspec(target_version)
 
   path = [podspec_path, "Podfile.lock"]
   git_add(path: path)
+  git_commit(
+    path: path,
+    message: "Bump to #{target_version}"
+  )
 end
 
 def target_version_from_branch
