@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'CompositionalLayoutDSL'
-  spec.version      = '0.0.0'
+  spec.version      = '0.0.1'
   spec.summary      = 'library to ease the creation of UICollectionViewCompositionalLayout'
   spec.homepage     = 'https://github.com/faberNovel/CompositionalLayoutDSL'
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }
