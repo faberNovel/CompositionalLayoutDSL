@@ -29,7 +29,7 @@ class CompositionalLayoutDSLTests: XCTestCase {
 }
 
 func testInnerGroupsLayout() -> CompositionalLayout {
-    CompositionalLayout { section, environment in
+    CompositionalLayout { _, _ in
         Section {
             HGroup {
                 Item(width: .fractionalWidth(1 / 3))
