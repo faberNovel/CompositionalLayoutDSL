@@ -24,7 +24,7 @@ jobs:
         env:
           LC_ALL: en_US.UTF-8
           LANG: en_US.UTF-8
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_CI }}  # Needed for PR Creation
           GIT_COMMITTER_NAME: Bot Fabernovel
           GIT_AUTHOR_NAME: Bot Fabernovel
           GIT_COMMITTER_EMAIL: ci@fabernovel.com
