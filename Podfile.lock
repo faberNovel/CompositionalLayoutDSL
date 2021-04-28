@@ -1,0 +1,32 @@
+PODS:
+  - ADAssertLayout (1.0.0)
+  - ADLayoutTest (1.0.0):
+    - ADAssertLayout (~> 1.0)
+    - SwiftCheck (~> 0.12)
+  - SnapshotTesting (1.8.2)
+  - SwiftCheck (0.12.0)
+  - SwiftLint (0.42.0)
+
+DEPENDENCIES:
+  - ADLayoutTest (~> 1.0)
+  - SnapshotTesting (~> 1.8)
+  - SwiftLint (~> 0.42.0)
+
+SPEC REPOS:
+  trunk:
+    - ADAssertLayout
+    - ADLayoutTest
+    - SnapshotTesting
+    - SwiftCheck
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  ADAssertLayout: 76445db92dc9fbdcb4fd2d512d8333e902ae2a65
+  ADLayoutTest: 892b38b9d91ee3ddc28511beff514db0f0872213
+  SnapshotTesting: 38947050d13960d57a4a9c166fcf51bca7d56970
+  SwiftCheck: d1dd04d955cc76620b0f84e087536bd059a11c24
+  SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
+
+PODFILE CHECKSUM: de078a0561478ef5ba8fa318ccc513986f05021f
+
+COCOAPODS: 1.10.0

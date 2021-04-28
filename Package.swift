@@ -7,7 +7,8 @@ let package = Package(
     name: "CompositionalLayoutDSL",
     platforms: [
         .iOS(.v13),
-        .tvOS(.v13)
+        .tvOS(.v13),
+        .macOS(.v10_15)
     ],
     products: [
         .library(
@@ -19,10 +20,7 @@ let package = Package(
     targets: [
         .target(
             name: "CompositionalLayoutDSL",
-            dependencies: []),
-        .testTarget(
-            name: "CompositionalLayoutDSLTests",
-            dependencies: ["CompositionalLayoutDSL"]
+            dependencies: []
         )
     ]
 )

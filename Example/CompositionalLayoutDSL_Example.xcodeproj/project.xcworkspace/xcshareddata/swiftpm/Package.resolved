@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CompositionalLayoutDSL",
+        "repositoryURL": "git@github.com:faberNovel/CompositionalLayoutDSL.git",
+        "state": {
+          "branch": "develop",
+          "revision": "d857d11e58b1f88800740f6b5c8f58127d45d354",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

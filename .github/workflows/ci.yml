@@ -1,0 +1,38 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6.5
+        bundler-cache: true
+
+    - name: Pods cache
+      uses: actions/cache@v2
+      with:
+        path: Pods
+        key: ${{ runner.os }}-cocoapods-${{ hashFiles('**/Podfile.lock') }}
+
+    - name: Pod install
+      run: bundle exec pod install
+
+    - name: Build and test
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_CI }}
+      run: bundle exec fastlane ci_check
+
+    - uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        name: test-artifacts
+        path: tests_derived_data/Logs/Test/*.xcresult

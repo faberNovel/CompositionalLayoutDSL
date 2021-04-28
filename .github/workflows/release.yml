@@ -1,0 +1,29 @@
+name: Release a new version
+
+on:
+  workflow_dispatch
+
+jobs:
+  build:
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6.5
+
+      - name: Bundle install
+        run: bundle install
+
+      - name: Prepare release
+        env:
+          LC_ALL: en_US.UTF-8
+          LANG: en_US.UTF-8
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_AP_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_COMMITTER_NAME: Bot Fabernovel
+          GIT_AUTHOR_NAME: Bot Fabernovel
+          GIT_COMMITTER_EMAIL: ci@fabernovel.com
+          GIT_AUTHOR_EMAIL: ci@fabernovel.com
+        run: bundle exec fastlane publish_release
