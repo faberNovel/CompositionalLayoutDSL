@@ -25,16 +25,21 @@ Run all unit tests
 fastlane ci_check
 ```
 Run CI check for a commit
-### create_release_pr
+### create_release_branch
 ```
-fastlane create_release_pr
+fastlane create_release_branch
 ```
-Create release PR
+Create release branch
 ### prepare_release
 ```
 fastlane prepare_release
 ```
 Prepare release of a new version
+### create_release_pr
+```
+fastlane create_release_pr
+```
+Create release PR
 ### publish_release
 ```
 fastlane publish_release
