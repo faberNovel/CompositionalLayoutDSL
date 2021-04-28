@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - develop # To remove once the library is available in main branch
 
 jobs:
   build:
