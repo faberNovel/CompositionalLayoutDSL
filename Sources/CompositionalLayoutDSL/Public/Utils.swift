@@ -38,7 +38,7 @@ func with<T>(_ object: T, modifier: (inout T) -> Void) -> T {
 ///         }
 ///     }
 ///
-@_functionBuilder
+@resultBuilder
 public enum ListResultBuilder<Element> {
 
     public static func buildBlock(_ components: [Element]...) -> [Element] {
