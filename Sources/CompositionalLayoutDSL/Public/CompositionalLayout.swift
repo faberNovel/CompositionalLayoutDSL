@@ -127,7 +127,7 @@ extension CompositionalLayout {
     func makeCollectionViewCompositionalLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout(
             sectionProvider: { section, environment in
-                return sectionBuilder(section, environment).map(SectionBuilder.make(from:))
+                return self.sectionBuilder(section, environment).map(SectionBuilder.make(from:))
             },
             configuration: ConfigurationBuilder.make(from: configuration)
         )
