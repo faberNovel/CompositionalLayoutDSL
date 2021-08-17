@@ -19,14 +19,16 @@ import UIKit
 /// ``LayoutSupplementaryItem`` protocol. Implement the required ``layoutSupplementaryItem``
 /// computed property to provide the content and configuration for your custom supplementary item.
 ///
-///     struct MySupplementaryItem: LayoutSupplementaryItem {
-///         var layoutSupplementaryItem: LayoutSupplementaryItem {
-///             SupplementaryItem(elementKind: UICollectionView.elementKindSectionHeader)
-///                 .height(.absolute(40))
-///                 .containerAnchor(edges: .top)
-///                 .zIndex(zIndex: 10)
-///         }
+/// ```swift
+/// struct MySupplementaryItem: LayoutSupplementaryItem {
+///     var layoutSupplementaryItem: LayoutSupplementaryItem {
+///         SupplementaryItem(elementKind: UICollectionView.elementKindSectionHeader)
+///             .height(.absolute(40))
+///             .containerAnchor(edges: .top)
+///             .zIndex(zIndex: 10)
 ///     }
+/// }
+/// ```
 ///
 public protocol LayoutSupplementaryItem: LayoutItem {
     var layoutSupplementaryItem: LayoutSupplementaryItem { get }

@@ -19,12 +19,14 @@ import UIKit
 /// ``LayoutDecorationItem`` protocol. Implement the required ``layoutDecorationItem``
 /// computed property to provide the content and configuration for your custom decoration item.
 ///
-///     struct MyDecorationItem: LayoutDecorationItem {
-///         var layoutDecorationItem: LayoutDecorationItem {
-///             DecorationItem(elementKind: "backgroundKind")
-///                 .contentInsets(value: 4)
-///         }
+/// ```swift
+/// struct MyDecorationItem: LayoutDecorationItem {
+///     var layoutDecorationItem: LayoutDecorationItem {
+///         DecorationItem(elementKind: "backgroundKind")
+///             .contentInsets(value: 4)
 ///     }
+/// }
+/// ```
 ///
 public protocol LayoutDecorationItem: LayoutItem {
     var layoutDecorationItem: LayoutDecorationItem { get }

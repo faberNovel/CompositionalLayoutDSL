@@ -21,22 +21,26 @@ func with<T>(_ object: T, modifier: (inout T) -> Void) -> T {
 /// For example, the following `HGroup` initialiser accepts a closure that produces
 /// one or more items via the view builder.
 ///
-///     struct HGroup {
-///         init(@ListResultBuilder<LayoutItem> subItems: () -> [LayoutItem]) { /* ... */ }
-///     }
+/// ```swift
+/// struct HGroup {
+///     init(@ListResultBuilder<LayoutItem> subItems: () -> [LayoutItem]) { /* ... */ }
+/// }
+/// ```
 ///
 /// Clients of this function can use multiple-statement closures to provide
 /// several elements, as shown in the following example:
 ///
-///     HGroup {
+/// ```swift
+/// HGroup {
+///     Item().width(.fractionalWidth(0.5))
+///     if condition {
+///         VGroup(count: 3) { Item() }
+///             .width(.fractionalWidth(0.5))
+///     } else {
 ///         Item().width(.fractionalWidth(0.5))
-///         if condition {
-///             VGroup(count: 3) { Item() }
-///                 .width(.fractionalWidth(0.5))
-///         } else {
-///             Item().width(.fractionalWidth(0.5))
-///         }
 ///     }
+/// }
+/// ```
 ///
 @resultBuilder
 public enum ListResultBuilder<Element> {

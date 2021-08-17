@@ -19,14 +19,16 @@ import UIKit
 /// ``LayoutConfiguration`` protocol. Implement the required ``layoutConfiguration``
 /// computed property to provide your customized settings.
 ///
-///     struct MyConfiguration: LayoutConfiguration {
-///         var layoutConfiguration: LayoutConfiguration {
-///             Configuration()
-///                 .scrollDirection(.horizontal)
-///                 .interSectionSpacing(16)
-///                 .contentInsetsReference(.readableContent)
-///         }
+/// ```swift
+/// struct MyConfiguration: LayoutConfiguration {
+///     var layoutConfiguration: LayoutConfiguration {
+///         Configuration()
+///             .scrollDirection(.horizontal)
+///             .interSectionSpacing(16)
+///             .contentInsetsReference(.readableContent)
 ///     }
+/// }
+/// ```
 ///
 public protocol LayoutConfiguration {
     var layoutConfiguration: LayoutConfiguration { get }

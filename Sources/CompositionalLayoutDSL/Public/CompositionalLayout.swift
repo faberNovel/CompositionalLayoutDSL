@@ -16,20 +16,22 @@ import UIKit
 ///
 /// You can create a fully configured layout like showed in the example below
 ///
-///      let compositionalLayout = CompositionalLayout { (_, _) in
-///          Section {
-///              VGroup { Item() }
-///                  .width(.fractionalWidth(1/3))
-///                  .interItemSpacing(.fixed(8))
-///          }
-///          .interGroupSpacing(8)
-///          .contentInsets(horizontal: 20)
+/// ```swift
+///  let compositionalLayout = CompositionalLayout { (_, _) in
+///      Section {
+///          VGroup { Item() }
+///              .width(.fractionalWidth(1/3))
+///              .interItemSpacing(.fixed(8))
 ///      }
-///      .interSectionSpacing(16)
-///      .boundarySupplementaryItems {
-///          BoundarySupplementaryItem(elementKind: "globalHeader")
-///              .alignment(.top)
-///      }
+///      .interGroupSpacing(8)
+///      .contentInsets(horizontal: 20)
+///  }
+///  .interSectionSpacing(16)
+///  .boundarySupplementaryItems {
+///      BoundarySupplementaryItem(elementKind: "globalHeader")
+///          .alignment(.top)
+///  }
+/// ```
 ///
 public struct CompositionalLayout {
 
