@@ -14,7 +14,6 @@
             </strong>
             <span>Documentation</span>
         </a>
-        <sup>Beta</sup>
     </header>
 
     <!--
@@ -38,7 +37,7 @@
 </h1>
 
 <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">CompositionalLayout</span> </code></pre>
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">CompositionalLayout</span>  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>An object that completely represent a compositional layout.</p>
@@ -69,10 +68,10 @@
 
         <div role="article" class="typealias" id="compositionallayout.sectionprovider">
     <h3>
-        <code>Section​Provider</code>
+        <code><a href="#compositionallayout.sectionprovider">Section​Provider</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">typealias</span> <span class="variable">SectionProvider</span> = (<span class="type">Int</span>, <span class="type">NSCollectionLayoutEnvironment</span>) -&gt; <span class="type">LayoutSection</span>?</code></pre>
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">typealias</span> <span class="variable">SectionProvider</span> = (<span class="type">Int</span>, <span class="type">NSCollectionLayoutEnvironment</span>) -&gt; <a href="/CompositionalLayoutDSL/LayoutSection"><span class="type">LayoutSection</span></a>? </body></html></code></pre>
 </div>
 </div>
     </section>
@@ -81,20 +80,20 @@
 
         <div role="article" class="initializer" id="compositionallayout.init(configuration:sectionsbuilder:)">
     <h3>
-        <code>init(configuration:​sections​Builder:​)</code>
+        <code><a href="#compositionallayout.init(configuration:sectionsbuilder:)">init(configuration:​sections​Builder:​)</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">configuration</span>: <span class="type">LayoutConfiguration</span> = <span class="variable">Configuration</span>(),
-                <span class="variable">sectionsBuilder</span>: <span class="attribute">@</span><span class="attribute">escaping</span> <span class="type">SectionProvider</span>) </code></pre>
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">configuration</span>: <a href="/CompositionalLayoutDSL/LayoutConfiguration"><span class="type">LayoutConfiguration</span></a> = <span class="variable">Configuration</span>(),
+                <span class="variable">sectionsBuilder</span>: <span class="attribute">@</span><span class="attribute">escaping</span> <span class="type">SectionProvider</span>)  </body></html></code></pre>
 </div>
 </div>
 <div role="article" class="initializer" id="compositionallayout.init(configuration:repeatingsections:)">
     <h3>
-        <code>init(configuration:​repeating​Sections:​)</code>
+        <code><a href="#compositionallayout.init(configuration:repeatingsections:)">init(configuration:​repeating​Sections:​)</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="keyword">init</span>(<span class="variable">configuration</span>: <span class="type">LayoutConfiguration</span> = <span class="variable">Configuration</span>(),
-         <span class="variable">repeatingSections</span> <span class="variable">sectionsBuilder</span>: [<span class="type">SectionProvider</span>]) </code></pre>
+<pre class="highlight"><code><html><body><span class="keyword">init</span>(<span class="variable">configuration</span>: <a href="/CompositionalLayoutDSL/LayoutConfiguration"><span class="type">LayoutConfiguration</span></a> = <span class="variable">Configuration</span>(),
+         <span class="variable">repeatingSections</span> <span class="variable">sectionsBuilder</span>: [<span class="type">SectionProvider</span>])  </body></html></code></pre>
 </div>
 </div>
     </section>
@@ -103,12 +102,12 @@
 
         <div role="article" class="function" id="compositionallayout.scrolldirection(_:)">
     <h3>
-        <code>scroll​Direction(_:​)</code>
+        <code><a href="#compositionallayout.scrolldirection(_:)">scroll​Direction(_:​)</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">scrollDirection</span>(
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">scrollDirection</span>(
         <span class="keyword">_</span> <span class="variable">scrollDirection</span>: <span class="type">NSCollectionView</span>.<span class="type">ScrollDirection</span>
-    ) -&gt; <span class="keyword">Self</span> </code></pre>
+    ) -&gt; <span class="keyword">Self</span>  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>Configure the axis that the content in the collection view layout scrolls along.</p>
@@ -121,12 +120,12 @@
 </div>
 <div role="article" class="function" id="compositionallayout.scrolldirection(_:)">
     <h3>
-        <code>scroll​Direction(_:​)</code>
+        <code><a href="#compositionallayout.scrolldirection(_:)">scroll​Direction(_:​)</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">scrollDirection</span>(
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">scrollDirection</span>(
         <span class="keyword">_</span> <span class="variable">scrollDirection</span>: <span class="type">UICollectionView</span>.<span class="type">ScrollDirection</span>
-    ) -&gt; <span class="keyword">Self</span> </code></pre>
+    ) -&gt; <span class="keyword">Self</span>  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>Configure the axis that the content in the collection view layout scrolls along.</p>
@@ -139,10 +138,10 @@
 </div>
 <div role="article" class="function" id="compositionallayout.intersectionspacing(_:)">
     <h3>
-        <code>inter​Section​Spacing(_:​)</code>
+        <code><a href="#compositionallayout.intersectionspacing(_:)">inter​Section​Spacing(_:​)</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">interSectionSpacing</span>(<span class="keyword">_</span> <span class="variable">interSectionSpacing</span>: <span class="type">CGFloat</span>) -&gt; <span class="keyword">Self</span> </code></pre>
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">interSectionSpacing</span>(<span class="keyword">_</span> <span class="variable">interSectionSpacing</span>: <span class="type">CGFloat</span>) -&gt; <span class="keyword">Self</span>  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>Configure the amount of space between the sections in the layout.</p>
@@ -155,13 +154,13 @@
 </div>
 <div role="article" class="function" id="compositionallayout.boundarysupplementaryitems(_:)">
     <h3>
-        <code>boundary​Supplementary​Items(_:​)</code>
+        <code><a href="#compositionallayout.boundarysupplementaryitems(_:)">boundary​Supplementary​Items(_:​)</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">boundarySupplementaryItems</span>(
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">boundarySupplementaryItems</span>(
         <span class="attribute">@</span><span class="type">LayoutBoundarySupplementaryItemBuilder</span>
-        <span class="keyword">_</span> <span class="variable">boundarySupplementaryItems</span>: () -&gt; [<span class="type">LayoutBoundarySupplementaryItem</span>]
-    ) -&gt; <span class="keyword">Self</span> </code></pre>
+        <span class="keyword">_</span> <span class="variable">boundarySupplementaryItems</span>: () -&gt; [<a href="/CompositionalLayoutDSL/LayoutBoundarySupplementaryItem"><span class="type">LayoutBoundarySupplementaryItem</span></a>]
+    ) -&gt; <span class="keyword">Self</span>  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>Add an array of the supplementary items that are associated with the boundary edges
@@ -171,13 +170,13 @@ of the entire layout, such as global headers and footers.</p>
 </div>
 <div role="article" class="function" id="compositionallayout.contentinsetsreference(_:)">
     <h3>
-        <code>content​Insets​Reference(_:​)</code>
+        <code><a href="#compositionallayout.contentinsetsreference(_:)">content​Insets​Reference(_:​)</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="attribute">@</span><span class="attribute">available</span>(<span class="keyword">iOS</span> <span class="number literal">14.0</span>, <span class="keyword">tvOS</span> <span class="number literal">14.0</span>, *)
+<pre class="highlight"><code><html><body><span class="attribute">@</span><span class="attribute">available</span>(<span class="keyword">iOS</span> <span class="number literal">14.0</span>, <span class="keyword">tvOS</span> <span class="number literal">14.0</span>, *)
     <span class="keyword">public</span> <span class="keyword">func</span> <span class="function">contentInsetsReference</span>(
         <span class="keyword">_</span> <span class="variable">contentInsetsReference</span>: <span class="type">UIContentInsetsReference</span>
-    ) -&gt; <span class="keyword">Self</span> </code></pre>
+    ) -&gt; <span class="keyword">Self</span>  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>Configure the boundary to reference when defining content insets.</p>
@@ -197,7 +196,7 @@ of the entire layout, such as global headers and footers.</p>
 
     <footer>
         <p>
-    Generated on <time datetime="2021-04-28T09:40:10+0000">April 28, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.6</span>.
+    Generated on <time datetime="2022-01-07T10:24:16+0000">January 7, 2022</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
 </p>
     </footer>
 </body>

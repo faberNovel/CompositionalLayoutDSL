@@ -14,7 +14,6 @@
             </strong>
             <span>Documentation</span>
         </a>
-        <sup>Beta</sup>
     </header>
 
     <!--
@@ -38,7 +37,7 @@
 </h1>
 
 <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">Section</span>: <span class="type">LayoutSection</span> </code></pre>
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">struct</span> <span class="type">Section</span>: <a href="/CompositionalLayoutDSL/LayoutSection"><span class="type">LayoutSection</span></a>  </body></html></code></pre>
 </div>
 <div class="summary" role="doc-abstract">
     <p>A container that combines a set of groups into distinct visual groupings.</p>
@@ -67,30 +66,30 @@
 </a>
 </g>
 </g>
-<!-- BuildableSection -->
-<g id="node2" class="node protocol">
-<title>BuildableSection</title>
-<path fill="none" stroke="#000000" d="M303,-36C303,-36 111,-36 111,-36 105,-36 99,-30 99,-24 99,-24 99,-12 99,-12 99,-6 105,0 111,0 111,0 303,0 303,0 309,0 315,-6 315,-12 315,-12 315,-24 315,-24 315,-30 309,-36 303,-36"/>
-<text text-anchor="middle" x="207" y="-14.3" font-family="Menlo" font-size="14.00" fill="#000000">BuildableSection</text>
-</g>
-<!-- Section&#45;&gt;BuildableSection -->
-<g id="edge1" class="edge conformsTo">
-<title>Section&#45;&gt;BuildableSection</title>
-<path fill="none" stroke="#000000" d="M375.5134,-71.9243C344.4871,-61.9959 305.8297,-49.6255 273.3694,-39.2382"/>
-<polygon fill="#000000" stroke="#000000" points="274.1008,-35.7975 263.5098,-36.0831 271.9673,-42.4645 274.1008,-35.7975"/>
-</g>
 <!-- LayoutSection -->
-<g id="node3" class="node protocol">
+<g id="node2" class="node protocol">
 <title>LayoutSection</title>
-<g id="a_node3"><a xlink:href="/CompositionalLayoutDSL/LayoutSection" xlink:title="LayoutSection">
-<path fill="none" stroke="#000000" d="M753,-36C753,-36 561,-36 561,-36 555,-36 549,-30 549,-24 549,-24 549,-12 549,-12 549,-6 555,0 561,0 561,0 753,0 753,0 759,0 765,-6 765,-12 765,-12 765,-24 765,-24 765,-30 759,-36 753,-36"/>
-<text text-anchor="middle" x="657" y="-14.3" font-family="Menlo" font-size="14.00" fill="#000000">LayoutSection</text>
+<g id="a_node2"><a xlink:href="/CompositionalLayoutDSL/LayoutSection" xlink:title="LayoutSection">
+<path fill="none" stroke="#000000" d="M303,-36C303,-36 111,-36 111,-36 105,-36 99,-30 99,-24 99,-24 99,-12 99,-12 99,-6 105,0 111,0 111,0 303,0 303,0 309,0 315,-6 315,-12 315,-12 315,-24 315,-24 315,-30 309,-36 303,-36"/>
+<text text-anchor="middle" x="207" y="-14.3" font-family="Menlo" font-size="14.00" fill="#000000">LayoutSection</text>
 </a>
 </g>
 </g>
 <!-- Section&#45;&gt;LayoutSection -->
 <g id="edge2" class="edge conformsTo">
 <title>Section&#45;&gt;LayoutSection</title>
+<path fill="none" stroke="#000000" d="M375.5134,-71.9243C344.4871,-61.9959 305.8297,-49.6255 273.3694,-39.2382"/>
+<polygon fill="#000000" stroke="#000000" points="274.1008,-35.7975 263.5098,-36.0831 271.9673,-42.4645 274.1008,-35.7975"/>
+</g>
+<!-- BuildableSection -->
+<g id="node3" class="node protocol">
+<title>BuildableSection</title>
+<path fill="none" stroke="#000000" d="M753,-36C753,-36 561,-36 561,-36 555,-36 549,-30 549,-24 549,-24 549,-12 549,-12 549,-6 555,0 561,0 561,0 753,0 753,0 759,0 765,-6 765,-12 765,-12 765,-24 765,-24 765,-30 759,-36 753,-36"/>
+<text text-anchor="middle" x="657" y="-14.3" font-family="Menlo" font-size="14.00" fill="#000000">BuildableSection</text>
+</g>
+<!-- Section&#45;&gt;BuildableSection -->
+<g id="edge1" class="edge conformsTo">
+<title>Section&#45;&gt;BuildableSection</title>
 <path fill="none" stroke="#000000" d="M488.4866,-71.9243C519.5129,-61.9959 558.1703,-49.6255 590.6306,-39.2382"/>
 <polygon fill="#000000" stroke="#000000" points="592.0327,-42.4645 600.4902,-36.0831 589.8992,-35.7975 592.0327,-42.4645"/>
 </g>
@@ -113,10 +112,10 @@ modifiers to configure sections.</p>
 
         <div role="article" class="initializer" id="section.init(group:)">
     <h3>
-        <code>init(group:​)</code>
+        <code><a href="#section.init(group:)">init(group:​)</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">group</span>: () -&gt; <span class="type">LayoutGroup</span>) </code></pre>
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">init</span>(<span class="variable">group</span>: () -&gt; <a href="/CompositionalLayoutDSL/LayoutGroup"><span class="type">LayoutGroup</span></a>)  </body></html></code></pre>
 </div>
 </div>
     </section>
@@ -125,10 +124,10 @@ modifiers to configure sections.</p>
 
         <div role="article" class="variable" id="section.layoutsection">
     <h3>
-        <code>layout​Section</code>
+        <code><a href="#section.layoutsection">layout​Section</a></code>
     </h3>
     <div class="declaration">
-<pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">var</span> <span class="variable">layoutSection</span>: <span class="type">LayoutSection</span> </code></pre>
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">var</span> <span class="variable">layoutSection</span>: <a href="/CompositionalLayoutDSL/LayoutSection"><span class="type">LayoutSection</span></a>  </body></html></code></pre>
 </div>
 </div>
     </section>
@@ -140,7 +139,7 @@ modifiers to configure sections.</p>
 
     <footer>
         <p>
-    Generated on <time datetime="2021-04-28T09:40:11+0000">April 28, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.6</span>.
+    Generated on <time datetime="2022-01-07T10:24:16+0000">January 7, 2022</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
 </p>
     </footer>
 </body>
