@@ -20,13 +20,15 @@ import UIKit
 /// ``layoutBoundarySupplementaryItem`` computed property to provide the content and
 /// configuration for your custom boundary supplementary item.
 ///
-///     struct MyBoundarySupplementaryItem: LayoutBoundarySupplementaryItem {
-///         var layoutBoundarySupplementaryItem: LayoutBoundarySupplementaryItem {
-///             BoundarySupplementaryItem(elementKind: "leadingKind")
-///                 .width(.absolute(40))
-///                 .alignment(.leading)
-///         }
+/// ```swift
+/// struct MyBoundarySupplementaryItem: LayoutBoundarySupplementaryItem {
+///     var layoutBoundarySupplementaryItem: LayoutBoundarySupplementaryItem {
+///         BoundarySupplementaryItem(elementKind: "leadingKind")
+///             .width(.absolute(40))
+///             .alignment(.leading)
 ///     }
+/// }
+/// ```
 ///
 public protocol LayoutBoundarySupplementaryItem: LayoutSupplementaryItem {
     var layoutBoundarySupplementaryItem: LayoutBoundarySupplementaryItem { get }

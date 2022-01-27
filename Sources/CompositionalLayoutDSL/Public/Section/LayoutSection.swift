@@ -19,17 +19,19 @@ import UIKit
 /// protocol. Implement the required ``layoutSection`` computed property to
 /// provide the content and configuration for your custom section.
 ///
-///     struct MySection: LayoutSection {
-///         var layoutSection: LayoutSection {
-///             Section {
-///                 HGroup(count: 2) { Item() }
-///             }
-///             .boundarySupplementaryItems {
-///                 BoundarySupplementaryItem(elementKind: "kind")
-///             }
-///             .contentInsets(horizontal: 20, vertical: 8)
+/// ```swift
+/// struct MySection: LayoutSection {
+///     var layoutSection: LayoutSection {
+///         Section {
+///             HGroup(count: 2) { Item() }
 ///         }
+///         .boundarySupplementaryItems {
+///             BoundarySupplementaryItem(elementKind: "kind")
+///         }
+///         .contentInsets(horizontal: 20, vertical: 8)
 ///     }
+/// }
+/// ```
 ///
 public protocol LayoutSection {
     var layoutSection: LayoutSection { get }

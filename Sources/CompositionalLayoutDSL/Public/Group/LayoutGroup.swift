@@ -19,15 +19,17 @@ import UIKit
 /// ``LayoutGroup`` protocol. Implement the required ``layoutGroup``
 /// computed property to provide the content and configuration for your custom group.
 ///
-///     struct MyGroup: LayoutGroup {
-///         var layoutGroup: LayoutGroup {
-///             HGroup(count: 4) {
-///                 Item()
-///             }
-///             .height(.absolute(300))
-///             .interItemSpacing(.fixed(8))
+/// ```swift
+/// struct MyGroup: LayoutGroup {
+///     var layoutGroup: LayoutGroup {
+///         HGroup(count: 4) {
+///             Item()
 ///         }
+///         .height(.absolute(300))
+///         .interItemSpacing(.fixed(8))
 ///     }
+/// }
+/// ```
 ///
 public protocol LayoutGroup: LayoutItem {
     var layoutGroup: LayoutGroup { get }

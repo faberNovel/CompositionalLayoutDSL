@@ -51,7 +51,7 @@ public struct Item: LayoutItem, ResizableItem {
     }
 
     public init() {
-        self.init(width: .fractionalWidth(1), height: .fractionalHeight(1), supplementaryItems: {})
+        self.init(width: .fractionalWidth(1), height: .fractionalHeight(1), supplementaryItems: { })
     }
 
     // MARK: - LayoutItem
