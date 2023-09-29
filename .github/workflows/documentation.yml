@@ -12,16 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Generate Documentation
-        uses: SwiftDocOrg/swift-doc@master
-        with:
-          inputs: "Sources"
-          format: html
-          module-name: CompositionalLayoutDSL
-          output: "Documentation"
-          base-url: /CompositionalLayoutDSL/
-      # The documentation step is generating files as root, and so are not readable by the runner without that fix
-      - name: Fix owner of generated files
-        run: sudo chown $USER -R ./Documentation
+        run: |
+          swift package --allow-writing-to-directory ./Documentation \
+          generate-documentation --target CompositionalLayoutDSL \
+          --disable-indexing \
+          --transform-for-static-hosting \
+          --hosting-base-path /CompositionalLayoutDSL \
+          --output-path ./Documentation
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

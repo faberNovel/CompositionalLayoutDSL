@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Updated
+- Documentation will now use DocC
+
 ### Removed
 - Drop support for Swift 5.3, we now use `@resultBuilder` instead of `@_functionBuilder`
 

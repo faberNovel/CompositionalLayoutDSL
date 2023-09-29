@@ -24,7 +24,12 @@ CompositionalLayoutDSL is a Swift library. It makes easier to create composition
 
 ## Documentation
 
-An online documentation can be found [here](https://fabernovel.github.io/CompositionalLayoutDSL/).
+An online documentation can be found [here](https://fabernovel.github.io/CompositionalLayoutDSL/documentation/CompositionalLayoutDSL).
+
+The documentation can be build locally and seen with this command:
+```bash
+swift package --disable-sandbox preview-documentation --target CompositionalLayoutDSL
+```
 
 ## Getting started
 
