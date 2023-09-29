@@ -1,3 +1,6 @@
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FfaberNovel%2FCompositionalLayoutDSL%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/faberNovel/CompositionalLayoutDSL)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FfaberNovel%2FCompositionalLayoutDSL%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/faberNovel/CompositionalLayoutDSL)
+
 # CompositionalLayoutDSL
 
 CompositionalLayoutDSL is a Swift library. It makes easier to create compositional layout for collection view.
