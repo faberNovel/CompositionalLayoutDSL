@@ -1,4 +1,8 @@
+skip_docs
+
 # CI
+
+ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "60"
 
 desc "Run all unit tests"
 lane :tests do
@@ -7,7 +11,7 @@ lane :tests do
     scheme: "CompositionalLayoutDSLApp",
     derived_data_path: "tests_derived_data",
     clean: true,
-    devices: ["iPhone 12"]
+    devices: ["iPhone 15"]
   )
 end
 
@@ -115,7 +119,8 @@ def update_changelog(target_version)
   changelog_path = ENV["CHANGELOG"]
   stamp_changelog(
     changelog_path: changelog_path,
-    section_identifier: "#{target_version}"
+    section_identifier: "#{target_version}",
+    stamp_datetime_format: '%F'
   )
 
   git_add(path: changelog_path)

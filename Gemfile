@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.6.5'
+ruby '3.2.2'
 
-gem 'cocoapods', '1.10.0'
+gem 'cocoapods', '1.13.0'
 gem 'fastlane', '<3.0'
 gem 'danger'
 gem 'danger-swiftlint'

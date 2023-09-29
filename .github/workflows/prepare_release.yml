@@ -7,18 +7,20 @@ on:
         description: 'Version number'
         required: true
 
+env:
+  DEVELOPER_DIR: /Applications/Xcode_15.0.app/Contents/Developer
+
 jobs:
   build:
-    runs-on: macOS-latest
+    runs-on: macOS-13
     steps:
       - uses: actions/checkout@v2
 
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.6.5
-
       - name: Bundle install
-        run: bundle install
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler: "Gemfile.lock"
+          bundler-cache: true
 
       - name: Create release branch
         env:

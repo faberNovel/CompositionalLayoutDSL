@@ -19,19 +19,21 @@ import UIKit
 /// protocol. Implement the required ``layoutItem`` computed property to
 /// provide the content and configuration for your custom item.
 ///
-///     struct MyItem: LayoutItem {
-///         var layoutItem: LayoutItem {
-///             Item {
-///                 SupplementaryItem(elementKind: "badge")
-///                     .containerAnchor(
-///                         edges: [.top, .trailing],
-///                         offset: .fractional(x: 0.5, y: -0.5)
-///                     )
-///                     .height(.absolute(20))
-///                     .width(.absolute(20))
-///             }
+/// ```swift
+/// struct MyItem: LayoutItem {
+///     var layoutItem: LayoutItem {
+///         Item {
+///             SupplementaryItem(elementKind: "badge")
+///                 .containerAnchor(
+///                     edges: [.top, .trailing],
+///                     offset: .fractional(x: 0.5, y: -0.5)
+///                 )
+///                 .height(.absolute(20))
+///                 .width(.absolute(20))
 ///         }
 ///     }
+/// }
+/// ```
 ///
 public protocol LayoutItem {
     var layoutItem: LayoutItem { get }
