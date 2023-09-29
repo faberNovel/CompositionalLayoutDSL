@@ -3,7 +3,7 @@ PODS:
   - ADLayoutTest (1.0.1):
     - ADAssertLayout (~> 1.0)
     - SwiftCheck (~> 0.12)
-  - CompositionalLayoutDSL (0.1.0)
+  - CompositionalLayoutDSL (0.1.1)
   - SnapshotTesting (1.9.0)
   - SwiftCheck (0.12.0)
   - SwiftLint (0.42.0)
@@ -29,7 +29,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   ADAssertLayout: 9848d3544bc5531bef0271a9de53114f215d36ee
   ADLayoutTest: 2a5675b3fa446be1fc331696f2bd480ab20c2677
-  CompositionalLayoutDSL: d260ea8b6e35ac2d1501b41670f474cd4c2162b2
+  CompositionalLayoutDSL: d6ccd07b2979b32f3284c76bf8050669c0b83243
   SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
   SwiftCheck: d1dd04d955cc76620b0f84e087536bd059a11c24
   SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
