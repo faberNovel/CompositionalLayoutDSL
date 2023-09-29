@@ -3,11 +3,13 @@ use_frameworks!
 
 target 'CompositionalLayoutDSLApp' do
     pod 'SwiftLint', '~> 0.42.0'
+    pod 'CompositionalLayoutDSL', :path => './'
 end
 
 target 'CompositionalLayoutDSLTests' do
     pod 'ADLayoutTest', '~> 1.0'
     pod 'SnapshotTesting', '~> 1.8'
+    pod 'CompositionalLayoutDSL', :path => './'
 end
 
 post_install do |installer|
@@ -23,6 +25,12 @@ post_install do |installer|
             config.build_settings['EXPANDED_CODE_SIGN_IDENTITY'] = ""
             config.build_settings['CODE_SIGNING_REQUIRED'] = "NO"
             config.build_settings['CODE_SIGNING_ALLOWED'] = "NO"
+
+            # Fix build issue on Xcode 15
+            if ["SwiftCheck", "ADLayoutTest", "ADAssertLayout"].include? target.name
+                config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = 11.0
+                config.build_settings['TVOS_DEPLOYMENT_TARGET'] = 11.0
+            end
         end
     end
 end

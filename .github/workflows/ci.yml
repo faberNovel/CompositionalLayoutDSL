@@ -1,20 +1,28 @@
 name: CI
 
-on: [push, pull_request]
+on: pull_request
+
+concurrency:
+  group: build-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  DEVELOPER_DIR: /Applications/Xcode_15.0.app/Contents/Developer
 
 jobs:
   build:
 
-    runs-on: macOS-latest
+    runs-on: macOS-13
 
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
 
-    - uses: ruby/setup-ruby@v1
+    - name: Bundle install
+      uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.6.5
+        bundler: "Gemfile.lock"
         bundler-cache: true
 
     - name: Pods cache
