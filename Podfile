@@ -23,6 +23,12 @@ post_install do |installer|
             config.build_settings['EXPANDED_CODE_SIGN_IDENTITY'] = ""
             config.build_settings['CODE_SIGNING_REQUIRED'] = "NO"
             config.build_settings['CODE_SIGNING_ALLOWED'] = "NO"
+
+            # Fix build issue on Xcode 15
+            if ["SwiftCheck", "ADLayoutTest", "ADAssertLayout"].include? target.name
+                config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = 11.0
+                config.build_settings['TVOS_DEPLOYMENT_TARGET'] = 11.0
+            end
         end
     end
 end
