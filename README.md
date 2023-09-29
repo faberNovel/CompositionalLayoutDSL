@@ -117,7 +117,7 @@ collectionView.collectionViewLayout = LayoutBuilder {
 
 To integrate `CompositionalLayoutDSL` into your Xcode project using CocoaPods, specify it in your Podfile:
 ```
-pod 'CompositionalLayoutDSL', '~> 0.1.0'
+pod 'CompositionalLayoutDSL', '~> 0.2.0'
 ```
 
 ### Swift Package Manager
@@ -125,7 +125,7 @@ pod 'CompositionalLayoutDSL', '~> 0.1.0'
 `CompositionalLayoutDSL` can be installed as a Swift Package with Xcode 11 or higher. To install it, add a package using Xcode or a dependency to your Package.swift file:
 
 ```swift
-.package(url: "https://github.com/faberNovel/CompositionalLayoutDSL")
+.package(url: "https://github.com/faberNovel/CompositionalLayoutDSL", from: "0.2.0")
 ```
 
 ## Behind the scene
