@@ -119,7 +119,8 @@ def update_changelog(target_version)
   changelog_path = ENV["CHANGELOG"]
   stamp_changelog(
     changelog_path: changelog_path,
-    section_identifier: "#{target_version}"
+    section_identifier: "#{target_version}",
+    stamp_datetime_format: '%F'
   )
 
   git_add(path: changelog_path)
