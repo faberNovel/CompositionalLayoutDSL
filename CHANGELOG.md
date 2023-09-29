@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.2.0] - 2023-09-29
+
 ### Updated
 - Documentation will now use DocC
 
