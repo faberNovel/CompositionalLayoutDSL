@@ -1,5 +1,7 @@
 # CI
 
+ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "60"
+
 desc "Run all unit tests"
 lane :tests do
   scan(
