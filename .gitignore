@@ -69,3 +69,7 @@ Gemfile_fastlane.lock
 
 ##AppCode
 .idea/
+
+## Ruby
+.bundle/
+vendor/
