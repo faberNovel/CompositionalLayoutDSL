@@ -3,11 +3,13 @@ use_frameworks!
 
 target 'CompositionalLayoutDSLApp' do
     pod 'SwiftLint', '~> 0.42.0'
+    pod 'CompositionalLayoutDSL', :path => './'
 end
 
 target 'CompositionalLayoutDSLTests' do
     pod 'ADLayoutTest', '~> 1.0'
     pod 'SnapshotTesting', '~> 1.8'
+    pod 'CompositionalLayoutDSL', :path => './'
 end
 
 post_install do |installer|

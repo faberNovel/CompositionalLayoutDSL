@@ -3,12 +3,14 @@ PODS:
   - ADLayoutTest (1.0.1):
     - ADAssertLayout (~> 1.0)
     - SwiftCheck (~> 0.12)
+  - CompositionalLayoutDSL (0.1.0)
   - SnapshotTesting (1.9.0)
   - SwiftCheck (0.12.0)
   - SwiftLint (0.42.0)
 
 DEPENDENCIES:
   - ADLayoutTest (~> 1.0)
+  - CompositionalLayoutDSL (from `./`)
   - SnapshotTesting (~> 1.8)
   - SwiftLint (~> 0.42.0)
 
@@ -20,13 +22,18 @@ SPEC REPOS:
     - SwiftCheck
     - SwiftLint
 
+EXTERNAL SOURCES:
+  CompositionalLayoutDSL:
+    :path: "./"
+
 SPEC CHECKSUMS:
   ADAssertLayout: 9848d3544bc5531bef0271a9de53114f215d36ee
   ADLayoutTest: 2a5675b3fa446be1fc331696f2bd480ab20c2677
+  CompositionalLayoutDSL: d260ea8b6e35ac2d1501b41670f474cd4c2162b2
   SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
   SwiftCheck: d1dd04d955cc76620b0f84e087536bd059a11c24
   SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
 
-PODFILE CHECKSUM: 0cdb5bdc4f62ed3deafe2495ce987ac4a903926a
+PODFILE CHECKSUM: 38d89a9438d967956f96db57415e9bc928624d0d
 
 COCOAPODS: 1.13.0
