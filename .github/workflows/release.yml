@@ -3,9 +3,12 @@ name: Release a new version
 on:
   workflow_dispatch
 
+env:
+  DEVELOPER_DIR: /Applications/Xcode_15.0.app/Contents/Developer
+
 jobs:
   build:
-    runs-on: macOS-latest
+    runs-on: macOS-13
     steps:
       - uses: actions/checkout@v2
 
