@@ -12,7 +12,6 @@ CompositionalLayoutDSL is a Swift library. It makes easier to create composition
 - [Getting started](#getting-started)
 - [Installation](#installation)
     - [CocoaPods](#cocoapods)
-    - [Carthage](#carthage)
     - [Swift Package Manager](#swift-package-manager)
     - [Credits](#credits)
 - [Behind the scene](#behind-the-scene)
@@ -119,14 +118,6 @@ collectionView.collectionViewLayout = LayoutBuilder {
 To integrate `CompositionalLayoutDSL` into your Xcode project using CocoaPods, specify it in your Podfile:
 ```
 pod 'CompositionalLayoutDSL', '~> 0.1.0'
-```
-
-### Carthage
-
-To integrate `CompositionalLayoutDSL` into your Xcode project using Carthage, specify it in your `Cartfile`:
-
-```
-github "faberNovel/CompositionalLayoutDSL" ~> 0.1.0
 ```
 
 ### Swift Package Manager
