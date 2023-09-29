@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 
 ### Removed
 - Drop support for Swift 5.3, we now use `@resultBuilder` instead of `@_functionBuilder`
+- Drop support for Carthage
 
 ## [0.1.0] - 2021-04-28
 

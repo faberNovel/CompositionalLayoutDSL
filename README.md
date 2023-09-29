@@ -12,7 +12,6 @@ CompositionalLayoutDSL is a Swift library. It makes easier to create composition
 - [Getting started](#getting-started)
 - [Installation](#installation)
     - [CocoaPods](#cocoapods)
-    - [Carthage](#carthage)
     - [Swift Package Manager](#swift-package-manager)
     - [Credits](#credits)
 - [Behind the scene](#behind-the-scene)
@@ -27,7 +26,7 @@ CompositionalLayoutDSL is a Swift library. It makes easier to create composition
 
 ## Documentation
 
-An online documentation can be found [here](https://fabernovel.github.io/CompositionalLayoutDSL/documentation/CompositionalLayoutDSL).
+An online documentation can be found [here](https://fabernovel.github.io/CompositionalLayoutDSL/documentation/compositionallayoutdsl/).
 
 The documentation can be build locally and seen with this command:
 ```bash
@@ -118,15 +117,7 @@ collectionView.collectionViewLayout = LayoutBuilder {
 
 To integrate `CompositionalLayoutDSL` into your Xcode project using CocoaPods, specify it in your Podfile:
 ```
-pod 'CompositionalLayoutDSL', '~> 0.1.0'
-```
-
-### Carthage
-
-To integrate `CompositionalLayoutDSL` into your Xcode project using Carthage, specify it in your `Cartfile`:
-
-```
-github "faberNovel/CompositionalLayoutDSL" ~> 0.1.0
+pod 'CompositionalLayoutDSL', '~> 0.2.0'
 ```
 
 ### Swift Package Manager
@@ -134,7 +125,7 @@ github "faberNovel/CompositionalLayoutDSL" ~> 0.1.0
 `CompositionalLayoutDSL` can be installed as a Swift Package with Xcode 11 or higher. To install it, add a package using Xcode or a dependency to your Package.swift file:
 
 ```swift
-.package(url: "https://github.com/faberNovel/CompositionalLayoutDSL")
+.package(url: "https://github.com/faberNovel/CompositionalLayoutDSL", from: "0.2.0")
 ```
 
 ## Behind the scene
