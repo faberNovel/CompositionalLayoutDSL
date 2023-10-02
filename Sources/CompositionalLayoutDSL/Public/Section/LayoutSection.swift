@@ -125,6 +125,8 @@ extension LayoutSection {
     ///
     /// The default value of this property is true.
     @warn_unqualified_access
+    @available(iOS, introduced: 13.0, deprecated: 16.0, message: "Use supplementaryContentInsetsReference instead")
+    @available(tvOS, introduced: 13.0, deprecated: 16.0, message: "Use supplementaryContentInsetsReference instead")
     public func supplementariesFollowContentInsets(
         _ supplementariesFollowContentInsets: Bool
     ) -> LayoutSection {
