@@ -91,21 +91,13 @@ lane :publish_release do
     section_identifier: "[#{target_version}]"
   )
 
-  carthage(command: "build", no_skip_current: true)
-  carthage(
-    frameworks: ["CompositionalLayoutDSL"],
-    output: "CompositionalLayoutDSL.framework.zip",
-    command: "archive"
-  )
-
   set_github_release(
     repository_name: ENV["REPO"],
     api_bearer: ENV["GITHUB_TOKEN"],
     name: "v#{target_version}",
     tag_name: "v#{target_version}",
     description: changelog,
-    commitish: "main",
-    upload_assets: ["CompositionalLayoutDSL.framework.zip"]
+    commitish: "main"
   )
 
   pod_push(allow_warnings: true)
