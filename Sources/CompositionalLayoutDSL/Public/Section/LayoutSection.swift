@@ -87,6 +87,26 @@ extension LayoutSection {
     }
     #endif
 
+    #if !os(macOS)
+    /// Configure the bounce behavior of the orthogonal section scroll
+    @available(iOS 17.0, tvOS 17.0, *)
+    @warn_unqualified_access
+    public func orthogonalScrollingBounce(
+        _ bounce: UICollectionLayoutSectionOrthogonalScrollingProperties.Bounce
+    ) -> LayoutSection {
+        valueModifier(bounce, keyPath: \.orthogonalScrollingProperties.bounce)
+    }
+
+    /// Configure the bounce behavior of the orthogonal section deceleration rate
+    @available(iOS 17.0, tvOS 17.0, *)
+    @warn_unqualified_access
+    public func orthogonalScrollingDecelerationRate(
+        _ decelerationRate: UICollectionLayoutSectionOrthogonalScrollingProperties.DecelerationRate
+    ) -> LayoutSection {
+        valueModifier(decelerationRate, keyPath: \.orthogonalScrollingProperties.decelerationRate)
+    }
+    #endif
+
     /// Add an array of the supplementary items that are associated with the boundary edges of
     /// the section, such as headers and footers.
     @warn_unqualified_access
@@ -105,11 +125,26 @@ extension LayoutSection {
     ///
     /// The default value of this property is true.
     @warn_unqualified_access
+    @available(iOS, introduced: 13.0, deprecated: 16.0, message: "Use supplementaryContentInsetsReference instead")
+    @available(tvOS, introduced: 13.0, deprecated: 16.0, message: "Use supplementaryContentInsetsReference instead")
     public func supplementariesFollowContentInsets(
         _ supplementariesFollowContentInsets: Bool
     ) -> LayoutSection {
         valueModifier(supplementariesFollowContentInsets, keyPath: \.supplementariesFollowContentInsets)
     }
+
+    #if !os(macOS)
+    /// Configure the section reference boundary for content insets on boundary supplementary items.
+    ///
+    /// The default value of this property is `.automatic`.
+    @available(iOS 16.0, tvOS 16.0, *)
+    @warn_unqualified_access
+    public func supplementaryContentInsetsReference(
+        _ supplementaryContentInsetsReference: UIContentInsetsReference
+    ) -> LayoutSection {
+        valueModifier(supplementaryContentInsetsReference, keyPath: \.supplementaryContentInsetsReference)
+    }
+    #endif
 
     /// Install a closure called before each layout cycle to allow modification of the items in
     /// the section immediately before they are displayed.
